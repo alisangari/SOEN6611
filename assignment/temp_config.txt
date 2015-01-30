@@ -1,0 +1,11 @@
+
+https://github.com/Grarak/KernelAdiutor.git
+
+https://github.com/defunkt/jquery-pjax.git
+
+https://github.com/Grarak/KernelAdiutor.git
+
+
+
+
+https://f-droid.org/repository/browse/?fdid=com.grarak.kerneladiutor

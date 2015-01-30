@@ -1,0 +1,5 @@
+url = https://hibernate.atlassian.net
+bug_start = 60
+bug_end = 100
+max_timeout_secs = 60
+root_directory=/home/pcr/bugs/
