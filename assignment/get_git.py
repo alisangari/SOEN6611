@@ -1,7 +1,9 @@
 from urllib.request import urlopen
+from bs4 import BeautifulSoup
 import subprocess
 import os
 import re
+import git
 
 def readFile():
     fo = open("git_conf.txt", "r")
@@ -28,43 +30,33 @@ def readHTMLPageSource(url):
 	page_source = page_source.decode(codec)
 	return page_source
 
-def getGitUrl(pageSource):
+	
+def getAllLinks (pageSource):
+	soup = BeautifulSoup(pageSource)
+	linksList =[url]
+	for link in soup.findAll("a"):
+		href = link.get("href")
+		if(href.startswith("https://")):
+			linksList.append(href)
+	return linksList
+
+	
+#def validateGitRepo(linksList):
+#	for link in linksList:
+#		if (link)
+	
+def getGitUrl(linksList):	
 	match = re.search(r'https://github.com/.*git', pageSource)
 	if match:
 		gitRepo = match.group()
-		return getGitUrlFromGitHub(gitRepo)
-	else:
-		match = re.search(r'https://gitorious.org/.*git', pageSource)
-		if match:
-			gitRepo = match.group()
-			return getGitUrlFromGitOrious(gitRepo)
-		else:
-			match = re.search(r'https://f-droid.org/.*git', pageSource)
-			if match:
-				gitRepo = match.group()
-				return getGitUrlFromGitHub(gitRepo)
-	
+		directory = gitRepo[gitRepo.find("github.com/")+11:]
+		#print (directory)
+		directory = directory[directory.find("/")+1:]
+		#print (directory)
+		directory = directory[:directory.find(".git")]
+		#print (directory)
+		return {'gitRepo' : match.group(), 'directory': directory} 	
 	return {'gitRepo' : "", 'directory': ""}
-		
-		
-def getGitUrlFromGitHub(gitRepo):
-	directory = gitRepo[gitRepo.find("github.com/")+11:]
-	#print (directory)
-	directory = directory[directory.find("/")+1:]
-	#print (directory)
-	directory = directory[:directory.find(".git")]
-	#print (directory)
-	return {'gitRepo' : gitRepo, 'directory': directory} 	
-
-
-def getGitUrlFromGitOrious(gitRepo):
-	directory = gitRepo[gitRepo.find("gitorious.org/")+11:]
-	#print (directory)
-	directory = directory[directory.find("/")+1:]
-	#print (directory)
-	directory = directory[:directory.find(".git")]
-	#print (directory)
-	return {'gitRepo' : gitRepo, 'directory': directory} 	
 	
 
 def cloneGitRepo(repoPath, root_directory):
@@ -72,15 +64,22 @@ def cloneGitRepo(repoPath, root_directory):
 
 # main program
 
-url_rootDir = readFile()
+#url_rootDir = readFile()
 
-url = url_rootDir['url']
-#if url is d-roid get the url from d-roid
-root_directory = url_rootDir['root_directory']
+#url = url_rootDir['url']
+#root_directory = url_rootDir['root_directory']
 
-htmlPageSource = readHTMLPageSource(url)
+#htmlPageSource = readHTMLPageSource(url)
 
-repo = getGitUrl(htmlPageSource)
+#linksList = getAllLinks(htmlPageSource)
+#repo = getGitUrl(htmlPageSource)
 
-cloneGitRepo(repo['gitRepo'], root_directory+repo['directory'])
+print (":::::::::::::::::::::::")
+#repo = git.Repo.cloneFrom('https://github.com/Grarak/KernelAdiutor')
+git.Git().clone("https://github.com/Grarak/KernelAdiutor")
 
+#print (repo.git.status())
+
+#for link in linksList:
+#	cloneGitRepo(link, root_directory+repo['directory'])
+#cloneGitRepo(repo['gitRepo'], root_directory+repo['directory'])

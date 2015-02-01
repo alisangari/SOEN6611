@@ -1,5 +1,4 @@
 from urllib.request import urlopen
-from bs4 import BeautifulSoup
 import subprocess
 import os
 import re
@@ -29,19 +28,43 @@ def readHTMLPageSource(url):
 	page_source = page_source.decode(codec)
 	return page_source
 
-	
 def getGitUrl(pageSource):
 	match = re.search(r'https://github.com/.*git', pageSource)
 	if match:
 		gitRepo = match.group()
-		directory = gitRepo[gitRepo.find("github.com/")+11:]
-		#print (directory)
-		directory = directory[directory.find("/")+1:]
-		#print (directory)
-		directory = directory[:directory.find(".git")]
-		#print (directory)
-		return {'gitRepo' : match.group(), 'directory': directory} 	
+		return getGitUrlFromGitHub(gitRepo)
+	else:
+		match = re.search(r'https://gitorious.org/.*git', pageSource)
+		if match:
+			gitRepo = match.group()
+			return getGitUrlFromGitOrious(gitRepo)
+		else:
+			match = re.search(r'https://f-droid.org/.*git', pageSource)
+			if match:
+				gitRepo = match.group()
+				return getGitUrlFromGitHub(gitRepo)
+	
 	return {'gitRepo' : "", 'directory': ""}
+		
+		
+def getGitUrlFromGitHub(gitRepo):
+	directory = gitRepo[gitRepo.find("github.com/")+11:]
+	#print (directory)
+	directory = directory[directory.find("/")+1:]
+	#print (directory)
+	directory = directory[:directory.find(".git")]
+	#print (directory)
+	return {'gitRepo' : gitRepo, 'directory': directory} 	
+
+
+def getGitUrlFromGitOrious(gitRepo):
+	directory = gitRepo[gitRepo.find("gitorious.org/")+11:]
+	#print (directory)
+	directory = directory[directory.find("/")+1:]
+	#print (directory)
+	directory = directory[:directory.find(".git")]
+	#print (directory)
+	return {'gitRepo' : gitRepo, 'directory': directory} 	
 	
 
 def cloneGitRepo(repoPath, root_directory):
@@ -52,11 +75,12 @@ def cloneGitRepo(repoPath, root_directory):
 url_rootDir = readFile()
 
 url = url_rootDir['url']
+#if url is d-roid get the url from d-roid
 root_directory = url_rootDir['root_directory']
 
 htmlPageSource = readHTMLPageSource(url)
 
 repo = getGitUrl(htmlPageSource)
 
-
 cloneGitRepo(repo['gitRepo'], root_directory+repo['directory'])
+
