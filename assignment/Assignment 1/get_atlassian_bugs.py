@@ -2,15 +2,24 @@ from urllib.request import urlopen
 import subprocess
 import os
 import re
+import random
+from random import randint
+from time import sleep
+import sys
 
-def readFile():
-    fo = open("bugs_conf.txt", "r")
+def readFile(configFile):
+    fo = open(configFile, "r")
 
     url = fo.readline()
     url = url[url.find("=")+1:]
     url = url.strip()
     print ("Read Line: %s" % (url))
 
+    project_tag = fo.readline()
+    project_tag = project_tag[project_tag.find("=")+1:]
+    project_tag = project_tag.strip()
+    print ("Read Line: %s" % (project_tag))
+	
     bug_start = fo.readline()
     bug_start = bug_start[bug_start.find("=")+1:]
     bug_start = bug_start.strip()
@@ -33,6 +42,7 @@ def readFile():
 
     fo.close()
     return {'url' : url, 
+	'project_tag' : project_tag,
 	'bug_start' : bug_start, 
 	'bug_end' : bug_end, 
 	'max_timeout_secs' : max_timeout_secs, 
@@ -49,22 +59,32 @@ def readHTMLPageSource(url):
 	return page_source
 	
 def saveBugToDisk(fileName, content):
-	#print(fileName)
-	fo = open(fileName, "w")
-	fo.write(content)
-	fo.close()
-
+	print(fileName)
+	with open(fileName, "wt") as out_file:
+		out_file.write(content)
+		out_file.close()
+	
 # main program
+	
 
-configs = readFile()
+configs = readFile(str(sys.argv[1]))
 
 url = configs['url']
+project_tag = configs['project_tag']
 bug_start = int(configs['bug_start'])
 bug_end = int(configs['bug_end'])+1
 max_timeout_secs = configs['max_timeout_secs']
 root_directory = configs['root_directory']
-for bugNum in range(bug_start, bug_end):
-	htmlPageSource = readHTMLPageSource("https://hibernate.atlassian.net/browse/WEBSITE-"+ str(bugNum))
-	saveBugToDisk(root_directory + "WEBSITE-" + str(bugNum) + ".html", htmlPageSource)
 
+if not os.path.exists(root_directory+project_tag):
+	os.makedirs(root_directory+project_tag)
+	
+for bugNum in range(bug_start, bug_end):
+	htmlPageSource = readHTMLPageSource(url + project_tag + "-" + str(bugNum))
+	saveBugToDisk(root_directory + project_tag + "-" + str(bugNum) + ".html", htmlPageSource)
+	randWait = random.randrange(1, int(max_timeout_secs))
+	print (randWait)
+	sleep(randint(1,randWait))
+	
+	
 #end
