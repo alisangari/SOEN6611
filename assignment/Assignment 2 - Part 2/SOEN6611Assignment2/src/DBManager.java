@@ -148,6 +148,35 @@ public class DBManager {
 		}
 	}
 
+	public void performPostExtractionActivities() {
+		Statement stmt = null;
+		if (conn == null) {
+			dbConnect();
+		}
+
+		try {
+			stmt = conn.createStatement();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		String sql = "";
+		try {
+			sql = "CREATE TABLE filteredIssues LIKE rawIssues";
+			stmt.executeUpdate(sql);
+			
+			sql = "INSERT INTO filteredIssues SELECT * FROM rawIssues";
+			stmt.executeUpdate(sql);
+			
+			sql = "delete from filteredIssues where closeDate = ''";
+			stmt.executeUpdate(sql);
+
+		} catch (SQLException e) {
+			System.out.println(sql + " failed!");
+			e.printStackTrace();
+		}
+
+	}
+
 	protected void finalize() throws Throwable {
 		try {
 			if (conn != null)

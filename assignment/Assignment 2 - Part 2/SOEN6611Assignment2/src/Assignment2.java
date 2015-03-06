@@ -37,14 +37,17 @@ public class Assignment2 {
 						.getValue()));
 				issue.setStatus(AttributeExtractor.extractStatus(file
 						.getValue()));
-				issue.setStatus(AttributeExtractor.extractAttachment(file
-						.getValue()));
-				issue.setStatus(AttributeExtractor.extractCc(file.getValue()));
+				// issue.setStatus(AttributeExtractor.extractAttachment(file
+				// .getValue()));
+				issue.setCc(AttributeExtractor.extractCc(file.getValue()));
 
-				issues.add(issue);
+				if (!issue.getReportDate().equalsIgnoreCase("")) {
+					issues.add(issue);
+				}
 			}
 			System.out.print("Iserting batch " + i + " into db...");
 			dbManager.sendIssuesToDb(issues);
+			dbManager.performPostExtractionActivities();
 			System.out.println(" done!");
 		}
 		System.out.println("End at:   "

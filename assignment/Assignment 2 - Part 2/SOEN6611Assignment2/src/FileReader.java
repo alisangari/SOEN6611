@@ -13,10 +13,13 @@ public class FileReader {
 	public Map<String, String> readFiles(ArrayList<String> fileNames,
 			int startIndex, int endIndex) {
 		Map<String, String> files = new HashMap<String, String>();
+		String fileContent = "";
 		for (int i = startIndex; i < endIndex; i++) {
-			files.put(
-					fileNames.get(i),
-					readFile(Constants.FILE_LOCATION_ON_DISK + fileNames.get(i)));
+			fileContent = readFile(Constants.FILE_LOCATION_ON_DISK
+					+ fileNames.get(i));
+			if (!fileContent.trim().equalsIgnoreCase("")) {
+				files.put(fileNames.get(i), fileContent);
+			}
 		}
 		return files;
 	}

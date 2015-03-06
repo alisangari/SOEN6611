@@ -12,6 +12,6 @@ public class Constants {
 	static final String PASS = "pass";
 
 	static final String DB_NAME = "SOEN6611Assignment2Part2";
-	static final String TABLE_NAME = "issues";
+	static final String TABLE_NAME = "rawIssues";
 
 }
