@@ -200,6 +200,8 @@ public class DBManager {
 			sql = "update filteredIssues SET timeDelta = DATEDIFF (closeDateF, reportDateF)";
 			stmt.executeUpdate(sql);
 
+			sql = "create view summary as select cc, avg(timeDelta) from filteredissues group by cc;";
+			stmt.executeUpdate(sql);
 			
 		} catch (SQLException e) {
 			System.out.println(sql + " failed!");
