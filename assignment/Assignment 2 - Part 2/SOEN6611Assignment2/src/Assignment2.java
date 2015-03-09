@@ -39,9 +39,6 @@ public class Assignment2 {
 						.getValue()));
 				issue.setStatus(AttributeExtractor.extractStatus(file
 						.getValue()));
-				// issue.setStatus(AttributeExtractor.extractAttachment(file
-				// .getValue()));
-//				AttributeExtractor.extractOwner(file.getValue());
 				if (!issue.getReportDate().equalsIgnoreCase("")) {
 					issues.add(issue);
 				}
@@ -53,7 +50,6 @@ public class Assignment2 {
 					dbManager.insertCcs(file.getKey(), ccList);
 				}
 				} catch (Exception e){
-//					e.printStackTrace();
 				}
 			}
 			System.out.print("Iserting batch " + i + " into db...");

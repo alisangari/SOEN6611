@@ -241,7 +241,6 @@ public class DBManager {
 			System.out.println(" done!");
 			return true;
 		}
-		System.out.println(" failed!");
 		return false;
 	}
 
@@ -265,10 +264,6 @@ public class DBManager {
 		try {
 			fieldValues = fieldValues.substring(0, fieldValues.length() - 2);
 		} catch (Exception e) {
-			System.out.println("issueId: "+issueId);
-			System.out.println("ccList: "+ccList.toString());
-			System.out.println("filedValues: " + fieldValues);
-//			e.printStackTrace();
 		}
 
 		String sql = "INSERT INTO " + Constants.CCS_TABLE_NAME + fieldNames
@@ -277,8 +272,6 @@ public class DBManager {
 			stmt.executeUpdate(sql);
 
 		} catch (SQLException e) {
-			System.out.println(sql + " failed!");
-//			e.printStackTrace();
 		}
 	}
 
