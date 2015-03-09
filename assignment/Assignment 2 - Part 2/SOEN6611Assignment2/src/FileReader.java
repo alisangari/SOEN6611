@@ -1,4 +1,5 @@
 import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +25,7 @@ public class FileReader {
 		return files;
 	}
 
-	private String readFile(String fileName) {
+	public static String readFile(String fileName) {
 		StringBuilder sb = new StringBuilder();
 		try {
 			Scanner sc = new Scanner(new File(fileName));
@@ -36,6 +37,10 @@ public class FileReader {
 			e.printStackTrace();
 		}
 		return sb.toString();
+	}
+	
+	public static File getFile(String fileName){
+        return new File(Constants.FILE_LOCATION_ON_DISK + fileName);
 	}
 
 	public static ArrayList<String> getFilesList() {

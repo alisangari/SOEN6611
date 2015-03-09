@@ -1,5 +1,15 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 public class AttributeExtractor {
 
@@ -103,17 +113,78 @@ public class AttributeExtractor {
 		return "";
 	}
 
-	public static String extractCc(String file) {
+	public static boolean ccExists(String file) {
 		try {
 			String pattern = "Cc:";
 			Pattern r = Pattern.compile(pattern);
 			Matcher m = r.matcher(file);
 			if (m.find()) {
-				return "true";
+				return true;
 			}
 		} catch (Exception e) {
 		}
-		return "";
+		return false;
 	}
 
+	public static List<String> extractCc(String fileName) {
+		try {
+			File html = FileReader.getFile(fileName);
+			Document document = Jsoup.parse(html, "UTF-8");
+			Elements tableElements = document.body()
+					.getElementById("issuemeta").getElementsByTag("table");
+			Elements anchors = tableElements.iterator().next()
+					.getElementsByTag("td").get(3).children();
+			List<String> emails = new ArrayList<String>();
+			for (Element anchor : anchors) {
+				emails.add(anchor.ownText());
+			}
+			return emails;
+		} catch (IOException e) {
+//			e.printStackTrace();
+		} catch (Exception e){
+//			e.printStackTrace();
+		}
+		return null;
+	}
+
+	// public HashMap<String, String> extractPeople(File html){
+	// HashMap<String, String> emails = new HashMap<String, String>();
+	//
+	// for (Entry element : extractOwner(html)) {
+	// if(emails.containsKey(element.get))
+	// emails.put(anchor.ownText(),"");
+	// }
+	// return emails;
+	// } catch (IOException e) {
+	// e.printStackTrace();
+	// return null;
+	// }
+	// }
+	//
+	public static HashMap<String, String> extractOwner(String file) {
+		HashMap<String, String> owner = new HashMap<String, String>();
+		try {
+			String pattern = "Owner:";
+			Pattern r = Pattern.compile(pattern);
+			Matcher m = r.matcher(file);
+			if (m.find()) {
+				String subset1 = file.substring(m.end());
+				pattern = "[A-Za-z0-9._@]";
+				Pattern r2 = Pattern.compile(pattern);
+				Matcher m2 = r2.matcher(subset1);
+				if (m2.find()) {
+					owner.put((subset1.substring(0, m2.start())).trim(),
+							extractReportDate(file));
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return owner;
+	}
+
+	public HashMap<String, String> extractConversationContributers(File html) {
+
+		return null;
+	}
 }

@@ -1,5 +1,7 @@
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -12,8 +14,8 @@ public class Assignment2 {
 
 		DBManager dbManager = new DBManager();
 		dbManager.createDB();
-		dbManager.createTable(new Issue());
-
+		dbManager.createIssuesTable(new Issue());
+		dbManager.createCcsTable();
 		FileReader fr;
 		ArrayList<Issue> issues;
 		ArrayList<String> fileNames = FileReader.getFilesList();
@@ -39,20 +41,28 @@ public class Assignment2 {
 						.getValue()));
 				// issue.setStatus(AttributeExtractor.extractAttachment(file
 				// .getValue()));
-				issue.setCc(AttributeExtractor.extractCc(file.getValue()));
-
+//				AttributeExtractor.extractOwner(file.getValue());
 				if (!issue.getReportDate().equalsIgnoreCase("")) {
 					issues.add(issue);
+				}
+
+				try{
+				if (AttributeExtractor.ccExists(file.getValue())) {
+					List<String> ccList = AttributeExtractor.extractCc(file.getKey());
+					issue.setCc(((Integer) (ccList.size())).toString());
+					dbManager.insertCcs(file.getKey(), ccList);
+				}
+				} catch (Exception e){
+//					e.printStackTrace();
 				}
 			}
 			System.out.print("Iserting batch " + i + " into db...");
 			dbManager.sendIssuesToDb(issues);
-			dbManager.performPostExtractionActivities();
 			System.out.println(" done!");
 		}
+		dbManager.performPostExtractionActivities();
 		System.out.println("End at:   "
 				+ new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss")
 						.format(new java.util.Date()));
 	}
-
 }
