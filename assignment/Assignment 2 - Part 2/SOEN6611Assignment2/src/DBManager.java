@@ -162,6 +162,12 @@ public class DBManager {
 		}
 		String sql = "";
 		try {
+			sql = "DELETE FROM rawIssues where closeDate like 'Yesterday'";
+			stmt.executeUpdate(sql);
+			
+			sql = "DELETE FROM rawIssues where closeDate like 'Today'";
+			stmt.executeUpdate(sql);
+
 			sql = "CREATE TABLE filteredIssues LIKE rawIssues";
 			stmt.executeUpdate(sql);
 
@@ -181,7 +187,7 @@ public class DBManager {
 			sql = "ALTER TABLE filteredIssues ADD timeDelta VARCHAR(255)";
 			stmt.executeUpdate(sql);
 			
-			sql = "delete from filteredissues where closeDate = '0000-00-00';";
+			sql = "delete from filteredissues where closeDate = '0000-00-00'";
 			stmt.executeUpdate(sql);
 
 			 //updates date to correct format
