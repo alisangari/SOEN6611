@@ -1,0 +1,210 @@
+<html><head><title>loggerw.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="sourcestyles.css" />
+</head><body link="blue" vlink="blue">
+<h3>File: D:\6611\chromium_latest\third_party\npapi\npspy\windows\loggerw.cpp</h3>
+<SCRIPT>
+defaultStatus = "File: D:\\6611\\chromium_latest\\third_party\\npapi\\npspy\\windows\\loggerw.cpp";
+top.document.title  = "loggerw.cpp";
+</SCRIPT>
+<pre><span class="default"></span><a name="1"><font size=-1>1     </font></a><span class="default"></span><span class="comment">/* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */</span>
+<a name="2"><font size=-1>2     </font></a><span class="comment">/* ***** BEGIN LICENSE BLOCK *****</span>
+<a name="3"><font size=-1>3     </font></a><span class="comment"> * Version: MPL 1.1/GPL 2.0/LGPL 2.1</span>
+<a name="4"><font size=-1>4     </font></a><span class="comment"> *</span>
+<a name="5"><font size=-1>5     </font></a><span class="comment"> * The contents of this file are subject to the Mozilla Public License Version</span>
+<a name="6"><font size=-1>6     </font></a><span class="comment"> * 1.1 (the &quot;License&quot;); you may not use this file except in compliance with</span>
+<a name="7"><font size=-1>7     </font></a><span class="comment"> * the License. You may obtain a copy of the License at</span>
+<a name="8"><font size=-1>8     </font></a><span class="comment"> * http://www.mozilla.org/MPL/</span>
+<a name="9"><font size=-1>9     </font></a><span class="comment"> *</span>
+<a name="10"><font size=-1>10     </font></a><span class="comment"> * Software distributed under the License is distributed on an &quot;AS IS&quot; basis,</span>
+<a name="11"><font size=-1>11     </font></a><span class="comment"> * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License</span>
+<a name="12"><font size=-1>12     </font></a><span class="comment"> * for the specific language governing rights and limitations under the</span>
+<a name="13"><font size=-1>13     </font></a><span class="comment"> * License.</span>
+<a name="14"><font size=-1>14     </font></a><span class="comment"> *</span>
+<a name="15"><font size=-1>15     </font></a><span class="comment"> * The Original Code is mozilla.org code.</span>
+<a name="16"><font size=-1>16     </font></a><span class="comment"> *</span>
+<a name="17"><font size=-1>17     </font></a><span class="comment"> * The Initial Developer of the Original Code is</span>
+<a name="18"><font size=-1>18     </font></a><span class="comment"> * Netscape Communications Corporation.</span>
+<a name="19"><font size=-1>19     </font></a><span class="comment"> * Portions created by the Initial Developer are Copyright (C) 1998</span>
+<a name="20"><font size=-1>20     </font></a><span class="comment"> * the Initial Developer. All Rights Reserved.</span>
+<a name="21"><font size=-1>21     </font></a><span class="comment"> *</span>
+<a name="22"><font size=-1>22     </font></a><span class="comment"> * Contributor(s):</span>
+<a name="23"><font size=-1>23     </font></a><span class="comment"> *</span>
+<a name="24"><font size=-1>24     </font></a><span class="comment"> * Alternatively, the contents of this file may be used under the terms of</span>
+<a name="25"><font size=-1>25     </font></a><span class="comment"> * either the GNU General Public License Version 2 or later (the &quot;GPL&quot;), or</span>
+<a name="26"><font size=-1>26     </font></a><span class="comment"> * the GNU Lesser General Public License Version 2.1 or later (the &quot;LGPL&quot;),</span>
+<a name="27"><font size=-1>27     </font></a><span class="comment"> * in which case the provisions of the GPL or the LGPL are applicable instead</span>
+<a name="28"><font size=-1>28     </font></a><span class="comment"> * of those above. If you wish to allow use of your version of this file only</span>
+<a name="29"><font size=-1>29     </font></a><span class="comment"> * under the terms of either the GPL or the LGPL, and not to allow others to</span>
+<a name="30"><font size=-1>30     </font></a><span class="comment"> * use your version of this file under the terms of the MPL, indicate your</span>
+<a name="31"><font size=-1>31     </font></a><span class="comment"> * decision by deleting the provisions above and replace them with the notice</span>
+<a name="32"><font size=-1>32     </font></a><span class="comment"> * and other provisions required by the GPL or the LGPL. If you do not delete</span>
+<a name="33"><font size=-1>33     </font></a><span class="comment"> * the provisions above, a recipient may use your version of this file under</span>
+<a name="34"><font size=-1>34     </font></a><span class="comment"> * the terms of any one of the MPL, the GPL or the LGPL.</span>
+<a name="35"><font size=-1>35     </font></a><span class="comment"> *</span>
+<a name="36"><font size=-1>36     </font></a><span class="comment"> * ***** END LICENSE BLOCK ***** */</span>
+<a name="37"><font size=-1>37     </font></a><span class="comment"></span>
+<a name="38"><font size=-1>38     </font></a><span class="comment"></span><span class="preproc">#include </span><span class="string">&quot;xp.h&quot;</span>
+<a name="39"><font size=-1>39     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;windowsx.h&quot;</span>
+<a name="40"><font size=-1>40     </font></a><span class="string"></span>
+<a name="41"><font size=-1>41     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;resource.h&quot;</span>
+<a name="42"><font size=-1>42     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;loggerw.h&quot;</span>
+<a name="43"><font size=-1>43     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;profilew.h&quot;</span>
+<a name="44"><font size=-1>44     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;actionnames.h&quot;</span>
+<a name="45"><font size=-1>45     </font></a><span class="string"></span>
+<a name="46"><font size=-1>46     </font></a><span class="string"></span><span class="keyword">extern <a href="dictionary_H.html#2572">HINSTANCE</a> <a href="dictionary_H.html#2571">hInst</a></span><span class="default">;</span>
+<a name="47"><font size=-1>47     </font></a><span class="default"></span><span class="keyword">static char <a href="dictionary_S.html#7909">szClassName</a></span><span class="default">[] = </span><span class="string">&quot;NPSpyWindowClass&quot;</span><span class="default">;</span>
+<a name="48"><font size=-1>48     </font></a><span class="default"></span>
+<a name="49"><font size=-1>49     </font></a><span class="default"><a href="dictionary_B.html#18">BOOL</a> <a href="dictionary_C.html#969">CALLBACK</a> <a href="dictionary_M.html#7910">MainDlgProc</a>(<a href="dictionary_H.html#924">HWND</a> hWnd, <a href="dictionary_U.html#928">UINT</a> msg, <a href="dictionary_W.html#973">WPARAM</a> wParam, <a href="dictionary_L.html#959">LPARAM</a> lParam);</span>
+<a name="50"><font size=-1>50     </font></a><span class="default"><a href="dictionary_B.html#18">BOOL</a> <a href="dictionary_C.html#969">CALLBACK</a> <a href="dictionary_P.html#5794">PauseDlgProc</a>(<a href="dictionary_H.html#924">HWND</a> hWnd, <a href="dictionary_U.html#928">UINT</a> msg, <a href="dictionary_W.html#973">WPARAM</a> wParam, <a href="dictionary_L.html#959">LPARAM</a> lParam);</span>
+<a name="51"><font size=-1>51     </font></a><span class="default"></span>
+<a name="52"><font size=-1>52     </font></a><span class="default"><a href="dictionary_L.html#7911">LoggerWin</a>::<a href="dictionary_L.html#7912">LoggerWin</a>() : <a href="dictionary_L.html#4849">Logger</a>(),</span>
+<a name="53"><font size=-1>53     </font></a><span class="default">  <a href="dictionary_L.html#7914">hWnd</a>(<a href="dictionary_N.html#203">NULL</a>),</span>
+<a name="54"><font size=-1>54     </font></a><span class="default">  <a href="dictionary_L.html#7915">width</a>(</span><span class="number">0</span><span class="default">),</span>
+<a name="55"><font size=-1>55     </font></a><span class="default">  <a href="dictionary_L.html#7916">height</a>(</span><span class="number">0</span><span class="default">),</span>
+<a name="56"><font size=-1>56     </font></a><span class="default">  <a href="dictionary_L.html#7917">x</a>(</span><span class="number">0</span><span class="default">),</span>
+<a name="57"><font size=-1>57     </font></a><span class="default">  <a href="dictionary_L.html#7918">y</a>(</span><span class="number">0</span><span class="default">),</span>
+<a name="58"><font size=-1>58     </font></a><span class="default">  <a href="dictionary_L.html#7919">bSaveSettings</a>(<a href="dictionary_F.html#9">FALSE</a>)</span>
+<a name="59"><font size=-1>59     </font></a><span class="default">{</span>
+<a name="60"><font size=-1>60     </font></a><span class="default">}</span>
+<a name="61"><font size=-1>61     </font></a><span class="default"></span>
+<a name="62"><font size=-1>62     </font></a><span class="default"><a href="dictionary_L.html#7911">LoggerWin</a>::~<a href="dictionary_L.html#7920">LoggerWin</a>()</span>
+<a name="63"><font size=-1>63     </font></a><span class="default">{</span>
+<a name="64"><font size=-1>64     </font></a><span class="default">}</span>
+<a name="65"><font size=-1>65     </font></a><span class="default"></span>
+<a name="66"><font size=-1>66     </font></a><span class="default"><a href="dictionary_B.html#18">BOOL</a> <a href="dictionary_L.html#7911">LoggerWin</a>::<a href="dictionary_L.html#7922">platformInit</a>()</span>
+<a name="67"><font size=-1>67     </font></a><span class="default">{</span>
+<a name="68"><font size=-1>68     </font></a><span class="default">  <a href="dictionary_W.html#7924">WNDCLASS</a> <a href="dictionary_W.html#7923">wc</a>;</span>
+<a name="69"><font size=-1>69     </font></a><span class="default">  <a href="dictionary_W.html#7923">wc</a>.<a href="dictionary_S.html#7925">style</a>         = </span><span class="number">0</span><span class="default">; </span>
+<a name="70"><font size=-1>70     </font></a><span class="default">  <a href="dictionary_W.html#7923">wc</a>.<a href="dictionary_L.html#7927">lpfnWndProc</a>   = <a href="dictionary_D.html#7926">DefDlgProc</a>; </span>
+<a name="71"><font size=-1>71     </font></a><span class="default">  <a href="dictionary_W.html#7923">wc</a>.<a href="dictionary_C.html#7928">cbClsExtra</a>    = </span><span class="number">0</span><span class="default">; </span>
+<a name="72"><font size=-1>72     </font></a><span class="default">  <a href="dictionary_W.html#7923">wc</a>.<a href="dictionary_C.html#7930">cbWndExtra</a>    = <a href="dictionary_D.html#7929">DLGWINDOWEXTRA</a>; </span>
+<a name="73"><font size=-1>73     </font></a><span class="default">  <a href="dictionary_W.html#7923">wc</a>.<a href="dictionary_H.html#7931">hInstance</a>     = <a href="dictionary_H.html#2571">hInst</a>; </span>
+<a name="74"><font size=-1>74     </font></a><span class="default">  <a href="dictionary_W.html#7923">wc</a>.<a href="dictionary_H.html#7932">hIcon</a>         = <a href="dictionary_L.html#2737">LoadIcon</a>(<a href="dictionary_H.html#2571">hInst</a>, <a href="dictionary_M.html#2738">MAKEINTRESOURCE</a>(<a href="dictionary_I.html#7933">IDI_ICON_APP</a>)); </span>
+<a name="75"><font size=-1>75     </font></a><span class="default">  <a href="dictionary_W.html#7923">wc</a>.<a href="dictionary_H.html#7935">hCursor</a>       = <a href="dictionary_L.html#2780">LoadCursor</a>(</span><span class="number">0</span><span class="default">, <a href="dictionary_I.html#7934">IDC_ARROW</a>); </span>
+<a name="76"><font size=-1>76     </font></a><span class="default">  <a href="dictionary_W.html#7923">wc</a>.<a href="dictionary_H.html#7938">hbrBackground</a> = (<a href="dictionary_H.html#7936">HBRUSH</a>)(<a href="dictionary_C.html#7937">COLOR_BTNFACE</a> + </span><span class="number">1</span><span class="default">);</span>
+<a name="77"><font size=-1>77     </font></a><span class="default">  <a href="dictionary_W.html#7923">wc</a>.<a href="dictionary_L.html#7939">lpszMenuName</a>  = <a href="dictionary_N.html#203">NULL</a>; </span>
+<a name="78"><font size=-1>78     </font></a><span class="default">  <a href="dictionary_W.html#7923">wc</a>.<a href="dictionary_L.html#7940">lpszClassName</a> = <a href="dictionary_S.html#7909">szClassName</a>;</span>
+<a name="79"><font size=-1>79     </font></a><span class="default"></span>
+<a name="80"><font size=-1>80     </font></a><span class="default">  </span><span class="keyword">if</span><span class="default">(!<a href="dictionary_R.html#7941">RegisterClass</a>(&amp;<a href="dictionary_W.html#7923">wc</a>))</span>
+<a name="81"><font size=-1>81     </font></a><span class="default">    </span><span class="keyword">return <a href="dictionary_F.html#9">FALSE</a></span><span class="default">;</span>
+<a name="82"><font size=-1>82     </font></a><span class="default"></span>
+<a name="83"><font size=-1>83     </font></a><span class="default">  </span><span class="comment">// restore prefs</span>
+<a name="84"><font size=-1>84     </font></a><span class="comment">  <a href="dictionary_P.html#6590">ProfileWin</a> <a href="dictionary_P.html#7942">profile</a></span><span class="default">;</span>
+<a name="85"><font size=-1>85     </font></a><span class="default"></span>
+<a name="86"><font size=-1>86     </font></a><span class="default">  <a href="dictionary_P.html#7942">profile</a>.<a href="dictionary_P.html#6606">getBool</a>(<a href="dictionary_N.html#7943">NPSPY_REG_KEY_ONTOP</a>, &amp;<a href="dictionary_L.html#3109">bOnTop</a>);</span>
+<a name="87"><font size=-1>87     </font></a><span class="default">  <a href="dictionary_L.html#3109">bOnTop</a> = </span><span class="keyword">false</span><span class="default">;  </span><span class="comment">// XXXMB</span>
+<a name="88"><font size=-1>88     </font></a><span class="comment">  <a href="dictionary_P.html#7942">profile</a></span><span class="default">.<a href="dictionary_P.html#6606">getBool</a>(<a href="dictionary_N.html#7944">NPSPY_REG_KEY_LOGTOWINDOW</a>, &amp;<a href="dictionary_L.html#2866">bToWindow</a>);</span>
+<a name="89"><font size=-1>89     </font></a><span class="default">  <a href="dictionary_P.html#7942">profile</a>.<a href="dictionary_P.html#6606">getBool</a>(<a href="dictionary_N.html#7945">NPSPY_REG_KEY_LOGTOCONSOLE</a>, &amp;<a href="dictionary_L.html#2868">bToConsole</a>);</span>
+<a name="90"><font size=-1>90     </font></a><span class="default">  <a href="dictionary_P.html#7942">profile</a>.<a href="dictionary_P.html#6606">getBool</a>(<a href="dictionary_N.html#7946">NPSPY_REG_KEY_LOGTOFILE</a>, &amp;<a href="dictionary_L.html#2881">bToFile</a>);</span>
+<a name="91"><font size=-1>91     </font></a><span class="default">  <a href="dictionary_P.html#7942">profile</a>.<a href="dictionary_P.html#6606">getBool</a>(<a href="dictionary_N.html#7947">NPSPY_REG_KEY_SPALID</a>, &amp;<a href="dictionary_L.html#3089">bSPALID</a>);</span>
+<a name="92"><font size=-1>92     </font></a><span class="default">  <a href="dictionary_P.html#7942">profile</a>.<a href="dictionary_P.html#6622">getString</a>(<a href="dictionary_N.html#7948">NPSPY_REG_KEY_LOGFILENAME</a>, <a href="dictionary_L.html#2882">szFile</a>, <a href="dictionary_S.html#120">strlen</a>(<a href="dictionary_L.html#2882">szFile</a>));</span>
+<a name="93"><font size=-1>93     </font></a><span class="default"></span>
+<a name="94"><font size=-1>94     </font></a><span class="default">  </span><span class="keyword">for</span><span class="default">(</span><span class="keyword">int <a href="dictionary_I.html#7949">i</a> </span><span class="default">= </span><span class="number">1</span><span class="default">; <a href="dictionary_I.html#7949">i</a> &lt; <a href="dictionary_T.html#129">TOTAL_NUMBER_OF_API_CALLS</a>; <a href="dictionary_I.html#7949">i</a>++)</span>
+<a name="95"><font size=-1>95     </font></a><span class="default">  {</span>
+<a name="96"><font size=-1>96     </font></a><span class="default">    <a href="dictionary_B.html#18">BOOL</a> <a href="dictionary_S.html#7950">selected</a> = <a href="dictionary_T.html#10">TRUE</a>;</span>
+<a name="97"><font size=-1>97     </font></a><span class="default">    </span><span class="keyword">if</span><span class="default">(<a href="dictionary_P.html#7942">profile</a>.<a href="dictionary_P.html#6606">getBool</a>(<a href="dictionary_A.html#7951">ActionName</a>[<a href="dictionary_I.html#7949">i</a>], &amp;<a href="dictionary_S.html#7950">selected</a>))</span>
+<a name="98"><font size=-1>98     </font></a><span class="default">      <a href="dictionary_L.html#7952">bMutedCalls</a>[<a href="dictionary_I.html#7949">i</a>] = !<a href="dictionary_S.html#7950">selected</a>;</span>
+<a name="99"><font size=-1>99     </font></a><span class="default">  }</span>
+<a name="100"><font size=-1>100     </font></a><span class="default">  </span>
+<a name="101"><font size=-1>101     </font></a><span class="default">  </span><span class="keyword">if</span><span class="default">(!<a href="dictionary_P.html#7942">profile</a>.<a href="dictionary_P.html#6633">getSizeAndPosition</a>(&amp;<a href="dictionary_L.html#7915">width</a>, &amp;<a href="dictionary_L.html#7916">height</a>, &amp;<a href="dictionary_L.html#7917">x</a>, &amp;<a href="dictionary_L.html#7918">y</a>))</span>
+<a name="102"><font size=-1>102     </font></a><span class="default">  {</span>
+<a name="103"><font size=-1>103     </font></a><span class="default">    <a href="dictionary_L.html#7915">width</a> = </span><span class="number">0</span><span class="default">;</span>
+<a name="104"><font size=-1>104     </font></a><span class="default">    <a href="dictionary_L.html#7916">height</a> = </span><span class="number">0</span><span class="default">;</span>
+<a name="105"><font size=-1>105     </font></a><span class="default">    <a href="dictionary_L.html#7917">x</a> = </span><span class="number">0</span><span class="default">;</span>
+<a name="106"><font size=-1>106     </font></a><span class="default">    <a href="dictionary_L.html#7918">y</a> = </span><span class="number">0</span><span class="default">;</span>
+<a name="107"><font size=-1>107     </font></a><span class="default">  }</span>
+<a name="108"><font size=-1>108     </font></a><span class="default"></span>
+<a name="109"><font size=-1>109     </font></a><span class="default">  <a href="dictionary_L.html#7914">hWnd</a> = <a href="dictionary_C.html#7953">CreateDialogParam</a>(<a href="dictionary_H.html#2571">hInst</a>, <a href="dictionary_M.html#2738">MAKEINTRESOURCE</a>(<a href="dictionary_I.html#7954">IDD_DIALOG_MAIN</a>), <a href="dictionary_G.html#2825">GetDesktopWindow</a>(), (<a href="dictionary_D.html#7955">DLGPROC</a>)<a href="dictionary_M.html#7910">MainDlgProc</a>, (<a href="dictionary_L.html#959">LPARAM</a>)</span><span class="keyword">this</span><span class="default">);</span>
+<a name="110"><font size=-1>110     </font></a><span class="default">  </span><span class="keyword">if</span><span class="default">(<a href="dictionary_L.html#7914">hWnd</a> == <a href="dictionary_N.html#203">NULL</a>)</span>
+<a name="111"><font size=-1>111     </font></a><span class="default">  {</span>
+<a name="112"><font size=-1>112     </font></a><span class="default">    <a href="dictionary_U.html#7956">UnregisterClass</a>(<a href="dictionary_S.html#7909">szClassName</a>, <a href="dictionary_H.html#2571">hInst</a>);</span>
+<a name="113"><font size=-1>113     </font></a><span class="default">    </span><span class="keyword">return <a href="dictionary_F.html#9">FALSE</a></span><span class="default">;</span>
+<a name="114"><font size=-1>114     </font></a><span class="default">  }</span>
+<a name="115"><font size=-1>115     </font></a><span class="default"></span>
+<a name="116"><font size=-1>116     </font></a><span class="default">  </span><span class="keyword">if</span><span class="default">(<a href="dictionary_L.html#3109">bOnTop</a>)</span>
+<a name="117"><font size=-1>117     </font></a><span class="default">    <a href="dictionary_S.html#5792">SetWindowPos</a>(<a href="dictionary_L.html#7914">hWnd</a>, <a href="dictionary_L.html#3109">bOnTop</a> ? <a href="dictionary_H.html#7957">HWND_TOPMOST</a> : <a href="dictionary_H.html#7958">HWND_NOTOPMOST</a>, </span><span class="number">0</span><span class="default">,</span><span class="number">0</span><span class="default">,</span><span class="number">0</span><span class="default">,</span><span class="number">0</span><span class="default">, <a href="dictionary_S.html#7959">SWP_NOMOVE</a> | <a href="dictionary_S.html#7960">SWP_NOSIZE</a>);</span>
+<a name="118"><font size=-1>118     </font></a><span class="default"></span>
+<a name="119"><font size=-1>119     </font></a><span class="default">  </span><span class="keyword">return <a href="dictionary_T.html#10">TRUE</a></span><span class="default">;</span>
+<a name="120"><font size=-1>120     </font></a><span class="default">}</span>
+<a name="121"><font size=-1>121     </font></a><span class="default"></span>
+<a name="122"><font size=-1>122     </font></a><span class="default"></span><span class="keyword">void <a href="dictionary_L.html#7911">LoggerWin</a></span><span class="default">::<a href="dictionary_L.html#7961">platformShut</a>()</span>
+<a name="123"><font size=-1>123     </font></a><span class="default">{</span>
+<a name="124"><font size=-1>124     </font></a><span class="default">  </span><span class="keyword">if</span><span class="default">(<a href="dictionary_L.html#7914">hWnd</a> != <a href="dictionary_N.html#203">NULL</a>)</span>
+<a name="125"><font size=-1>125     </font></a><span class="default">  {</span>
+<a name="126"><font size=-1>126     </font></a><span class="default">    </span><span class="keyword">char <a href="dictionary_S.html#7962">szLog</a></span><span class="default">[] = </span><span class="string">&quot;--- GOING AWAY... PRESS SPACE BAR TO CONTINUE ---&quot;</span><span class="default">;</span>
+<a name="127"><font size=-1>127     </font></a><span class="default">    <a href="dictionary_H.html#924">HWND</a> <a href="dictionary_H.html#7963">hWndOutput</a> = <a href="dictionary_G.html#2589">GetDlgItem</a>(<a href="dictionary_L.html#7914">hWnd</a>, <a href="dictionary_I.html#7964">IDC_MAIN_OUTPUT</a>);</span>
+<a name="128"><font size=-1>128     </font></a><span class="default">    <a href="dictionary_L.html#2646">ListBox_AddString</a>(<a href="dictionary_H.html#7963">hWndOutput</a>, </span><span class="string">&quot;&quot;</span><span class="default">);</span>
+<a name="129"><font size=-1>129     </font></a><span class="default">    <a href="dictionary_L.html#2646">ListBox_AddString</a>(<a href="dictionary_H.html#7963">hWndOutput</a>, <a href="dictionary_S.html#7962">szLog</a>);</span>
+<a name="130"><font size=-1>130     </font></a><span class="default">    </span><span class="keyword">int <a href="dictionary_C.html#7965">count</a> </span><span class="default">= <a href="dictionary_L.html#2599">ListBox_GetCount</a>(<a href="dictionary_H.html#7963">hWndOutput</a>);</span>
+<a name="131"><font size=-1>131     </font></a><span class="default">    <a href="dictionary_L.html#7966">ListBox_SetCaretIndex</a>(<a href="dictionary_H.html#7963">hWndOutput</a>, <a href="dictionary_C.html#7965">count</a> - </span><span class="number">1</span><span class="default">);</span>
+<a name="132"><font size=-1>132     </font></a><span class="default">    <a href="dictionary_U.html#7967">UpdateWindow</a>(<a href="dictionary_H.html#7963">hWndOutput</a>);</span>
+<a name="133"><font size=-1>133     </font></a><span class="default"></span>
+<a name="134"><font size=-1>134     </font></a><span class="default">    <a href="dictionary_D.html#7968">DialogBox</a>(<a href="dictionary_H.html#2571">hInst</a>, <a href="dictionary_M.html#2738">MAKEINTRESOURCE</a>(<a href="dictionary_I.html#7969">IDD_DIALOG_PAUSE</a>), <a href="dictionary_L.html#7914">hWnd</a>, (<a href="dictionary_D.html#7955">DLGPROC</a>)<a href="dictionary_P.html#5794">PauseDlgProc</a>);</span>
+<a name="135"><font size=-1>135     </font></a><span class="default"></span>
+<a name="136"><font size=-1>136     </font></a><span class="default">    <a href="dictionary_P.html#6590">ProfileWin</a> <a href="dictionary_P.html#7970">profile</a>;</span>
+<a name="137"><font size=-1>137     </font></a><span class="default"></span>
+<a name="138"><font size=-1>138     </font></a><span class="default">    <a href="dictionary_R.html#7972">RECT</a> <a href="dictionary_R.html#7971">rc</a>;</span>
+<a name="139"><font size=-1>139     </font></a><span class="default">    </span><span class="keyword">if</span><span class="default">(<a href="dictionary_G.html#7973">GetWindowRect</a>(<a href="dictionary_L.html#7914">hWnd</a>, &amp;<a href="dictionary_R.html#7971">rc</a>))</span>
+<a name="140"><font size=-1>140     </font></a><span class="default">      <a href="dictionary_P.html#7970">profile</a>.<a href="dictionary_P.html#6644">setSizeAndPosition</a>(<a href="dictionary_R.html#7971">rc</a>.<a href="dictionary_R.html#1661">right</a> - <a href="dictionary_R.html#7971">rc</a>.<a href="dictionary_L.html#1657">left</a>, <a href="dictionary_R.html#7971">rc</a>.<a href="dictionary_B.html#1659">bottom</a> - <a href="dictionary_R.html#7971">rc</a>.<a href="dictionary_T.html#1655">top</a>, <a href="dictionary_R.html#7971">rc</a>.<a href="dictionary_L.html#1657">left</a>, <a href="dictionary_R.html#7971">rc</a>.<a href="dictionary_T.html#1655">top</a>);</span>
+<a name="141"><font size=-1>141     </font></a><span class="default"></span>
+<a name="142"><font size=-1>142     </font></a><span class="default">    <a href="dictionary_D.html#7974">DestroyWindow</a>(<a href="dictionary_L.html#7914">hWnd</a>);</span>
+<a name="143"><font size=-1>143     </font></a><span class="default">    <a href="dictionary_L.html#7914">hWnd</a> = <a href="dictionary_N.html#203">NULL</a>;</span>
+<a name="144"><font size=-1>144     </font></a><span class="default">  }</span>
+<a name="145"><font size=-1>145     </font></a><span class="default"></span>
+<a name="146"><font size=-1>146     </font></a><span class="default">  <a href="dictionary_U.html#7956">UnregisterClass</a>(<a href="dictionary_S.html#7909">szClassName</a>, <a href="dictionary_H.html#2571">hInst</a>);</span>
+<a name="147"><font size=-1>147     </font></a><span class="default">}</span>
+<a name="148"><font size=-1>148     </font></a><span class="default"></span>
+<a name="149"><font size=-1>149     </font></a><span class="default"></span><span class="keyword">void <a href="dictionary_L.html#7911">LoggerWin</a></span><span class="default">::<a href="dictionary_L.html#7975">onDestroyWindow</a>()</span>
+<a name="150"><font size=-1>150     </font></a><span class="default">{</span>
+<a name="151"><font size=-1>151     </font></a><span class="default">  <a href="dictionary_L.html#7914">hWnd</a> = <a href="dictionary_N.html#203">NULL</a>;</span>
+<a name="152"><font size=-1>152     </font></a><span class="default">}</span>
+<a name="153"><font size=-1>153     </font></a><span class="default"></span>
+<a name="154"><font size=-1>154     </font></a><span class="default"></span><span class="keyword">void <a href="dictionary_L.html#7911">LoggerWin</a></span><span class="default">::<a href="dictionary_L.html#7976">dumpStringToMainWindow</a>(</span><span class="keyword">const <a href="dictionary_S.html#100">std</a></span><span class="default">::<a href="dictionary_S.html#101">string</a>&amp; <a href="dictionary_S.html#7977">string</a>)</span>
+<a name="155"><font size=-1>155     </font></a><span class="default">{</span>
+<a name="156"><font size=-1>156     </font></a><span class="default">  </span><span class="keyword">const char</span><span class="default">* <a href="dictionary_O.html#7978">output</a> = <a href="dictionary_S.html#7977">string</a>.<a href="dictionary_C.html#107">c_str</a>();</span>
+<a name="157"><font size=-1>157     </font></a><span class="default">  <a href="dictionary_S.html#100">std</a>::<a href="dictionary_S.html#101">string</a> <a href="dictionary_T.html#7979">temp_string</a>;</span>
+<a name="158"><font size=-1>158     </font></a><span class="default">  </span><span class="comment">// listboxes don't want &lt;CR&gt; and &lt;LF&gt; so cut them off if any. The order is important.</span>
+<a name="159"><font size=-1>159     </font></a><span class="comment">  <a href="dictionary_S.html#574">size_t</a> <a href="dictionary_N.html#7980">newline</a> </span><span class="default">= <a href="dictionary_S.html#7977">string</a>.<a href="dictionary_F.html#794">find</a>(</span><span class="string">'\n'</span><span class="default">);</span>
+<a name="160"><font size=-1>160     </font></a><span class="default">  </span><span class="keyword">if</span><span class="default">(<a href="dictionary_N.html#7980">newline</a> != <a href="dictionary_S.html#100">std</a>::<a href="dictionary_S.html#101">string</a>::<a href="dictionary_N.html#795">npos</a>) {</span>
+<a name="161"><font size=-1>161     </font></a><span class="default">    </span><span class="comment">// make copy of string since it might be a constant</span>
+<a name="162"><font size=-1>162     </font></a><span class="comment">    <a href="dictionary_T.html#7979">temp_string</a> </span><span class="default">= <a href="dictionary_S.html#7977">string</a>;</span>
+<a name="163"><font size=-1>163     </font></a><span class="default"></span>
+<a name="164"><font size=-1>164     </font></a><span class="default">    </span><span class="keyword">char</span><span class="default">* <a href="dictionary_P.html#7981">p</a> = <a href="dictionary_S.html#2732">strrchr</a>(</span><span class="keyword">const_cast</span><span class="default">&lt;</span><span class="keyword">char</span><span class="default">*&gt;(<a href="dictionary_T.html#7979">temp_string</a>.<a href="dictionary_C.html#107">c_str</a>()), </span><span class="string">'\n'</span><span class="default">);</span>
+<a name="165"><font size=-1>165     </font></a><span class="default">    *<a href="dictionary_P.html#7981">p</a> = </span><span class="string">'\0'</span><span class="default">;</span>
+<a name="166"><font size=-1>166     </font></a><span class="default"></span>
+<a name="167"><font size=-1>167     </font></a><span class="default">    <a href="dictionary_P.html#7981">p</a> = <a href="dictionary_S.html#2732">strrchr</a>(</span><span class="keyword">const_cast</span><span class="default">&lt;</span><span class="keyword">char</span><span class="default">*&gt;(<a href="dictionary_T.html#7979">temp_string</a>.<a href="dictionary_C.html#107">c_str</a>()), </span><span class="string">'\r'</span><span class="default">);</span>
+<a name="168"><font size=-1>168     </font></a><span class="default">    </span><span class="keyword">if</span><span class="default">(<a href="dictionary_P.html#7981">p</a>)</span>
+<a name="169"><font size=-1>169     </font></a><span class="default">      *<a href="dictionary_P.html#7981">p</a> = </span><span class="string">'\0'</span><span class="default">;</span>
+<a name="170"><font size=-1>170     </font></a><span class="default">    <a href="dictionary_O.html#7978">output</a> = <a href="dictionary_T.html#7979">temp_string</a>.<a href="dictionary_C.html#107">c_str</a>();</span>
+<a name="171"><font size=-1>171     </font></a><span class="default">  }</span>
+<a name="172"><font size=-1>172     </font></a><span class="default"></span>
+<a name="173"><font size=-1>173     </font></a><span class="default">  <a href="dictionary_H.html#924">HWND</a> <a href="dictionary_H.html#7982">hWndOutput</a> = <a href="dictionary_G.html#2589">GetDlgItem</a>(<a href="dictionary_L.html#7914">hWnd</a>, <a href="dictionary_I.html#7964">IDC_MAIN_OUTPUT</a>);</span>
+<a name="174"><font size=-1>174     </font></a><span class="default">  <a href="dictionary_L.html#2646">ListBox_AddString</a>(<a href="dictionary_H.html#7982">hWndOutput</a>, <a href="dictionary_O.html#7978">output</a>);</span>
+<a name="175"><font size=-1>175     </font></a><span class="default">  </span><span class="keyword">int <a href="dictionary_C.html#7983">count</a> </span><span class="default">= <a href="dictionary_L.html#2599">ListBox_GetCount</a>(<a href="dictionary_H.html#7982">hWndOutput</a>);</span>
+<a name="176"><font size=-1>176     </font></a><span class="default">  </span><span class="keyword">if</span><span class="default">(<a href="dictionary_C.html#7983">count</a> == </span><span class="number">32767</span><span class="default">)</span>
+<a name="177"><font size=-1>177     </font></a><span class="default">    <a href="dictionary_L.html#2594">ListBox_ResetContent</a>(<a href="dictionary_H.html#7982">hWndOutput</a>);</span>
+<a name="178"><font size=-1>178     </font></a><span class="default">  <a href="dictionary_L.html#7966">ListBox_SetCaretIndex</a>(<a href="dictionary_H.html#7982">hWndOutput</a>, <a href="dictionary_C.html#7983">count</a> - </span><span class="number">1</span><span class="default">);</span>
+<a name="179"><font size=-1>179     </font></a><span class="default">  <a href="dictionary_U.html#7967">UpdateWindow</a>(<a href="dictionary_H.html#7982">hWndOutput</a>);</span>
+<a name="180"><font size=-1>180     </font></a><span class="default">}</span>
+<a name="181"><font size=-1>181     </font></a><span class="default"></span>
+<a name="182"><font size=-1>182     </font></a><span class="default"></span><span class="keyword">void <a href="dictionary_L.html#7911">LoggerWin</a></span><span class="default">::<a href="dictionary_L.html#7984">onClear</a>()</span>
+<a name="183"><font size=-1>183     </font></a><span class="default">{</span>
+<a name="184"><font size=-1>184     </font></a><span class="default">  <a href="dictionary_H.html#924">HWND</a> <a href="dictionary_H.html#7985">hWndOutput</a> = <a href="dictionary_G.html#2589">GetDlgItem</a>(<a href="dictionary_L.html#7914">hWnd</a>, <a href="dictionary_I.html#7964">IDC_MAIN_OUTPUT</a>);</span>
+<a name="185"><font size=-1>185     </font></a><span class="default">  <a href="dictionary_L.html#2594">ListBox_ResetContent</a>(<a href="dictionary_H.html#7985">hWndOutput</a>);</span>
+<a name="186"><font size=-1>186     </font></a><span class="default">  <a href="dictionary_U.html#7967">UpdateWindow</a>(<a href="dictionary_H.html#7985">hWndOutput</a>);</span>
+<a name="187"><font size=-1>187     </font></a><span class="default">}</span>
+<a name="188"><font size=-1>188     </font></a><span class="default"></span>
+<a name="189"><font size=-1>189     </font></a><span class="default"><a href="dictionary_L.html#7">Logger</a> * <a href="dictionary_N.html#7986">NewLogger</a>()</span>
+<a name="190"><font size=-1>190     </font></a><span class="default">{</span>
+<a name="191"><font size=-1>191     </font></a><span class="default">  <a href="dictionary_L.html#7911">LoggerWin</a> * <a href="dictionary_R.html#7987">res</a> = </span><span class="keyword">new <a href="dictionary_L.html#7912">LoggerWin</a></span><span class="default">();</span>
+<a name="192"><font size=-1>192     </font></a><span class="default">  </span><span class="keyword">return <a href="dictionary_R.html#7987">res</a></span><span class="default">;</span>
+<a name="193"><font size=-1>193     </font></a><span class="default">}</span>
+<a name="194"><font size=-1>194     </font></a><span class="default"></span>
+<a name="195"><font size=-1>195     </font></a><span class="default"></span><span class="keyword">void <a href="dictionary_D.html#7988">DeleteLogger</a></span><span class="default">(<a href="dictionary_L.html#7">Logger</a> * <a href="dictionary_L.html#7989">logger</a>)</span>
+<a name="196"><font size=-1>196     </font></a><span class="default">{</span>
+<a name="197"><font size=-1>197     </font></a><span class="default">  </span><span class="keyword">if</span><span class="default">(<a href="dictionary_L.html#7989">logger</a>)</span>
+<a name="198"><font size=-1>198     </font></a><span class="default">    </span><span class="keyword">delete <a href="dictionary_L.html#7989">logger</a></span><span class="default">;</span>
+<a name="199"><font size=-1>199     </font></a><span class="default">}</span>
+<a name="200"><font size=-1>200     </font></a><span class="default"></span>
+</pre></body></html>

@@ -1,0 +1,50 @@
+<html><head><title>enum_last_value.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="sourcestyles.css" />
+</head><body link="blue" vlink="blue">
+<h3>File: D:\6611\chromium_latest\tools\clang\plugins\tests\enum_last_value.cpp</h3>
+<SCRIPT>
+defaultStatus = "File: D:\\6611\\chromium_latest\\tools\\clang\\plugins\\tests\\enum_last_value.cpp";
+top.document.title  = "enum_last_value.cpp";
+</SCRIPT>
+<pre><span class="default"></span><a name="1"><font size=-1>1     </font></a><span class="default"></span><span class="comment">// Copyright 2014 The Chromium Authors. All rights reserved.</span>
+<a name="2"><font size=-1>2     </font></a><span class="comment">// Use of this source code is governed by a BSD-style license that can be</span>
+<a name="3"><font size=-1>3     </font></a><span class="comment">// found in the LICENSE file.</span>
+<a name="4"><font size=-1>4     </font></a><span class="comment"></span>
+<a name="5"><font size=-1>5     </font></a><span class="comment">// We warn when xxxLAST constants aren't last.</span>
+<a name="6"><font size=-1>6     </font></a><span class="comment"></span><span class="keyword">enum <a href="dictionary_B.html#993">BadOne</a> </span><span class="default">{</span>
+<a name="7"><font size=-1>7     </font></a><span class="default">  kBadOneInvalid = -</span><span class="number">1</span><span class="default">,</span>
+<a name="8"><font size=-1>8     </font></a><span class="default">  kBadOneRed,</span>
+<a name="9"><font size=-1>9     </font></a><span class="default">  kBadOneGreen,</span>
+<a name="10"><font size=-1>10     </font></a><span class="default">  kBadOneBlue,</span>
+<a name="11"><font size=-1>11     </font></a><span class="default">  kBadOneLast = kBadOneGreen</span>
+<a name="12"><font size=-1>12     </font></a><span class="default">};</span>
+<a name="13"><font size=-1>13     </font></a><span class="default"></span>
+<a name="14"><font size=-1>14     </font></a><span class="default"></span><span class="comment">// We warn when xxx_LAST constants aren't last.</span>
+<a name="15"><font size=-1>15     </font></a><span class="comment"></span><span class="keyword">enum <a href="dictionary_B.html#999">BadTwo</a> </span><span class="default">{</span>
+<a name="16"><font size=-1>16     </font></a><span class="default">  BAD_TWO_INVALID,</span>
+<a name="17"><font size=-1>17     </font></a><span class="default">  BAD_TWO_RED,</span>
+<a name="18"><font size=-1>18     </font></a><span class="default">  BAD_TWO_GREEN,</span>
+<a name="19"><font size=-1>19     </font></a><span class="default">  BAD_TWO_BLUE = </span><span class="number">0xfffffffc</span><span class="default">,</span>
+<a name="20"><font size=-1>20     </font></a><span class="default">  BAD_TWO_LAST = BAD_TWO_GREEN</span>
+<a name="21"><font size=-1>21     </font></a><span class="default">};</span>
+<a name="22"><font size=-1>22     </font></a><span class="default"></span>
+<a name="23"><font size=-1>23     </font></a><span class="default"></span><span class="comment">// We don't warn when xxxLAST constants are last.</span>
+<a name="24"><font size=-1>24     </font></a><span class="comment"></span><span class="keyword">enum <a href="dictionary_G.html#1005">GoodOne</a> </span><span class="default">{</span>
+<a name="25"><font size=-1>25     </font></a><span class="default">  kGoodOneInvalid = -</span><span class="number">1</span><span class="default">,</span>
+<a name="26"><font size=-1>26     </font></a><span class="default">  kGoodOneRed,</span>
+<a name="27"><font size=-1>27     </font></a><span class="default">  kGoodOneGreen,</span>
+<a name="28"><font size=-1>28     </font></a><span class="default">  kGoodOneBlue,</span>
+<a name="29"><font size=-1>29     </font></a><span class="default">  kGoodOneLast = kGoodOneBlue</span>
+<a name="30"><font size=-1>30     </font></a><span class="default">};</span>
+<a name="31"><font size=-1>31     </font></a><span class="default"></span>
+<a name="32"><font size=-1>32     </font></a><span class="default"></span><span class="comment">// We don't warn when xxx_LAST constants are last.</span>
+<a name="33"><font size=-1>33     </font></a><span class="comment"></span><span class="keyword">enum <a href="dictionary_G.html#1011">GoodTwo</a> </span><span class="default">{</span>
+<a name="34"><font size=-1>34     </font></a><span class="default">  GOOD_TWO_INVALID,</span>
+<a name="35"><font size=-1>35     </font></a><span class="default">  GOOD_TWO_RED,</span>
+<a name="36"><font size=-1>36     </font></a><span class="default">  GOOD_TWO_GREEN,</span>
+<a name="37"><font size=-1>37     </font></a><span class="default">  GOOD_TWO_BLUE = </span><span class="number">0xfffffffc</span><span class="default">,</span>
+<a name="38"><font size=-1>38     </font></a><span class="default">  GOOD_TWO_LAST = GOOD_TWO_BLUE</span>
+<a name="39"><font size=-1>39     </font></a><span class="default">};</span>
+<a name="40"><font size=-1>40     </font></a><span class="default"></span>
+</pre></body></html>

@@ -1,0 +1,268 @@
+<html><head><title>nsKeygenHandler.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="sourcestyles.css" />
+</head><body link="blue" vlink="blue">
+<h3>File: D:\6611\chromium_latest\net\third_party\mozilla_security_manager\nsKeygenHandler.cpp</h3>
+<SCRIPT>
+defaultStatus = "File: D:\\6611\\chromium_latest\\net\\third_party\\mozilla_security_manager\\nsKeygenHandler.cpp";
+top.document.title  = "nsKeygenHandler.cpp";
+</SCRIPT>
+<pre><span class="default"></span><a name="1"><font size=-1>1     </font></a><span class="default"></span><span class="comment">/* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span>
+<a name="2"><font size=-1>2     </font></a><span class="comment"> *</span>
+<a name="3"><font size=-1>3     </font></a><span class="comment"> * ***** BEGIN LICENSE BLOCK *****</span>
+<a name="4"><font size=-1>4     </font></a><span class="comment"> * Version: MPL 1.1/GPL 2.0/LGPL 2.1</span>
+<a name="5"><font size=-1>5     </font></a><span class="comment"> *</span>
+<a name="6"><font size=-1>6     </font></a><span class="comment"> * The contents of this file are subject to the Mozilla Public License Version</span>
+<a name="7"><font size=-1>7     </font></a><span class="comment"> * 1.1 (the &quot;License&quot;); you may not use this file except in compliance with</span>
+<a name="8"><font size=-1>8     </font></a><span class="comment"> * the License. You may obtain a copy of the License at</span>
+<a name="9"><font size=-1>9     </font></a><span class="comment"> * http://www.mozilla.org/MPL/</span>
+<a name="10"><font size=-1>10     </font></a><span class="comment"> *</span>
+<a name="11"><font size=-1>11     </font></a><span class="comment"> * Software distributed under the License is distributed on an &quot;AS IS&quot; basis,</span>
+<a name="12"><font size=-1>12     </font></a><span class="comment"> * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License</span>
+<a name="13"><font size=-1>13     </font></a><span class="comment"> * for the specific language governing rights and limitations under the</span>
+<a name="14"><font size=-1>14     </font></a><span class="comment"> * License.</span>
+<a name="15"><font size=-1>15     </font></a><span class="comment"> *</span>
+<a name="16"><font size=-1>16     </font></a><span class="comment"> * The Original Code is mozilla.org code.</span>
+<a name="17"><font size=-1>17     </font></a><span class="comment"> *</span>
+<a name="18"><font size=-1>18     </font></a><span class="comment"> * The Initial Developer of the Original Code is</span>
+<a name="19"><font size=-1>19     </font></a><span class="comment"> * Netscape Communications Corporation.</span>
+<a name="20"><font size=-1>20     </font></a><span class="comment"> * Portions created by the Initial Developer are Copyright (C) 1998</span>
+<a name="21"><font size=-1>21     </font></a><span class="comment"> * the Initial Developer. All Rights Reserved.</span>
+<a name="22"><font size=-1>22     </font></a><span class="comment"> *</span>
+<a name="23"><font size=-1>23     </font></a><span class="comment"> * Contributor(s):</span>
+<a name="24"><font size=-1>24     </font></a><span class="comment"> *   Vipul Gupta &lt;vipul.gupta@sun.com&gt;</span>
+<a name="25"><font size=-1>25     </font></a><span class="comment"> *   Douglas Stebila &lt;douglas@stebila.ca&gt;</span>
+<a name="26"><font size=-1>26     </font></a><span class="comment"> *</span>
+<a name="27"><font size=-1>27     </font></a><span class="comment"> * Alternatively, the contents of this file may be used under the terms of</span>
+<a name="28"><font size=-1>28     </font></a><span class="comment"> * either the GNU General Public License Version 2 or later (the &quot;GPL&quot;), or</span>
+<a name="29"><font size=-1>29     </font></a><span class="comment"> * the GNU Lesser General Public License Version 2.1 or later (the &quot;LGPL&quot;),</span>
+<a name="30"><font size=-1>30     </font></a><span class="comment"> * in which case the provisions of the GPL or the LGPL are applicable instead</span>
+<a name="31"><font size=-1>31     </font></a><span class="comment"> * of those above. If you wish to allow use of your version of this file only</span>
+<a name="32"><font size=-1>32     </font></a><span class="comment"> * under the terms of either the GPL or the LGPL, and not to allow others to</span>
+<a name="33"><font size=-1>33     </font></a><span class="comment"> * use your version of this file under the terms of the MPL, indicate your</span>
+<a name="34"><font size=-1>34     </font></a><span class="comment"> * decision by deleting the provisions above and replace them with the notice</span>
+<a name="35"><font size=-1>35     </font></a><span class="comment"> * and other provisions required by the GPL or the LGPL. If you do not delete</span>
+<a name="36"><font size=-1>36     </font></a><span class="comment"> * the provisions above, a recipient may use your version of this file under</span>
+<a name="37"><font size=-1>37     </font></a><span class="comment"> * the terms of any one of the MPL, the GPL or the LGPL.</span>
+<a name="38"><font size=-1>38     </font></a><span class="comment"> *</span>
+<a name="39"><font size=-1>39     </font></a><span class="comment"> * ***** END LICENSE BLOCK ***** */</span>
+<a name="40"><font size=-1>40     </font></a><span class="comment"></span>
+<a name="41"><font size=-1>41     </font></a><span class="comment"></span><span class="preproc">#include </span><span class="string">&quot;net/third_party/mozilla_security_manager/nsKeygenHandler.h&quot;</span>
+<a name="42"><font size=-1>42     </font></a><span class="string"></span>
+<a name="43"><font size=-1>43     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&lt;pk11pub.h&gt;</span>
+<a name="44"><font size=-1>44     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&lt;prerror.h&gt;   </span><span class="comment">// PR_GetError()</span>
+<a name="45"><font size=-1>45     </font></a><span class="comment"></span><span class="preproc">#include </span><span class="string">&lt;secmod.h&gt;</span>
+<a name="46"><font size=-1>46     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&lt;secder.h&gt;    </span><span class="comment">// DER_Encode()</span>
+<a name="47"><font size=-1>47     </font></a><span class="comment"></span><span class="preproc">#include </span><span class="string">&lt;cryptohi.h&gt;  </span><span class="comment">// SEC_DerSignData()</span>
+<a name="48"><font size=-1>48     </font></a><span class="comment"></span><span class="preproc">#include </span><span class="string">&lt;keyhi.h&gt;     </span><span class="comment">// SECKEY_CreateSubjectPublicKeyInfo()</span>
+<a name="49"><font size=-1>49     </font></a><span class="comment"></span>
+<a name="50"><font size=-1>50     </font></a><span class="comment"></span><span class="preproc">#include </span><span class="string">&quot;base/base64.h&quot;</span>
+<a name="51"><font size=-1>51     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;base/logging.h&quot;</span>
+<a name="52"><font size=-1>52     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;crypto/nss_util.h&quot;</span>
+<a name="53"><font size=-1>53     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;url/gurl.h&quot;</span>
+<a name="54"><font size=-1>54     </font></a><span class="string"></span>
+<a name="55"><font size=-1>55     </font></a><span class="string"></span><span class="keyword">namespace </span><span class="default">{</span>
+<a name="56"><font size=-1>56     </font></a><span class="default"></span>
+<a name="57"><font size=-1>57     </font></a><span class="default"></span><span class="comment">// Template for creating the signed public key structure to be sent to the CA.</span>
+<a name="58"><font size=-1>58     </font></a><span class="comment"><a href="dictionary_D.html#2004">DERTemplate</a> <a href="dictionary_S.html#2003">SECAlgorithmIDTemplate</a></span><span class="default">[] = {</span>
+<a name="59"><font size=-1>59     </font></a><span class="default">  { <a href="dictionary_D.html#2005">DER_SEQUENCE</a>,</span>
+<a name="60"><font size=-1>60     </font></a><span class="default">    </span><span class="number">0</span><span class="default">, <a href="dictionary_N.html#203">NULL</a>, </span><span class="keyword">sizeof</span><span class="default">(<a href="dictionary_S.html#2006">SECAlgorithmID</a>) },</span>
+<a name="61"><font size=-1>61     </font></a><span class="default">  { <a href="dictionary_D.html#2007">DER_OBJECT_ID</a>,</span>
+<a name="62"><font size=-1>62     </font></a><span class="default">    <a href="dictionary_O.html#2008">offsetof</a>(<a href="dictionary_S.html#2006">SECAlgorithmID</a>, <a href="dictionary_A.html#2009">algorithm</a>), },</span>
+<a name="63"><font size=-1>63     </font></a><span class="default">  { <a href="dictionary_D.html#2010">DER_OPTIONAL</a> | <a href="dictionary_D.html#2011">DER_ANY</a>,</span>
+<a name="64"><font size=-1>64     </font></a><span class="default">    <a href="dictionary_O.html#2008">offsetof</a>(<a href="dictionary_S.html#2006">SECAlgorithmID</a>, <a href="dictionary_P.html#2012">parameters</a>), },</span>
+<a name="65"><font size=-1>65     </font></a><span class="default">  { </span><span class="number">0</span><span class="default">, }</span>
+<a name="66"><font size=-1>66     </font></a><span class="default">};</span>
+<a name="67"><font size=-1>67     </font></a><span class="default"></span>
+<a name="68"><font size=-1>68     </font></a><span class="default"><a href="dictionary_D.html#2004">DERTemplate</a> <a href="dictionary_C.html#2013">CERTSubjectPublicKeyInfoTemplate</a>[] = {</span>
+<a name="69"><font size=-1>69     </font></a><span class="default">  { <a href="dictionary_D.html#2005">DER_SEQUENCE</a>,</span>
+<a name="70"><font size=-1>70     </font></a><span class="default">    </span><span class="number">0</span><span class="default">, <a href="dictionary_N.html#203">NULL</a>, </span><span class="keyword">sizeof</span><span class="default">(<a href="dictionary_C.html#2014">CERTSubjectPublicKeyInfo</a>) },</span>
+<a name="71"><font size=-1>71     </font></a><span class="default">  { <a href="dictionary_D.html#2015">DER_INLINE</a>,</span>
+<a name="72"><font size=-1>72     </font></a><span class="default">    <a href="dictionary_O.html#2008">offsetof</a>(<a href="dictionary_C.html#2014">CERTSubjectPublicKeyInfo</a>, <a href="dictionary_A.html#2009">algorithm</a>),</span>
+<a name="73"><font size=-1>73     </font></a><span class="default">    <a href="dictionary_S.html#2003">SECAlgorithmIDTemplate</a>, },</span>
+<a name="74"><font size=-1>74     </font></a><span class="default">  { <a href="dictionary_D.html#2016">DER_BIT_STRING</a>,</span>
+<a name="75"><font size=-1>75     </font></a><span class="default">    <a href="dictionary_O.html#2008">offsetof</a>(<a href="dictionary_C.html#2014">CERTSubjectPublicKeyInfo</a>, <a href="dictionary_S.html#2017">subjectPublicKey</a>), },</span>
+<a name="76"><font size=-1>76     </font></a><span class="default">  { </span><span class="number">0</span><span class="default">, }</span>
+<a name="77"><font size=-1>77     </font></a><span class="default">};</span>
+<a name="78"><font size=-1>78     </font></a><span class="default"></span>
+<a name="79"><font size=-1>79     </font></a><span class="default"><a href="dictionary_D.html#2004">DERTemplate</a> <a href="dictionary_C.html#2018">CERTPublicKeyAndChallengeTemplate</a>[] = {</span>
+<a name="80"><font size=-1>80     </font></a><span class="default">  { <a href="dictionary_D.html#2005">DER_SEQUENCE</a>,</span>
+<a name="81"><font size=-1>81     </font></a><span class="default">    </span><span class="number">0</span><span class="default">, <a href="dictionary_N.html#203">NULL</a>, </span><span class="keyword">sizeof</span><span class="default">(<a href="dictionary_C.html#2019">CERTPublicKeyAndChallenge</a>) },</span>
+<a name="82"><font size=-1>82     </font></a><span class="default">  { <a href="dictionary_D.html#2011">DER_ANY</a>,</span>
+<a name="83"><font size=-1>83     </font></a><span class="default">    <a href="dictionary_O.html#2008">offsetof</a>(<a href="dictionary_C.html#2019">CERTPublicKeyAndChallenge</a>, <a href="dictionary_S.html#2020">spki</a>), },</span>
+<a name="84"><font size=-1>84     </font></a><span class="default">  { <a href="dictionary_D.html#2021">DER_IA5_STRING</a>,</span>
+<a name="85"><font size=-1>85     </font></a><span class="default">    <a href="dictionary_O.html#2008">offsetof</a>(<a href="dictionary_C.html#2019">CERTPublicKeyAndChallenge</a>, <a href="dictionary_C.html#2022">challenge</a>), },</span>
+<a name="86"><font size=-1>86     </font></a><span class="default">  { </span><span class="number">0</span><span class="default">, }</span>
+<a name="87"><font size=-1>87     </font></a><span class="default">};</span>
+<a name="88"><font size=-1>88     </font></a><span class="default"></span>
+<a name="89"><font size=-1>89     </font></a><span class="default">}  </span><span class="comment">// namespace</span>
+<a name="90"><font size=-1>90     </font></a><span class="comment"></span>
+<a name="91"><font size=-1>91     </font></a><span class="comment"></span><span class="keyword">namespace </span><span class="default">mozilla_security_manager {</span>
+<a name="92"><font size=-1>92     </font></a><span class="default"></span>
+<a name="93"><font size=-1>93     </font></a><span class="default"></span><span class="comment">// This function is based on the nsKeygenFormProcessor::GetPublicKey function</span>
+<a name="94"><font size=-1>94     </font></a><span class="comment">// in mozilla/security/manager/ssl/src/nsKeygenHandler.cpp.</span>
+<a name="95"><font size=-1>95     </font></a><span class="comment"><a href="dictionary_S.html#100">std</a></span><span class="default">::<a href="dictionary_S.html#101">string</a> <a href="dictionary_M.html#2024">GenKeyAndSignChallenge</a>(</span><span class="keyword">int <a href="dictionary_K.html#2025">key_size_in_bits</a></span><span class="default">,</span>
+<a name="96"><font size=-1>96     </font></a><span class="default">                                   </span><span class="keyword">const <a href="dictionary_S.html#100">std</a></span><span class="default">::<a href="dictionary_S.html#101">string</a>&amp; <a href="dictionary_C.html#2026">challenge</a>,</span>
+<a name="97"><font size=-1>97     </font></a><span class="default">                                   </span><span class="keyword">const <a href="dictionary_G.html#2028">GURL</a></span><span class="default">&amp; <a href="dictionary_U.html#2027">url</a>,</span>
+<a name="98"><font size=-1>98     </font></a><span class="default">                                   <a href="dictionary_P.html#2030">PK11SlotInfo</a>* <a href="dictionary_S.html#2029">slot</a>,</span>
+<a name="99"><font size=-1>99     </font></a><span class="default">                                   </span><span class="keyword">bool <a href="dictionary_S.html#2031">stores_key</a></span><span class="default">) {</span>
+<a name="100"><font size=-1>100     </font></a><span class="default">  </span><span class="comment">// Key pair generation mechanism - only RSA is supported at present.</span>
+<a name="101"><font size=-1>101     </font></a><span class="comment">  <a href="dictionary_P.html#2033">PRUint32</a> <a href="dictionary_K.html#2032">keyGenMechanism</a> </span><span class="default">= <a href="dictionary_C.html#2034">CKM_RSA_PKCS_KEY_PAIR_GEN</a>;  </span><span class="comment">// from nss/pkcs11t.h</span>
+<a name="102"><font size=-1>102     </font></a><span class="comment"></span>
+<a name="103"><font size=-1>103     </font></a><span class="comment">  // Temporary structures used for generating the result</span>
+<a name="104"><font size=-1>104     </font></a><span class="comment">  // in the right format.</span>
+<a name="105"><font size=-1>105     </font></a><span class="comment">  <a href="dictionary_P.html#2036">PK11RSAGenParams</a> <a href="dictionary_R.html#2035">rsaKeyGenParams</a></span><span class="default">;  </span><span class="comment">// Keygen parameters.</span>
+<a name="106"><font size=-1>106     </font></a><span class="comment">  <a href="dictionary_S.html#2038">SECOidTag</a> <a href="dictionary_A.html#2037">algTag</a></span><span class="default">;  </span><span class="comment">// used by SEC_DerSignData().</span>
+<a name="107"><font size=-1>107     </font></a><span class="comment">  <a href="dictionary_S.html#2040">SECKEYPrivateKey</a> </span><span class="default">*<a href="dictionary_P.html#2039">privateKey</a> = <a href="dictionary_N.html#203">NULL</a>;</span>
+<a name="108"><font size=-1>108     </font></a><span class="default">  <a href="dictionary_S.html#2042">SECKEYPublicKey</a> *<a href="dictionary_P.html#2041">publicKey</a> = <a href="dictionary_N.html#203">NULL</a>;</span>
+<a name="109"><font size=-1>109     </font></a><span class="default">  <a href="dictionary_C.html#2014">CERTSubjectPublicKeyInfo</a> *<a href="dictionary_S.html#2043">spkInfo</a> = <a href="dictionary_N.html#203">NULL</a>;</span>
+<a name="110"><font size=-1>110     </font></a><span class="default">  <a href="dictionary_P.html#2045">PLArenaPool</a> *<a href="dictionary_A.html#2044">arena</a> = <a href="dictionary_N.html#203">NULL</a>;</span>
+<a name="111"><font size=-1>111     </font></a><span class="default">  <a href="dictionary_S.html#2047">SECStatus</a> <a href="dictionary_S.html#2046">sec_rv</a> =<a href="dictionary_S.html#2048">SECFailure</a>;</span>
+<a name="112"><font size=-1>112     </font></a><span class="default">  <a href="dictionary_S.html#2050">SECItem</a> <a href="dictionary_S.html#2049">spkiItem</a>;</span>
+<a name="113"><font size=-1>113     </font></a><span class="default">  <a href="dictionary_S.html#2050">SECItem</a> <a href="dictionary_P.html#2051">pkacItem</a>;</span>
+<a name="114"><font size=-1>114     </font></a><span class="default">  <a href="dictionary_S.html#2050">SECItem</a> <a href="dictionary_S.html#2052">signedItem</a>;</span>
+<a name="115"><font size=-1>115     </font></a><span class="default">  <a href="dictionary_C.html#2019">CERTPublicKeyAndChallenge</a> <a href="dictionary_P.html#2053">pkac</a>;</span>
+<a name="116"><font size=-1>116     </font></a><span class="default">  </span><span class="keyword">void </span><span class="default">*<a href="dictionary_K.html#2054">keyGenParams</a>;</span>
+<a name="117"><font size=-1>117     </font></a><span class="default">  </span><span class="keyword">bool <a href="dictionary_I.html#2055">isSuccess</a> </span><span class="default">= </span><span class="keyword">true</span><span class="default">;  </span><span class="comment">// Set to false as soon as a step fails.</span>
+<a name="118"><font size=-1>118     </font></a><span class="comment"></span>
+<a name="119"><font size=-1>119     </font></a><span class="comment">  <a href="dictionary_S.html#100">std</a></span><span class="default">::<a href="dictionary_S.html#101">string</a> <a href="dictionary_R.html#2056">result_blob</a>;  </span><span class="comment">// the result.</span>
+<a name="120"><font size=-1>120     </font></a><span class="comment"></span>
+<a name="121"><font size=-1>121     </font></a><span class="comment">  </span><span class="keyword">switch </span><span class="default">(<a href="dictionary_K.html#2032">keyGenMechanism</a>) {</span>
+<a name="122"><font size=-1>122     </font></a><span class="default">    </span><span class="keyword">case <a href="dictionary_C.html#2034">CKM_RSA_PKCS_KEY_PAIR_GEN</a></span><span class="default">:</span>
+<a name="123"><font size=-1>123     </font></a><span class="default">      <a href="dictionary_R.html#2035">rsaKeyGenParams</a>.<a href="dictionary_K.html#2057">keySizeInBits</a> = <a href="dictionary_K.html#2025">key_size_in_bits</a>;</span>
+<a name="124"><font size=-1>124     </font></a><span class="default">      <a href="dictionary_R.html#2035">rsaKeyGenParams</a>.<a href="dictionary_P.html#2059">pe</a> = <a href="dictionary_D.html#2058">DEFAULT_RSA_KEYGEN_PE</a>;</span>
+<a name="125"><font size=-1>125     </font></a><span class="default">      <a href="dictionary_K.html#2054">keyGenParams</a> = &amp;<a href="dictionary_R.html#2035">rsaKeyGenParams</a>;</span>
+<a name="126"><font size=-1>126     </font></a><span class="default"></span>
+<a name="127"><font size=-1>127     </font></a><span class="default">      <a href="dictionary_A.html#2037">algTag</a> = <a href="dictionary_D.html#2060">DEFAULT_RSA_KEYGEN_ALG</a>;</span>
+<a name="128"><font size=-1>128     </font></a><span class="default">      </span><span class="keyword">break</span><span class="default">;</span>
+<a name="129"><font size=-1>129     </font></a><span class="default">    </span><span class="keyword">default</span><span class="default">:</span>
+<a name="130"><font size=-1>130     </font></a><span class="default">      </span><span class="comment">// TODO(gauravsh): If we ever support other mechanisms,</span>
+<a name="131"><font size=-1>131     </font></a><span class="comment">      // this can be changed.</span>
+<a name="132"><font size=-1>132     </font></a><span class="comment">      <a href="dictionary_L.html#2061">LOG</a></span><span class="default">(<a href="dictionary_E.html#2062">ERROR</a>) &lt;&lt; </span><span class="string">&quot;Only RSA keygen mechanism is supported&quot;</span><span class="default">;</span>
+<a name="133"><font size=-1>133     </font></a><span class="default">      <a href="dictionary_I.html#2055">isSuccess</a> = </span><span class="keyword">false</span><span class="default">;</span>
+<a name="134"><font size=-1>134     </font></a><span class="default">      </span><span class="keyword">goto </span><span class="default">failure;</span>
+<a name="135"><font size=-1>135     </font></a><span class="default">  }</span>
+<a name="136"><font size=-1>136     </font></a><span class="default"></span>
+<a name="137"><font size=-1>137     </font></a><span class="default">  <a href="dictionary_V.html#2064">VLOG</a>(</span><span class="number">1</span><span class="default">) &lt;&lt; </span><span class="string">&quot;Creating key pair...&quot;</span><span class="default">;</span>
+<a name="138"><font size=-1>138     </font></a><span class="default">  {</span>
+<a name="139"><font size=-1>139     </font></a><span class="default">    <a href="dictionary_C.html#2065">crypto</a>::<a href="dictionary_C.html#2066">AutoNSSWriteLock</a> <a href="dictionary_L.html#2067">lock</a>;</span>
+<a name="140"><font size=-1>140     </font></a><span class="default">    <a href="dictionary_P.html#2039">privateKey</a> = <a href="dictionary_P.html#2068">PK11_GenerateKeyPair</a>(<a href="dictionary_S.html#2029">slot</a>,</span>
+<a name="141"><font size=-1>141     </font></a><span class="default">                                      <a href="dictionary_K.html#2032">keyGenMechanism</a>,</span>
+<a name="142"><font size=-1>142     </font></a><span class="default">                                      <a href="dictionary_K.html#2054">keyGenParams</a>,</span>
+<a name="143"><font size=-1>143     </font></a><span class="default">                                      &amp;<a href="dictionary_P.html#2041">publicKey</a>,</span>
+<a name="144"><font size=-1>144     </font></a><span class="default">                                      <a href="dictionary_P.html#2069">PR_TRUE</a>,  </span><span class="comment">// isPermanent?</span>
+<a name="145"><font size=-1>145     </font></a><span class="comment">                                      <a href="dictionary_P.html#2069">PR_TRUE</a></span><span class="default">,  </span><span class="comment">// isSensitive?</span>
+<a name="146"><font size=-1>146     </font></a><span class="comment">                                      <a href="dictionary_N.html#203">NULL</a></span><span class="default">);</span>
+<a name="147"><font size=-1>147     </font></a><span class="default">  }</span>
+<a name="148"><font size=-1>148     </font></a><span class="default">  <a href="dictionary_V.html#2064">VLOG</a>(</span><span class="number">1</span><span class="default">) &lt;&lt; </span><span class="string">&quot;done.&quot;</span><span class="default">;</span>
+<a name="149"><font size=-1>149     </font></a><span class="default"></span>
+<a name="150"><font size=-1>150     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(!<a href="dictionary_P.html#2039">privateKey</a>) {</span>
+<a name="151"><font size=-1>151     </font></a><span class="default">    <a href="dictionary_L.html#2061">LOG</a>(<a href="dictionary_E.html#2062">ERROR</a>) &lt;&lt; </span><span class="string">&quot;Generation of Keypair failed!&quot;</span><span class="default">;</span>
+<a name="152"><font size=-1>152     </font></a><span class="default">    <a href="dictionary_I.html#2055">isSuccess</a> = </span><span class="keyword">false</span><span class="default">;</span>
+<a name="153"><font size=-1>153     </font></a><span class="default">    </span><span class="keyword">goto </span><span class="default">failure;</span>
+<a name="154"><font size=-1>154     </font></a><span class="default">  }</span>
+<a name="155"><font size=-1>155     </font></a><span class="default"></span>
+<a name="156"><font size=-1>156     </font></a><span class="default">  </span><span class="comment">// Set friendly names for the keys.</span>
+<a name="157"><font size=-1>157     </font></a><span class="comment">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_U.html#2027">url</a>.<a href="dictionary_H.html#2070">has_host</a>()) {</span>
+<a name="158"><font size=-1>158     </font></a><span class="default">    </span><span class="comment">// TODO(davidben): Use something like &quot;Key generated for</span>
+<a name="159"><font size=-1>159     </font></a><span class="comment">    // example.com&quot;, but localize it.</span>
+<a name="160"><font size=-1>160     </font></a><span class="comment">    </span><span class="keyword">const <a href="dictionary_S.html#100">std</a></span><span class="default">::<a href="dictionary_S.html#101">string</a>&amp; <a href="dictionary_L.html#2071">label</a> = <a href="dictionary_U.html#2027">url</a>.<a href="dictionary_H.html#2072">host</a>();</span>
+<a name="161"><font size=-1>161     </font></a><span class="default">    {</span>
+<a name="162"><font size=-1>162     </font></a><span class="default">      <a href="dictionary_C.html#2065">crypto</a>::<a href="dictionary_C.html#2066">AutoNSSWriteLock</a> <a href="dictionary_L.html#2067">lock</a>;</span>
+<a name="163"><font size=-1>163     </font></a><span class="default">      <a href="dictionary_P.html#2073">PK11_SetPublicKeyNickname</a>(<a href="dictionary_P.html#2041">publicKey</a>, <a href="dictionary_L.html#2071">label</a>.<a href="dictionary_C.html#107">c_str</a>());</span>
+<a name="164"><font size=-1>164     </font></a><span class="default">      <a href="dictionary_P.html#2074">PK11_SetPrivateKeyNickname</a>(<a href="dictionary_P.html#2039">privateKey</a>, <a href="dictionary_L.html#2071">label</a>.<a href="dictionary_C.html#107">c_str</a>());</span>
+<a name="165"><font size=-1>165     </font></a><span class="default">    }</span>
+<a name="166"><font size=-1>166     </font></a><span class="default">  }</span>
+<a name="167"><font size=-1>167     </font></a><span class="default"></span>
+<a name="168"><font size=-1>168     </font></a><span class="default">  </span><span class="comment">// The CA expects the signed public key in a specific format</span>
+<a name="169"><font size=-1>169     </font></a><span class="comment">  // Let's create that now.</span>
+<a name="170"><font size=-1>170     </font></a><span class="comment"></span>
+<a name="171"><font size=-1>171     </font></a><span class="comment">  // Create a subject public key info from the public key.</span>
+<a name="172"><font size=-1>172     </font></a><span class="comment">  <a href="dictionary_S.html#2043">spkInfo</a> </span><span class="default">= <a href="dictionary_S.html#2075">SECKEY_CreateSubjectPublicKeyInfo</a>(<a href="dictionary_P.html#2041">publicKey</a>);</span>
+<a name="173"><font size=-1>173     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(!<a href="dictionary_S.html#2043">spkInfo</a>) {</span>
+<a name="174"><font size=-1>174     </font></a><span class="default">    <a href="dictionary_L.html#2061">LOG</a>(<a href="dictionary_E.html#2062">ERROR</a>) &lt;&lt; </span><span class="string">&quot;Couldn't create SubjectPublicKeyInfo from public key&quot;</span><span class="default">;</span>
+<a name="175"><font size=-1>175     </font></a><span class="default">    <a href="dictionary_I.html#2055">isSuccess</a> = </span><span class="keyword">false</span><span class="default">;</span>
+<a name="176"><font size=-1>176     </font></a><span class="default">    </span><span class="keyword">goto </span><span class="default">failure;</span>
+<a name="177"><font size=-1>177     </font></a><span class="default">  }</span>
+<a name="178"><font size=-1>178     </font></a><span class="default"></span>
+<a name="179"><font size=-1>179     </font></a><span class="default">  <a href="dictionary_A.html#2044">arena</a> = <a href="dictionary_P.html#2076">PORT_NewArena</a>(<a href="dictionary_D.html#2077">DER_DEFAULT_CHUNKSIZE</a>);</span>
+<a name="180"><font size=-1>180     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(!<a href="dictionary_A.html#2044">arena</a>) {</span>
+<a name="181"><font size=-1>181     </font></a><span class="default">    <a href="dictionary_L.html#2061">LOG</a>(<a href="dictionary_E.html#2062">ERROR</a>) &lt;&lt; </span><span class="string">&quot;PORT_NewArena: Couldn't allocate memory&quot;</span><span class="default">;</span>
+<a name="182"><font size=-1>182     </font></a><span class="default">    <a href="dictionary_I.html#2055">isSuccess</a> = </span><span class="keyword">false</span><span class="default">;</span>
+<a name="183"><font size=-1>183     </font></a><span class="default">    </span><span class="keyword">goto </span><span class="default">failure;</span>
+<a name="184"><font size=-1>184     </font></a><span class="default">  }</span>
+<a name="185"><font size=-1>185     </font></a><span class="default"></span>
+<a name="186"><font size=-1>186     </font></a><span class="default">  </span><span class="comment">// DER encode the whole subjectPublicKeyInfo.</span>
+<a name="187"><font size=-1>187     </font></a><span class="comment">  <a href="dictionary_S.html#2046">sec_rv</a> </span><span class="default">= <a href="dictionary_D.html#2078">DER_Encode</a>(<a href="dictionary_A.html#2044">arena</a>, &amp;<a href="dictionary_S.html#2049">spkiItem</a>, <a href="dictionary_C.html#2013">CERTSubjectPublicKeyInfoTemplate</a>,</span>
+<a name="188"><font size=-1>188     </font></a><span class="default">                      <a href="dictionary_S.html#2043">spkInfo</a>);</span>
+<a name="189"><font size=-1>189     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_S.html#2079">SECSuccess</a> != <a href="dictionary_S.html#2046">sec_rv</a>) {</span>
+<a name="190"><font size=-1>190     </font></a><span class="default">    <a href="dictionary_L.html#2061">LOG</a>(<a href="dictionary_E.html#2062">ERROR</a>) &lt;&lt; </span><span class="string">&quot;Couldn't DER Encode subjectPublicKeyInfo&quot;</span><span class="default">;</span>
+<a name="191"><font size=-1>191     </font></a><span class="default">    <a href="dictionary_I.html#2055">isSuccess</a> = </span><span class="keyword">false</span><span class="default">;</span>
+<a name="192"><font size=-1>192     </font></a><span class="default">    </span><span class="keyword">goto </span><span class="default">failure;</span>
+<a name="193"><font size=-1>193     </font></a><span class="default">  }</span>
+<a name="194"><font size=-1>194     </font></a><span class="default"></span>
+<a name="195"><font size=-1>195     </font></a><span class="default">  </span><span class="comment">// Set up the PublicKeyAndChallenge data structure, then DER encode it.</span>
+<a name="196"><font size=-1>196     </font></a><span class="comment">  <a href="dictionary_P.html#2053">pkac</a></span><span class="default">.<a href="dictionary_S.html#2080">spki</a> = <a href="dictionary_S.html#2049">spkiItem</a>;</span>
+<a name="197"><font size=-1>197     </font></a><span class="default">  <a href="dictionary_P.html#2053">pkac</a>.<a href="dictionary_C.html#2082">challenge</a>.<a href="dictionary_T.html#1066">type</a> = <a href="dictionary_S.html#2081">siBuffer</a>;</span>
+<a name="198"><font size=-1>198     </font></a><span class="default">  <a href="dictionary_P.html#2053">pkac</a>.<a href="dictionary_C.html#2082">challenge</a>.<a href="dictionary_L.html#2083">len</a> = <a href="dictionary_C.html#2026">challenge</a>.<a href="dictionary_L.html#218">length</a>();</span>
+<a name="199"><font size=-1>199     </font></a><span class="default">  <a href="dictionary_P.html#2053">pkac</a>.<a href="dictionary_C.html#2082">challenge</a>.<a href="dictionary_D.html#2084">data</a> = (</span><span class="keyword">unsigned char </span><span class="default">*)<a href="dictionary_C.html#2026">challenge</a>.<a href="dictionary_D.html#1278">data</a>();</span>
+<a name="200"><font size=-1>200     </font></a><span class="default">  <a href="dictionary_S.html#2046">sec_rv</a> = <a href="dictionary_D.html#2078">DER_Encode</a>(<a href="dictionary_A.html#2044">arena</a>, &amp;<a href="dictionary_P.html#2051">pkacItem</a>, <a href="dictionary_C.html#2018">CERTPublicKeyAndChallengeTemplate</a>,</span>
+<a name="201"><font size=-1>201     </font></a><span class="default">                      &amp;<a href="dictionary_P.html#2053">pkac</a>);</span>
+<a name="202"><font size=-1>202     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_S.html#2079">SECSuccess</a> != <a href="dictionary_S.html#2046">sec_rv</a>) {</span>
+<a name="203"><font size=-1>203     </font></a><span class="default">    <a href="dictionary_L.html#2061">LOG</a>(<a href="dictionary_E.html#2062">ERROR</a>) &lt;&lt; </span><span class="string">&quot;Couldn't DER Encode PublicKeyAndChallenge&quot;</span><span class="default">;</span>
+<a name="204"><font size=-1>204     </font></a><span class="default">    <a href="dictionary_I.html#2055">isSuccess</a> = </span><span class="keyword">false</span><span class="default">;</span>
+<a name="205"><font size=-1>205     </font></a><span class="default">    </span><span class="keyword">goto </span><span class="default">failure;</span>
+<a name="206"><font size=-1>206     </font></a><span class="default">  }</span>
+<a name="207"><font size=-1>207     </font></a><span class="default"></span>
+<a name="208"><font size=-1>208     </font></a><span class="default">  </span><span class="comment">// Sign the DER encoded PublicKeyAndChallenge.</span>
+<a name="209"><font size=-1>209     </font></a><span class="comment">  <a href="dictionary_S.html#2046">sec_rv</a> </span><span class="default">= <a href="dictionary_S.html#2085">SEC_DerSignData</a>(<a href="dictionary_A.html#2044">arena</a>, &amp;<a href="dictionary_S.html#2052">signedItem</a>, <a href="dictionary_P.html#2051">pkacItem</a>.<a href="dictionary_D.html#2084">data</a>, <a href="dictionary_P.html#2051">pkacItem</a>.<a href="dictionary_L.html#2083">len</a>,</span>
+<a name="210"><font size=-1>210     </font></a><span class="default">                           <a href="dictionary_P.html#2039">privateKey</a>, <a href="dictionary_A.html#2037">algTag</a>);</span>
+<a name="211"><font size=-1>211     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_S.html#2079">SECSuccess</a> != <a href="dictionary_S.html#2046">sec_rv</a>) {</span>
+<a name="212"><font size=-1>212     </font></a><span class="default">    <a href="dictionary_L.html#2061">LOG</a>(<a href="dictionary_E.html#2062">ERROR</a>) &lt;&lt; </span><span class="string">&quot;Couldn't sign the DER encoded PublicKeyandChallenge&quot;</span><span class="default">;</span>
+<a name="213"><font size=-1>213     </font></a><span class="default">    <a href="dictionary_I.html#2055">isSuccess</a> = </span><span class="keyword">false</span><span class="default">;</span>
+<a name="214"><font size=-1>214     </font></a><span class="default">    </span><span class="keyword">goto </span><span class="default">failure;</span>
+<a name="215"><font size=-1>215     </font></a><span class="default">  }</span>
+<a name="216"><font size=-1>216     </font></a><span class="default"></span>
+<a name="217"><font size=-1>217     </font></a><span class="default">  </span><span class="comment">// Convert the signed public key and challenge into base64/ascii.</span>
+<a name="218"><font size=-1>218     </font></a><span class="comment">  <a href="dictionary_B.html#1256">base</a></span><span class="default">::<a href="dictionary_B.html#2086">Base64Encode</a>(</span>
+<a name="219"><font size=-1>219     </font></a><span class="default">      <a href="dictionary_S.html#100">std</a>::<a href="dictionary_S.html#101">string</a>(</span><span class="keyword">reinterpret_cast</span><span class="default">&lt;</span><span class="keyword">char</span><span class="default">*&gt;(<a href="dictionary_S.html#2052">signedItem</a>.<a href="dictionary_D.html#2084">data</a>), <a href="dictionary_S.html#2052">signedItem</a>.<a href="dictionary_L.html#2083">len</a>),</span>
+<a name="220"><font size=-1>220     </font></a><span class="default">      &amp;<a href="dictionary_R.html#2056">result_blob</a>);</span>
+<a name="221"><font size=-1>221     </font></a><span class="default"></span>
+<a name="222"><font size=-1>222     </font></a><span class="default"> failure:</span>
+<a name="223"><font size=-1>223     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(!<a href="dictionary_I.html#2055">isSuccess</a>) {</span>
+<a name="224"><font size=-1>224     </font></a><span class="default">    <a href="dictionary_L.html#2061">LOG</a>(<a href="dictionary_E.html#2062">ERROR</a>) &lt;&lt; </span><span class="string">&quot;SSL Keygen failed! (NSS error code &quot; </span><span class="default">&lt;&lt; <a href="dictionary_P.html#2087">PR_GetError</a>() &lt;&lt; </span><span class="string">&quot;)&quot;</span><span class="default">;</span>
+<a name="225"><font size=-1>225     </font></a><span class="default">  } </span><span class="keyword">else </span><span class="default">{</span>
+<a name="226"><font size=-1>226     </font></a><span class="default">    <a href="dictionary_V.html#2064">VLOG</a>(</span><span class="number">1</span><span class="default">) &lt;&lt; </span><span class="string">&quot;SSL Keygen succeeded!&quot;</span><span class="default">;</span>
+<a name="227"><font size=-1>227     </font></a><span class="default">  }</span>
+<a name="228"><font size=-1>228     </font></a><span class="default"></span>
+<a name="229"><font size=-1>229     </font></a><span class="default">  </span><span class="comment">// Do cleanups</span>
+<a name="230"><font size=-1>230     </font></a><span class="comment">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_P.html#2039">privateKey</a>) {</span>
+<a name="231"><font size=-1>231     </font></a><span class="default">    </span><span class="comment">// On successful keygen we need to keep the private key, of course,</span>
+<a name="232"><font size=-1>232     </font></a><span class="comment">    // or we won't be able to use the client certificate.</span>
+<a name="233"><font size=-1>233     </font></a><span class="comment">    </span><span class="keyword">if </span><span class="default">(!<a href="dictionary_I.html#2055">isSuccess</a> || !<a href="dictionary_S.html#2031">stores_key</a>) {</span>
+<a name="234"><font size=-1>234     </font></a><span class="default">      <a href="dictionary_C.html#2065">crypto</a>::<a href="dictionary_C.html#2066">AutoNSSWriteLock</a> <a href="dictionary_L.html#2067">lock</a>;</span>
+<a name="235"><font size=-1>235     </font></a><span class="default">      <a href="dictionary_P.html#2088">PK11_DestroyTokenObject</a>(<a href="dictionary_P.html#2039">privateKey</a>-&gt;<a href="dictionary_P.html#2089">pkcs11Slot</a>, <a href="dictionary_P.html#2039">privateKey</a>-&gt;<a href="dictionary_P.html#2090">pkcs11ID</a>);</span>
+<a name="236"><font size=-1>236     </font></a><span class="default">    }</span>
+<a name="237"><font size=-1>237     </font></a><span class="default">    <a href="dictionary_S.html#2091">SECKEY_DestroyPrivateKey</a>(<a href="dictionary_P.html#2039">privateKey</a>);</span>
+<a name="238"><font size=-1>238     </font></a><span class="default">  }</span>
+<a name="239"><font size=-1>239     </font></a><span class="default"></span>
+<a name="240"><font size=-1>240     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_P.html#2041">publicKey</a>) {</span>
+<a name="241"><font size=-1>241     </font></a><span class="default">    </span><span class="keyword">if </span><span class="default">(!<a href="dictionary_I.html#2055">isSuccess</a> || !<a href="dictionary_S.html#2031">stores_key</a>) {</span>
+<a name="242"><font size=-1>242     </font></a><span class="default">      <a href="dictionary_C.html#2065">crypto</a>::<a href="dictionary_C.html#2066">AutoNSSWriteLock</a> <a href="dictionary_L.html#2067">lock</a>;</span>
+<a name="243"><font size=-1>243     </font></a><span class="default">      <a href="dictionary_P.html#2088">PK11_DestroyTokenObject</a>(<a href="dictionary_P.html#2041">publicKey</a>-&gt;<a href="dictionary_P.html#2089">pkcs11Slot</a>, <a href="dictionary_P.html#2041">publicKey</a>-&gt;<a href="dictionary_P.html#2090">pkcs11ID</a>);</span>
+<a name="244"><font size=-1>244     </font></a><span class="default">    }</span>
+<a name="245"><font size=-1>245     </font></a><span class="default">    <a href="dictionary_S.html#2092">SECKEY_DestroyPublicKey</a>(<a href="dictionary_P.html#2041">publicKey</a>);</span>
+<a name="246"><font size=-1>246     </font></a><span class="default">  }</span>
+<a name="247"><font size=-1>247     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_S.html#2043">spkInfo</a>) {</span>
+<a name="248"><font size=-1>248     </font></a><span class="default">    <a href="dictionary_S.html#2093">SECKEY_DestroySubjectPublicKeyInfo</a>(<a href="dictionary_S.html#2043">spkInfo</a>);</span>
+<a name="249"><font size=-1>249     </font></a><span class="default">  }</span>
+<a name="250"><font size=-1>250     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_A.html#2044">arena</a>) {</span>
+<a name="251"><font size=-1>251     </font></a><span class="default">    <a href="dictionary_P.html#2094">PORT_FreeArena</a>(<a href="dictionary_A.html#2044">arena</a>, <a href="dictionary_P.html#2069">PR_TRUE</a>);</span>
+<a name="252"><font size=-1>252     </font></a><span class="default">  }</span>
+<a name="253"><font size=-1>253     </font></a><span class="default"></span>
+<a name="254"><font size=-1>254     </font></a><span class="default">  </span><span class="keyword">return </span><span class="default">(<a href="dictionary_I.html#2055">isSuccess</a> ? <a href="dictionary_R.html#2056">result_blob</a> : <a href="dictionary_S.html#100">std</a>::<a href="dictionary_S.html#101">string</a>());</span>
+<a name="255"><font size=-1>255     </font></a><span class="default">}</span>
+<a name="256"><font size=-1>256     </font></a><span class="default"></span>
+<a name="257"><font size=-1>257     </font></a><span class="default">}  </span><span class="comment">// namespace mozilla_security_manager</span>
+<a name="258"><font size=-1>258     </font></a><span class="comment"></span>
+</pre></body></html>

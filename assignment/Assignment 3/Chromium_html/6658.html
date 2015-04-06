@@ -1,0 +1,137 @@
+<html><head><title>MockWebMediaStreamCenter.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="sourcestyles.css" />
+</head><body link="blue" vlink="blue">
+<h3>File: D:\6611\chromium_latest\content\shell\renderer\test_runner\MockWebMediaStreamCenter.cpp</h3>
+<SCRIPT>
+defaultStatus = "File: D:\\6611\\chromium_latest\\content\\shell\\renderer\\test_runner\\MockWebMediaStreamCenter.cpp";
+top.document.title  = "MockWebMediaStreamCenter.cpp";
+</SCRIPT>
+<pre><span class="default"></span><a name="1"><font size=-1>1     </font></a><span class="default"></span><span class="comment">// Copyright 2013 The Chromium Authors. All rights reserved.</span>
+<a name="2"><font size=-1>2     </font></a><span class="comment">// Use of this source code is governed by a BSD-style license that can be</span>
+<a name="3"><font size=-1>3     </font></a><span class="comment">// found in the LICENSE file.</span>
+<a name="4"><font size=-1>4     </font></a><span class="comment"></span>
+<a name="5"><font size=-1>5     </font></a><span class="comment"></span><span class="preproc">#include </span><span class="string">&quot;content/shell/renderer/test_runner/MockWebMediaStreamCenter.h&quot;</span>
+<a name="6"><font size=-1>6     </font></a><span class="string"></span>
+<a name="7"><font size=-1>7     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;base/logging.h&quot;</span>
+<a name="8"><font size=-1>8     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;content/shell/renderer/test_runner/TestInterfaces.h&quot;</span>
+<a name="9"><font size=-1>9     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;content/shell/renderer/test_runner/WebTestDelegate.h&quot;</span>
+<a name="10"><font size=-1>10     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;third_party/WebKit/public/platform/WebAudioDestinationConsumer.h&quot;</span>
+<a name="11"><font size=-1>11     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;third_party/WebKit/public/platform/WebAudioSourceProvider.h&quot;</span>
+<a name="12"><font size=-1>12     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;third_party/WebKit/public/platform/WebMediaStream.h&quot;</span>
+<a name="13"><font size=-1>13     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;third_party/WebKit/public/platform/WebMediaStreamCenterClient.h&quot;</span>
+<a name="14"><font size=-1>14     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;third_party/WebKit/public/platform/WebMediaStreamSource.h&quot;</span>
+<a name="15"><font size=-1>15     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;third_party/WebKit/public/platform/WebMediaStreamTrack.h&quot;</span>
+<a name="16"><font size=-1>16     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;third_party/WebKit/public/platform/WebMediaStreamTrackSourcesRequest.h&quot;</span>
+<a name="17"><font size=-1>17     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;third_party/WebKit/public/platform/WebSourceInfo.h&quot;</span>
+<a name="18"><font size=-1>18     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;third_party/WebKit/public/platform/WebVector.h&quot;</span>
+<a name="19"><font size=-1>19     </font></a><span class="string"></span>
+<a name="20"><font size=-1>20     </font></a><span class="string"></span><span class="keyword">using namespace </span><span class="default">blink;</span>
+<a name="21"><font size=-1>21     </font></a><span class="default"></span>
+<a name="22"><font size=-1>22     </font></a><span class="default"></span><span class="keyword">namespace </span><span class="default">content {</span>
+<a name="23"><font size=-1>23     </font></a><span class="default"></span>
+<a name="24"><font size=-1>24     </font></a><span class="default"></span><span class="keyword">class <a href="dictionary_C.html#6665">NewTrackTask</a> </span><span class="default">: </span><span class="keyword">public <a href="dictionary_W.html#525">WebMethodTask</a></span><span class="default">&lt;MockWebMediaStreamCenter&gt; {</span>
+<a name="25"><font size=-1>25     </font></a><span class="default"></span><span class="keyword">public</span><span class="default">:</span>
+<a name="26"><font size=-1>26     </font></a><span class="default">    <a href="dictionary_C.html#6666">NewTrackTask</a>(<a href="dictionary_M.html#6668">MockWebMediaStreamCenter</a>* <a href="dictionary_O.html#6667">object</a>, </span><span class="keyword">const <a href="dictionary_W.html#1893">WebMediaStream</a></span><span class="default">&amp; <a href="dictionary_S.html#6669">stream</a>)</span>
+<a name="27"><font size=-1>27     </font></a><span class="default">        : WebMethodTask&lt;MockWebMediaStreamCenter&gt;(<a href="dictionary_O.html#6667">object</a>)</span>
+<a name="28"><font size=-1>28     </font></a><span class="default">        , <a href="dictionary_C.html#6671">m_stream</a>(<a href="dictionary_S.html#6669">stream</a>)</span>
+<a name="29"><font size=-1>29     </font></a><span class="default">    {</span>
+<a name="30"><font size=-1>30     </font></a><span class="default">        <a href="dictionary_D.html#1352">DCHECK</a>(!<a href="dictionary_C.html#6671">m_stream</a>.<a href="dictionary_I.html#1897">isNull</a>());</span>
+<a name="31"><font size=-1>31     </font></a><span class="default">    }</span>
+<a name="32"><font size=-1>32     </font></a><span class="default"></span>
+<a name="33"><font size=-1>33     </font></a><span class="default">    </span><span class="keyword">virtual void <a href="dictionary_C.html#6670">runIfValid</a></span><span class="default">() OVERRIDE</span>
+<a name="34"><font size=-1>34     </font></a><span class="default">    {</span>
+<a name="35"><font size=-1>35     </font></a><span class="default">        <a href="dictionary_W.html#6673">WebMediaStreamSource</a> <a href="dictionary_S.html#6672">source</a>;</span>
+<a name="36"><font size=-1>36     </font></a><span class="default">        <a href="dictionary_W.html#2921">WebMediaStreamTrack</a> <a href="dictionary_T.html#6674">track</a>;</span>
+<a name="37"><font size=-1>37     </font></a><span class="default">        <a href="dictionary_S.html#6672">source</a>.<a href="dictionary_I.html#1953">initialize</a>(</span><span class="string">&quot;MagicVideoDevice#1&quot;</span><span class="default">, <a href="dictionary_W.html#6673">WebMediaStreamSource</a>::<a href="dictionary_T.html#6675">TypeVideo</a>, </span><span class="string">&quot;Magic video track&quot;</span><span class="default">);</span>
+<a name="38"><font size=-1>38     </font></a><span class="default">        <a href="dictionary_T.html#6674">track</a>.<a href="dictionary_I.html#1953">initialize</a>(<a href="dictionary_S.html#6672">source</a>);</span>
+<a name="39"><font size=-1>39     </font></a><span class="default">        <a href="dictionary_C.html#6671">m_stream</a>.<a href="dictionary_A.html#6676">addTrack</a>(<a href="dictionary_T.html#6674">track</a>);</span>
+<a name="40"><font size=-1>40     </font></a><span class="default">    }</span>
+<a name="41"><font size=-1>41     </font></a><span class="default"></span>
+<a name="42"><font size=-1>42     </font></a><span class="default"></span><span class="keyword">private</span><span class="default">:</span>
+<a name="43"><font size=-1>43     </font></a><span class="default">    <a href="dictionary_W.html#1893">WebMediaStream</a> <a href="dictionary_C.html#6671">m_stream</a>;</span>
+<a name="44"><font size=-1>44     </font></a><span class="default">};</span>
+<a name="45"><font size=-1>45     </font></a><span class="default"></span>
+<a name="46"><font size=-1>46     </font></a><span class="default"><a href="dictionary_M.html#6668">MockWebMediaStreamCenter</a>::<a href="dictionary_M.html#6677">MockWebMediaStreamCenter</a>(<a href="dictionary_W.html#6679">WebMediaStreamCenterClient</a>* <a href="dictionary_C.html#6678">client</a>, <a href="dictionary_T.html#2382">TestInterfaces</a>* <a href="dictionary_I.html#6680">interfaces</a>)</span>
+<a name="47"><font size=-1>47     </font></a><span class="default">    : m_interfaces(<a href="dictionary_I.html#6680">interfaces</a>)</span>
+<a name="48"><font size=-1>48     </font></a><span class="default">{</span>
+<a name="49"><font size=-1>49     </font></a><span class="default">}</span>
+<a name="50"><font size=-1>50     </font></a><span class="default"></span>
+<a name="51"><font size=-1>51     </font></a><span class="default"></span><span class="keyword">bool <a href="dictionary_M.html#6668">MockWebMediaStreamCenter</a></span><span class="default">::<a href="dictionary_G.html#6681">getMediaStreamTrackSources</a>(</span><span class="keyword">const <a href="dictionary_W.html#6683">WebMediaStreamTrackSourcesRequest</a></span><span class="default">&amp; <a href="dictionary_R.html#6682">request</a>)</span>
+<a name="52"><font size=-1>52     </font></a><span class="default">{</span>
+<a name="53"><font size=-1>53     </font></a><span class="default">    <a href="dictionary_S.html#574">size_t</a> <a href="dictionary_S.html#6684">size</a> = </span><span class="number">2</span><span class="default">;</span>
+<a name="54"><font size=-1>54     </font></a><span class="default">    <a href="dictionary_W.html#1186">WebVector</a>&lt;WebSourceInfo&gt; <a href="dictionary_R.html#6685">results</a>(<a href="dictionary_S.html#6684">size</a>);</span>
+<a name="55"><font size=-1>55     </font></a><span class="default">    <a href="dictionary_R.html#6685">results</a>[</span><span class="number">0</span><span class="default">].<a href="dictionary_I.html#1953">initialize</a>(</span><span class="string">&quot;MockAudioDevice#1&quot;</span><span class="default">, <a href="dictionary_W.html#6686">WebSourceInfo</a>::<a href="dictionary_W.html#6687">SourceKindAudio</a>, </span><span class="string">&quot;Mock audio device&quot;</span><span class="default">, <a href="dictionary_W.html#6686">WebSourceInfo</a>::<a href="dictionary_W.html#6688">VideoFacingModeNone</a>);</span>
+<a name="56"><font size=-1>56     </font></a><span class="default">    <a href="dictionary_R.html#6685">results</a>[</span><span class="number">1</span><span class="default">].<a href="dictionary_I.html#1953">initialize</a>(</span><span class="string">&quot;MockVideoDevice#1&quot;</span><span class="default">, <a href="dictionary_W.html#6686">WebSourceInfo</a>::<a href="dictionary_W.html#6689">SourceKindVideo</a>, </span><span class="string">&quot;Mock video device&quot;</span><span class="default">, <a href="dictionary_W.html#6686">WebSourceInfo</a>::<a href="dictionary_W.html#6690">VideoFacingModeEnvironment</a>);</span>
+<a name="57"><font size=-1>57     </font></a><span class="default">    <a href="dictionary_R.html#6682">request</a>.<a href="dictionary_R.html#1898">requestSucceeded</a>(<a href="dictionary_R.html#6685">results</a>);</span>
+<a name="58"><font size=-1>58     </font></a><span class="default">    </span><span class="keyword">return true</span><span class="default">;</span>
+<a name="59"><font size=-1>59     </font></a><span class="default">}</span>
+<a name="60"><font size=-1>60     </font></a><span class="default"></span>
+<a name="61"><font size=-1>61     </font></a><span class="default"></span><span class="keyword">void <a href="dictionary_M.html#6668">MockWebMediaStreamCenter</a></span><span class="default">::<a href="dictionary_D.html#6691">didEnableMediaStreamTrack</a>(</span><span class="keyword">const <a href="dictionary_W.html#2921">WebMediaStreamTrack</a></span><span class="default">&amp; <a href="dictionary_T.html#6692">track</a>)</span>
+<a name="62"><font size=-1>62     </font></a><span class="default">{</span>
+<a name="63"><font size=-1>63     </font></a><span class="default">    <a href="dictionary_T.html#6692">track</a>.<a href="dictionary_S.html#2929">source</a>().<a href="dictionary_S.html#6693">setReadyState</a>(<a href="dictionary_W.html#6673">WebMediaStreamSource</a>::<a href="dictionary_R.html#6694">ReadyStateLive</a>);</span>
+<a name="64"><font size=-1>64     </font></a><span class="default">}</span>
+<a name="65"><font size=-1>65     </font></a><span class="default"></span>
+<a name="66"><font size=-1>66     </font></a><span class="default"></span><span class="keyword">void <a href="dictionary_M.html#6668">MockWebMediaStreamCenter</a></span><span class="default">::<a href="dictionary_D.html#6695">didDisableMediaStreamTrack</a>(</span><span class="keyword">const <a href="dictionary_W.html#2921">WebMediaStreamTrack</a></span><span class="default">&amp; <a href="dictionary_T.html#6696">track</a>)</span>
+<a name="67"><font size=-1>67     </font></a><span class="default">{</span>
+<a name="68"><font size=-1>68     </font></a><span class="default">    <a href="dictionary_T.html#6696">track</a>.<a href="dictionary_S.html#2929">source</a>().<a href="dictionary_S.html#6693">setReadyState</a>(<a href="dictionary_W.html#6673">WebMediaStreamSource</a>::<a href="dictionary_R.html#6697">ReadyStateMuted</a>);</span>
+<a name="69"><font size=-1>69     </font></a><span class="default">}</span>
+<a name="70"><font size=-1>70     </font></a><span class="default"></span>
+<a name="71"><font size=-1>71     </font></a><span class="default"></span><span class="keyword">bool <a href="dictionary_M.html#6668">MockWebMediaStreamCenter</a></span><span class="default">::<a href="dictionary_D.html#6698">didAddMediaStreamTrack</a>(</span><span class="keyword">const <a href="dictionary_W.html#1893">WebMediaStream</a></span><span class="default">&amp;, </span><span class="keyword">const <a href="dictionary_W.html#2921">WebMediaStreamTrack</a></span><span class="default">&amp;)</span>
+<a name="72"><font size=-1>72     </font></a><span class="default">{</span>
+<a name="73"><font size=-1>73     </font></a><span class="default">    </span><span class="keyword">return true</span><span class="default">;</span>
+<a name="74"><font size=-1>74     </font></a><span class="default">}</span>
+<a name="75"><font size=-1>75     </font></a><span class="default"></span>
+<a name="76"><font size=-1>76     </font></a><span class="default"></span><span class="keyword">bool <a href="dictionary_M.html#6668">MockWebMediaStreamCenter</a></span><span class="default">::<a href="dictionary_D.html#6701">didRemoveMediaStreamTrack</a>(</span><span class="keyword">const <a href="dictionary_W.html#1893">WebMediaStream</a></span><span class="default">&amp;, </span><span class="keyword">const <a href="dictionary_W.html#2921">WebMediaStreamTrack</a></span><span class="default">&amp;)</span>
+<a name="77"><font size=-1>77     </font></a><span class="default">{</span>
+<a name="78"><font size=-1>78     </font></a><span class="default">    </span><span class="keyword">return true</span><span class="default">;</span>
+<a name="79"><font size=-1>79     </font></a><span class="default">}</span>
+<a name="80"><font size=-1>80     </font></a><span class="default"></span>
+<a name="81"><font size=-1>81     </font></a><span class="default"></span><span class="keyword">void <a href="dictionary_M.html#6668">MockWebMediaStreamCenter</a></span><span class="default">::<a href="dictionary_D.html#6704">didStopLocalMediaStream</a>(</span><span class="keyword">const <a href="dictionary_W.html#1893">WebMediaStream</a></span><span class="default">&amp; <a href="dictionary_S.html#6705">stream</a>)</span>
+<a name="82"><font size=-1>82     </font></a><span class="default">{</span>
+<a name="83"><font size=-1>83     </font></a><span class="default">    <a href="dictionary_W.html#1186">WebVector</a>&lt;<a href="dictionary_W.html#2921">WebMediaStreamTrack</a>&gt; <a href="dictionary_T.html#6706">tracks</a>;</span>
+<a name="84"><font size=-1>84     </font></a><span class="default">    <a href="dictionary_S.html#6705">stream</a>.<a href="dictionary_A.html#6707">audioTracks</a>(<a href="dictionary_T.html#6706">tracks</a>);</span>
+<a name="85"><font size=-1>85     </font></a><span class="default">    </span><span class="keyword">for </span><span class="default">(<a href="dictionary_S.html#574">size_t</a> <a href="dictionary_I.html#6708">i</a> = </span><span class="number">0</span><span class="default">; <a href="dictionary_I.html#6708">i</a> &lt; <a href="dictionary_T.html#6706">tracks</a>.<a href="dictionary_S.html#735">size</a>(); ++<a href="dictionary_I.html#6708">i</a>)</span>
+<a name="86"><font size=-1>86     </font></a><span class="default">        <a href="dictionary_T.html#6706">tracks</a>[<a href="dictionary_I.html#6708">i</a>].<a href="dictionary_S.html#2929">source</a>().<a href="dictionary_S.html#6693">setReadyState</a>(<a href="dictionary_W.html#6673">WebMediaStreamSource</a>::<a href="dictionary_R.html#6709">ReadyStateEnded</a>);</span>
+<a name="87"><font size=-1>87     </font></a><span class="default">    <a href="dictionary_S.html#6705">stream</a>.<a href="dictionary_V.html#6710">videoTracks</a>(<a href="dictionary_T.html#6706">tracks</a>);</span>
+<a name="88"><font size=-1>88     </font></a><span class="default">    </span><span class="keyword">for </span><span class="default">(<a href="dictionary_S.html#574">size_t</a> <a href="dictionary_I.html#6711">i</a> = </span><span class="number">0</span><span class="default">; <a href="dictionary_I.html#6711">i</a> &lt; <a href="dictionary_T.html#6706">tracks</a>.<a href="dictionary_S.html#735">size</a>(); ++<a href="dictionary_I.html#6711">i</a>)</span>
+<a name="89"><font size=-1>89     </font></a><span class="default">        <a href="dictionary_T.html#6706">tracks</a>[<a href="dictionary_I.html#6711">i</a>].<a href="dictionary_S.html#2929">source</a>().<a href="dictionary_S.html#6693">setReadyState</a>(<a href="dictionary_W.html#6673">WebMediaStreamSource</a>::<a href="dictionary_R.html#6709">ReadyStateEnded</a>);</span>
+<a name="90"><font size=-1>90     </font></a><span class="default">}</span>
+<a name="91"><font size=-1>91     </font></a><span class="default"></span>
+<a name="92"><font size=-1>92     </font></a><span class="default"></span><span class="keyword">bool <a href="dictionary_M.html#6668">MockWebMediaStreamCenter</a></span><span class="default">::<a href="dictionary_D.html#6712">didStopMediaStreamTrack</a>(</span><span class="keyword">const </span><span class="default">blink::<a href="dictionary_B.html#6714">WebMediaStreamTrack</a>&amp; <a href="dictionary_T.html#6713">track</a>)</span>
+<a name="93"><font size=-1>93     </font></a><span class="default">{</span>
+<a name="94"><font size=-1>94     </font></a><span class="default">    <a href="dictionary_T.html#6713">track</a>.<a href="dictionary_S.html#2929">source</a>().<a href="dictionary_S.html#6693">setReadyState</a>(<a href="dictionary_W.html#6673">WebMediaStreamSource</a>::<a href="dictionary_R.html#6709">ReadyStateEnded</a>);</span>
+<a name="95"><font size=-1>95     </font></a><span class="default">    </span><span class="keyword">return true</span><span class="default">;</span>
+<a name="96"><font size=-1>96     </font></a><span class="default">}</span>
+<a name="97"><font size=-1>97     </font></a><span class="default"></span>
+<a name="98"><font size=-1>98     </font></a><span class="default"></span><span class="keyword">class <a href="dictionary_C.html#6715">MockWebAudioDestinationConsumer</a> </span><span class="default">: </span><span class="keyword">public <a href="dictionary_W.html#6716">WebAudioDestinationConsumer</a> </span><span class="default">{</span>
+<a name="99"><font size=-1>99     </font></a><span class="default"></span><span class="keyword">public</span><span class="default">:</span>
+<a name="100"><font size=-1>100     </font></a><span class="default">    </span><span class="keyword">virtual </span><span class="default">~<a href="dictionary_C.html#6717">MockWebAudioDestinationConsumer</a>() { }</span>
+<a name="101"><font size=-1>101     </font></a><span class="default">    </span><span class="keyword">virtual void <a href="dictionary_C.html#6718">setFormat</a></span><span class="default">(<a href="dictionary_S.html#574">size_t</a> <a href="dictionary_N.html#6719">numberOfChannels</a>, </span><span class="keyword">float <a href="dictionary_S.html#6720">sampleRate</a></span><span class="default">) OVERRIDE { }</span>
+<a name="102"><font size=-1>102     </font></a><span class="default">    </span><span class="keyword">virtual void <a href="dictionary_C.html#6721">consumeAudio</a></span><span class="default">(</span><span class="keyword">const <a href="dictionary_W.html#1186">WebVector</a></span><span class="default">&lt;</span><span class="keyword">const float</span><span class="default">*&gt;&amp;, <a href="dictionary_S.html#574">size_t</a> <a href="dictionary_N.html#6723">number_of_frames</a>) OVERRIDE { }</span>
+<a name="103"><font size=-1>103     </font></a><span class="default">};</span>
+<a name="104"><font size=-1>104     </font></a><span class="default"></span>
+<a name="105"><font size=-1>105     </font></a><span class="default"></span><span class="keyword">void <a href="dictionary_M.html#6668">MockWebMediaStreamCenter</a></span><span class="default">::<a href="dictionary_D.html#6724">didCreateMediaStream</a>(<a href="dictionary_W.html#1893">WebMediaStream</a>&amp; <a href="dictionary_S.html#6725">stream</a>)</span>
+<a name="106"><font size=-1>106     </font></a><span class="default">{</span>
+<a name="107"><font size=-1>107     </font></a><span class="default">    <a href="dictionary_W.html#1186">WebVector</a>&lt;WebMediaStreamTrack&gt; <a href="dictionary_A.html#6726">audioTracks</a>;</span>
+<a name="108"><font size=-1>108     </font></a><span class="default">    <a href="dictionary_S.html#6725">stream</a>.<a href="dictionary_A.html#6707">audioTracks</a>(<a href="dictionary_A.html#6726">audioTracks</a>);</span>
+<a name="109"><font size=-1>109     </font></a><span class="default">    </span><span class="keyword">for </span><span class="default">(<a href="dictionary_S.html#574">size_t</a> <a href="dictionary_I.html#6727">i</a> = </span><span class="number">0</span><span class="default">; <a href="dictionary_I.html#6727">i</a> &lt; <a href="dictionary_A.html#6726">audioTracks</a>.<a href="dictionary_S.html#735">size</a>(); ++<a href="dictionary_I.html#6727">i</a>) {</span>
+<a name="110"><font size=-1>110     </font></a><span class="default">        <a href="dictionary_W.html#6673">WebMediaStreamSource</a> <a href="dictionary_S.html#6728">source</a> = <a href="dictionary_A.html#6726">audioTracks</a>[<a href="dictionary_I.html#6727">i</a>].<a href="dictionary_S.html#2929">source</a>();</span>
+<a name="111"><font size=-1>111     </font></a><span class="default">        </span><span class="keyword">if </span><span class="default">(<a href="dictionary_S.html#6728">source</a>.<a href="dictionary_R.html#6729">requiresAudioConsumer</a>()) {</span>
+<a name="112"><font size=-1>112     </font></a><span class="default">            <a href="dictionary_M.html#6731">MockWebAudioDestinationConsumer</a>* <a href="dictionary_C.html#6730">consumer</a> = </span><span class="keyword">new <a href="dictionary_M.html#6731">MockWebAudioDestinationConsumer</a></span><span class="default">();</span>
+<a name="113"><font size=-1>113     </font></a><span class="default">            <a href="dictionary_S.html#6728">source</a>.<a href="dictionary_A.html#6732">addAudioConsumer</a>(<a href="dictionary_C.html#6730">consumer</a>);</span>
+<a name="114"><font size=-1>114     </font></a><span class="default">            <a href="dictionary_S.html#6728">source</a>.<a href="dictionary_R.html#6733">removeAudioConsumer</a>(<a href="dictionary_C.html#6730">consumer</a>);</span>
+<a name="115"><font size=-1>115     </font></a><span class="default">            </span><span class="keyword">delete <a href="dictionary_C.html#6730">consumer</a></span><span class="default">;</span>
+<a name="116"><font size=-1>116     </font></a><span class="default">        }</span>
+<a name="117"><font size=-1>117     </font></a><span class="default">    }</span>
+<a name="118"><font size=-1>118     </font></a><span class="default">    <a href="dictionary_M.html#2388">m_interfaces</a>-&gt;<a href="dictionary_D.html#2389">delegate</a>()-&gt;<a href="dictionary_P.html#550">postTask</a>(</span><span class="keyword">new <a href="dictionary_N.html#6734">NewTrackTask</a></span><span class="default">(</span><span class="keyword">this</span><span class="default">, <a href="dictionary_S.html#6725">stream</a>));</span>
+<a name="119"><font size=-1>119     </font></a><span class="default">}</span>
+<a name="120"><font size=-1>120     </font></a><span class="default"></span>
+<a name="121"><font size=-1>121     </font></a><span class="default">blink::<a href="dictionary_B.html#6736">WebAudioSourceProvider</a>* <a href="dictionary_M.html#6668">MockWebMediaStreamCenter</a>::<a href="dictionary_C.html#6735">createWebAudioSourceFromMediaStreamTrack</a>(</span><span class="keyword">const </span><span class="default">blink::<a href="dictionary_B.html#6714">WebMediaStreamTrack</a>&amp; <a href="dictionary_T.html#6737">track</a>)</span>
+<a name="122"><font size=-1>122     </font></a><span class="default">{</span>
+<a name="123"><font size=-1>123     </font></a><span class="default">    </span><span class="keyword">return <a href="dictionary_N.html#203">NULL</a></span><span class="default">;</span>
+<a name="124"><font size=-1>124     </font></a><span class="default">}</span>
+<a name="125"><font size=-1>125     </font></a><span class="default"></span>
+<a name="126"><font size=-1>126     </font></a><span class="default">}  </span><span class="comment">// namespace content</span>
+<a name="127"><font size=-1>127     </font></a><span class="comment"></span>
+</pre></body></html>
