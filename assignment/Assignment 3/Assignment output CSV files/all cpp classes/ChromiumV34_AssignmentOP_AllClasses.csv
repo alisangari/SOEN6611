@@ -1,0 +1,253 @@
+release,class_name (class type),cbo,lcom
+34,ASTConsumer (Unknown Class),-1,-1
+34,AccessibilityController (Unknown Class),-1,-1
+34,AnonymousDerivedProtectedOnDerived (Class),0,0
+34,AnonymousDerivedProtectedToPublicInImpl (Class),0,0
+34,Args (Unknown Class),-1,-1
+34,AttributesCollector (Class),1,0
+34,BarInterface (Public Class),0,0
+34,BaseClass (Class),-1,-1
+34,Baz (Class),1,0
+34,BlinkGCPluginAction (Class),6,33
+34,BlinkGCPluginConsumer (Class),1,0
+34,CAtlDllModuleT (Unknown Class),-1,-1
+34,CLogFile (Unknown Class),-1,-1
+34,CMeasurePageLoadTimeBHO (Class),-1,-1
+34,CMeasurePageLoadTimeModule (Class),0,0
+34,CXXRecordDecl (Unknown Class),-1,-1
+34,CZString (Public Class),-1,-1
+34,CharSourceRange (Unknown Class),-1,-1
+34,ChromeClassTester (Class),-1,-1
+34,ClientCallTask (Class),1,0
+34,CommentInfo (Unknown Class),-1,-1
+34,CommonOptionsParser (Unknown Class),-1,-1
+34,ConcreteVirtualMethodsInHeaders (Class),0,0
+34,ConcreteVirtualMethodsInImplementation (Class),0,0
+34,Config (Class),-1,-1
+34,ConstructorCallback (Class),3,0
+34,ConstructorCallback (Class),3,0
+34,CppBoundClass (Unknown Class),-1,-1
+34,CppNPObject (Unknown Class),-1,-1
+34,CppVariant (Unknown Class),-1,-1
+34,CppVariantPropertyCallback (Class),0,0
+34,DTMFSenderToneTask (Class),1,0
+34,DataChannelReadyStateTask (Class),1,0
+34,Decl (Unknown Class),-1,-1
+34,DerivedClass (Class),-1,-1
+34,DerivedProtectedToPublicInHeader (Class),-1,-1
+34,DiagnosticsEngine (Unknown Class),-1,-1
+34,DidStartSessionTask (Class),1,0
+34,DocumentOpenInDestroyStream (Class),0,0
+34,ElementList (Unknown Class),-1,-1
+34,EmptyStringConverter (Class),5,0
+34,EmptyStringConverter (Class),5,0
+34,ErrorTask (Class),3,0
+34,Errors (Unknown Class),-1,-1
+34,EvaluateJSAfterRemovingPluginElement (Class),0,0
+34,EvaluteJSWithinNPP_New (Class),0,0
+34,EventSender (Unknown Class),-1,-1
+34,Expr (Unknown Class),-1,-1
+34,ExtraData (Unknown Class),-1,-1
+34,FactoryFirst (Class),1,0
+34,FactoryLast (Class),1,0
+34,FactoryMiddle (Class),1,0
+34,FactoryRefersToOtherType (Class),1,0
+34,Features (Unknown Class),-1,-1
+34,FindBadConstructsAction (Class),5,0
+34,FindBadConstructsConsumer (Class),11,87
+34,FirstFactoryRefersToOtherType (Class),1,0
+34,FixItHint (Unknown Class),-1,-1
+34,Foo (Class),1,0
+34,FormValue (Class),1,0
+34,FrontendPluginRegistry (Unknown Class),-1,-1
+34,GetURLNotifyWithURLThatFailsToLoad (Class),0,0
+34,GetURLWithJavaScriptURL (Class),1,33
+34,GetURLWithJavaScriptURLDestroyingPlugin (Class),0,0
+34,GetUserAgentWithNullNPPFromNPPNew (Class),0,0
+34,GetterPropertyCallback (Class),0,33
+34,HostMethodTask (Class),0,0
+34,HostMethodTask (Class),0,0
+34,HostMethodTask (Class),0,0
+34,HostMethodTask (Class),0,0
+34,IObjectWithSiteImpl (Unknown Class),-1,-1
+34,ImplementationDerivedClass (Class),0,0
+34,ImplicitDerivedProtectedToPublicInHeader (Class),-1,-1
+34,InArgs (Unknown Class),-1,-1
+34,InitializerCallback (Class),2,0
+34,InitializerCallback (Class),2,0
+34,InlineCtorsArentOKInHeader (Class),-1,-1
+34,InlineInCPPOK (Class),1,50
+34,InstanceList (Unknown Class),-1,-1
+34,InterimClass (Class),-1,-1
+34,InvokeCallbackTask (Class),1,0
+34,InvokeDestroysPluginWithinNPP_New (Class),0,0
+34,Isolate (Unknown Class),-1,-1
+34,Item (Unknown Class),-1,-1
+34,KeyDownTask (Class),0,0
+34,LazyInstance (Unknown Class),-1,-1
+34,LeakWindowScriptableObject (Class),0,0
+34,Lexer (Unknown Class),-1,-1
+34,LogNPPSetWindow (Class),0,0
+34,Logger (Unknown Class),-1,-1
+34,LoggerWin (Class),-1,-1
+34,MatchCallback (Unknown Class),-1,-1
+34,MatchFinder (Unknown Class),-1,-1
+34,MediaDevicesRequestTask (Class),0,0
+34,MethodList (Unknown Class),-1,-1
+34,MiniDisassembler (Unknown Class),-1,-1
+34,MissingCtorsArentOKInHeader (Class),-1,-1
+34,MissingInCPPOK (Class),1,0
+34,MockConstraints (Unknown Class),-1,-1
+34,MockExtraData (Class),0,0
+34,MockGrammarCheck (Unknown Class),-1,-1
+34,MockSpellCheck (Unknown Class),-1,-1
+34,MockWebAudioDestinationConsumer (Class),0,0
+34,MockWebAudioDevice (Unknown Class),-1,-1
+34,MockWebMIDIAccessor (Unknown Class),-1,-1
+34,MockWebMediaStreamCenter (Unknown Class),-1,-1
+34,MockWebSpeechRecognizer (Unknown Class),-1,-1
+34,MouseDownTask (Class),1,0
+34,MouseUpTask (Class),0,0
+34,NPDeallocateCalledBeforeNPShutdown (Class),0,0
+34,NPPEntryPointManager (Unknown Class),-1,-1
+34,NPPNewFails (Class),0,0
+34,NPPSetWindowCalledDuringDestruction (Class),0,46
+34,NPRuntimeCallsWithNullNPP (Class),1,0
+34,NPRuntimeObjectFromDestroyedPlugin (Class),0,0
+34,NPRuntimeRemoveProperty (Class),0,0
+34,NSSCertDatabase (Unknown Class),-1,-1
+34,NoMatchTask (Class),1,0
+34,NotificationPresenter (Unknown Class),-1,-1
+34,NullNPPGetValuePointer (Class),0,33
+34,OnlyMember (Class),1,0
+34,PKCS12InitSingleton (Class),0,0
+34,PassDifferentNPPStruct (Class),0,0
+34,Path (Unknown Class),-1,-1
+34,PathArgument (Unknown Class),-1,-1
+34,Platform (Unknown Class),-1,-1
+34,PluginASTAction (Unknown Class),-1,-1
+34,PluginEntryPointList (Unknown Class),-1,-1
+34,PluginObject (Private Class),0,0
+34,PluginObject (Private Class),0,0
+34,PluginScriptableNPObjectInvokeDefault (Class),0,0
+34,PluginScriptableObjectOverridesAllProperties (Class),0,0
+34,PluginTest (Class),-1,-1
+34,PreamblePatcher (Unknown Class),-1,-1
+34,PrivateRefCountedDtorInHeader (Class),-1,-1
+34,Profile (Unknown Class),-1,-1
+34,ProfileWin (Class),-1,-1
+34,PropertyCallback (Unknown Class),-1,-1
+34,PropertyList (Unknown Class),-1,-1
+34,ProtectedRefCountedDtorInHeader (Class),-1,-1
+34,ProtectedRefCountedVirtualDtorInHeader (Class),-1,-1
+34,PublicRefCountedDtorInHeader (Class),-1,-1
+34,PublicRefCountedDtorInImpl (Class),0,0
+34,PublicRefCountedThreadSafeDtorInHeader (Class),-1,-1
+34,RTCPeerConnectionStateTask (Class),1,0
+34,RTCSessionDescriptionRequestFailedTask (Class),0,0
+34,RTCSessionDescriptionRequestSuccededTask (Class),0,0
+34,RTCStatsRequestSucceededTask (Class),0,0
+34,RTCVoidRequestTask (Class),0,0
+34,Reader (Unknown Class),-1,-1
+34,RecordCache (Class),-1,-1
+34,RecordDecl (Unknown Class),-1,-1
+34,RecordInfo (Class),-1,-1
+34,RemoteDataChannelTask (Class),1,0
+34,ResultTask (Class),2,0
+34,RewriterCallback (Class),6,0
+34,RootWebAXObjectProxy (Unknown Class),-1,-1
+34,ScriptableObject (Private Class),1,0
+34,ScriptableObject (Private Class),1,0
+34,SkTypeface (Unknown Class),-1,-1
+34,SkXfermode (Unknown Class),-1,-1
+34,SlowNPPNew (Class),0,0
+34,StepTask (Unknown Class),-1,-1
+34,String (Unknown Class),-1,-1
+34,Task (Unknown Class),-1,-1
+34,TemplateArgument (Unknown Class),-1,-1
+34,TemporaryCallback (Class),2,0
+34,TemporaryCallback (Class),2,0
+34,TestInterfaces (Unknown Class),-1,-1
+34,TestObject (Private Class),0,0
+34,TestObject (Private Class),0,0
+34,TestPageOverlay (Unknown Class),-1,-1
+34,TestPlugin (Unknown Class),-1,-1
+34,TracingStatus (Class),-1,-1
+34,TypeLoc (Unknown Class),-1,-1
+34,UnsafeTypedefChainInImpl (Class),0,0
+34,UserMediaRequestConstraintFailedTask (Class),1,0
+34,UserMediaRequestPermissionDeniedTask (Class),0,0
+34,UserMediaRequestTask (Class),0,0
+34,Value (Unknown Class),-1,-1
+34,VirtualMethodsInHeaders (Class),0,0
+34,WarnOnMissingVirtual (Class),-1,-1
+34,WebAXObject (Unknown Class),-1,-1
+34,WebAXObjectProxy (Unknown Class),-1,-1
+34,WebAXObjectProxyList (Unknown Class),-1,-1
+34,WebAudioDestinationConsumer (Unknown Class),-1,-1
+34,WebBindings (Unknown Class),-1,-1
+34,WebCache (Unknown Class),-1,-1
+34,WebDataSource (Unknown Class),-1,-1
+34,WebGraphicsContext3D (Unknown Class),-1,-1
+34,WebIconURL (Unknown Class),-1,-1
+34,WebInputEvent (Unknown Class),-1,-1
+34,WebKitDerivedPublicDtorInHeader (Class),-1,-1
+34,WebKitObserver (Class),-1,-1
+34,WebKitObserverImpl (Class),-1,-1
+34,WebKitPublicDtorInHeader (Class),-1,-1
+34,WebMediaDeviceInfo (Unknown Class),-1,-1
+34,WebMediaStreamSource (Unknown Class),-1,-1
+34,WebMethodTask (Unknown Class),-1,-1
+34,WebMouseEvent (Unknown Class),-1,-1
+34,WebNotificationPresenter (Unknown Class),-1,-1
+34,WebPermissions (Unknown Class),-1,-1
+34,WebPluginContainer (Unknown Class),-1,-1
+34,WebPreferences (Unknown Class),-1,-1
+34,WebRTCDataChannelHandlerClient (Unknown Class),-1,-1
+34,WebRTCPeerConnectionHandlerClient (Unknown Class),-1,-1
+34,WebSecurityPolicy (Unknown Class),-1,-1
+34,WebSettings (Unknown Class),-1,-1
+34,WebSourceInfo (Unknown Class),-1,-1
+34,WebSpeechRecognizerClient (Unknown Class),-1,-1
+34,WebString (Unknown Class),-1,-1
+34,WebTask (Unknown Class),-1,-1
+34,WebTestInterfaces (Unknown Class),-1,-1
+34,WebTestRunner (Unknown Class),-1,-1
+34,WebTestThemeEngineMock (Unknown Class),-1,-1
+34,WebThemeEngine (Unknown Class),-1,-1
+34,WebTouchEvent (Unknown Class),-1,-1
+34,WebTouchPoint (Unknown Class),-1,-1
+34,WebURLRequest (Unknown Class),-1,-1
+34,WebURLRequest (Unknown Class),-1,-1
+34,WebUserGestureIndicator (Unknown Class),-1,-1
+34,WorkItemBackForward (Class),0,0
+34,WorkItemLoad (Class),0,0
+34,WorkItemLoadHTMLString (Class),1,11
+34,WorkItemLoadingScript (Class),0,0
+34,WorkItemNonLoadingScript (Class),0,0
+34,WorkItemReload (Class),0,0
+34,WorkQueue (Unknown Class),-1,-1
+34,WorkQueueTask (Unknown Class),-1,-1
+34,ast_matchers (Unknown Class),-1,-1
+34,base (Unknown Class),-1,-1
+34,blink (Unknown Class),-1,-1
+34,cl (Unknown Class),-1,-1
+34,clang (Unknown Class),-1,-1
+34,content (Unknown Class),-1,-1
+34,crypto (Unknown Class),-1,-1
+34,l10n_util (Unknown Class),-1,-1
+34,llvm (Unknown Class),-1,-1
+34,net (Unknown Class),-1,-1
+34,numeric_limits (Unknown Class),-1,-1
+34,set (Unknown Class),-1,-1
+34,skia (Unknown Class),-1,-1
+34,std (Unknown Class),-1,-1
+34,string (Unknown Class),-1,-1
+34,string16 (Unknown Class),-1,-1
+34,string16 (Unknown Class),-1,-1
+34,tooling (Unknown Class),-1,-1
+34,v8 (Unknown Class),-1,-1
+34,vector (Public Class),-1,-1
+34,vector (Public Class),-1,-1
+34,x509_certificate_model (Unknown Class),-1,-1
+34,x509_util (Unknown Class),-1,-1

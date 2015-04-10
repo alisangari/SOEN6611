@@ -1,0 +1,254 @@
+release,class_name (class type),cbo,lcom
+ZippedVersion,A (Class),0,0
+ZippedVersion,ASTConsumer (Unknown Class),-1,-1
+ZippedVersion,Abstract (Class),-1,-1
+ZippedVersion,AlsoDoesNotNeedFinalizer (Class),-1,-1
+ZippedVersion,AlsoNeedsFinalizer (Class),-1,-1
+ZippedVersion,AnonymousDerivedProtectedOnDerived (Class),0,0
+ZippedVersion,AnonymousDerivedProtectedToPublicInImpl (Class),0,0
+ZippedVersion,Args (Unknown Class),-1,-1
+ZippedVersion,B (Class),0,0
+ZippedVersion,BarInterface (Public Class),0,0
+ZippedVersion,Base (Class),-1,-1
+ZippedVersion,BaseClass (Class),-1,-1
+ZippedVersion,BasePoint (Class),-1,-1
+ZippedVersion,Baz (Class),1,0
+ZippedVersion,BlinkGCPluginAction (Class),5,0
+ZippedVersion,BlinkGCPluginConsumer (Class),21,92
+ZippedVersion,C (Class),-1,-1
+ZippedVersion,CAtlDllModuleT (Unknown Class),-1,-1
+ZippedVersion,CIntelPowerGadgetLib (Class),-1,-1
+ZippedVersion,CLogFile (Unknown Class),-1,-1
+ZippedVersion,CMeasurePageLoadTimeBHO (Class),-1,-1
+ZippedVersion,CMeasurePageLoadTimeModule (Class),0,0
+ZippedVersion,CZString (Public Class),-1,-1
+ZippedVersion,CharSourceRange (Unknown Class),-1,-1
+ZippedVersion,CheckDispatchVisitor (Class),1,37
+ZippedVersion,CheckFieldsVisitor (Class),8,40
+ZippedVersion,CheckFinalizerVisitor (Class),7,70
+ZippedVersion,CheckGCRootsVisitor (Class),6,41
+ZippedVersion,CheckTraceVisitor (Class),4,50
+ZippedVersion,ChromeClassTester (Class),-1,-1
+ZippedVersion,ClientCallTask (Class),1,0
+ZippedVersion,CollectVisitor (Class),2,71
+ZippedVersion,Collection (Class),-1,-1
+ZippedVersion,CommandLine (Unknown Class),-1,-1
+ZippedVersion,CommentInfo (Unknown Class),-1,-1
+ZippedVersion,CommonOptionsParser (Unknown Class),-1,-1
+ZippedVersion,ConcreteVirtualMethodsInHeaders (Class),0,0
+ZippedVersion,ConcreteVirtualMethodsInImplementation (Class),0,0
+ZippedVersion,Config (Class),-1,-1
+ZippedVersion,ConstructorCallback (Class),3,0
+ZippedVersion,ConstructorCallback (Class),3,0
+ZippedVersion,Context (Unknown Class),-1,-1
+ZippedVersion,D (Class),-1,-1
+ZippedVersion,DTMFSenderToneTask (Class),0,0
+ZippedVersion,DataChannelReadyStateTask (Class),1,0
+ZippedVersion,Decl (Unknown Class),-1,-1
+ZippedVersion,DerivedClass (Class),-1,-1
+ZippedVersion,DerivedProtectedToPublicInHeader (Class),-1,-1
+ZippedVersion,DiagnosticIDs (Unknown Class),-1,-1
+ZippedVersion,DiagnosticsEngine (Unknown Class),-1,-1
+ZippedVersion,DidStartSessionTask (Class),0,0
+ZippedVersion,DocumentOpenInDestroyStream (Class),0,0
+ZippedVersion,DoesNotNeedFinalizer (Class),-1,-1
+ZippedVersion,DumpEdgeVisitor (Class),8,50
+ZippedVersion,Edge (Class),-1,-1
+ZippedVersion,EdgeVisitor (Class),-1,-1
+ZippedVersion,EmptyStringConverter (Class),5,0
+ZippedVersion,EmptyStringConverter (Class),5,0
+ZippedVersion,ErrorTask (Class),2,0
+ZippedVersion,Errors (Unknown Class),-1,-1
+ZippedVersion,EvaluateJSAfterRemovingPluginElement (Class),0,0
+ZippedVersion,EvaluteJSWithinNPP_New (Class),0,0
+ZippedVersion,Expr (Unknown Class),-1,-1
+ZippedVersion,ExtraData (Unknown Class),-1,-1
+ZippedVersion,FactoryFirst (Class),1,0
+ZippedVersion,FactoryLast (Class),1,0
+ZippedVersion,FactoryMiddle (Class),1,0
+ZippedVersion,FactoryRefersToOtherType (Class),1,0
+ZippedVersion,Features (Unknown Class),-1,-1
+ZippedVersion,FieldPoint (Class),-1,-1
+ZippedVersion,FindBadConstructsAction (Class),5,0
+ZippedVersion,FindBadConstructsConsumer (Class),10,87
+ZippedVersion,FirstFactoryRefersToOtherType (Class),1,0
+ZippedVersion,FixItHint (Unknown Class),-1,-1
+ZippedVersion,Foo (Class),1,0
+ZippedVersion,FormValue (Class),1,0
+ZippedVersion,FrontendPluginRegistry (Unknown Class),-1,-1
+ZippedVersion,GetURLNotifyWithURLThatFailsToLoad (Class),0,0
+ZippedVersion,GetURLWithJavaScriptURL (Class),0,0
+ZippedVersion,GetURLWithJavaScriptURLDestroyingPlugin (Class),0,0
+ZippedVersion,GetUserAgentWithNullNPPFromNPPNew (Class),0,0
+ZippedVersion,HasFinalizer (Class),-1,-1
+ZippedVersion,HeapObject (Class),-1,-1
+ZippedVersion,HostMethodTask (Class),0,0
+ZippedVersion,HostMethodTask (Class),0,0
+ZippedVersion,IObjectWithSiteImpl (Unknown Class),-1,-1
+ZippedVersion,ImplementationDerivedClass (Class),0,0
+ZippedVersion,ImplicitDerivedProtectedToPublicInHeader (Class),-1,-1
+ZippedVersion,InArgs (Unknown Class),-1,-1
+ZippedVersion,InitializerCallback (Class),2,0
+ZippedVersion,InitializerCallback (Class),2,0
+ZippedVersion,InlineCtorsArentOKInHeader (Class),-1,-1
+ZippedVersion,InlineInCPPOK (Class),1,50
+ZippedVersion,InlineObject (Class),-1,-1
+ZippedVersion,InnerObject (Private Class),-1,-1
+ZippedVersion,InstanceList (Unknown Class),-1,-1
+ZippedVersion,InterimClass (Class),-1,-1
+ZippedVersion,InvokeDestroysPluginWithinNPP_New (Class),0,0
+ZippedVersion,JsonWriter (Class),-1,-1
+ZippedVersion,LazyInstance (Unknown Class),-1,-1
+ZippedVersion,LeakWindowScriptableObject (Class),0,0
+ZippedVersion,Lexer (Unknown Class),-1,-1
+ZippedVersion,LogNPPSetWindow (Class),0,0
+ZippedVersion,Logger (Unknown Class),-1,-1
+ZippedVersion,LoggerWin (Class),-1,-1
+ZippedVersion,MatchCallback (Unknown Class),-1,-1
+ZippedVersion,MatchFinder (Unknown Class),-1,-1
+ZippedVersion,MediaDevicesRequestTask (Class),0,0
+ZippedVersion,Member (Class),-1,-1
+ZippedVersion,MightBeCollectedVisitor (Private Class),2,0
+ZippedVersion,MiniDisassembler (Unknown Class),-1,-1
+ZippedVersion,MissingCtorsArentOKInHeader (Class),-1,-1
+ZippedVersion,MissingInCPPOK (Class),1,0
+ZippedVersion,Mixin (Class),-1,-1
+ZippedVersion,MockConstraints (Unknown Class),-1,-1
+ZippedVersion,MockExtraData (Class),0,0
+ZippedVersion,MockGrammarCheck (Unknown Class),-1,-1
+ZippedVersion,MockSpellCheck (Unknown Class),-1,-1
+ZippedVersion,MockWebAudioDestinationConsumer (Class),0,0
+ZippedVersion,MockWebAudioDevice (Unknown Class),-1,-1
+ZippedVersion,MockWebSpeechRecognizer (Unknown Class),-1,-1
+ZippedVersion,NPDeallocateCalledBeforeNPShutdown (Class),0,0
+ZippedVersion,NPPEntryPointManager (Unknown Class),-1,-1
+ZippedVersion,NPPNewFails (Class),0,0
+ZippedVersion,NPPSetWindowCalledDuringDestruction (Class),0,46
+ZippedVersion,NPRuntimeCallsWithNullNPP (Class),1,0
+ZippedVersion,NPRuntimeObjectFromDestroyedPlugin (Class),0,0
+ZippedVersion,NPRuntimeRemoveProperty (Class),0,0
+ZippedVersion,NSSCertDatabase (Unknown Class),-1,-1
+ZippedVersion,NeedsFinalizer (Class),-1,-1
+ZippedVersion,NeedsTrace (Class),0,0
+ZippedVersion,NewTrackTask (Class),0,0
+ZippedVersion,NoMatchTask (Class),1,0
+ZippedVersion,NoTrace (Class),0,0
+ZippedVersion,NullNPPGetValuePointer (Class),0,33
+ZippedVersion,OffHeapObject (Class),-1,-1
+ZippedVersion,OnlyMember (Class),1,0
+ZippedVersion,OwnPtr (Class),-1,-1
+ZippedVersion,PKCS12InitSingleton (Class),0,0
+ZippedVersion,PartObject (Class),-1,-1
+ZippedVersion,PassDifferentNPPStruct (Class),0,0
+ZippedVersion,Path (Unknown Class),-1,-1
+ZippedVersion,PathArgument (Unknown Class),-1,-1
+ZippedVersion,Persistent (Class),-1,-1
+ZippedVersion,Platform (Unknown Class),-1,-1
+ZippedVersion,PluginASTAction (Unknown Class),-1,-1
+ZippedVersion,PluginEntryPointList (Unknown Class),-1,-1
+ZippedVersion,PluginObject (Private Class),0,0
+ZippedVersion,PluginObject (Private Class),0,0
+ZippedVersion,PluginScriptableNPObjectInvokeDefault (Class),0,0
+ZippedVersion,PluginScriptableObjectOverridesAllProperties (Class),0,0
+ZippedVersion,PluginTest (Class),-1,-1
+ZippedVersion,PreamblePatcher (Unknown Class),-1,-1
+ZippedVersion,PrivateRefCountedDtorInHeader (Class),-1,-1
+ZippedVersion,Profile (Unknown Class),-1,-1
+ZippedVersion,ProfileWin (Class),-1,-1
+ZippedVersion,ProtectedRefCountedDtorInHeader (Class),-1,-1
+ZippedVersion,ProtectedRefCountedVirtualDtorInHeader (Class),-1,-1
+ZippedVersion,PtrEdge (Class),-1,-1
+ZippedVersion,PublicRefCountedDtorInHeader (Class),-1,-1
+ZippedVersion,PublicRefCountedDtorInImpl (Class),0,0
+ZippedVersion,PublicRefCountedThreadSafeDtorInHeader (Class),-1,-1
+ZippedVersion,RTCPeerConnectionStateTask (Class),1,0
+ZippedVersion,RTCSessionDescriptionRequestFailedTask (Class),0,0
+ZippedVersion,RTCSessionDescriptionRequestSuccededTask (Class),0,0
+ZippedVersion,RTCStatsRequestSucceededTask (Class),0,0
+ZippedVersion,RTCVoidRequestTask (Class),0,0
+ZippedVersion,RawPtr (Class),-1,-1
+ZippedVersion,Reader (Unknown Class),-1,-1
+ZippedVersion,RecordCache (Class),-1,-1
+ZippedVersion,RecordDecl (Unknown Class),-1,-1
+ZippedVersion,RecordInfo (Class),-1,-1
+ZippedVersion,RecursiveASTVisitor (Unknown Class),-1,-1
+ZippedVersion,RecursiveEdgeVisitor (Class),-1,-1
+ZippedVersion,RefPtr (Class),-1,-1
+ZippedVersion,RemoteDataChannelTask (Class),1,0
+ZippedVersion,RenderThread (Unknown Class),-1,-1
+ZippedVersion,ResultTask (Class),1,0
+ZippedVersion,RewriterCallback (Class),5,0
+ZippedVersion,ScriptableObject (Private Class),1,0
+ZippedVersion,ScriptableObject (Private Class),1,0
+ZippedVersion,SingleReleaseCallback (Unknown Class),-1,-1
+ZippedVersion,SkTypeface (Unknown Class),-1,-1
+ZippedVersion,SkXfermode (Unknown Class),-1,-1
+ZippedVersion,SlowNPPNew (Class),0,0
+ZippedVersion,SomeObject (Class),-1,-1
+ZippedVersion,StepTask (Unknown Class),-1,-1
+ZippedVersion,Task (Unknown Class),-1,-1
+ZippedVersion,TemplateArgument (Unknown Class),-1,-1
+ZippedVersion,TemporaryCallback (Class),2,0
+ZippedVersion,TemporaryCallback (Class),2,0
+ZippedVersion,TestInterfaces (Unknown Class),-1,-1
+ZippedVersion,TestObject (Private Class),0,0
+ZippedVersion,TestObject (Private Class),0,0
+ZippedVersion,TestPlugin (Unknown Class),-1,-1
+ZippedVersion,TextureLayer (Unknown Class),-1,-1
+ZippedVersion,TracingStatus (Class),-1,-1
+ZippedVersion,TypeLoc (Unknown Class),-1,-1
+ZippedVersion,UnsafeTypedefChainInImpl (Class),0,0
+ZippedVersion,UserMediaRequestConstraintFailedTask (Class),0,0
+ZippedVersion,UserMediaRequestPermissionDeniedTask (Class),0,0
+ZippedVersion,UserMediaRequestTask (Class),0,0
+ZippedVersion,Value (Class),-1,-1
+ZippedVersion,VirtualMethodsInHeaders (Class),0,0
+ZippedVersion,Visitor (Class),-1,-1
+ZippedVersion,WarnOnMissingVirtual (Class),-1,-1
+ZippedVersion,WeakMember (Class),-1,-1
+ZippedVersion,WebAudioDestinationConsumer (Unknown Class),-1,-1
+ZippedVersion,WebCache (Unknown Class),-1,-1
+ZippedVersion,WebGraphicsContext3D (Unknown Class),-1,-1
+ZippedVersion,WebKitDerivedPublicDtorInHeader (Class),-1,-1
+ZippedVersion,WebKitObserver (Class),-1,-1
+ZippedVersion,WebKitObserverImpl (Class),-1,-1
+ZippedVersion,WebKitPublicDtorInHeader (Class),-1,-1
+ZippedVersion,WebMediaDeviceInfo (Unknown Class),-1,-1
+ZippedVersion,WebMediaStreamSource (Unknown Class),-1,-1
+ZippedVersion,WebMethodTask (Unknown Class),-1,-1
+ZippedVersion,WebPermissions (Unknown Class),-1,-1
+ZippedVersion,WebPluginContainer (Unknown Class),-1,-1
+ZippedVersion,WebRTCDataChannelHandlerClient (Unknown Class),-1,-1
+ZippedVersion,WebRTCPeerConnectionHandlerClient (Unknown Class),-1,-1
+ZippedVersion,WebSourceInfo (Unknown Class),-1,-1
+ZippedVersion,WebSpeechRecognizerClient (Unknown Class),-1,-1
+ZippedVersion,WebTask (Unknown Class),-1,-1
+ZippedVersion,WebTestInterfaces (Unknown Class),-1,-1
+ZippedVersion,WebTestThemeEngineMock (Unknown Class),-1,-1
+ZippedVersion,WebThemeEngine (Unknown Class),-1,-1
+ZippedVersion,WebTouchPoint (Unknown Class),-1,-1
+ZippedVersion,WebUserGestureIndicator (Unknown Class),-1,-1
+ZippedVersion,ast_matchers (Unknown Class),-1,-1
+ZippedVersion,base (Unknown Class),-1,-1
+ZippedVersion,basic_string (Unknown Class),-1,-1
+ZippedVersion,blink (Unknown Class),-1,-1
+ZippedVersion,cc (Unknown Class),-1,-1
+ZippedVersion,cl (Unknown Class),-1,-1
+ZippedVersion,clang (Unknown Class),-1,-1
+ZippedVersion,content (Unknown Class),-1,-1
+ZippedVersion,crypto (Unknown Class),-1,-1
+ZippedVersion,gfx (Unknown Class),-1,-1
+ZippedVersion,gpu (Unknown Class),-1,-1
+ZippedVersion,l10n_util (Unknown Class),-1,-1
+ZippedVersion,llvm (Unknown Class),-1,-1
+ZippedVersion,net (Unknown Class),-1,-1
+ZippedVersion,std (Unknown Class),-1,-1
+ZippedVersion,string (Unknown Class),-1,-1
+ZippedVersion,string16 (Public Class),-1,-1
+ZippedVersion,switches (Unknown Class),-1,-1
+ZippedVersion,tooling (Unknown Class),-1,-1
+ZippedVersion,vector (Public Class),-1,-1
+ZippedVersion,vector (Public Class),-1,-1
+ZippedVersion,webkit (Unknown Class),-1,-1
+ZippedVersion,x509_certificate_model (Unknown Class),-1,-1
+ZippedVersion,x509_util (Unknown Class),-1,-1

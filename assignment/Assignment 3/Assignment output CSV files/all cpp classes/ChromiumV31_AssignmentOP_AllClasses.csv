@@ -1,0 +1,94 @@
+release,class_name (class type),cbo,lcom
+31,ASTConsumer (Unknown Class),-1,-1
+31,AnonymousDerivedProtectedOnDerived (Class),0,0
+31,AnonymousDerivedProtectedToPublicInImpl (Class),0,0
+31,Args (Unknown Class),-1,-1
+31,BarInterface (Public Class),0,0
+31,BaseClass (Class),-1,-1
+31,Baz (Class),1,0
+31,CAtlDllModuleT (Unknown Class),-1,-1
+31,CLogFile (Unknown Class),-1,-1
+31,CMeasurePageLoadTimeBHO (Class),-1,-1
+31,CMeasurePageLoadTimeModule (Class),0,0
+31,CZString (Public Class),-1,-1
+31,CharSourceRange (Unknown Class),-1,-1
+31,CharSourceRange (Unknown Class),-1,-1
+31,ChromeClassTester (Class),-1,-1
+31,CommentInfo (Unknown Class),-1,-1
+31,CommonOptionsParser (Unknown Class),-1,-1
+31,ConcreteVirtualMethodsInHeaders (Class),0,0
+31,ConcreteVirtualMethodsInImplementation (Class),0,0
+31,ConstructorCallback (Class),3,0
+31,ConstructorCallback (Class),3,0
+31,Decl (Unknown Class),-1,-1
+31,DerivedClass (Class),-1,-1
+31,DerivedProtectedToPublicInHeader (Class),-1,-1
+31,DiagnosticsEngine (Unknown Class),-1,-1
+31,EmptyStringConverter (Class),5,0
+31,EmptyStringConverter (Class),5,0
+31,FindBadConstructsAction (Class),4,0
+31,FindBadConstructsConsumer (Class),7,86
+31,FixItHint (Unknown Class),-1,-1
+31,Foo (Class),1,0
+31,FrontendPluginRegistry (Unknown Class),-1,-1
+31,IObjectWithSiteImpl (Unknown Class),-1,-1
+31,ImplementationDerivedClass (Class),0,0
+31,ImplicitDerivedProtectedToPublicInHeader (Class),-1,-1
+31,InArgs (Unknown Class),-1,-1
+31,InitializerCallback (Class),2,0
+31,InitializerCallback (Class),2,0
+31,InlineCtorsArentOKInHeader (Class),-1,-1
+31,InlineInCPPOK (Class),1,50
+31,InstanceList (Unknown Class),-1,-1
+31,InterimClass (Class),-1,-1
+31,Lexer (Unknown Class),-1,-1
+31,Logger (Unknown Class),-1,-1
+31,LoggerWin (Class),-1,-1
+31,MatchCallback (Unknown Class),-1,-1
+31,MatchFinder (Unknown Class),-1,-1
+31,MiniDisassembler (Unknown Class),-1,-1
+31,MissingCtorsArentOKInHeader (Class),-1,-1
+31,MissingInCPPOK (Class),1,0
+31,NPPEntryPointManager (Unknown Class),-1,-1
+31,NSSCertDatabase (Unknown Class),-1,-1
+31,PKCS12InitSingleton (Class),0,0
+31,Path (Unknown Class),-1,-1
+31,PathArgument (Unknown Class),-1,-1
+31,PluginASTAction (Unknown Class),-1,-1
+31,PluginEntryPointList (Unknown Class),-1,-1
+31,PreamblePatcher (Unknown Class),-1,-1
+31,PrivateRefCountedDtorInHeader (Class),-1,-1
+31,Profile (Unknown Class),-1,-1
+31,ProfileWin (Class),-1,-1
+31,ProtectedRefCountedDtorInHeader (Class),-1,-1
+31,ProtectedRefCountedVirtualDtorInHeader (Class),-1,-1
+31,PublicRefCountedDtorInHeader (Class),-1,-1
+31,PublicRefCountedDtorInImpl (Class),0,0
+31,PublicRefCountedThreadSafeDtorInHeader (Class),-1,-1
+31,RecordDecl (Unknown Class),-1,-1
+31,RewriterCallback (Class),7,0
+31,SkTypeface (Unknown Class),-1,-1
+31,TemporaryCallback (Class),2,0
+31,TemporaryCallback (Class),2,0
+31,TypeLoc (Unknown Class),-1,-1
+31,UnsafeTypedefChainInImpl (Class),0,0
+31,Value (Unknown Class),-1,-1
+31,VirtualMethodsInHeaders (Class),0,0
+31,WarnOnMissingVirtual (Class),-1,-1
+31,WebKitDerivedPublicDtorInHeader (Class),-1,-1
+31,WebKitObserver (Class),-1,-1
+31,WebKitObserverImpl (Class),-1,-1
+31,WebKitPublicDtorInHeader (Class),-1,-1
+31,ast_matchers (Unknown Class),-1,-1
+31,base (Unknown Class),-1,-1
+31,cl (Unknown Class),-1,-1
+31,clang (Unknown Class),-1,-1
+31,crypto (Unknown Class),-1,-1
+31,l10n_util (Unknown Class),-1,-1
+31,llvm (Unknown Class),-1,-1
+31,net (Unknown Class),-1,-1
+31,std (Unknown Class),-1,-1
+31,tooling (Unknown Class),-1,-1
+31,vector (Public Class),-1,-1
+31,x509_certificate_model (Unknown Class),-1,-1
+31,x509_util (Unknown Class),-1,-1
