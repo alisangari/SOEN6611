@@ -1,0 +1,173 @@
+<html><head><title>RetrieveSymbols.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="sourcestyles.css" />
+</head><body link="blue" vlink="blue">
+<h3>File: C:\6611\latest version - 44\src\tools\win\RetrieveSymbols\RetrieveSymbols.cpp</h3>
+<SCRIPT>
+defaultStatus = "File: C:\\6611\\latest version - 44\\src\\tools\\win\\RetrieveSymbols\\RetrieveSymbols.cpp";
+top.document.title  = "RetrieveSymbols.cpp";
+</SCRIPT>
+<pre><span class="default"></span><a name="1"><font size=-1>1     </font></a><span class="default"></span><span class="comment">// Copyright 2014 The Chromium Authors. All rights reserved.</span>
+<a name="2"><font size=-1>2     </font></a><span class="comment">// Use of this source code is governed by a BSD-style license that can be</span>
+<a name="3"><font size=-1>3     </font></a><span class="comment">// found in the LICENSE file.</span>
+<a name="4"><font size=-1>4     </font></a><span class="comment"></span>
+<a name="5"><font size=-1>5     </font></a><span class="comment">// Symbol downloading demonstration code.</span>
+<a name="6"><font size=-1>6     </font></a><span class="comment">// For more information see ReadMe.txt and this blog post:</span>
+<a name="7"><font size=-1>7     </font></a><span class="comment">// https://randomascii.wordpress.com/2013/03/09/symbols-the-microsoft-way/</span>
+<a name="8"><font size=-1>8     </font></a><span class="comment"></span>
+<a name="9"><font size=-1>9     </font></a><span class="comment"></span><span class="preproc">#include </span><span class="string">&lt;stdio.h&gt;</span>
+<a name="10"><font size=-1>10     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&lt;Windows.h&gt;</span>
+<a name="11"><font size=-1>11     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&lt;DbgHelp.h&gt;</span>
+<a name="12"><font size=-1>12     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&lt;string&gt;</span>
+<a name="13"><font size=-1>13     </font></a><span class="string"></span>
+<a name="14"><font size=-1>14     </font></a><span class="string"></span><span class="comment">// Link with the dbghelp import library</span>
+<a name="15"><font size=-1>15     </font></a><span class="comment"></span><span class="preproc">#pragma </span><span class="default">comment(lib, </span><span class="string">&quot;dbghelp.lib&quot;</span><span class="default">)</span>
+<a name="16"><font size=-1>16     </font></a><span class="default"></span>
+<a name="17"><font size=-1>17     </font></a><span class="default"></span><span class="comment">// Uncomment this line to test with known-good parameters.</span>
+<a name="18"><font size=-1>18     </font></a><span class="comment">//#define TESTING</span>
+<a name="19"><font size=-1>19     </font></a><span class="comment"></span>
+<a name="20"><font size=-1>20     </font></a><span class="comment"></span><span class="keyword">int <a href="dictionary_M.html#4508">main</a></span><span class="default">(</span><span class="keyword">int <a href="dictionary_A.html#9159">argc</a></span><span class="default">, </span><span class="keyword">char</span><span class="default">* <a href="dictionary_A.html#9160">argv</a>[])</span>
+<a name="21"><font size=-1>21     </font></a><span class="default">{</span>
+<a name="22"><font size=-1>22     </font></a><span class="default">   </span><span class="comment">// Tell dbghelp to print diagnostics to the debugger output.</span>
+<a name="23"><font size=-1>23     </font></a><span class="comment">   <a href="dictionary_S.html#9161">SymSetOptions</a></span><span class="default">(<a href="dictionary_S.html#9162">SYMOPT_DEBUG</a>);</span>
+<a name="24"><font size=-1>24     </font></a><span class="default"></span>
+<a name="25"><font size=-1>25     </font></a><span class="default">   </span><span class="comment">// Initialize dbghelp</span>
+<a name="26"><font size=-1>26     </font></a><span class="comment">   </span><span class="keyword">const <a href="dictionary_H.html#8646">HANDLE</a> <a href="dictionary_F.html#9163">fakeProcess</a> </span><span class="default">= (<a href="dictionary_H.html#8646">HANDLE</a>)</span><span class="number">1</span><span class="default">;</span>
+<a name="27"><font size=-1>27     </font></a><span class="default">   <a href="dictionary_B.html#3332">BOOL</a> <a href="dictionary_R.html#9164">result</a> = <a href="dictionary_S.html#9165">SymInitialize</a>(<a href="dictionary_F.html#9163">fakeProcess</a>, <a href="dictionary_N.html#95">NULL</a>, <a href="dictionary_F.html#8643">FALSE</a>);</span>
+<a name="28"><font size=-1>28     </font></a><span class="default"></span>
+<a name="29"><font size=-1>29     </font></a><span class="default"></span><span class="preproc">#ifdef <a href="dictionary_T.html#9166">TESTING</a></span>
+<a name="30"><font size=-1>30     </font></a><span class="preproc">   </span><span class="comment">// Set a search path and cache directory. If this isn't set</span>
+<a name="31"><font size=-1>31     </font></a><span class="comment">   // then _NT_SYMBOL_PATH will be used instead.</span>
+<a name="32"><font size=-1>32     </font></a><span class="comment">   // Force setting it here to make sure that the test succeeds.</span>
+<a name="33"><font size=-1>33     </font></a><span class="comment">   </span><span class="default">SymSetSearchPath(<a href="dictionary_F.html#9163">fakeProcess</a>,</span>
+<a name="34"><font size=-1>34     </font></a><span class="default">              </span><span class="string">&quot;SRV*c:\\symbolstest*http://msdl.microsoft.com/download/symbols&quot;</span><span class="default">);</span>
+<a name="35"><font size=-1>35     </font></a><span class="default"></span>
+<a name="36"><font size=-1>36     </font></a><span class="default">   </span><span class="comment">// Valid PDB data to test the code.</span>
+<a name="37"><font size=-1>37     </font></a><span class="comment">   <a href="dictionary_S.html#115">std</a></span><span class="default">::<a href="dictionary_S.html#116">string</a> gTextArg = </span><span class="string">&quot;072FF0EB54D24DFAAE9D13885486EE09&quot;</span><span class="default">;</span>
+<a name="38"><font size=-1>38     </font></a><span class="default">   </span><span class="keyword">const char</span><span class="default">* ageText = </span><span class="string">&quot;2&quot;</span><span class="default">;</span>
+<a name="39"><font size=-1>39     </font></a><span class="default">   </span><span class="keyword">const char</span><span class="default">* fileName = </span><span class="string">&quot;kernel32.pdb&quot;</span><span class="default">;</span>
+<a name="40"><font size=-1>40     </font></a><span class="default"></span>
+<a name="41"><font size=-1>41     </font></a><span class="default">   </span><span class="comment">// Valid PE data to test the code</span>
+<a name="42"><font size=-1>42     </font></a><span class="comment">   </span><span class="default">fileName = </span><span class="string">&quot;crypt32.dll&quot;</span><span class="default">;</span>
+<a name="43"><font size=-1>43     </font></a><span class="default">   </span><span class="keyword">const char</span><span class="default">* dateStampText = </span><span class="string">&quot;4802A0D7&quot;</span><span class="default">;</span>
+<a name="44"><font size=-1>44     </font></a><span class="default">   </span><span class="keyword">const char</span><span class="default">* sizeText = </span><span class="string">&quot;95000&quot;</span><span class="default">;</span>
+<a name="45"><font size=-1>45     </font></a><span class="default">   </span><span class="comment">//fileName = &quot;chrome_child.dll&quot;;</span>
+<a name="46"><font size=-1>46     </font></a><span class="comment">   //const char* dateStampText = &quot;5420D824&quot;;</span>
+<a name="47"><font size=-1>47     </font></a><span class="comment">   //const char* sizeText = &quot;20a6000&quot;;</span>
+<a name="48"><font size=-1>48     </font></a><span class="comment"></span><span class="preproc">#else</span>
+<a name="49"><font size=-1>49     </font></a><span class="preproc">   </span><span class="keyword">if </span><span class="default">(<a href="dictionary_A.html#9159">argc</a> &lt; </span><span class="number">4</span><span class="default">)</span>
+<a name="50"><font size=-1>50     </font></a><span class="default">   {</span>
+<a name="51"><font size=-1>51     </font></a><span class="default">       <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;Error: insufficient arguments.\n&quot;</span><span class="default">);</span>
+<a name="52"><font size=-1>52     </font></a><span class="default">       <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;Usage: %s guid age pdbname\n&quot;</span><span class="default">, <a href="dictionary_A.html#9160">argv</a>[</span><span class="number">0</span><span class="default">]);</span>
+<a name="53"><font size=-1>53     </font></a><span class="default">       <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;Usage: %s dateStamp size pename\n&quot;</span><span class="default">, <a href="dictionary_A.html#9160">argv</a>[</span><span class="number">0</span><span class="default">]);</span>
+<a name="54"><font size=-1>54     </font></a><span class="default">       <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;Example: %s 6720c31f4ac24f3ab0243e0641a4412f 1 &quot;</span>
+<a name="55"><font size=-1>55     </font></a><span class="string">              &quot;chrome_child.dll.pdb\n&quot;</span><span class="default">, <a href="dictionary_A.html#9160">argv</a>[</span><span class="number">0</span><span class="default">]);</span>
+<a name="56"><font size=-1>56     </font></a><span class="default">       <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;Example: %s 4802A0D7 95000 crypt32.dll\n&quot;</span><span class="default">, <a href="dictionary_A.html#9160">argv</a>[</span><span class="number">0</span><span class="default">]);</span>
+<a name="57"><font size=-1>57     </font></a><span class="default">       </span><span class="keyword">return </span><span class="number">0</span><span class="default">;</span>
+<a name="58"><font size=-1>58     </font></a><span class="default">   }</span>
+<a name="59"><font size=-1>59     </font></a><span class="default"></span>
+<a name="60"><font size=-1>60     </font></a><span class="default">   <a href="dictionary_S.html#115">std</a>::<a href="dictionary_S.html#116">string</a> <a href="dictionary_G.html#9167">gTextArg</a> = <a href="dictionary_A.html#9160">argv</a>[</span><span class="number">1</span><span class="default">];</span>
+<a name="61"><font size=-1>61     </font></a><span class="default">   </span><span class="keyword">const char</span><span class="default">* <a href="dictionary_D.html#9168">dateStampText</a> = <a href="dictionary_A.html#9160">argv</a>[</span><span class="number">1</span><span class="default">];</span>
+<a name="62"><font size=-1>62     </font></a><span class="default">   </span><span class="keyword">const char</span><span class="default">* <a href="dictionary_A.html#9169">ageText</a> = <a href="dictionary_A.html#9160">argv</a>[</span><span class="number">2</span><span class="default">];</span>
+<a name="63"><font size=-1>63     </font></a><span class="default">   </span><span class="keyword">const char</span><span class="default">* <a href="dictionary_S.html#9170">sizeText</a> = <a href="dictionary_A.html#9160">argv</a>[</span><span class="number">2</span><span class="default">];</span>
+<a name="64"><font size=-1>64     </font></a><span class="default">   </span><span class="keyword">const char</span><span class="default">* <a href="dictionary_F.html#9171">fileName</a> = <a href="dictionary_A.html#9160">argv</a>[</span><span class="number">3</span><span class="default">];</span>
+<a name="65"><font size=-1>65     </font></a><span class="default"></span><span class="preproc">#endif</span>
+<a name="66"><font size=-1>66     </font></a><span class="preproc"></span>
+<a name="67"><font size=-1>67     </font></a><span class="preproc">   </span><span class="comment">// Parse the GUID and age from the text</span>
+<a name="68"><font size=-1>68     </font></a><span class="comment">   <a href="dictionary_G.html#9173">GUID</a> <a href="dictionary_G.html#9172">g</a> </span><span class="default">= {};</span>
+<a name="69"><font size=-1>69     </font></a><span class="default">   <a href="dictionary_D.html#3337">DWORD</a> <a href="dictionary_A.html#9174">age</a> = </span><span class="number">0</span><span class="default">;</span>
+<a name="70"><font size=-1>70     </font></a><span class="default">   <a href="dictionary_D.html#3337">DWORD</a> <a href="dictionary_D.html#9175">dateStamp</a> = </span><span class="number">0</span><span class="default">;</span>
+<a name="71"><font size=-1>71     </font></a><span class="default">   <a href="dictionary_D.html#3337">DWORD</a> <a href="dictionary_S.html#9176">size</a> = </span><span class="number">0</span><span class="default">;</span>
+<a name="72"><font size=-1>72     </font></a><span class="default"></span>
+<a name="73"><font size=-1>73     </font></a><span class="default">   </span><span class="comment">// Settings for SymFindFileInPath</span>
+<a name="74"><font size=-1>74     </font></a><span class="comment">   </span><span class="keyword">void</span><span class="default">* <a href="dictionary_I.html#9177">id</a> = <a href="dictionary_N.html#2656">nullptr</a>;</span>
+<a name="75"><font size=-1>75     </font></a><span class="default">   <a href="dictionary_D.html#3337">DWORD</a> <a href="dictionary_F.html#9178">flags</a> = </span><span class="number">0</span><span class="default">;</span>
+<a name="76"><font size=-1>76     </font></a><span class="default">   <a href="dictionary_D.html#3337">DWORD</a> <a href="dictionary_T.html#9179">two</a> = </span><span class="number">0</span><span class="default">;</span>
+<a name="77"><font size=-1>77     </font></a><span class="default"></span>
+<a name="78"><font size=-1>78     </font></a><span class="default">   </span><span class="keyword">const char</span><span class="default">* <a href="dictionary_E.html#9180">ext</a> = <a href="dictionary_S.html#6400">strrchr</a>(<a href="dictionary_F.html#9171">fileName</a>, </span><span class="string">'.'</span><span class="default">);</span>
+<a name="79"><font size=-1>79     </font></a><span class="default">   </span><span class="keyword">if </span><span class="default">(!<a href="dictionary_E.html#9180">ext</a>)</span>
+<a name="80"><font size=-1>80     </font></a><span class="default">   {</span>
+<a name="81"><font size=-1>81     </font></a><span class="default">     <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;No extension found on %s. Fatal error.\n&quot;</span><span class="default">, <a href="dictionary_F.html#9171">fileName</a>);</span>
+<a name="82"><font size=-1>82     </font></a><span class="default">     </span><span class="keyword">return </span><span class="number">0</span><span class="default">;</span>
+<a name="83"><font size=-1>83     </font></a><span class="default">   }</span>
+<a name="84"><font size=-1>84     </font></a><span class="default"></span>
+<a name="85"><font size=-1>85     </font></a><span class="default">   </span><span class="keyword">if </span><span class="default">(<a href="dictionary_Non-Alpha.html#9181">_stricmp</a>(<a href="dictionary_E.html#9180">ext</a>, </span><span class="string">&quot;.pdb&quot;</span><span class="default">) == </span><span class="number">0</span><span class="default">)</span>
+<a name="86"><font size=-1>86     </font></a><span class="default">   {</span>
+<a name="87"><font size=-1>87     </font></a><span class="default">     <a href="dictionary_S.html#115">std</a>::<a href="dictionary_S.html#116">string</a> <a href="dictionary_G.html#9182">gText</a>;</span>
+<a name="88"><font size=-1>88     </font></a><span class="default">     </span><span class="comment">// Scan the GUID argument and remove all non-hex characters. This allows</span>
+<a name="89"><font size=-1>89     </font></a><span class="comment">     // passing GUIDs with '-', '{', and '}' characters.</span>
+<a name="90"><font size=-1>90     </font></a><span class="comment">     </span><span class="keyword">for </span><span class="default">(</span><span class="keyword">auto <a href="dictionary_C.html#9183">c</a> </span><span class="default">: gTextArg)</span>
+<a name="91"><font size=-1>91     </font></a><span class="default">     {</span>
+<a name="92"><font size=-1>92     </font></a><span class="default">       </span><span class="keyword">if </span><span class="default">(<a href="dictionary_I.html#9184">isxdigit</a>(<a href="dictionary_C.html#9183">c</a>))</span>
+<a name="93"><font size=-1>93     </font></a><span class="default">       {</span>
+<a name="94"><font size=-1>94     </font></a><span class="default">         <a href="dictionary_G.html#9182">gText</a>.<a href="dictionary_P.html#1656">push_back</a>(<a href="dictionary_C.html#9183">c</a>);</span>
+<a name="95"><font size=-1>95     </font></a><span class="default">       }</span>
+<a name="96"><font size=-1>96     </font></a><span class="default">     }</span>
+<a name="97"><font size=-1>97     </font></a><span class="default">     <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;Parsing symbol data for a PDB file.\n&quot;</span><span class="default">);</span>
+<a name="98"><font size=-1>98     </font></a><span class="default">     </span><span class="keyword">if </span><span class="default">(<a href="dictionary_G.html#9182">gText</a>.<a href="dictionary_S.html#1660">size</a>() != </span><span class="number">32</span><span class="default">)</span>
+<a name="99"><font size=-1>99     </font></a><span class="default">     {</span>
+<a name="100"><font size=-1>100     </font></a><span class="default">         <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;Error: GUIDs must be exactly 32 characters&quot;</span>
+<a name="101"><font size=-1>101     </font></a><span class="string">                &quot; (%s was stripped to %s).\n&quot;</span><span class="default">, <a href="dictionary_G.html#9167">gTextArg</a>.<a href="dictionary_C.html#166">c_str</a>(), <a href="dictionary_G.html#9182">gText</a>.<a href="dictionary_C.html#166">c_str</a>());</span>
+<a name="102"><font size=-1>102     </font></a><span class="default">         </span><span class="keyword">return </span><span class="number">10</span><span class="default">;</span>
+<a name="103"><font size=-1>103     </font></a><span class="default">     }</span>
+<a name="104"><font size=-1>104     </font></a><span class="default"></span>
+<a name="105"><font size=-1>105     </font></a><span class="default">     </span><span class="keyword">int <a href="dictionary_C.html#9185">count</a> </span><span class="default">= <a href="dictionary_S.html#9186">sscanf_s</a>(<a href="dictionary_G.html#9182">gText</a>.<a href="dictionary_S.html#6588">substr</a>(</span><span class="number">0</span><span class="default">, </span><span class="number">8</span><span class="default">).<a href="dictionary_C.html#166">c_str</a>(), </span><span class="string">&quot;%x&quot;</span><span class="default">, &amp;<a href="dictionary_G.html#9172">g</a>.<a href="dictionary_D.html#9187">Data1</a>);</span>
+<a name="106"><font size=-1>106     </font></a><span class="default">     <a href="dictionary_D.html#3337">DWORD</a> <a href="dictionary_T.html#9188">temp</a>;</span>
+<a name="107"><font size=-1>107     </font></a><span class="default">     <a href="dictionary_C.html#9185">count</a> += <a href="dictionary_S.html#9186">sscanf_s</a>(<a href="dictionary_G.html#9182">gText</a>.<a href="dictionary_S.html#6588">substr</a>(</span><span class="number">8</span><span class="default">, </span><span class="number">4</span><span class="default">).<a href="dictionary_C.html#166">c_str</a>(), </span><span class="string">&quot;%x&quot;</span><span class="default">, &amp;<a href="dictionary_T.html#9188">temp</a>);</span>
+<a name="108"><font size=-1>108     </font></a><span class="default">     <a href="dictionary_G.html#9172">g</a>.<a href="dictionary_D.html#9189">Data2</a> = (</span><span class="keyword">unsigned short</span><span class="default">)<a href="dictionary_T.html#9188">temp</a>;</span>
+<a name="109"><font size=-1>109     </font></a><span class="default">     <a href="dictionary_C.html#9185">count</a> += <a href="dictionary_S.html#9186">sscanf_s</a>(<a href="dictionary_G.html#9182">gText</a>.<a href="dictionary_S.html#6588">substr</a>(</span><span class="number">12</span><span class="default">, </span><span class="number">4</span><span class="default">).<a href="dictionary_C.html#166">c_str</a>(), </span><span class="string">&quot;%x&quot;</span><span class="default">, &amp;<a href="dictionary_T.html#9188">temp</a>);</span>
+<a name="110"><font size=-1>110     </font></a><span class="default">     <a href="dictionary_G.html#9172">g</a>.<a href="dictionary_D.html#9190">Data3</a> = (</span><span class="keyword">unsigned short</span><span class="default">)<a href="dictionary_T.html#9188">temp</a>;</span>
+<a name="111"><font size=-1>111     </font></a><span class="default">     </span><span class="keyword">for </span><span class="default">(</span><span class="keyword">auto <a href="dictionary_I.html#9191">i</a> </span><span class="default">= </span><span class="number">0</span><span class="default">; <a href="dictionary_I.html#9191">i</a> &lt; <a href="dictionary_A.html#9192">ARRAYSIZE</a>(<a href="dictionary_G.html#9172">g</a>.<a href="dictionary_D.html#9193">Data4</a>); ++<a href="dictionary_I.html#9191">i</a>)</span>
+<a name="112"><font size=-1>112     </font></a><span class="default">     {</span>
+<a name="113"><font size=-1>113     </font></a><span class="default">         <a href="dictionary_C.html#9185">count</a> += <a href="dictionary_S.html#9186">sscanf_s</a>(<a href="dictionary_G.html#9182">gText</a>.<a href="dictionary_S.html#6588">substr</a>(</span><span class="number">16 </span><span class="default">+ <a href="dictionary_I.html#9191">i</a> * </span><span class="number">2</span><span class="default">, </span><span class="number">2</span><span class="default">).<a href="dictionary_C.html#166">c_str</a>(), </span><span class="string">&quot;%x&quot;</span><span class="default">, &amp;<a href="dictionary_T.html#9188">temp</a>);</span>
+<a name="114"><font size=-1>114     </font></a><span class="default">         <a href="dictionary_G.html#9172">g</a>.<a href="dictionary_D.html#9193">Data4</a>[<a href="dictionary_I.html#9191">i</a>] = (</span><span class="keyword">unsigned char</span><span class="default">)<a href="dictionary_T.html#9188">temp</a>;</span>
+<a name="115"><font size=-1>115     </font></a><span class="default">     }</span>
+<a name="116"><font size=-1>116     </font></a><span class="default">     <a href="dictionary_C.html#9185">count</a> += <a href="dictionary_S.html#9186">sscanf_s</a>(<a href="dictionary_A.html#9169">ageText</a>, </span><span class="string">&quot;%x&quot;</span><span class="default">, &amp;<a href="dictionary_A.html#9174">age</a>);</span>
+<a name="117"><font size=-1>117     </font></a><span class="default"></span>
+<a name="118"><font size=-1>118     </font></a><span class="default">     </span><span class="keyword">if </span><span class="default">(<a href="dictionary_C.html#9185">count</a> != </span><span class="number">12</span><span class="default">)</span>
+<a name="119"><font size=-1>119     </font></a><span class="default">     {</span>
+<a name="120"><font size=-1>120     </font></a><span class="default">         <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;Error: couldn't parse the GUID/age string. Sorry.\n&quot;</span><span class="default">);</span>
+<a name="121"><font size=-1>121     </font></a><span class="default">         </span><span class="keyword">return </span><span class="number">10</span><span class="default">;</span>
+<a name="122"><font size=-1>122     </font></a><span class="default">     }</span>
+<a name="123"><font size=-1>123     </font></a><span class="default">     <a href="dictionary_F.html#9178">flags</a> = <a href="dictionary_S.html#9194">SSRVOPT_GUIDPTR</a>;</span>
+<a name="124"><font size=-1>124     </font></a><span class="default">     <a href="dictionary_I.html#9177">id</a> = &amp;<a href="dictionary_G.html#9172">g</a>;</span>
+<a name="125"><font size=-1>125     </font></a><span class="default">     <a href="dictionary_T.html#9179">two</a> = <a href="dictionary_A.html#9174">age</a>;</span>
+<a name="126"><font size=-1>126     </font></a><span class="default">     <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;Looking for %s %s %s.\n&quot;</span><span class="default">, <a href="dictionary_G.html#9182">gText</a>.<a href="dictionary_C.html#166">c_str</a>(), <a href="dictionary_A.html#9169">ageText</a>, <a href="dictionary_F.html#9171">fileName</a>);</span>
+<a name="127"><font size=-1>127     </font></a><span class="default">   }</span>
+<a name="128"><font size=-1>128     </font></a><span class="default">   </span><span class="keyword">else</span>
+<a name="129"><font size=-1>129     </font></a><span class="keyword">   </span><span class="default">{</span>
+<a name="130"><font size=-1>130     </font></a><span class="default">     <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;Parsing symbol data for a PE (.dll or .exe) file.\n&quot;</span><span class="default">);</span>
+<a name="131"><font size=-1>131     </font></a><span class="default">     </span><span class="keyword">if </span><span class="default">(<a href="dictionary_S.html#1060">strlen</a>(<a href="dictionary_D.html#9168">dateStampText</a>) != </span><span class="number">8</span><span class="default">)</span>
+<a name="132"><font size=-1>132     </font></a><span class="default">       <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;Warning!!! The datestamp (%s) is not eight characters long. &quot;</span>
+<a name="133"><font size=-1>133     </font></a><span class="string">              &quot;This is usually wrong.\n&quot;</span><span class="default">, <a href="dictionary_D.html#9168">dateStampText</a>);</span>
+<a name="134"><font size=-1>134     </font></a><span class="default">     </span><span class="keyword">int <a href="dictionary_C.html#9195">count</a> </span><span class="default">= <a href="dictionary_S.html#9186">sscanf_s</a>(<a href="dictionary_D.html#9168">dateStampText</a>, </span><span class="string">&quot;%x&quot;</span><span class="default">, &amp;<a href="dictionary_D.html#9175">dateStamp</a>);</span>
+<a name="135"><font size=-1>135     </font></a><span class="default">     <a href="dictionary_C.html#9195">count</a> += <a href="dictionary_S.html#9186">sscanf_s</a>(<a href="dictionary_S.html#9170">sizeText</a>, </span><span class="string">&quot;%x&quot;</span><span class="default">, &amp;<a href="dictionary_S.html#9176">size</a>);</span>
+<a name="136"><font size=-1>136     </font></a><span class="default">     <a href="dictionary_F.html#9178">flags</a> = <a href="dictionary_S.html#9196">SSRVOPT_DWORDPTR</a>;</span>
+<a name="137"><font size=-1>137     </font></a><span class="default">     <a href="dictionary_I.html#9177">id</a> = &amp;<a href="dictionary_D.html#9175">dateStamp</a>;</span>
+<a name="138"><font size=-1>138     </font></a><span class="default">     <a href="dictionary_T.html#9179">two</a> = <a href="dictionary_S.html#9176">size</a>;</span>
+<a name="139"><font size=-1>139     </font></a><span class="default">     <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;Looking for %s %x %x.\n&quot;</span><span class="default">, <a href="dictionary_F.html#9171">fileName</a>, <a href="dictionary_D.html#9175">dateStamp</a>, <a href="dictionary_T.html#9179">two</a>);</span>
+<a name="140"><font size=-1>140     </font></a><span class="default">   }</span>
+<a name="141"><font size=-1>141     </font></a><span class="default"></span>
+<a name="142"><font size=-1>142     </font></a><span class="default">   </span><span class="keyword">char <a href="dictionary_F.html#9198">filePath</a></span><span class="default">[<a href="dictionary_M.html#9197">MAX_PATH</a>] = {};</span>
+<a name="143"><font size=-1>143     </font></a><span class="default">   <a href="dictionary_D.html#3337">DWORD</a> <a href="dictionary_T.html#9199">three</a> = </span><span class="number">0</span><span class="default">;</span>
+<a name="144"><font size=-1>144     </font></a><span class="default"></span>
+<a name="145"><font size=-1>145     </font></a><span class="default">   </span><span class="keyword">if </span><span class="default">(<a href="dictionary_S.html#9200">SymFindFileInPath</a>(<a href="dictionary_F.html#9163">fakeProcess</a>, <a href="dictionary_N.html#95">NULL</a>, <a href="dictionary_F.html#9171">fileName</a>, <a href="dictionary_I.html#9177">id</a>, <a href="dictionary_T.html#9179">two</a>, <a href="dictionary_T.html#9199">three</a>,</span>
+<a name="146"><font size=-1>146     </font></a><span class="default">               <a href="dictionary_F.html#9178">flags</a>, <a href="dictionary_F.html#9198">filePath</a>, <a href="dictionary_N.html#95">NULL</a>, <a href="dictionary_N.html#95">NULL</a>))</span>
+<a name="147"><font size=-1>147     </font></a><span class="default">   {</span>
+<a name="148"><font size=-1>148     </font></a><span class="default">       <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;Found symbol file - placed it in %s.\n&quot;</span><span class="default">, <a href="dictionary_F.html#9198">filePath</a>);</span>
+<a name="149"><font size=-1>149     </font></a><span class="default">   }</span>
+<a name="150"><font size=-1>150     </font></a><span class="default">   </span><span class="keyword">else</span>
+<a name="151"><font size=-1>151     </font></a><span class="keyword">   </span><span class="default">{</span>
+<a name="152"><font size=-1>152     </font></a><span class="default">       <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;Error: symbols not found - error %u. Are dbghelp.dll and &quot;</span>
+<a name="153"><font size=-1>153     </font></a><span class="string">               &quot;symsrv.dll in the same directory as this executable?\n&quot;</span><span class="default">,</span>
+<a name="154"><font size=-1>154     </font></a><span class="default">               <a href="dictionary_G.html#9201">GetLastError</a>());</span>
+<a name="155"><font size=-1>155     </font></a><span class="default">       <a href="dictionary_P.html#251">printf</a>(</span><span class="string">&quot;Note that symbol server lookups sometimes fail randomly. &quot;</span>
+<a name="156"><font size=-1>156     </font></a><span class="string">              &quot;Try again?\n&quot;</span><span class="default">);</span>
+<a name="157"><font size=-1>157     </font></a><span class="default">   }</span>
+<a name="158"><font size=-1>158     </font></a><span class="default"></span>
+<a name="159"><font size=-1>159     </font></a><span class="default">   <a href="dictionary_S.html#9202">SymCleanup</a>(<a href="dictionary_F.html#9163">fakeProcess</a>);</span>
+<a name="160"><font size=-1>160     </font></a><span class="default"></span>
+<a name="161"><font size=-1>161     </font></a><span class="default">   </span><span class="keyword">return </span><span class="number">0</span><span class="default">;</span>
+<a name="162"><font size=-1>162     </font></a><span class="default">}</span>
+<a name="163"><font size=-1>163     </font></a><span class="default"></span>
+</pre></body></html>

@@ -1,0 +1,800 @@
+<html><head><title>Simple Invocation Tree [A]</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head><body bgcolor="#ffffff" TEXT="#000000"><h2>Simple Invocation Tree</h2><hr><pre>
+</pre><table BORDER CELLPADDING=4><tr><td><a href="simpleinvtree_Non-Alpha.html">Non-Alpha</a></td><td><a href="simpleinvtree_A.html">A</a></td><td><a href="simpleinvtree_B.html">B</a></td><td><a href="simpleinvtree_C.html">C</a></td><td><a href="simpleinvtree_D.html">D</a></td><td><a href="simpleinvtree_E.html">E</a></td><td><a href="simpleinvtree_F.html">F</a></td><td><a href="simpleinvtree_G.html">G</a></td><td><a href="simpleinvtree_H.html">H</a></td><td><a href="simpleinvtree_I.html">I</a></td><td><a href="simpleinvtree_J.html">J</a></td><td><a href="simpleinvtree_K.html">K</a></td><td><a href="simpleinvtree_L.html">L</a></td><td><a href="simpleinvtree_M.html">M</a></td><td><a href="simpleinvtree_N.html">N</a></td><td><a href="simpleinvtree_O.html">O</a></td><td><a href="simpleinvtree_P.html">P</a></td><td>Q</td><td><a href="simpleinvtree_R.html">R</a></td><td><a href="simpleinvtree_S.html">S</a></td><td><a href="simpleinvtree_T.html">T</a></td><td><a href="simpleinvtree_U.html">U</a></td><td><a href="simpleinvtree_V.html">V</a></td><td><a href="simpleinvtree_W.html">W</a></td><td><a href="simpleinvtree_X.html">X</a></td><td><a href="simpleinvtree_Y.html">Y</a></td><td>Z</td></tr></table><pre>
+
+<a href="dictionary_A.html#6709">acp_entry::acp_entry</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_E.html#1696">exec_node::exec_node</a>
+
+<a href="dictionary_A.html#10590">acp_entry::acp_entry</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_E.html#1696">exec_node::exec_node</a>
+
+<a href="dictionary_A.html#10788">add_builtin_constant</a>
+| <a href="dictionary_A.html#10765">add_variable</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+
+<a href="dictionary_A.html#10778">add_builtin_variable</a>
+| <a href="dictionary_G.html#2041">glsl_symbol_table::get_type</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_A.html#10765">add_variable</a>
+
+<a href="dictionary_A.html#10981">add_types_to_symbol_table</a>
+| <a href="dictionary_G.html#9424">glsl_symbol_table::add_type</a>
+
+<a href="dictionary_A.html#9098">add_uniform</a>
+| <a href="dictionary_G.html#2043">glsl_type::is_record</a>
+| <a href="dictionary_T.html#1758">talloc_asprintf</a>
+| <a href="dictionary_A.html#9098">add_uniform</a>
+| <a href="dictionary_H.html#4143">hash_table_find</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_G.html#2016">glsl_type::is_sampler</a>
+| <a href="dictionary_C.html#2115">calloc</a>
+| <a href="dictionary_S.html#3590">strdup</a>
+| <a href="dictionary_H.html#4115">hash_table_insert</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+
+<a href="dictionary_A.html#10773">add_uniform</a>
+| <a href="dictionary_A.html#10765">add_variable</a>
+
+<a href="dictionary_A.html#3481">add_uniforms_to_parameters_list</a>
+| <a href="dictionary_T.html#3489">talloc_array</a>
+| <a href="dictionary_Q.html#3498">qsort</a>
+| <a href="dictionary_S.html#3476">sort_uniforms</a>
+| <a href="dictionary_G.html#2731">glsl_type::is_vector</a>
+| <a href="dictionary_G.html#2730">glsl_type::is_scalar</a>
+| <a href="dictionary_T.html#2897">type_size</a>
+| <a href="dictionary_G.html#3506">glsl_type::is_sampler</a>
+| <a href="dictionary_G.html#2915">glsl_type::is_array</a>
+| <a href="dictionary_I.html#3507">is_sampler</a>
+| <a href="dictionary_Non-Alpha.html#3339">_mesa_lookup_parameter_index</a>
+| <a href="dictionary_Non-Alpha.html#3511">_mesa_add_parameter</a>
+| <a href="dictionary_F.html#2827">fail_link</a>
+| <a href="dictionary_T.html#735">talloc_free</a>
+
+<a href="dictionary_A.html#10765">add_variable</a>
+| <a href="dictionary_I.html#117">ir_variable::ir_variable</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_G.html#7662">glsl_symbol_table::add_variable</a>
+
+<a href="dictionary_A.html#10440">AdvancedPageProc</a>
+| <a href="dictionary_H.html#1344">HANDLE_WM_INITDIALOG</a>
+| <a href="dictionary_O.html#10435">onInitDialog</a>
+| <a href="dictionary_O.html#10431">onNotify</a>
+
+<a href="dictionary_A.html#9524">all_expression_operands_are_loop_constant</a>
+| <a href="dictionary_E.html#9599">examine_rhs::examine_rhs</a>
+| <a href="dictionary_I.html#2574">ir_instruction::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#720">analyze_loop_variables</a>
+| <a href="dictionary_L.html#9547">loop_analysis::loop_analysis</a>
+| <a href="dictionary_I.html#2140">ir_hierarchical_visitor::run</a>
+
+<a href="dictionary_A.html#10669">AnonymousDerivedProtectedOnDerived::~AnonymousDerivedProtectedOnDerived</a>
+| <a href="dictionary_P.html#10670">ProtectedRefCountedDtorInHeader::~ProtectedRefCountedDtorInHeader</a>
+
+<a href="dictionary_A.html#10663">AnonymousDerivedProtectedToPublicInImpl::AnonymousDerivedProtectedToPublicInImpl</a>
+| <a href="dictionary_P.html#10666">ProtectedRefCountedVirtualDtorInHeader::ProtectedRefCountedVirtualDtorInHeader</a>
+
+<a href="dictionary_A.html#10664">AnonymousDerivedProtectedToPublicInImpl::~AnonymousDerivedProtectedToPublicInImpl</a>
+| <a href="dictionary_P.html#10665">ProtectedRefCountedVirtualDtorInHeader::~ProtectedRefCountedVirtualDtorInHeader</a>
+
+<a href="dictionary_A.html#1740">apply_implicit_conversion</a>
+| <a href="dictionary_G.html#1851">glsl_type::is_float</a>
+| <a href="dictionary_G.html#1780">glsl_type::is_numeric</a>
+| <a href="dictionary_G.html#114">glsl_type::get_instance</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_A.html#11220">apply_type_qualifier_to_variable</a>
+| <a href="dictionary_Non-Alpha.html#970">_mesa_glsl_error</a>
+| <a href="dictionary_Non-Alpha.html#8147">_mesa_glsl_shader_target_name</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_S.html#978">safe_strcmp</a>
+
+<a href="dictionary_A.html#11065">arithmetic_result_type</a>
+| <a href="dictionary_G.html#1780">glsl_type::is_numeric</a>
+| <a href="dictionary_Non-Alpha.html#970">_mesa_glsl_error</a>
+| <a href="dictionary_A.html#1740">apply_implicit_conversion</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_G.html#11073">glsl_type::row_type</a>
+| <a href="dictionary_G.html#1829">glsl_type::column_type</a>
+| <a href="dictionary_G.html#114">glsl_type::get_instance</a>
+
+<a href="dictionary_A.html#12242">array_index_visit::array_index_visit</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_A.html#12246">array_index_visit::run</a>
+| <a href="dictionary_A.html#12242">array_index_visit::array_index_visit</a>
+| <a href="dictionary_I.html#2574">ir_instruction::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#12244">array_index_visit::visit_enter</a>
+| <a href="dictionary_I.html#2574">ir_instruction::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#9139">assign_attribute_locations</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#8974">invalidate_variable_locations</a>
+| <a href="dictionary_G.html#4145">get_variable</a>
+| <a href="dictionary_C.html#8981">count_attribute_slots</a>
+| <a href="dictionary_L.html#4121">linker_error_printf</a>
+| <a href="dictionary_I.html#4135">ir_instruction::as_variable</a>
+| <a href="dictionary_Q.html#3498">qsort</a>
+| <a href="dictionary_T.html#9157">temp_attr::compare</a>
+| <a href="dictionary_F.html#8963">find_deref_visitor::find_deref_visitor</a>
+| <a href="dictionary_I.html#2140">ir_hierarchical_visitor::run</a>
+| <a href="dictionary_F.html#8967">find_deref_visitor::variable_found</a>
+| <a href="dictionary_F.html#9133">find_available_slots</a>
+
+<a href="dictionary_A.html#1911">assign_to_matrix_column</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_I.html#51">ir_dereference_array::ir_dereference_array</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#1826">glsl_type::components</a>
+| <a href="dictionary_I.html#56">ir_swizzle::ir_swizzle</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+
+<a href="dictionary_A.html#9115">assign_uniform_locations</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_H.html#4111">hash_table_ctor</a>
+| <a href="dictionary_T.html#1708">talloc_new</a>
+| <a href="dictionary_I.html#4135">ir_instruction::as_variable</a>
+| <a href="dictionary_S.html#759">strncmp</a>
+| <a href="dictionary_A.html#9098">add_uniform</a>
+| <a href="dictionary_T.html#735">talloc_free</a>
+| <a href="dictionary_C.html#2115">calloc</a>
+| <a href="dictionary_E.html#175">exec_node::remove</a>
+| <a href="dictionary_M.html#729">memcpy</a>
+| <a href="dictionary_F.html#659">free</a>
+| <a href="dictionary_H.html#4114">hash_table_dtor</a>
+
+<a href="dictionary_A.html#9176">assign_varying_locations</a>
+| <a href="dictionary_I.html#8974">invalidate_variable_locations</a>
+| <a href="dictionary_I.html#4135">ir_instruction::as_variable</a>
+| <a href="dictionary_G.html#4145">get_variable</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#2043">glsl_type::is_record</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_D.html#9172">demote_unread_shader_outputs</a>
+| <a href="dictionary_L.html#4121">linker_error_printf</a>
+
+<a href="dictionary_A.html#12227">assignment_entry::assignment_entry</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_E.html#1696">exec_node::exec_node</a>
+
+<a href="dictionary_A.html#198">assignment_generator::generate</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_I.html#51">ir_dereference_array::ir_dereference_array</a>
+| <a href="dictionary_I.html#204">ir_rvalue::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9287">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9316">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9322">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1995">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9330">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9333">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9336">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2654">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+
+<a href="dictionary_A.html#8213">ast_compound_statement::ast_compound_statement</a>
+| <a href="dictionary_E.html#8217">exec_list::push_degenerate_list_at_head</a>
+| <a href="dictionary_A.html#8198">ast_node::ast_node</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_A.html#11199">ast_compound_statement::hir</a>
+| <a href="dictionary_G.html#7621">glsl_symbol_table::push_scope</a>
+| <a href="dictionary_A.html#1751">ast_node::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#2005">ast_function_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#960">ast_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11196">ast_expression_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11199">ast_compound_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11230">ast_declarator_list::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11263">ast_parameter_declarator::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11282">ast_function::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11305">ast_function_definition::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11314">ast_jump_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11328">ast_selection_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11344">ast_iteration_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11240">ast_type_specifier::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11354">ast_struct_specifier::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#7629">glsl_symbol_table::pop_scope</a>
+
+<a href="dictionary_A.html#8209">ast_compound_statement::print</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_A.html#697">ast_node::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8209">ast_compound_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8263">ast_expression_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8268">ast_function::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8271">ast_fully_specified_type::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8283">ast_parameter_declarator::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8289">ast_function_definition::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8293">ast_declaration::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8304">ast_declarator_list::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8313">ast_jump_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8326">ast_selection_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8335">ast_iteration_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8353">ast_struct_specifier::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8281">ast_type_specifier::print</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#8298">ast_declaration::ast_declaration</a>
+| <a href="dictionary_A.html#8198">ast_node::ast_node</a>
+
+<a href="dictionary_A.html#8293">ast_declaration::print</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_A.html#8204">ast_opt_array_size_print</a>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#8310">ast_declarator_list::ast_declarator_list</a>
+| <a href="dictionary_A.html#8198">ast_node::ast_node</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_A.html#11230">ast_declarator_list::hir</a>
+| <a href="dictionary_A.html#963">ast_node::get_location</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_Non-Alpha.html#970">_mesa_glsl_error</a>
+| <a href="dictionary_G.html#7771">glsl_symbol_table::get_variable</a>
+| <a href="dictionary_A.html#11240">ast_type_specifier::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#2015">ast_type_specifier::glsl_type</a>
+| <a href="dictionary_E.html#699">exec_list::is_empty</a>
+| <a href="dictionary_G.html#1787">glsl_type::is_void</a>
+| <a href="dictionary_P.html#11203">process_array_type</a>
+| <a href="dictionary_I.html#117">ir_variable::ir_variable</a>
+| <a href="dictionary_A.html#11220">apply_type_qualifier_to_variable</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_G.html#2016">glsl_type::is_sampler</a>
+| <a href="dictionary_Non-Alpha.html#8147">_mesa_glsl_shader_target_name</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_A.html#960">ast_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#2005">ast_function_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#11093">validate_assignment</a>
+| <a href="dictionary_I.html#1257">ir_rvalue::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1821">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8600">ir_texture::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8601">ir_swizzle::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8607">ir_dereference_variable::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8608">ir_dereference_array::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8620">ir_dereference_record::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8623">ir_constant::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1791">ir_call::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#1780">glsl_type::is_numeric</a>
+| <a href="dictionary_I.html#1271">ir_constant::zero</a>
+| <a href="dictionary_G.html#964">glsl_type::is_error</a>
+| <a href="dictionary_D.html#11098">do_assignment</a>
+| <a href="dictionary_G.html#9413">glsl_symbol_table::name_declared_this_scope</a>
+| <a href="dictionary_G.html#980">glsl_type::array_size</a>
+| <a href="dictionary_G.html#1844">glsl_type::element_type</a>
+| <a href="dictionary_S.html#978">safe_strcmp</a>
+| <a href="dictionary_S.html#759">strncmp</a>
+| <a href="dictionary_G.html#7662">glsl_symbol_table::add_variable</a>
+| <a href="dictionary_E.html#2116">exec_list::push_head</a>
+| <a href="dictionary_E.html#11262">exec_list::append_list</a>
+
+<a href="dictionary_A.html#8304">ast_declarator_list::print</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_A.html#8271">ast_fully_specified_type::print</a><i>  (Virtual)</i>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_E.html#7579">exec_list::get_head</a>
+| <a href="dictionary_A.html#697">ast_node::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8209">ast_compound_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8263">ast_expression_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8268">ast_function::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8271">ast_fully_specified_type::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8283">ast_parameter_declarator::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8289">ast_function_definition::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8293">ast_declaration::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8304">ast_declarator_list::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8313">ast_jump_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8326">ast_selection_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8335">ast_iteration_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8353">ast_struct_specifier::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8281">ast_type_specifier::print</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#8256">ast_expression::ast_expression</a>
+| <a href="dictionary_A.html#8261">ast_operators</a>
+| <a href="dictionary_A.html#8198">ast_node::ast_node</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_A.html#960">ast_expression::hir</a>
+| <a href="dictionary_A.html#963">ast_node::get_location</a>
+| <a href="dictionary_A.html#960">ast_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#2005">ast_function_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_D.html#11098">do_assignment</a>
+| <a href="dictionary_G.html#964">glsl_type::is_error</a>
+| <a href="dictionary_U.html#11077">unary_arithmetic_result_type</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_A.html#11065">arithmetic_result_type</a>
+| <a href="dictionary_M.html#11081">modulus_result_type</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_Non-Alpha.html#970">_mesa_glsl_error</a>
+| <a href="dictionary_R.html#11086">relational_result_type</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_A.html#1740">apply_implicit_conversion</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_G.html#254">glsl_type::is_integer</a>
+| <a href="dictionary_A.html#8229">ast_expression::operator_string</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_G.html#1781">glsl_type::is_boolean</a>
+| <a href="dictionary_I.html#1257">ir_rvalue::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1821">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8600">ir_texture::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8601">ir_swizzle::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8607">ir_dereference_variable::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8608">ir_dereference_array::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8620">ir_dereference_record::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8623">ir_constant::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1791">ir_call::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#117">ir_variable::ir_variable</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_I.html#262">ir_if::ir_if</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_I.html#204">ir_rvalue::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9287">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9316">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9322">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1995">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9330">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9333">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9336">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2654">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_E.html#699">exec_list::is_empty</a>
+| <a href="dictionary_E.html#7932">exec_list::move_nodes_to</a>
+| <a href="dictionary_G.html#11111">get_lvalue_copy</a>
+| <a href="dictionary_Non-Alpha.html#951">_mesa_ast_field_selection_to_hir</a>
+| <a href="dictionary_I.html#51">ir_dereference_array::ir_dereference_array</a>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_G.html#11073">glsl_type::row_type</a>
+| <a href="dictionary_G.html#980">glsl_type::array_size</a>
+| <a href="dictionary_I.html#2596">ir_rvalue::whole_variable_referenced</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#7771">glsl_symbol_table::get_variable</a>
+| <a href="dictionary_A.html#1751">ast_node::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#2005">ast_function_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#960">ast_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11196">ast_expression_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11199">ast_compound_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11230">ast_declarator_list::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11263">ast_parameter_declarator::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11282">ast_function::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11305">ast_function_definition::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11314">ast_jump_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11328">ast_selection_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11344">ast_iteration_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11240">ast_type_specifier::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11354">ast_struct_specifier::hir</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#8229">ast_expression::operator_string</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_A.html#8207">ast_expression::print</a>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_A.html#8229">ast_expression::operator_string</a>
+| <a href="dictionary_E.html#7579">exec_list::get_head</a>
+| <a href="dictionary_A.html#697">ast_node::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8209">ast_compound_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8263">ast_expression_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8268">ast_function::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8271">ast_fully_specified_type::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8283">ast_parameter_declarator::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8289">ast_function_definition::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8293">ast_declaration::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8304">ast_declarator_list::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8313">ast_jump_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8326">ast_selection_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8335">ast_iteration_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8353">ast_struct_specifier::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8281">ast_type_specifier::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_A.html#9734">ast_expression_bin::ast_expression_bin</a>
+| <a href="dictionary_A.html#8256">ast_expression::ast_expression</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_A.html#9738">ast_expression_bin::print</a>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_A.html#8229">ast_expression::operator_string</a>
+
+<a href="dictionary_A.html#8265">ast_expression_statement::ast_expression_statement</a>
+| <a href="dictionary_A.html#8198">ast_node::ast_node</a>
+
+<a href="dictionary_A.html#11196">ast_expression_statement::hir</a>
+| <a href="dictionary_A.html#960">ast_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#2005">ast_function_expression::hir</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#8263">ast_expression_statement::print</a>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+| <a href="dictionary_P.html#172">printf</a>
+
+<a href="dictionary_A.html#8271">ast_fully_specified_type::print</a>
+| <a href="dictionary_Non-Alpha.html#8184">_mesa_ast_type_qualifier_print</a>
+| <a href="dictionary_A.html#8281">ast_type_specifier::print</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#8276">ast_function::ast_function</a>
+| <a href="dictionary_A.html#8198">ast_node::ast_node</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_A.html#11282">ast_function::hir</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_A.html#963">ast_node::get_location</a>
+| <a href="dictionary_Non-Alpha.html#970">_mesa_glsl_error</a>
+| <a href="dictionary_S.html#759">strncmp</a>
+| <a href="dictionary_A.html#11273">ast_parameter_declarator::parameters_to_hir</a>
+| <a href="dictionary_A.html#2015">ast_type_specifier::glsl_type</a>
+| <a href="dictionary_A.html#11295">ast_fully_specified_type::has_qualifiers</a>
+| <a href="dictionary_G.html#1806">glsl_symbol_table::get_function</a>
+| <a href="dictionary_I.html#8062">ir_function::has_user_signature</a>
+| <a href="dictionary_I.html#4127">ir_function::exact_matching_signature</a>
+| <a href="dictionary_I.html#7628">ir_function_signature::qualifiers_match</a>
+| <a href="dictionary_I.html#4125">ir_function::ir_function</a>
+| <a href="dictionary_G.html#7606">glsl_symbol_table::add_function</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_I.html#5136">ir_function_signature::function</a>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+| <a href="dictionary_S.html#978">safe_strcmp</a>
+| <a href="dictionary_G.html#1787">glsl_type::is_void</a>
+| <a href="dictionary_E.html#699">exec_list::is_empty</a>
+| <a href="dictionary_I.html#4128">ir_function_signature::ir_function_signature</a>
+| <a href="dictionary_I.html#4129">ir_function::add_signature</a>
+| <a href="dictionary_I.html#4138">ir_function_signature::replace_parameters</a>
+
+<a href="dictionary_A.html#8268">ast_function::print</a>
+| <a href="dictionary_A.html#8271">ast_fully_specified_type::print</a><i>  (Virtual)</i>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_A.html#697">ast_node::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8209">ast_compound_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8263">ast_expression_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8268">ast_function::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8271">ast_fully_specified_type::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8283">ast_parameter_declarator::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8289">ast_function_definition::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8293">ast_declaration::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8304">ast_declarator_list::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8313">ast_jump_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8326">ast_selection_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8335">ast_iteration_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8353">ast_struct_specifier::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8281">ast_type_specifier::print</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#11305">ast_function_definition::hir</a>
+| <a href="dictionary_A.html#11282">ast_function::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#7621">glsl_symbol_table::push_scope</a>
+| <a href="dictionary_E.html#1712">exec_list::iterator</a>
+| <a href="dictionary_E.html#1713">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1714">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1717">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#4135">ir_instruction::as_variable</a>
+| <a href="dictionary_G.html#9413">glsl_symbol_table::name_declared_this_scope</a>
+| <a href="dictionary_A.html#963">ast_node::get_location</a>
+| <a href="dictionary_Non-Alpha.html#970">_mesa_glsl_error</a>
+| <a href="dictionary_G.html#7662">glsl_symbol_table::add_variable</a>
+| <a href="dictionary_A.html#11199">ast_compound_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#7629">glsl_symbol_table::pop_scope</a>
+| <a href="dictionary_G.html#1787">glsl_type::is_void</a>
+| <a href="dictionary_I.html#1721">ir_function_signature::function_name</a>
+
+<a href="dictionary_A.html#8289">ast_function_definition::print</a>
+| <a href="dictionary_A.html#8268">ast_function::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8209">ast_compound_statement::print</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#2005">ast_function_expression::hir</a>
+| <a href="dictionary_A.html#2009">ast_function_expression::is_constructor</a>
+| <a href="dictionary_A.html#963">ast_node::get_location</a>
+| <a href="dictionary_A.html#2015">ast_type_specifier::glsl_type</a>
+| <a href="dictionary_G.html#2016">glsl_type::is_sampler</a>
+| <a href="dictionary_Non-Alpha.html#970">_mesa_glsl_error</a>
+| <a href="dictionary_I.html#982">ir_call::get_error_instruction</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_P.html#1833">process_array_constructor</a>
+| <a href="dictionary_G.html#1780">glsl_type::is_numeric</a>
+| <a href="dictionary_G.html#1781">glsl_type::is_boolean</a>
+| <a href="dictionary_G.html#1826">glsl_type::components</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_A.html#1751">ast_node::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#2005">ast_function_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#960">ast_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11196">ast_expression_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11199">ast_compound_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11230">ast_declarator_list::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11263">ast_parameter_declarator::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11282">ast_function::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11305">ast_function_definition::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11314">ast_jump_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11328">ast_selection_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11344">ast_iteration_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11240">ast_type_specifier::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11354">ast_struct_specifier::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1869">ir_rvalue::as_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_I.html#117">ir_variable::ir_variable</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_I.html#1257">ir_rvalue::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1821">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8600">ir_texture::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8601">ir_swizzle::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8607">ir_dereference_variable::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8608">ir_dereference_array::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8620">ir_dereference_record::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8623">ir_constant::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1791">ir_call::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+| <a href="dictionary_I.html#51">ir_dereference_array::ir_dereference_array</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_E.html#175">exec_node::remove</a>
+| <a href="dictionary_G.html#114">glsl_type::get_instance</a>
+| <a href="dictionary_C.html#1739">convert_component</a>
+| <a href="dictionary_E.html#1783">exec_node::replace_with</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_D.html#1822">dereference_component</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_E.html#1871">emit_inline_vector_constructor</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_E.html#1925">emit_inline_matrix_constructor</a>
+| <a href="dictionary_P.html#1741">process_parameters</a>
+| <a href="dictionary_G.html#2041">glsl_symbol_table::get_type</a>
+| <a href="dictionary_G.html#2043">glsl_type::is_record</a>
+| <a href="dictionary_E.html#1870">exec_node::is_tail_sentinel</a>
+| <a href="dictionary_A.html#1740">apply_implicit_conversion</a>
+| <a href="dictionary_C.html#1860">constant_record_constructor</a>
+| <a href="dictionary_E.html#1985">emit_inline_record_constructor</a>
+| <a href="dictionary_M.html#1798">match_function_by_name</a>
+
+<a href="dictionary_A.html#8345">ast_iteration_statement::ast_iteration_statement</a>
+| <a href="dictionary_A.html#8351">ast_iteration_modes</a>
+| <a href="dictionary_A.html#8198">ast_node::ast_node</a>
+
+<a href="dictionary_A.html#11335">ast_iteration_statement::condition_to_hir</a>
+| <a href="dictionary_A.html#1751">ast_node::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#2005">ast_function_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#960">ast_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11196">ast_expression_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11199">ast_compound_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11230">ast_declarator_list::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11263">ast_parameter_declarator::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11282">ast_function::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11305">ast_function_definition::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11314">ast_jump_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11328">ast_selection_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11344">ast_iteration_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11240">ast_type_specifier::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11354">ast_struct_specifier::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#1781">glsl_type::is_boolean</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_A.html#963">ast_node::get_location</a>
+| <a href="dictionary_Non-Alpha.html#970">_mesa_glsl_error</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_I.html#262">ir_if::ir_if</a>
+| <a href="dictionary_I.html#5047">ir_loop_jump::ir_loop_jump</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+
+<a href="dictionary_A.html#11344">ast_iteration_statement::hir</a>
+| <a href="dictionary_G.html#7621">glsl_symbol_table::push_scope</a>
+| <a href="dictionary_A.html#1751">ast_node::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#2005">ast_function_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#960">ast_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11196">ast_expression_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11199">ast_compound_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11230">ast_declarator_list::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11263">ast_parameter_declarator::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11282">ast_function::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11305">ast_function_definition::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11314">ast_jump_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11328">ast_selection_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11344">ast_iteration_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11240">ast_type_specifier::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11354">ast_struct_specifier::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#7681">ir_loop::ir_loop</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_A.html#11335">ast_iteration_statement::condition_to_hir</a>
+| <a href="dictionary_A.html#960">ast_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#2005">ast_function_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#7629">glsl_symbol_table::pop_scope</a>
+
+<a href="dictionary_A.html#8335">ast_iteration_statement::print</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_A.html#697">ast_node::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8209">ast_compound_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8263">ast_expression_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8268">ast_function::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8271">ast_fully_specified_type::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8283">ast_parameter_declarator::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8289">ast_function_definition::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8293">ast_declaration::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8304">ast_declarator_list::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8313">ast_jump_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8326">ast_selection_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8335">ast_iteration_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8353">ast_struct_specifier::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8281">ast_type_specifier::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#8321">ast_jump_statement::ast_jump_statement</a>
+| <a href="dictionary_A.html#8324">ast_jump_modes</a>
+| <a href="dictionary_A.html#8198">ast_node::ast_node</a>
+
+<a href="dictionary_A.html#11314">ast_jump_statement::hir</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_A.html#963">ast_node::get_location</a>
+| <a href="dictionary_Non-Alpha.html#970">_mesa_glsl_error</a>
+| <a href="dictionary_I.html#1721">ir_function_signature::function_name</a>
+| <a href="dictionary_A.html#960">ast_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#2005">ast_function_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5049">ir_return::ir_return</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_I.html#9298">ir_discard::ir_discard</a>
+| <a href="dictionary_I.html#9518">ir_instruction::as_loop</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5047">ir_loop_jump::ir_loop_jump</a>
+
+<a href="dictionary_A.html#8313">ast_jump_statement::print</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#8198">ast_node::ast_node</a>
+| <a href="dictionary_E.html#1696">exec_node::exec_node</a>
+
+<a href="dictionary_A.html#697">ast_node::print</a>
+| <a href="dictionary_P.html#172">printf</a>
+
+<a href="dictionary_A.html#8204">ast_opt_array_size_print</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#11263">ast_parameter_declarator::hir</a>
+| <a href="dictionary_A.html#963">ast_node::get_location</a>
+| <a href="dictionary_A.html#2015">ast_type_specifier::glsl_type</a>
+| <a href="dictionary_Non-Alpha.html#970">_mesa_glsl_error</a>
+| <a href="dictionary_G.html#1787">glsl_type::is_void</a>
+| <a href="dictionary_P.html#11203">process_array_type</a>
+| <a href="dictionary_G.html#980">glsl_type::array_size</a>
+| <a href="dictionary_I.html#117">ir_variable::ir_variable</a>
+| <a href="dictionary_A.html#11220">apply_type_qualifier_to_variable</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+
+<a href="dictionary_A.html#11273">ast_parameter_declarator::parameters_to_hir</a>
+| <a href="dictionary_A.html#11263">ast_parameter_declarator::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#963">ast_node::get_location</a>
+| <a href="dictionary_Non-Alpha.html#970">_mesa_glsl_error</a>
+
+<a href="dictionary_A.html#8283">ast_parameter_declarator::print</a>
+| <a href="dictionary_A.html#8271">ast_fully_specified_type::print</a><i>  (Virtual)</i>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_A.html#8204">ast_opt_array_size_print</a>
+
+<a href="dictionary_A.html#8330">ast_selection_statement::ast_selection_statement</a>
+| <a href="dictionary_A.html#8198">ast_node::ast_node</a>
+
+<a href="dictionary_A.html#11328">ast_selection_statement::hir</a>
+| <a href="dictionary_A.html#960">ast_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#2005">ast_function_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#1781">glsl_type::is_boolean</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_A.html#963">ast_node::get_location</a>
+| <a href="dictionary_Non-Alpha.html#970">_mesa_glsl_error</a>
+| <a href="dictionary_I.html#262">ir_if::ir_if</a>
+| <a href="dictionary_G.html#7621">glsl_symbol_table::push_scope</a>
+| <a href="dictionary_A.html#1751">ast_node::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#2005">ast_function_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#960">ast_expression::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11196">ast_expression_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11199">ast_compound_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11230">ast_declarator_list::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11263">ast_parameter_declarator::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11282">ast_function::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11305">ast_function_definition::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11314">ast_jump_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11328">ast_selection_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11344">ast_iteration_statement::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11240">ast_type_specifier::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#11354">ast_struct_specifier::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#7629">glsl_symbol_table::pop_scope</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+
+<a href="dictionary_A.html#8326">ast_selection_statement::print</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#697">ast_node::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8209">ast_compound_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8263">ast_expression_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8268">ast_function::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8271">ast_fully_specified_type::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8283">ast_parameter_declarator::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8289">ast_function_definition::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8293">ast_declaration::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8304">ast_declarator_list::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8313">ast_jump_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8326">ast_selection_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8335">ast_iteration_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8353">ast_struct_specifier::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8281">ast_type_specifier::print</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#8358">ast_struct_specifier::ast_struct_specifier</a>
+| <a href="dictionary_T.html#1758">talloc_asprintf</a>
+| <a href="dictionary_E.html#8217">exec_list::push_degenerate_list_at_head</a>
+| <a href="dictionary_A.html#8198">ast_node::ast_node</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_A.html#11354">ast_struct_specifier::hir</a>
+| <a href="dictionary_T.html#3489">talloc_array</a>
+| <a href="dictionary_A.html#11240">ast_type_specifier::hir</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#963">ast_node::get_location</a>
+| <a href="dictionary_Non-Alpha.html#970">_mesa_glsl_error</a>
+| <a href="dictionary_A.html#2015">ast_type_specifier::glsl_type</a>
+| <a href="dictionary_P.html#11203">process_array_type</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#11045">glsl_type::get_record_instance</a>
+| <a href="dictionary_G.html#9424">glsl_symbol_table::add_type</a>
+| <a href="dictionary_R.html#7464">realloc</a>
+
+<a href="dictionary_A.html#8353">ast_struct_specifier::print</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_A.html#697">ast_node::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8209">ast_compound_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8263">ast_expression_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8268">ast_function::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8271">ast_fully_specified_type::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8283">ast_parameter_declarator::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8289">ast_function_definition::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8293">ast_declaration::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8304">ast_declarator_list::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8313">ast_jump_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8326">ast_selection_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8335">ast_iteration_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8353">ast_struct_specifier::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8281">ast_type_specifier::print</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#12100">ast_type_specifier::ast_type_specifier</a>
+| <a href="dictionary_A.html#12222">ast_types</a>
+| <a href="dictionary_A.html#8198">ast_node::ast_node</a>
+
+<a href="dictionary_A.html#2015">ast_type_specifier::glsl_type</a>
+| <a href="dictionary_G.html#2041">glsl_symbol_table::get_type</a>
+| <a href="dictionary_A.html#963">ast_node::get_location</a>
+| <a href="dictionary_P.html#11203">process_array_type</a>
+
+<a href="dictionary_A.html#11240">ast_type_specifier::hir</a>
+| <a href="dictionary_A.html#11354">ast_struct_specifier::hir</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#8281">ast_type_specifier::print</a>
+| <a href="dictionary_A.html#8353">ast_struct_specifier::print</a><i>  (Virtual)</i>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_A.html#8207">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9738">ast_expression_bin::print</a><i>  (Virtual)</i>
+
+<a href="dictionary_A.html#4867">automatic_inlining_predicate</a>
+| <a href="dictionary_I.html#4870">ir_instruction::as_call</a><i>  (Virtual)</i>
+| <a href="dictionary_C.html#4871">can_inline</a>
+</pre><hr>
+<table BORDER CELLPADDING=4><tr><td><a href="simpleinvtree_Non-Alpha.html">Non-Alpha</a></td><td><a href="simpleinvtree_A.html">A</a></td><td><a href="simpleinvtree_B.html">B</a></td><td><a href="simpleinvtree_C.html">C</a></td><td><a href="simpleinvtree_D.html">D</a></td><td><a href="simpleinvtree_E.html">E</a></td><td><a href="simpleinvtree_F.html">F</a></td><td><a href="simpleinvtree_G.html">G</a></td><td><a href="simpleinvtree_H.html">H</a></td><td><a href="simpleinvtree_I.html">I</a></td><td><a href="simpleinvtree_J.html">J</a></td><td><a href="simpleinvtree_K.html">K</a></td><td><a href="simpleinvtree_L.html">L</a></td><td><a href="simpleinvtree_M.html">M</a></td><td><a href="simpleinvtree_N.html">N</a></td><td><a href="simpleinvtree_O.html">O</a></td><td><a href="simpleinvtree_P.html">P</a></td><td>Q</td><td><a href="simpleinvtree_R.html">R</a></td><td><a href="simpleinvtree_S.html">S</a></td><td><a href="simpleinvtree_T.html">T</a></td><td><a href="simpleinvtree_U.html">U</a></td><td><a href="simpleinvtree_V.html">V</a></td><td><a href="simpleinvtree_W.html">W</a></td><td><a href="simpleinvtree_X.html">X</a></td><td><a href="simpleinvtree_Y.html">Y</a></td><td>Z</td></tr></table></body></html>

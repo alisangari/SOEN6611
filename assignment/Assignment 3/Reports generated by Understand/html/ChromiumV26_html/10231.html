@@ -1,0 +1,45 @@
+<html><head><title>ICOImageDecoder_unittest.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="sourcestyles.css" />
+</head><body link="blue" vlink="blue">
+<h3>File: C:\6611\src\webkit\tools\webcore_unit_tests\ICOImageDecoder_unittest.cpp</h3>
+<SCRIPT>
+defaultStatus = "File: C:\\6611\\src\\webkit\\tools\\webcore_unit_tests\\ICOImageDecoder_unittest.cpp";
+top.document.title  = "ICOImageDecoder_unittest.cpp";
+</SCRIPT>
+<pre><span class="default"></span><a name="1"><font size=-1>1     </font></a><span class="default"></span><span class="comment">// Copyright (c) 2010 The Chromium Authors. All rights reserved.</span>
+<a name="2"><font size=-1>2     </font></a><span class="comment">// Use of this source code is governed by a BSD-style license that can be</span>
+<a name="3"><font size=-1>3     </font></a><span class="comment">// found in the LICENSE file.</span>
+<a name="4"><font size=-1>4     </font></a><span class="comment"></span>
+<a name="5"><font size=-1>5     </font></a><span class="comment"></span><span class="preproc">#include </span><span class="string">&quot;base/file_path.h&quot;</span>
+<a name="6"><font size=-1>6     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;base/file_util.h&quot;</span>
+<a name="7"><font size=-1>7     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;third_party/WebKit/Source/WebKit/chromium/public/WebImageDecoder.h&quot;</span>
+<a name="8"><font size=-1>8     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;webkit/tools/test_shell/image_decoder_unittest.h&quot;</span>
+<a name="9"><font size=-1>9     </font></a><span class="string"></span>
+<a name="10"><font size=-1>10     </font></a><span class="string"></span><span class="keyword">using </span><span class="default">WebKit::WebImageDecoder;</span>
+<a name="11"><font size=-1>11     </font></a><span class="default"></span>
+<a name="12"><font size=-1>12     </font></a><span class="default"></span><span class="keyword">class <a href="dictionary_I.html#10237">ICOImageDecoderTest</a> </span><span class="default">: </span><span class="keyword">public <a href="dictionary_I.html#10238">ImageDecoderTest</a> </span><span class="default">{</span>
+<a name="13"><font size=-1>13     </font></a><span class="default"> </span><span class="keyword">public</span><span class="default">:</span>
+<a name="14"><font size=-1>14     </font></a><span class="default">  <a href="dictionary_I.html#10239">ICOImageDecoderTest</a>() : ImageDecoderTest(</span><span class="string">&quot;ico&quot;</span><span class="default">) { }</span>
+<a name="15"><font size=-1>15     </font></a><span class="default"></span>
+<a name="16"><font size=-1>16     </font></a><span class="default"> </span><span class="keyword">protected</span><span class="default">:</span>
+<a name="17"><font size=-1>17     </font></a><span class="default">   </span><span class="keyword">virtual </span><span class="default">WebKit::<a href="dictionary_W.html#10241">WebImageDecoder</a>* <a href="dictionary_I.html#10240">CreateWebKitImageDecoder</a>() </span><span class="keyword">const </span><span class="default">OVERRIDE {</span>
+<a name="18"><font size=-1>18     </font></a><span class="default">     </span><span class="keyword">return new </span><span class="default">WebKit::<a href="dictionary_W.html#10242">WebImageDecoder</a>(WebKit::<a href="dictionary_W.html#10243">WebImageDecoder</a>::<a href="dictionary_W.html#10244">TypeICO</a>);</span>
+<a name="19"><font size=-1>19     </font></a><span class="default">  }</span>
+<a name="20"><font size=-1>20     </font></a><span class="default">};</span>
+<a name="21"><font size=-1>21     </font></a><span class="default"></span>
+<a name="22"><font size=-1>22     </font></a><span class="default"><a href="dictionary_T.html#10245">TEST_F</a>(<a href="dictionary_I.html#10237">ICOImageDecoderTest</a>, <a href="dictionary_D.html#10248">Decoding</a>) {</span>
+<a name="23"><font size=-1>23     </font></a><span class="default">  <a href="dictionary_T.html#10249">TestDecoding</a>();</span>
+<a name="24"><font size=-1>24     </font></a><span class="default">}</span>
+<a name="25"><font size=-1>25     </font></a><span class="default"></span>
+<a name="26"><font size=-1>26     </font></a><span class="default"><a href="dictionary_T.html#10250">TEST_F</a>(<a href="dictionary_I.html#10237">ICOImageDecoderTest</a>, <a href="dictionary_I.html#10253">ImageNonZeroFrameIndex</a>) {</span>
+<a name="27"><font size=-1>27     </font></a><span class="default">  </span><span class="comment">// Test that the decoder decodes multiple sizes of icons which have them.</span>
+<a name="28"><font size=-1>28     </font></a><span class="comment">  // Load an icon that has both favicon-size and larger entries.</span>
+<a name="29"><font size=-1>29     </font></a><span class="comment">  </span><span class="default">base::<a href="dictionary_B.html#10255">FilePath</a> <a href="dictionary_M.html#10256">multisize_icon_path</a>(<a href="dictionary_D.html#10257">data_dir_</a>.<a href="dictionary_A.html#10258">AppendASCII</a>(</span><span class="string">&quot;yahoo.ico&quot;</span><span class="default">));</span>
+<a name="30"><font size=-1>30     </font></a><span class="default">  </span><span class="keyword">const </span><span class="default">base::<a href="dictionary_B.html#10255">FilePath</a> <a href="dictionary_M.html#10262">md5_sum_path</a>(</span>
+<a name="31"><font size=-1>31     </font></a><span class="default">      <a href="dictionary_G.html#10259">GetMD5SumPath</a>(<a href="dictionary_M.html#10256">multisize_icon_path</a>).<a href="dictionary_V.html#10260">value</a>() + <a href="dictionary_F.html#10261">FILE_PATH_LITERAL</a>(</span><span class="string">&quot;2&quot;</span><span class="default">));</span>
+<a name="32"><font size=-1>32     </font></a><span class="default">  </span><span class="keyword">static const int <a href="dictionary_K.html#10263">kDesiredFrameIndex</a> </span><span class="default">= </span><span class="number">3</span><span class="default">;</span>
+<a name="33"><font size=-1>33     </font></a><span class="default">  <a href="dictionary_T.html#10264">TestWebKitImageDecoder</a>(<a href="dictionary_M.html#10256">multisize_icon_path</a>, <a href="dictionary_M.html#10262">md5_sum_path</a>, <a href="dictionary_K.html#10263">kDesiredFrameIndex</a>);</span>
+<a name="34"><font size=-1>34     </font></a><span class="default">}</span>
+<a name="35"><font size=-1>35     </font></a><span class="default"></span>
+</pre></body></html>

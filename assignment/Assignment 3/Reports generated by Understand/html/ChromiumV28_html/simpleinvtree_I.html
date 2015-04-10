@@ -1,0 +1,2549 @@
+<html><head><title>Simple Invocation Tree [I]</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head><body bgcolor="#ffffff" TEXT="#000000"><h2>Simple Invocation Tree</h2><hr><pre>
+</pre><table BORDER CELLPADDING=4><tr><td><a href="simpleinvtree_Non-Alpha.html">Non-Alpha</a></td><td><a href="simpleinvtree_A.html">A</a></td><td><a href="simpleinvtree_B.html">B</a></td><td><a href="simpleinvtree_C.html">C</a></td><td><a href="simpleinvtree_D.html">D</a></td><td><a href="simpleinvtree_E.html">E</a></td><td><a href="simpleinvtree_F.html">F</a></td><td><a href="simpleinvtree_G.html">G</a></td><td><a href="simpleinvtree_H.html">H</a></td><td><a href="simpleinvtree_I.html">I</a></td><td><a href="simpleinvtree_J.html">J</a></td><td><a href="simpleinvtree_K.html">K</a></td><td><a href="simpleinvtree_L.html">L</a></td><td><a href="simpleinvtree_M.html">M</a></td><td><a href="simpleinvtree_N.html">N</a></td><td><a href="simpleinvtree_O.html">O</a></td><td><a href="simpleinvtree_P.html">P</a></td><td>Q</td><td><a href="simpleinvtree_R.html">R</a></td><td><a href="simpleinvtree_S.html">S</a></td><td><a href="simpleinvtree_T.html">T</a></td><td><a href="simpleinvtree_U.html">U</a></td><td><a href="simpleinvtree_V.html">V</a></td><td><a href="simpleinvtree_W.html">W</a></td><td><a href="simpleinvtree_X.html">X</a></td><td><a href="simpleinvtree_Y.html">Y</a></td><td>Z</td></tr></table><pre>
+
+<a href="dictionary_I.html#8369">import_prototype_visitor::import_prototype_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#8373">import_prototype_visitor::visit_enter</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#1801">glsl_symbol_table::get_function</a>
+| <a href="dictionary_I.html#4140">ir_function::ir_function</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_G.html#7601">glsl_symbol_table::add_function</a>
+
+<a href="dictionary_I.html#8377">import_prototype_visitor::visit_enter</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#4143">ir_function_signature::ir_function_signature</a>
+| <a href="dictionary_I.html#5828">ir_variable::as_variable</a>
+| <a href="dictionary_I.html#4161">ir_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_I.html#4144">ir_function::add_signature</a>
+
+<a href="dictionary_I.html#8375">import_prototype_visitor::visit_leave</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#1577">import_prototypes</a>
+| <a href="dictionary_I.html#8369">import_prototype_visitor::import_prototype_visitor</a>
+| <a href="dictionary_I.html#2135">ir_hierarchical_visitor::run</a>
+
+<a href="dictionary_I.html#616">initialize_context</a>
+| <a href="dictionary_M.html#242">memset</a>
+| <a href="dictionary_Non-Alpha.html#601">_mesa_new_shader</a>
+
+<a href="dictionary_I.html#10808">initialize_fs_variables</a>
+| <a href="dictionary_G.html#10774">generate_100ES_fs_variables</a>
+| <a href="dictionary_G.html#10781">generate_110_fs_variables</a>
+| <a href="dictionary_G.html#10799">generate_120_fs_variables</a>
+| <a href="dictionary_G.html#10804">generate_130_fs_variables</a>
+
+<a href="dictionary_I.html#10771">initialize_vs_variables</a>
+| <a href="dictionary_G.html#10749">generate_100ES_vs_variables</a>
+| <a href="dictionary_G.html#10754">generate_110_vs_variables</a>
+| <a href="dictionary_G.html#10762">generate_120_vs_variables</a>
+| <a href="dictionary_G.html#10765">generate_130_vs_variables</a>
+
+<a href="dictionary_I.html#354">InitializerCallback::run</a>
+| <a href="dictionary_G.html#393">getNodeAs</a>
+| <a href="dictionary_G.html#394">getLength</a>
+| <a href="dictionary_I.html#402">insert</a>
+| <a href="dictionary_R.html#403">Replacement</a>
+
+<a href="dictionary_I.html#8910">invalidate_variable_locations</a>
+| <a href="dictionary_I.html#4150">ir_instruction::as_variable</a>
+
+<a href="dictionary_I.html#1221">ir_algebraic_visitor::handle_expression</a>
+| <a href="dictionary_I.html#33">ir_expression::get_num_operands</a>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_I.html#1252">ir_rvalue::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1816">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8595">ir_texture::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8596">ir_swizzle::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8602">ir_dereference_variable::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8603">ir_dereference_array::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8615">ir_dereference_record::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8618">ir_constant::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1786">ir_call::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#31">ir_instruction::as_expression</a><i>  (Virtual)</i>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_I.html#1228">is_vec_zero</a>
+| <a href="dictionary_I.html#1225">ir_algebraic_visitor::swizzle_if_required</a>
+| <a href="dictionary_I.html#1223">ir_algebraic_visitor::reassociate_constant</a>
+| <a href="dictionary_I.html#1237">is_vec_one</a>
+| <a href="dictionary_I.html#1266">ir_constant::zero</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+
+<a href="dictionary_I.html#1222">ir_algebraic_visitor::handle_rvalue</a>
+| <a href="dictionary_I.html#31">ir_instruction::as_expression</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1221">ir_algebraic_visitor::handle_expression</a>
+
+<a href="dictionary_I.html#1223">ir_algebraic_visitor::reassociate_constant</a>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_I.html#1252">ir_rvalue::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1816">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8595">ir_texture::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8596">ir_swizzle::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8602">ir_dereference_variable::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8603">ir_dereference_array::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8615">ir_dereference_record::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8618">ir_constant::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1786">ir_call::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1224">ir_algebraic_visitor::reassociate_operands</a>
+| <a href="dictionary_I.html#1223">ir_algebraic_visitor::reassociate_constant</a>
+| <a href="dictionary_I.html#31">ir_instruction::as_expression</a><i>  (Virtual)</i>
+| <a href="dictionary_U.html#1240">update_type</a>
+
+<a href="dictionary_I.html#1224">ir_algebraic_visitor::reassociate_operands</a>
+| <a href="dictionary_U.html#1240">update_type</a>
+
+<a href="dictionary_I.html#1225">ir_algebraic_visitor::swizzle_if_required</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_I.html#56">ir_swizzle::ir_swizzle</a>
+
+<a href="dictionary_I.html#9719">ir_assignment::accept</a>
+| <a href="dictionary_I.html#2511">ir_hierarchical_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6720">ir_constant_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9486">loop_analysis::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10542">ir_copy_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12230">ir_tree_grafting_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2514">ir_hierarchical_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#2615">loop_control_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#4085">redundant_jumps_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5818">ir_validate::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8092">loop_unroll_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9487">loop_analysis::visit_leave</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9279">ir_assignment::clone</a>
+| <a href="dictionary_I.html#204">ir_rvalue::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_I.html#4931">ir_dereference::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_I.html#7863">ir_assignment::set_lhs</a>
+| <a href="dictionary_I.html#7857">ir_instruction::ir_instruction</a>
+
+<a href="dictionary_I.html#7877">ir_assignment::ir_assignment</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#7857">ir_instruction::ir_instruction</a>
+
+<a href="dictionary_I.html#7863">ir_assignment::set_lhs</a>
+| <a href="dictionary_I.html#2078">ir_instruction::as_swizzle</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_U.html#7858">update_rhs_swizzle</a>
+| <a href="dictionary_I.html#56">ir_swizzle::ir_swizzle</a>
+| <a href="dictionary_I.html#4902">ir_instruction::as_dereference</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#2122">ir_assignment::whole_variable_written</a>
+| <a href="dictionary_I.html#2591">ir_rvalue::whole_variable_referenced</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+
+<a href="dictionary_I.html#9724">ir_call::accept</a>
+| <a href="dictionary_I.html#2511">ir_hierarchical_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6720">ir_constant_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9486">loop_analysis::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10542">ir_copy_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12230">ir_tree_grafting_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#43">visit_list_elements</a>
+| <a href="dictionary_I.html#2514">ir_hierarchical_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#2615">loop_control_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#4085">redundant_jumps_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5818">ir_validate::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8092">loop_unroll_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9487">loop_analysis::visit_leave</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9252">ir_call::clone</a>
+| <a href="dictionary_I.html#1215">ir_call::get_error_instruction</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_I.html#4152">ir_instruction::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#4161">ir_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9226">ir_return::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9230">ir_discard::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9235">ir_loop_jump::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9238">ir_if::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9246">ir_loop::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9279">ir_assignment::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9283">ir_function::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9290">ir_function_signature::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1780">ir_call::ir_call</a>
+
+<a href="dictionary_I.html#1786">ir_call::constant_expression_value</a>
+| <a href="dictionary_I.html#1252">ir_rvalue::constant_expression_value</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_M.html#242">memset</a>
+| <a href="dictionary_I.html#8627">ir_call::callee_name</a>
+| <a href="dictionary_S.html#1211">safe_strcmp</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_G.html#1776">glsl_type::is_boolean</a>
+| <a href="dictionary_G.html#1821">glsl_type::components</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_G.html#1846">glsl_type::is_float</a>
+| <a href="dictionary_A.html#8631">acosf</a>
+| <a href="dictionary_A.html#8633">asinf</a>
+| <a href="dictionary_A.html#8635">atan2f</a>
+| <a href="dictionary_A.html#8637">atanf</a>
+| <a href="dictionary_I.html#1266">ir_constant::zero</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_C.html#8643">CLAMP</a>
+| <a href="dictionary_C.html#8645">coshf</a>
+| <a href="dictionary_S.html#8550">sqrtf</a>
+| <a href="dictionary_D.html#8509">dot</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_S.html#8678">sinhf</a>
+| <a href="dictionary_T.html#8691">tanf</a>
+| <a href="dictionary_T.html#8693">tanhf</a>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_I.html#1816">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#4879">ir_call::generate_inline</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_H.html#4126">hash_table_ctor</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_I.html#117">ir_variable::ir_variable</a>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#4161">ir_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_I.html#4152">ir_instruction::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#4161">ir_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9226">ir_return::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9230">ir_discard::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9235">ir_loop_jump::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9238">ir_if::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9246">ir_loop::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9279">ir_assignment::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9283">ir_function::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9290">ir_function_signature::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_V.html#2564">visit_tree</a>
+| <a href="dictionary_R.html#4871">replace_return_with_assignment</a>
+| <a href="dictionary_I.html#4902">ir_instruction::as_dereference</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_D.html#4853">do_sampler_replacement</a>
+| <a href="dictionary_I.html#1997">ir_instruction::as_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_H.html#4129">hash_table_dtor</a>
+
+<a href="dictionary_I.html#1215">ir_call::get_error_instruction</a>
+| <a href="dictionary_I.html#1780">ir_call::ir_call</a>
+
+<a href="dictionary_I.html#4134">ir_call::set_callee</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#12354">ir_channel_expressions_visitor::assign</a>
+| <a href="dictionary_C.html#8765">clone</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_C.html#12368">components</a>
+| <a href="dictionary_I.html#8766">ir_assignment::insert_before</a>
+
+<a href="dictionary_I.html#12353">ir_channel_expressions_visitor::get_element</a>
+| <a href="dictionary_I.html#3231">is_scalar</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_C.html#12368">components</a>
+
+<a href="dictionary_I.html#12352">ir_channel_expressions_visitor::visit_leave</a>
+| <a href="dictionary_A.html#3075">as_expression</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_I.html#3094">ir_expression::get_num_operands</a>
+| <a href="dictionary_I.html#3147">is_vector</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#3097">is_matrix</a>
+| <a href="dictionary_I.html#8766">ir_assignment::insert_before</a>
+| <a href="dictionary_G.html#3091">glsl_type::get_instance</a>
+| <a href="dictionary_I.html#12353">ir_channel_expressions_visitor::get_element</a>
+| <a href="dictionary_I.html#12354">ir_channel_expressions_visitor::assign</a>
+| <a href="dictionary_I.html#8769">ir_assignment::print</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#8767">ir_assignment::remove</a>
+
+<a href="dictionary_I.html#9722">ir_constant::accept</a>
+| <a href="dictionary_I.html#2099">ir_hierarchical_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2098">ir_constant_variable_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_C.html#4113">call_link_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5815">ir_validate::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9573">ir_structure_reference_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10676">ir_set_program_inouts_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#11502">ir_variable_refcount_visitor::visit</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#2649">ir_constant::clone</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_E.html#1865">exec_node::is_tail_sentinel</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_T.html#3484">talloc_array</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#7950">ir_constant::get_array_element</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+
+<a href="dictionary_I.html#1891">ir_constant::get_bool_component</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#1890">ir_constant::get_float_component</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#1889">ir_constant::get_int_component</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#7952">ir_constant::get_record_field</a>
+| <a href="dictionary_G.html#7955">glsl_type::field_index</a>
+| <a href="dictionary_E.html#699">exec_list::is_empty</a>
+| <a href="dictionary_E.html#1865">exec_node::is_tail_sentinel</a>
+
+<a href="dictionary_I.html#1888">ir_constant::get_uint_component</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#7958">ir_constant::has_value</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_I.html#7958">ir_constant::has_value</a>
+| <a href="dictionary_E.html#1865">exec_node::is_tail_sentinel</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#1821">glsl_type::components</a>
+
+<a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_M.html#729">memcpy</a>
+| <a href="dictionary_I.html#7856">ir_rvalue::ir_rvalue</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_I.html#7901">ir_constant::ir_constant</a>
+| <a href="dictionary_I.html#7856">ir_rvalue::ir_rvalue</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_I.html#7904">ir_constant::ir_constant</a>
+| <a href="dictionary_I.html#7856">ir_rvalue::ir_rvalue</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_I.html#7907">ir_constant::ir_constant</a>
+| <a href="dictionary_I.html#7856">ir_rvalue::ir_rvalue</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_I.html#7911">ir_constant::ir_constant</a>
+| <a href="dictionary_I.html#7856">ir_rvalue::ir_rvalue</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_I.html#7914">ir_constant::ir_constant</a>
+| <a href="dictionary_I.html#7856">ir_rvalue::ir_rvalue</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_I.html#7917">ir_constant::ir_constant</a>
+| <a href="dictionary_G.html#7746">glsl_type::get_base_type</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#7856">ir_rvalue::ir_rvalue</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_I.html#7920">ir_constant::ir_constant</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_G.html#2038">glsl_type::is_record</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_T.html#3484">talloc_array</a>
+| <a href="dictionary_I.html#7926">ir_constant::as_constant</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#7927">exec_list::move_nodes_to</a>
+| <a href="dictionary_E.html#1865">exec_node::is_tail_sentinel</a>
+| <a href="dictionary_G.html#1821">glsl_type::components</a>
+| <a href="dictionary_M.html#236">MIN2</a>
+| <a href="dictionary_I.html#1888">ir_constant::get_uint_component</a>
+| <a href="dictionary_I.html#1889">ir_constant::get_int_component</a>
+| <a href="dictionary_I.html#1890">ir_constant::get_float_component</a>
+| <a href="dictionary_I.html#1891">ir_constant::get_bool_component</a>
+| <a href="dictionary_I.html#7856">ir_rvalue::ir_rvalue</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_I.html#1266">ir_constant::zero</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#1775">glsl_type::is_numeric</a>
+| <a href="dictionary_G.html#1776">glsl_type::is_boolean</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_M.html#242">memset</a>
+
+<a href="dictionary_I.html#5091">ir_constant_folding_visitor::handle_rvalue</a>
+| <a href="dictionary_I.html#31">ir_instruction::as_expression</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#33">ir_expression::get_num_operands</a>
+| <a href="dictionary_I.html#293">ir_instruction::as_constant</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1252">ir_rvalue::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1816">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8595">ir_texture::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8596">ir_swizzle::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8602">ir_dereference_variable::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8603">ir_dereference_array::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8615">ir_dereference_record::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8618">ir_constant::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1786">ir_call::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#5089">ir_constant_folding_visitor::visit_enter</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5091">ir_constant_folding_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#293">ir_instruction::as_constant</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#175">exec_node::remove</a>
+
+<a href="dictionary_I.html#5090">ir_constant_folding_visitor::visit_enter</a>
+| <a href="dictionary_I.html#1719">ir_call::get_callee</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_I.html#2126">ir_call::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#5091">ir_constant_folding_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#1778">exec_node::replace_with</a>
+
+<a href="dictionary_I.html#6726">ir_constant_propagation_visitor::add_constant</a>
+| <a href="dictionary_I.html#293">ir_instruction::as_constant</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#147">ir_instruction::as_dereference_variable</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_A.html#6704">acp_entry::acp_entry</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+
+<a href="dictionary_I.html#6728">ir_constant_propagation_visitor::handle_if_block</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_A.html#6704">acp_entry::acp_entry</a>
+| <a href="dictionary_V.html#43">visit_list_elements</a>
+| <a href="dictionary_E.html#6759">exec_list::make_empty</a>
+| <a href="dictionary_I.html#6727">ir_constant_propagation_visitor::kill</a>
+
+<a href="dictionary_I.html#6729">ir_constant_propagation_visitor::handle_rvalue</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_I.html#147">ir_instruction::as_dereference_variable</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2078">ir_instruction::as_swizzle</a><i>  (Virtual)</i>
+| <a href="dictionary_M.html#242">memset</a>
+| <a href="dictionary_G.html#1821">glsl_type::components</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+
+<a href="dictionary_I.html#6718">ir_constant_propagation_visitor::ir_constant_propagation_visitor</a>
+| <a href="dictionary_T.html#1703">talloc_new</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_I.html#6727">ir_constant_propagation_visitor::kill</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_E.html#175">exec_node::remove</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_K.html#6712">kill_entry::kill_entry</a>
+
+<a href="dictionary_I.html#6720">ir_constant_propagation_visitor::visit_enter</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_V.html#43">visit_list_elements</a>
+| <a href="dictionary_E.html#6759">exec_list::make_empty</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#6727">ir_constant_propagation_visitor::kill</a>
+
+<a href="dictionary_I.html#6721">ir_constant_propagation_visitor::visit_enter</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_V.html#43">visit_list_elements</a>
+
+<a href="dictionary_I.html#6724">ir_constant_propagation_visitor::visit_enter</a>
+| <a href="dictionary_I.html#1719">ir_call::get_callee</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#6729">ir_constant_propagation_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#1778">exec_node::replace_with</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#6759">exec_list::make_empty</a>
+
+<a href="dictionary_I.html#6725">ir_constant_propagation_visitor::visit_enter</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6729">ir_constant_propagation_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6728">ir_constant_propagation_visitor::handle_if_block</a>
+
+<a href="dictionary_I.html#6723">ir_constant_propagation_visitor::visit_leave</a>
+| <a href="dictionary_I.html#6727">ir_constant_propagation_visitor::kill</a>
+| <a href="dictionary_I.html#2119">ir_dereference::variable_referenced</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6726">ir_constant_propagation_visitor::add_constant</a>
+
+<a href="dictionary_I.html#6719">ir_constant_propagation_visitor::~ir_constant_propagation_visitor</a>
+| <a href="dictionary_T.html#735">talloc_free</a>
+
+<a href="dictionary_I.html#2098">ir_constant_variable_visitor::visit</a>
+| <a href="dictionary_G.html#2104">get_assignment_entry</a>
+
+<a href="dictionary_I.html#2100">ir_constant_variable_visitor::visit_enter</a>
+| <a href="dictionary_G.html#2104">get_assignment_entry</a>
+| <a href="dictionary_I.html#2119">ir_dereference::variable_referenced</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#1252">ir_rvalue::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1816">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8595">ir_texture::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8596">ir_swizzle::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8602">ir_dereference_variable::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8603">ir_dereference_array::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8615">ir_dereference_record::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8618">ir_constant::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1786">ir_call::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2122">ir_assignment::whole_variable_written</a>
+
+<a href="dictionary_I.html#2102">ir_constant_variable_visitor::visit_enter</a>
+| <a href="dictionary_I.html#1719">ir_call::get_callee</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_I.html#2126">ir_call::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#298">ir_rvalue::variable_referenced</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8036">ir_swizzle::variable_referenced</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#2104">get_assignment_entry</a>
+
+<a href="dictionary_I.html#10548">ir_copy_propagation_visitor::add_copy</a>
+| <a href="dictionary_I.html#293">ir_instruction::as_constant</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2122">ir_assignment::whole_variable_written</a>
+| <a href="dictionary_I.html#2591">ir_rvalue::whole_variable_referenced</a><i>  (Virtual)</i>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_A.html#10529">acp_entry::acp_entry</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+
+<a href="dictionary_I.html#10550">ir_copy_propagation_visitor::handle_if_block</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_A.html#10529">acp_entry::acp_entry</a>
+| <a href="dictionary_V.html#43">visit_list_elements</a>
+| <a href="dictionary_E.html#6759">exec_list::make_empty</a>
+| <a href="dictionary_I.html#10549">ir_copy_propagation_visitor::kill</a>
+
+<a href="dictionary_I.html#10539">ir_copy_propagation_visitor::ir_copy_propagation_visitor</a>
+| <a href="dictionary_T.html#1703">talloc_new</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#10549">ir_copy_propagation_visitor::kill</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_E.html#175">exec_node::remove</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_K.html#10535">kill_entry::kill_entry</a>
+
+<a href="dictionary_I.html#10541">ir_copy_propagation_visitor::visit</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+
+<a href="dictionary_I.html#10542">ir_copy_propagation_visitor::visit_enter</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_V.html#43">visit_list_elements</a>
+| <a href="dictionary_E.html#6759">exec_list::make_empty</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#10549">ir_copy_propagation_visitor::kill</a>
+
+<a href="dictionary_I.html#10543">ir_copy_propagation_visitor::visit_enter</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_V.html#43">visit_list_elements</a>
+
+<a href="dictionary_I.html#10546">ir_copy_propagation_visitor::visit_enter</a>
+| <a href="dictionary_I.html#1719">ir_call::get_callee</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#6759">exec_list::make_empty</a>
+
+<a href="dictionary_I.html#10547">ir_copy_propagation_visitor::visit_enter</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10550">ir_copy_propagation_visitor::handle_if_block</a>
+
+<a href="dictionary_I.html#10545">ir_copy_propagation_visitor::visit_leave</a>
+| <a href="dictionary_I.html#10549">ir_copy_propagation_visitor::kill</a>
+| <a href="dictionary_I.html#2119">ir_dereference::variable_referenced</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10548">ir_copy_propagation_visitor::add_copy</a>
+
+<a href="dictionary_I.html#10540">ir_copy_propagation_visitor::~ir_copy_propagation_visitor</a>
+| <a href="dictionary_T.html#735">talloc_free</a>
+
+<a href="dictionary_I.html#1699">ir_dead_functions_visitor::get_signature_entry</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_S.html#1686">signature_entry::signature_entry</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+
+<a href="dictionary_I.html#1693">ir_dead_functions_visitor::ir_dead_functions_visitor</a>
+| <a href="dictionary_T.html#1703">talloc_new</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_I.html#1695">ir_dead_functions_visitor::visit_enter</a>
+| <a href="dictionary_I.html#1699">ir_dead_functions_visitor::get_signature_entry</a>
+| <a href="dictionary_S.html#1211">safe_strcmp</a>
+| <a href="dictionary_I.html#1716">ir_function_signature::function_name</a>
+
+<a href="dictionary_I.html#1697">ir_dead_functions_visitor::visit_enter</a>
+| <a href="dictionary_I.html#1699">ir_dead_functions_visitor::get_signature_entry</a>
+| <a href="dictionary_I.html#1719">ir_call::get_callee</a>
+
+<a href="dictionary_I.html#1694">ir_dead_functions_visitor::~ir_dead_functions_visitor</a>
+| <a href="dictionary_T.html#735">talloc_free</a>
+
+<a href="dictionary_I.html#7990">ir_dereference::is_lvalue</a>
+| <a href="dictionary_I.html#2119">ir_dereference::variable_referenced</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_T.html#7986">type_contains_sampler</a>
+
+<a href="dictionary_I.html#9712">ir_dereference_array::accept</a>
+| <a href="dictionary_I.html#2511">ir_hierarchical_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6720">ir_constant_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9486">loop_analysis::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10542">ir_copy_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12230">ir_tree_grafting_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2514">ir_hierarchical_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#2615">loop_control_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#4085">redundant_jumps_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5818">ir_validate::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8092">loop_unroll_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9487">loop_analysis::visit_leave</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9266">ir_dereference_array::clone</a>
+| <a href="dictionary_I.html#51">ir_dereference_array::ir_dereference_array</a>
+| <a href="dictionary_I.html#204">ir_rvalue::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8603">ir_dereference_array::constant_expression_value</a>
+| <a href="dictionary_I.html#1252">ir_rvalue::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1816">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8595">ir_texture::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8596">ir_swizzle::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8602">ir_dereference_variable::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8603">ir_dereference_array::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8615">ir_dereference_record::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8618">ir_constant::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1786">ir_call::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_G.html#1824">glsl_type::column_type</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_I.html#7950">ir_constant::get_array_element</a>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#51">ir_dereference_array::ir_dereference_array</a>
+| <a href="dictionary_I.html#7971">ir_dereference_array::set_array</a>
+
+<a href="dictionary_I.html#7972">ir_dereference_array::ir_dereference_array</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_I.html#7971">ir_dereference_array::set_array</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+
+<a href="dictionary_I.html#7971">ir_dereference_array::set_array</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_G.html#1839">glsl_type::element_type</a>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_G.html#1824">glsl_type::column_type</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_G.html#7746">glsl_type::get_base_type</a>
+
+<a href="dictionary_I.html#9716">ir_dereference_record::accept</a>
+| <a href="dictionary_I.html#2511">ir_hierarchical_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6720">ir_constant_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9486">loop_analysis::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10542">ir_copy_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12230">ir_tree_grafting_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2514">ir_hierarchical_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#2615">loop_control_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#4085">redundant_jumps_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5818">ir_validate::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8092">loop_unroll_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9487">loop_analysis::visit_leave</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9269">ir_dereference_record::clone</a>
+| <a href="dictionary_I.html#1206">ir_dereference_record::ir_dereference_record</a>
+| <a href="dictionary_I.html#204">ir_rvalue::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8615">ir_dereference_record::constant_expression_value</a>
+| <a href="dictionary_I.html#1252">ir_rvalue::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1816">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8595">ir_texture::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8596">ir_swizzle::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8602">ir_dereference_variable::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8603">ir_dereference_array::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8615">ir_dereference_record::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8618">ir_constant::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1786">ir_call::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#7952">ir_constant::get_record_field</a>
+
+<a href="dictionary_I.html#1206">ir_dereference_record::ir_dereference_record</a>
+| <a href="dictionary_T.html#7309">talloc_strdup</a>
+| <a href="dictionary_G.html#7981">glsl_type::field_type</a>
+
+<a href="dictionary_I.html#7982">ir_dereference_record::ir_dereference_record</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_T.html#7309">talloc_strdup</a>
+| <a href="dictionary_G.html#7981">glsl_type::field_type</a>
+
+<a href="dictionary_I.html#9710">ir_dereference_variable::accept</a>
+| <a href="dictionary_I.html#2099">ir_hierarchical_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2098">ir_constant_variable_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_C.html#4113">call_link_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5815">ir_validate::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9573">ir_structure_reference_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10676">ir_set_program_inouts_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#11502">ir_variable_refcount_visitor::visit</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#1990">ir_dereference_variable::clone</a>
+| <a href="dictionary_H.html#4158">hash_table_find</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+
+<a href="dictionary_I.html#8602">ir_dereference_variable::constant_expression_value</a>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+
+<a href="dictionary_I.html#9731">ir_discard::accept</a>
+| <a href="dictionary_I.html#2511">ir_hierarchical_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6720">ir_constant_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9486">loop_analysis::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10542">ir_copy_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12230">ir_tree_grafting_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2514">ir_hierarchical_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#2615">loop_control_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#4085">redundant_jumps_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5818">ir_validate::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8092">loop_unroll_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9487">loop_analysis::visit_leave</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9230">ir_discard::clone</a>
+| <a href="dictionary_I.html#204">ir_rvalue::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9234">ir_discard::ir_discard</a>
+
+<a href="dictionary_I.html#5884">ir_div_to_mul_rcp_visitor::ir_div_to_mul_rcp_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#5885">ir_div_to_mul_rcp_visitor::visit_leave</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_G.html#114">glsl_type::get_instance</a>
+
+<a href="dictionary_I.html#10881">ir_explog_to_explog2_visitor::ir_explog_to_explog2_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#10882">ir_explog_to_explog2_visitor::visit_leave</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_L.html#8559">log2f</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+
+<a href="dictionary_I.html#9697">ir_expression::accept</a>
+| <a href="dictionary_I.html#2511">ir_hierarchical_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6720">ir_constant_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9486">loop_analysis::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10542">ir_copy_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12230">ir_tree_grafting_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#33">ir_expression::get_num_operands</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2514">ir_hierarchical_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#2615">loop_control_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#4085">redundant_jumps_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5818">ir_validate::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8092">loop_unroll_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9487">loop_analysis::visit_leave</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9258">ir_expression::clone</a>
+| <a href="dictionary_I.html#33">ir_expression::get_num_operands</a>
+| <a href="dictionary_I.html#204">ir_rvalue::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+
+<a href="dictionary_I.html#1816">ir_expression::constant_expression_value</a>
+| <a href="dictionary_M.html#242">memset</a>
+| <a href="dictionary_I.html#33">ir_expression::get_num_operands</a>
+| <a href="dictionary_I.html#1252">ir_rvalue::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1816">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8595">ir_texture::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8596">ir_swizzle::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8602">ir_dereference_variable::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8603">ir_dereference_array::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8615">ir_dereference_record::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8618">ir_constant::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1786">ir_call::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_G.html#1821">glsl_type::components</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_I.html#7958">ir_constant::has_value</a>
+| <a href="dictionary_G.html#254">glsl_type::is_integer</a>
+| <a href="dictionary_G.html#1776">glsl_type::is_boolean</a>
+| <a href="dictionary_T.html#8533">truncf</a>
+| <a href="dictionary_C.html#8535">ceilf</a>
+| <a href="dictionary_F.html#8537">floorf</a>
+| <a href="dictionary_F.html#8539">floor</a>
+| <a href="dictionary_S.html#8541">sinf</a>
+| <a href="dictionary_C.html#8543">cosf</a>
+| <a href="dictionary_F.html#8546">fabs</a>
+| <a href="dictionary_S.html#8550">sqrtf</a>
+| <a href="dictionary_E.html#8553">expf</a>
+| <a href="dictionary_E.html#8555">exp2f</a>
+| <a href="dictionary_L.html#8557">logf</a>
+| <a href="dictionary_L.html#8559">log2f</a>
+| <a href="dictionary_P.html#8562">powf</a>
+| <a href="dictionary_D.html#8509">dot</a>
+| <a href="dictionary_M.html#236">MIN2</a>
+| <a href="dictionary_M.html#3100">MAX2</a>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+
+<a href="dictionary_I.html#33">ir_expression::get_num_operands</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#7722">ir_expression::get_operator</a>
+| <a href="dictionary_S.html#1211">safe_strcmp</a>
+
+<a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_I.html#7892">ir_expression_operation</a>
+| <a href="dictionary_I.html#7856">ir_rvalue::ir_rvalue</a>
+
+<a href="dictionary_I.html#173">ir_expression::operator_string</a>
+| <a href="dictionary_I.html#173">ir_expression::operator_string</a>
+
+<a href="dictionary_I.html#7896">ir_expression::operator_string</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_E.html#1584">Elements</a>
+
+<a href="dictionary_I.html#12147">ir_expression_flattening_visitor::handle_rvalue</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_I.html#117">ir_variable::ir_variable</a>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+
+<a href="dictionary_I.html#9694">ir_function::accept</a>
+| <a href="dictionary_I.html#2511">ir_hierarchical_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6720">ir_constant_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9486">loop_analysis::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10542">ir_copy_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12230">ir_tree_grafting_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#43">visit_list_elements</a>
+| <a href="dictionary_I.html#2514">ir_hierarchical_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#2615">loop_control_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#4085">redundant_jumps_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5818">ir_validate::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8092">loop_unroll_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9487">loop_analysis::visit_leave</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9283">ir_function::clone</a>
+| <a href="dictionary_I.html#4140">ir_function::ir_function</a>
+| <a href="dictionary_I.html#9290">ir_function_signature::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#4144">ir_function::add_signature</a>
+| <a href="dictionary_H.html#4130">hash_table_insert</a>
+
+<a href="dictionary_I.html#4142">ir_function::exact_matching_signature</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_P.html#6908">parameter_lists_match_exact</a>
+
+<a href="dictionary_I.html#4140">ir_function::ir_function</a>
+| <a href="dictionary_T.html#7309">talloc_strdup</a>
+| <a href="dictionary_I.html#7857">ir_instruction::ir_instruction</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_I.html#1768">ir_function::matching_signature</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_P.html#6893">parameter_lists_match</a>
+
+<a href="dictionary_I.html#10659">ir_function_can_inline_visitor::ir_function_can_inline_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#4855">ir_function_inlining_visitor::ir_function_inlining_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#4858">ir_function_inlining_visitor::visit_enter</a>
+| <a href="dictionary_C.html#4868">can_inline</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#4879">ir_call::generate_inline</a>
+| <a href="dictionary_E.html#175">exec_node::remove</a>
+
+<a href="dictionary_I.html#4859">ir_function_inlining_visitor::visit_enter</a>
+| <a href="dictionary_I.html#4867">ir_instruction::as_call</a><i>  (Virtual)</i>
+| <a href="dictionary_C.html#4868">can_inline</a>
+| <a href="dictionary_I.html#4879">ir_call::generate_inline</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#9691">ir_function_signature::accept</a>
+| <a href="dictionary_I.html#2511">ir_hierarchical_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6720">ir_constant_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9486">loop_analysis::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10542">ir_copy_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12230">ir_tree_grafting_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#43">visit_list_elements</a>
+| <a href="dictionary_I.html#2514">ir_hierarchical_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#2615">loop_control_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#4085">redundant_jumps_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5818">ir_validate::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8092">loop_unroll_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9487">loop_analysis::visit_leave</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9290">ir_function_signature::clone</a>
+| <a href="dictionary_I.html#4143">ir_function_signature::ir_function_signature</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#5828">ir_variable::as_variable</a>
+| <a href="dictionary_I.html#4161">ir_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_I.html#4152">ir_instruction::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#4161">ir_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9226">ir_return::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9230">ir_discard::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9235">ir_loop_jump::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9238">ir_if::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9246">ir_loop::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9279">ir_assignment::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9283">ir_function::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9290">ir_function_signature::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#4143">ir_function_signature::ir_function_signature</a>
+| <a href="dictionary_I.html#7857">ir_instruction::ir_instruction</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_I.html#7623">ir_function_signature::qualifiers_match</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+
+<a href="dictionary_I.html#4153">ir_function_signature::replace_parameters</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#4150">ir_instruction::as_variable</a>
+| <a href="dictionary_E.html#8055">exec_list_iterator::remove</a>
+| <a href="dictionary_E.html#7927">exec_list::move_nodes_to</a>
+
+<a href="dictionary_I.html#2489">ir_has_call</a>
+| <a href="dictionary_I.html#9437">ir_has_call_visitor::ir_has_call_visitor</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9437">ir_has_call_visitor::ir_has_call_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#2135">ir_hierarchical_visitor::run</a>
+| <a href="dictionary_V.html#43">visit_list_elements</a>
+
+<a href="dictionary_I.html#2099">ir_hierarchical_visitor::visit</a>
+
+<a href="dictionary_I.html#2504">ir_hierarchical_visitor::visit</a>
+
+<a href="dictionary_I.html#2506">ir_hierarchical_visitor::visit</a>
+
+<a href="dictionary_I.html#2509">ir_hierarchical_visitor::visit</a>
+
+<a href="dictionary_I.html#1696">ir_hierarchical_visitor::visit_enter</a>
+
+<a href="dictionary_I.html#1698">ir_hierarchical_visitor::visit_enter</a>
+
+<a href="dictionary_I.html#2101">ir_hierarchical_visitor::visit_enter</a>
+
+<a href="dictionary_I.html#2511">ir_hierarchical_visitor::visit_enter</a>
+
+<a href="dictionary_I.html#2519">ir_hierarchical_visitor::visit_enter</a>
+
+<a href="dictionary_I.html#2523">ir_hierarchical_visitor::visit_enter</a>
+
+<a href="dictionary_I.html#2527">ir_hierarchical_visitor::visit_enter</a>
+
+<a href="dictionary_I.html#2532">ir_hierarchical_visitor::visit_enter</a>
+
+<a href="dictionary_I.html#2536">ir_hierarchical_visitor::visit_enter</a>
+
+<a href="dictionary_I.html#2540">ir_hierarchical_visitor::visit_enter</a>
+
+<a href="dictionary_I.html#2549">ir_hierarchical_visitor::visit_enter</a>
+
+<a href="dictionary_I.html#2554">ir_hierarchical_visitor::visit_enter</a>
+
+<a href="dictionary_I.html#2559">ir_hierarchical_visitor::visit_enter</a>
+
+<a href="dictionary_I.html#9734">ir_if::accept</a>
+| <a href="dictionary_I.html#2511">ir_hierarchical_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6720">ir_constant_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9486">loop_analysis::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10542">ir_copy_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12230">ir_tree_grafting_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#43">visit_list_elements</a>
+| <a href="dictionary_I.html#2514">ir_hierarchical_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#2615">loop_control_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#4085">redundant_jumps_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5818">ir_validate::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8092">loop_unroll_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9487">loop_analysis::visit_leave</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9238">ir_if::clone</a>
+| <a href="dictionary_I.html#262">ir_if::ir_if</a>
+| <a href="dictionary_I.html#204">ir_rvalue::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_I.html#4152">ir_instruction::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#4161">ir_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9226">ir_return::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9230">ir_discard::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9235">ir_loop_jump::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9238">ir_if::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9246">ir_loop::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9279">ir_assignment::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9283">ir_function::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9290">ir_function_signature::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9151">ir_if_simplification_visitor::ir_if_simplification_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#9152">ir_if_simplification_visitor::visit_leave</a>
+| <a href="dictionary_I.html#1252">ir_rvalue::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1816">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8595">ir_texture::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8596">ir_swizzle::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8602">ir_dereference_variable::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8603">ir_dereference_array::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8615">ir_dereference_record::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8618">ir_constant::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1786">ir_call::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+| <a href="dictionary_E.html#175">exec_node::remove</a>
+
+<a href="dictionary_I.html#7824">ir_if_to_cond_assign_visitor::ir_if_to_cond_assign_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#7825">ir_if_to_cond_assign_visitor::visit_leave</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_V.html#2564">visit_tree</a>
+| <a href="dictionary_C.html#7830">check_control_flow</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_I.html#117">ir_variable::ir_variable</a>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_M.html#7834">move_block_to_cond_assign</a>
+| <a href="dictionary_E.html#175">exec_node::remove</a>
+
+<a href="dictionary_I.html#5830">ir_instruction::print</a>
+| <a href="dictionary_I.html#8786">ir_print_visitor::ir_print_visitor</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8788">ir_print_visitor::~ir_print_visitor</a>
+
+<a href="dictionary_I.html#9686">ir_loop::accept</a>
+| <a href="dictionary_I.html#2511">ir_hierarchical_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6720">ir_constant_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9486">loop_analysis::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10542">ir_copy_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12230">ir_tree_grafting_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#43">visit_list_elements</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2514">ir_hierarchical_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#2615">loop_control_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#4085">redundant_jumps_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5818">ir_validate::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8092">loop_unroll_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9487">loop_analysis::visit_leave</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9246">ir_loop::clone</a>
+| <a href="dictionary_I.html#7676">ir_loop::ir_loop</a>
+| <a href="dictionary_I.html#204">ir_rvalue::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_I.html#4152">ir_instruction::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#4161">ir_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9226">ir_return::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9230">ir_discard::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9235">ir_loop_jump::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9238">ir_if::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9246">ir_loop::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9279">ir_assignment::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9283">ir_function::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9290">ir_function_signature::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#7676">ir_loop::ir_loop</a>
+| <a href="dictionary_I.html#7857">ir_instruction::ir_instruction</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_I.html#9689">ir_loop_jump::accept</a>
+| <a href="dictionary_I.html#2099">ir_hierarchical_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2098">ir_constant_variable_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_C.html#4113">call_link_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5815">ir_validate::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9573">ir_structure_reference_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10676">ir_set_program_inouts_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#11502">ir_variable_refcount_visitor::visit</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9235">ir_loop_jump::clone</a>
+| <a href="dictionary_I.html#5044">ir_loop_jump::ir_loop_jump</a>
+
+<a href="dictionary_I.html#5008">ir_lower_jumps_visitor::get_jump_strength</a>
+| <a href="dictionary_I.html#5029">ir_loop_jump::is_break</a>
+
+<a href="dictionary_I.html#4993">ir_lower_jumps_visitor::ir_lower_jumps_visitor</a>
+| <a href="dictionary_B.html#4957">block_record::block_record</a>
+| <a href="dictionary_F.html#4978">function_record::function_record</a>
+| <a href="dictionary_L.html#4966">loop_record::loop_record</a>
+
+<a href="dictionary_I.html#4996">ir_lower_jumps_visitor::move_outer_block_inside</a>
+| <a href="dictionary_E.html#5027">exec_node::get_next</a>
+| <a href="dictionary_E.html#1865">exec_node::is_tail_sentinel</a>
+| <a href="dictionary_E.html#175">exec_node::remove</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+
+<a href="dictionary_I.html#5010">ir_lower_jumps_visitor::should_lower_jump</a>
+| <a href="dictionary_I.html#5008">ir_lower_jumps_visitor::get_jump_strength</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_E.html#5027">exec_node::get_next</a>
+| <a href="dictionary_E.html#1865">exec_node::is_tail_sentinel</a>
+
+<a href="dictionary_I.html#4994">ir_lower_jumps_visitor::truncate_after_instruction</a>
+| <a href="dictionary_E.html#5027">exec_node::get_next</a>
+| <a href="dictionary_E.html#1865">exec_node::is_tail_sentinel</a>
+| <a href="dictionary_E.html#175">exec_node::remove</a>
+
+<a href="dictionary_I.html#4999">ir_lower_jumps_visitor::visit</a>
+| <a href="dictionary_I.html#4994">ir_lower_jumps_visitor::truncate_after_instruction</a>
+| <a href="dictionary_I.html#5029">ir_loop_jump::is_break</a>
+
+<a href="dictionary_I.html#5002">ir_lower_jumps_visitor::visit</a>
+| <a href="dictionary_I.html#4994">ir_lower_jumps_visitor::truncate_after_instruction</a>
+
+<a href="dictionary_I.html#5005">ir_lower_jumps_visitor::visit</a>
+| <a href="dictionary_I.html#4994">ir_lower_jumps_visitor::truncate_after_instruction</a>
+
+<a href="dictionary_I.html#5015">ir_lower_jumps_visitor::visit</a>
+| <a href="dictionary_E.html#5027">exec_node::get_next</a>
+| <a href="dictionary_E.html#1865">exec_node::is_tail_sentinel</a>
+| <a href="dictionary_I.html#5013">ir_lower_jumps_visitor::visit_block</a>
+| <a href="dictionary_E.html#699">exec_list::is_empty</a>
+| <a href="dictionary_I.html#5008">ir_lower_jumps_visitor::get_jump_strength</a>
+| <a href="dictionary_E.html#4089">exec_list::get_tail</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_E.html#4093">exec_node::insert_after</a>
+| <a href="dictionary_I.html#5044">ir_loop_jump::ir_loop_jump</a>
+| <a href="dictionary_G.html#1782">glsl_type::is_void</a>
+| <a href="dictionary_I.html#5046">ir_return::ir_return</a>
+| <a href="dictionary_E.html#175">exec_node::remove</a>
+| <a href="dictionary_I.html#5010">ir_lower_jumps_visitor::should_lower_jump</a>
+| <a href="dictionary_F.html#4980">function_record::get_return_flag</a>
+| <a href="dictionary_F.html#4981">function_record::get_return_value</a>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_E.html#1778">exec_node::replace_with</a>
+| <a href="dictionary_L.html#4970">loop_record::get_break_flag</a>
+| <a href="dictionary_L.html#4969">loop_record::get_execute_flag</a>
+| <a href="dictionary_I.html#4994">ir_lower_jumps_visitor::truncate_after_instruction</a>
+| <a href="dictionary_I.html#4996">ir_lower_jumps_visitor::move_outer_block_inside</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_I.html#5063">ir_instruction::as_if</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#703">is_empty</a>
+| <a href="dictionary_A.html#5067">as_dereference_variable</a>
+| <a href="dictionary_I.html#262">ir_if::ir_if</a>
+
+<a href="dictionary_I.html#5018">ir_lower_jumps_visitor::visit</a>
+| <a href="dictionary_L.html#4966">loop_record::loop_record</a>
+| <a href="dictionary_I.html#5013">ir_lower_jumps_visitor::visit_block</a>
+| <a href="dictionary_I.html#262">ir_if::ir_if</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_I.html#5044">ir_loop_jump::ir_loop_jump</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_E.html#4093">exec_node::insert_after</a>
+
+<a href="dictionary_I.html#5021">ir_lower_jumps_visitor::visit</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_F.html#4978">function_record::function_record</a>
+| <a href="dictionary_L.html#4966">loop_record::loop_record</a>
+| <a href="dictionary_I.html#5013">ir_lower_jumps_visitor::visit_block</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_I.html#5046">ir_return::ir_return</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+
+<a href="dictionary_I.html#5024">ir_lower_jumps_visitor::visit</a>
+| <a href="dictionary_I.html#5013">ir_lower_jumps_visitor::visit_block</a>
+
+<a href="dictionary_I.html#5013">ir_lower_jumps_visitor::visit_block</a>
+| <a href="dictionary_B.html#4957">block_record::block_record</a>
+| <a href="dictionary_V.html#5034">visit_exec_list</a>
+
+<a href="dictionary_I.html#21">ir_mat_op_to_vec_visitor::do_equal_mat_mat</a>
+| <a href="dictionary_G.html#114">glsl_type::get_instance</a>
+| <a href="dictionary_I.html#117">ir_variable::ir_variable</a>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+| <a href="dictionary_I.html#12">ir_mat_op_to_vec_visitor::get_column</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+
+<a href="dictionary_I.html#17">ir_mat_op_to_vec_visitor::do_mul_mat_mat</a>
+| <a href="dictionary_I.html#12">ir_mat_op_to_vec_visitor::get_column</a>
+| <a href="dictionary_I.html#15">ir_mat_op_to_vec_visitor::get_element</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+
+<a href="dictionary_I.html#20">ir_mat_op_to_vec_visitor::do_mul_mat_scalar</a>
+| <a href="dictionary_I.html#12">ir_mat_op_to_vec_visitor::get_column</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+
+<a href="dictionary_I.html#18">ir_mat_op_to_vec_visitor::do_mul_mat_vec</a>
+| <a href="dictionary_I.html#12">ir_mat_op_to_vec_visitor::get_column</a>
+| <a href="dictionary_I.html#15">ir_mat_op_to_vec_visitor::get_element</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+
+<a href="dictionary_I.html#19">ir_mat_op_to_vec_visitor::do_mul_vec_mat</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_I.html#12">ir_mat_op_to_vec_visitor::get_column</a>
+| <a href="dictionary_I.html#56">ir_swizzle::ir_swizzle</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+
+<a href="dictionary_I.html#12">ir_mat_op_to_vec_visitor::get_column</a>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_I.html#51">ir_dereference_array::ir_dereference_array</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+
+<a href="dictionary_I.html#15">ir_mat_op_to_vec_visitor::get_element</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_I.html#51">ir_dereference_array::ir_dereference_array</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#56">ir_swizzle::ir_swizzle</a>
+
+<a href="dictionary_I.html#7">ir_mat_op_to_vec_visitor::ir_mat_op_to_vec_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#8">ir_mat_op_to_vec_visitor::visit_leave</a>
+| <a href="dictionary_I.html#31">ir_instruction::as_expression</a><i>  (Virtual)</i>
+| <a href="dictionary_H.html#133">has_matrix_operand</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_I.html#147">ir_instruction::as_dereference_variable</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#33">ir_expression::get_num_operands</a>
+| <a href="dictionary_I.html#117">ir_variable::ir_variable</a>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_I.html#12">ir_mat_op_to_vec_visitor::get_column</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_I.html#17">ir_mat_op_to_vec_visitor::do_mul_mat_mat</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_I.html#18">ir_mat_op_to_vec_visitor::do_mul_mat_vec</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_I.html#20">ir_mat_op_to_vec_visitor::do_mul_mat_scalar</a>
+| <a href="dictionary_I.html#19">ir_mat_op_to_vec_visitor::do_mul_vec_mat</a>
+| <a href="dictionary_I.html#21">ir_mat_op_to_vec_visitor::do_equal_mat_mat</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#173">ir_expression::operator_string</a>
+| <a href="dictionary_A.html#174">abort</a>
+| <a href="dictionary_E.html#175">exec_node::remove</a>
+
+<a href="dictionary_I.html#8488">ir_mod_to_fract_visitor::ir_mod_to_fract_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#8489">ir_mod_to_fract_visitor::visit_leave</a>
+| <a href="dictionary_I.html#117">ir_variable::ir_variable</a>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+
+<a href="dictionary_I.html#2074">ir_noop_swizzle_visitor::handle_rvalue</a>
+| <a href="dictionary_I.html#2078">ir_instruction::as_swizzle</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8799">ir_print_visitor::indent</a>
+| <a href="dictionary_P.html#172">printf</a>
+
+<a href="dictionary_I.html#8803">ir_print_visitor::visit</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_P.html#8784">print_type</a>
+
+<a href="dictionary_I.html#8810">ir_print_visitor::visit</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_P.html#8784">print_type</a>
+| <a href="dictionary_I.html#8799">ir_print_visitor::indent</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#8814">ir_variable::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8817">ir_print_visitor::visit</a>
+| <a href="dictionary_I.html#8057">ir_function::has_user_signature</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#2143">ir_function::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#8799">ir_print_visitor::indent</a>
+| <a href="dictionary_I.html#4157">ir_function_signature::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8821">ir_print_visitor::visit</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_P.html#8784">print_type</a>
+| <a href="dictionary_I.html#173">ir_expression::operator_string</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8824">ir_print_visitor::visit</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#7995">ir_texture::opcode_string</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8829">ir_print_visitor::visit</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8834">ir_print_visitor::visit</a>
+| <a href="dictionary_I.html#8838">ir_dereference_variable::variable_referenced</a><i>  (Virtual)</i>
+| <a href="dictionary_P.html#172">printf</a>
+
+<a href="dictionary_I.html#8839">ir_print_visitor::visit</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8842">ir_print_visitor::visit</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8845">ir_print_visitor::visit</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8851">ir_print_visitor::visit</a>
+| <a href="dictionary_G.html#7746">glsl_type::get_base_type</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_P.html#8784">print_type</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_I.html#7950">ir_constant::get_array_element</a>
+| <a href="dictionary_I.html#8856">ir_constant::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#1821">glsl_type::components</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#8858">ir_print_visitor::visit</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#8627">ir_call::callee_name</a>
+| <a href="dictionary_I.html#2126">ir_call::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8863">ir_print_visitor::visit</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#8866">ir_return::get_value</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8867">ir_print_visitor::visit</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8869">ir_print_visitor::visit</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#8799">ir_print_visitor::indent</a>
+| <a href="dictionary_E.html#699">exec_list::is_empty</a>
+
+<a href="dictionary_I.html#8875">ir_print_visitor::visit</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#8814">ir_variable::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#8799">ir_print_visitor::indent</a>
+
+<a href="dictionary_I.html#8879">ir_print_visitor::visit</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#5029">ir_loop_jump::is_break</a>
+
+<a href="dictionary_I.html#7535">ir_read_error</a>
+| <a href="dictionary_T.html#1755">talloc_asprintf_append</a>
+| <a href="dictionary_I.html#1716">ir_function_signature::function_name</a>
+| <a href="dictionary_T.html#1759">talloc_strdup_append</a>
+| <a href="dictionary_V.html#2828">va_start</a>
+| <a href="dictionary_T.html#2829">talloc_vasprintf_append</a>
+| <a href="dictionary_V.html#2830">va_end</a>
+| <a href="dictionary_S.html#7525">s_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_S.html#7524">s_int::print</a><i>  (Virtual)</i>
+| <a href="dictionary_S.html#7527">s_float::print</a><i>  (Virtual)</i>
+| <a href="dictionary_S.html#7529">s_symbol::print</a><i>  (Virtual)</i>
+| <a href="dictionary_S.html#7530">s_list::print</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9727">ir_return::accept</a>
+| <a href="dictionary_I.html#2511">ir_hierarchical_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6720">ir_constant_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9486">loop_analysis::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10542">ir_copy_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12230">ir_tree_grafting_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8866">ir_return::get_value</a>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2514">ir_hierarchical_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#2615">loop_control_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#4085">redundant_jumps_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5818">ir_validate::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8092">loop_unroll_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9487">loop_analysis::visit_leave</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9226">ir_return::clone</a>
+| <a href="dictionary_I.html#204">ir_rvalue::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5046">ir_return::ir_return</a>
+
+<a href="dictionary_I.html#7856">ir_rvalue::ir_rvalue</a>
+| <a href="dictionary_I.html#7857">ir_instruction::ir_instruction</a>
+
+<a href="dictionary_I.html#289">ir_rvalue_visitor::visit_leave</a>
+| <a href="dictionary_I.html#286">ir_rvalue_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#285">variable_index_to_cond_assign_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1222">ir_algebraic_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2074">ir_noop_swizzle_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5091">ir_constant_folding_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6729">ir_constant_propagation_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8501">lower_noise_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9599">ir_structure_splitting_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12147">ir_expression_flattening_visitor::handle_rvalue</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#10087">ir_rvalue_visitor::visit_leave</a>
+| <a href="dictionary_I.html#33">ir_expression::get_num_operands</a>
+| <a href="dictionary_I.html#286">ir_rvalue_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#285">variable_index_to_cond_assign_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1222">ir_algebraic_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2074">ir_noop_swizzle_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5091">ir_constant_folding_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6729">ir_constant_propagation_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8501">lower_noise_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9599">ir_structure_splitting_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12147">ir_expression_flattening_visitor::handle_rvalue</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#10090">ir_rvalue_visitor::visit_leave</a>
+| <a href="dictionary_I.html#286">ir_rvalue_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#285">variable_index_to_cond_assign_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1222">ir_algebraic_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2074">ir_noop_swizzle_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5091">ir_constant_folding_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6729">ir_constant_propagation_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8501">lower_noise_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9599">ir_structure_splitting_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12147">ir_expression_flattening_visitor::handle_rvalue</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#10094">ir_rvalue_visitor::visit_leave</a>
+| <a href="dictionary_I.html#286">ir_rvalue_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#285">variable_index_to_cond_assign_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1222">ir_algebraic_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2074">ir_noop_swizzle_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5091">ir_constant_folding_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6729">ir_constant_propagation_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8501">lower_noise_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9599">ir_structure_splitting_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12147">ir_expression_flattening_visitor::handle_rvalue</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#10096">ir_rvalue_visitor::visit_leave</a>
+| <a href="dictionary_I.html#286">ir_rvalue_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#285">variable_index_to_cond_assign_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1222">ir_algebraic_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2074">ir_noop_swizzle_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5091">ir_constant_folding_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6729">ir_constant_propagation_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8501">lower_noise_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9599">ir_structure_splitting_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12147">ir_expression_flattening_visitor::handle_rvalue</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#10099">ir_rvalue_visitor::visit_leave</a>
+| <a href="dictionary_I.html#286">ir_rvalue_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#285">variable_index_to_cond_assign_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1222">ir_algebraic_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2074">ir_noop_swizzle_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5091">ir_constant_folding_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6729">ir_constant_propagation_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8501">lower_noise_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9599">ir_structure_splitting_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12147">ir_expression_flattening_visitor::handle_rvalue</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#10102">ir_rvalue_visitor::visit_leave</a>
+| <a href="dictionary_I.html#2126">ir_call::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#286">ir_rvalue_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#285">variable_index_to_cond_assign_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1222">ir_algebraic_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2074">ir_noop_swizzle_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5091">ir_constant_folding_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6729">ir_constant_propagation_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8501">lower_noise_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9599">ir_structure_splitting_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12147">ir_expression_flattening_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#1778">exec_node::replace_with</a>
+
+<a href="dictionary_I.html#10107">ir_rvalue_visitor::visit_leave</a>
+| <a href="dictionary_I.html#286">ir_rvalue_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#285">variable_index_to_cond_assign_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1222">ir_algebraic_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2074">ir_noop_swizzle_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5091">ir_constant_folding_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6729">ir_constant_propagation_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8501">lower_noise_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9599">ir_structure_splitting_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12147">ir_expression_flattening_visitor::handle_rvalue</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#10109">ir_rvalue_visitor::visit_leave</a>
+| <a href="dictionary_I.html#286">ir_rvalue_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#285">variable_index_to_cond_assign_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1222">ir_algebraic_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2074">ir_noop_swizzle_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5091">ir_constant_folding_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6729">ir_constant_propagation_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8501">lower_noise_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9599">ir_structure_splitting_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12147">ir_expression_flattening_visitor::handle_rvalue</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#4917">ir_sampler_replacement_visitor::ir_sampler_replacement_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#4925">ir_sampler_replacement_visitor::replace_deref</a>
+| <a href="dictionary_I.html#147">ir_instruction::as_dereference_variable</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#4931">ir_dereference::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+
+<a href="dictionary_I.html#4926">ir_sampler_replacement_visitor::replace_rvalue</a>
+| <a href="dictionary_I.html#4902">ir_instruction::as_dereference</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#4925">ir_sampler_replacement_visitor::replace_deref</a>
+
+<a href="dictionary_I.html#4921">ir_sampler_replacement_visitor::visit_leave</a>
+| <a href="dictionary_I.html#2126">ir_call::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#4926">ir_sampler_replacement_visitor::replace_rvalue</a>
+| <a href="dictionary_E.html#1778">exec_node::replace_with</a>
+
+<a href="dictionary_I.html#4922">ir_sampler_replacement_visitor::visit_leave</a>
+| <a href="dictionary_I.html#4926">ir_sampler_replacement_visitor::replace_rvalue</a>
+
+<a href="dictionary_I.html#4923">ir_sampler_replacement_visitor::visit_leave</a>
+| <a href="dictionary_I.html#4926">ir_sampler_replacement_visitor::replace_rvalue</a>
+
+<a href="dictionary_I.html#4924">ir_sampler_replacement_visitor::visit_leave</a>
+| <a href="dictionary_I.html#4925">ir_sampler_replacement_visitor::replace_deref</a>
+
+<a href="dictionary_I.html#10670">ir_set_program_inouts_visitor::ir_set_program_inouts_visitor</a>
+| <a href="dictionary_H.html#4126">hash_table_ctor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#10675">ir_set_program_inouts_visitor::visit</a>
+| <a href="dictionary_H.html#4158">hash_table_find</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_M.html#10679">mark</a>
+
+<a href="dictionary_I.html#10676">ir_set_program_inouts_visitor::visit</a>
+| <a href="dictionary_H.html#4130">hash_table_insert</a>
+
+<a href="dictionary_I.html#10673">ir_set_program_inouts_visitor::visit_enter</a>
+| <a href="dictionary_I.html#293">ir_instruction::as_constant</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#147">ir_instruction::as_dereference_variable</a><i>  (Virtual)</i>
+| <a href="dictionary_H.html#4158">hash_table_find</a>
+| <a href="dictionary_M.html#10679">mark</a>
+
+<a href="dictionary_I.html#10674">ir_set_program_inouts_visitor::visit_enter</a>
+| <a href="dictionary_V.html#43">visit_list_elements</a>
+
+<a href="dictionary_I.html#10672">ir_set_program_inouts_visitor::~ir_set_program_inouts_visitor</a>
+| <a href="dictionary_H.html#4129">hash_table_dtor</a>
+
+<a href="dictionary_I.html#9578">ir_structure_reference_visitor::get_variable_entry2</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#2038">glsl_type::is_record</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_V.html#9563">variable_entry2::variable_entry2</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+
+<a href="dictionary_I.html#9571">ir_structure_reference_visitor::ir_structure_reference_visitor</a>
+| <a href="dictionary_T.html#1703">talloc_new</a>
+| <a href="dictionary_E.html#6759">exec_list::make_empty</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+
+<a href="dictionary_I.html#9573">ir_structure_reference_visitor::visit</a>
+| <a href="dictionary_I.html#9578">ir_structure_reference_visitor::get_variable_entry2</a>
+
+<a href="dictionary_I.html#9574">ir_structure_reference_visitor::visit</a>
+| <a href="dictionary_I.html#8838">ir_dereference_variable::variable_referenced</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9578">ir_structure_reference_visitor::get_variable_entry2</a>
+
+<a href="dictionary_I.html#9576">ir_structure_reference_visitor::visit_enter</a>
+| <a href="dictionary_I.html#147">ir_instruction::as_dereference_variable</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9577">ir_structure_reference_visitor::visit_enter</a>
+| <a href="dictionary_V.html#43">visit_list_elements</a>
+
+<a href="dictionary_I.html#9572">ir_structure_reference_visitor::~ir_structure_reference_visitor</a>
+| <a href="dictionary_T.html#735">talloc_free</a>
+
+<a href="dictionary_I.html#9600">ir_structure_splitting_visitor::get_splitting_entry</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#2038">glsl_type::is_record</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+
+<a href="dictionary_I.html#9599">ir_structure_splitting_visitor::handle_rvalue</a>
+| <a href="dictionary_I.html#4902">ir_instruction::as_dereference</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9598">ir_structure_splitting_visitor::split_deref</a>
+
+<a href="dictionary_I.html#9598">ir_structure_splitting_visitor::split_deref</a>
+| <a href="dictionary_I.html#147">ir_instruction::as_dereference_variable</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9600">ir_structure_splitting_visitor::get_splitting_entry</a>
+| <a href="dictionary_S.html#1211">safe_strcmp</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+
+<a href="dictionary_I.html#9597">ir_structure_splitting_visitor::visit_leave</a>
+| <a href="dictionary_I.html#147">ir_instruction::as_dereference_variable</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9600">ir_structure_splitting_visitor::get_splitting_entry</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_I.html#1206">ir_dereference_record::ir_dereference_record</a>
+| <a href="dictionary_I.html#4931">ir_dereference::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#204">ir_rvalue::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_E.html#175">exec_node::remove</a>
+| <a href="dictionary_I.html#9599">ir_structure_splitting_visitor::handle_rvalue</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9598">ir_structure_splitting_visitor::split_deref</a>
+
+<a href="dictionary_I.html#10816">ir_sub_to_add_neg_visitor::ir_sub_to_add_neg_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#10817">ir_sub_to_add_neg_visitor::visit_leave</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+
+<a href="dictionary_I.html#9707">ir_swizzle::accept</a>
+| <a href="dictionary_I.html#2511">ir_hierarchical_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6720">ir_constant_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9486">loop_analysis::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10542">ir_copy_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12230">ir_tree_grafting_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2514">ir_hierarchical_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#2615">loop_control_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#4085">redundant_jumps_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5818">ir_validate::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8092">loop_unroll_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9487">loop_analysis::visit_leave</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9223">ir_swizzle::clone</a>
+| <a href="dictionary_I.html#56">ir_swizzle::ir_swizzle</a>
+| <a href="dictionary_I.html#204">ir_rvalue::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8596">ir_swizzle::constant_expression_value</a>
+| <a href="dictionary_I.html#1252">ir_rvalue::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1816">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8595">ir_texture::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8596">ir_swizzle::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8602">ir_dereference_variable::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8603">ir_dereference_array::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8615">ir_dereference_record::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8618">ir_constant::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1786">ir_call::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+
+<a href="dictionary_I.html#1199">ir_swizzle::create</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_I.html#56">ir_swizzle::ir_swizzle</a>
+
+<a href="dictionary_I.html#8003">ir_swizzle::init_mask</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_M.html#242">memset</a>
+| <a href="dictionary_G.html#114">glsl_type::get_instance</a>
+
+<a href="dictionary_I.html#56">ir_swizzle::ir_swizzle</a>
+| <a href="dictionary_I.html#8003">ir_swizzle::init_mask</a>
+| <a href="dictionary_I.html#7856">ir_rvalue::ir_rvalue</a>
+
+<a href="dictionary_I.html#8016">ir_swizzle::ir_swizzle</a>
+| <a href="dictionary_I.html#8003">ir_swizzle::init_mask</a>
+| <a href="dictionary_I.html#7856">ir_rvalue::ir_rvalue</a>
+
+<a href="dictionary_I.html#8020">ir_swizzle::ir_swizzle</a>
+| <a href="dictionary_G.html#114">glsl_type::get_instance</a>
+| <a href="dictionary_I.html#7856">ir_rvalue::ir_rvalue</a>
+
+<a href="dictionary_I.html#8036">ir_swizzle::variable_referenced</a>
+| <a href="dictionary_I.html#298">ir_rvalue::variable_referenced</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8036">ir_swizzle::variable_referenced</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#8079">ir_swizzle_swizzle_visitor::ir_swizzle_swizzle_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#8080">ir_swizzle_swizzle_visitor::visit_enter</a>
+| <a href="dictionary_I.html#2078">ir_instruction::as_swizzle</a><i>  (Virtual)</i>
+| <a href="dictionary_M.html#242">memset</a>
+
+<a href="dictionary_I.html#9702">ir_texture::accept</a>
+| <a href="dictionary_I.html#2511">ir_hierarchical_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#6720">ir_constant_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9486">loop_analysis::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10542">ir_copy_propagation_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#12230">ir_tree_grafting_visitor::visit_enter</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2569">ir_instruction::accept</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2514">ir_hierarchical_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#2615">loop_control_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#4085">redundant_jumps_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5818">ir_validate::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#8092">loop_unroll_visitor::visit_leave</a><i>  (Virtual)</i>
+| <a href="dictionary_L.html#9487">loop_analysis::visit_leave</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#9272">ir_texture::clone</a>
+| <a href="dictionary_I.html#7794">ir_texture::ir_texture</a>
+| <a href="dictionary_I.html#4931">ir_dereference::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#204">ir_rvalue::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#7792">ir_texture::get_opcode</a>
+| <a href="dictionary_S.html#1211">safe_strcmp</a>
+
+<a href="dictionary_I.html#7995">ir_texture::opcode_string</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#7797">ir_texture::set_sampler</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#2738">ir_to_mesa_instruction::operator new</a>
+| <a href="dictionary_T.html#2754">talloc_zero_size</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#2715">ir_to_mesa_src_reg::ir_to_mesa_src_reg</a>
+| <a href="dictionary_G.html#2725">glsl_type::is_scalar</a>
+| <a href="dictionary_G.html#2726">glsl_type::is_vector</a>
+| <a href="dictionary_G.html#2727">glsl_type::is_matrix</a>
+| <a href="dictionary_S.html#2713">swizzle_for_size</a>
+
+<a href="dictionary_I.html#2864">ir_to_mesa_src_reg_from_dst</a>
+| <a href="dictionary_I.html#2715">ir_to_mesa_src_reg::ir_to_mesa_src_reg</a>
+
+<a href="dictionary_I.html#2780">ir_to_mesa_visitor::find_variable_storage</a>
+| <a href="dictionary_F.html#2914">foreach_iter</a>
+| <a href="dictionary_G.html#797">get</a>
+
+<a href="dictionary_I.html#2781">ir_to_mesa_visitor::get_function_signature</a>
+| <a href="dictionary_F.html#2914">foreach_iter</a>
+| <a href="dictionary_G.html#797">get</a>
+| <a href="dictionary_T.html#3230">talloc</a>
+| <a href="dictionary_I.html#2780">ir_to_mesa_visitor::find_variable_storage</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_V.html#2756">variable_storage::variable_storage</a>
+| <a href="dictionary_E.html#2848">exec_list::push_tail</a>
+| <a href="dictionary_T.html#2892">type_size</a>
+| <a href="dictionary_I.html#3286">is_void</a>
+| <a href="dictionary_I.html#2782">ir_to_mesa_visitor::get_temp</a>
+
+<a href="dictionary_I.html#2814">ir_to_mesa_visitor::get_sampler_uniform_value</a>
+| <a href="dictionary_G.html#3311">get_sampler_name::get_sampler_name</a>
+| <a href="dictionary_I.html#3245">ir_dereference::accept</a>
+| <a href="dictionary_Non-Alpha.html#3334">_mesa_lookup_parameter_index</a>
+| <a href="dictionary_F.html#2822">fail_link</a>
+
+<a href="dictionary_I.html#2782">ir_to_mesa_visitor::get_temp</a>
+| <a href="dictionary_I.html#2715">ir_to_mesa_src_reg::ir_to_mesa_src_reg</a>
+| <a href="dictionary_T.html#2892">type_size</a>
+| <a href="dictionary_G.html#2910">glsl_type::is_array</a>
+| <a href="dictionary_G.html#2911">glsl_type::is_record</a>
+| <a href="dictionary_M.html#2834">MAKE_SWIZZLE4</a>
+
+<a href="dictionary_I.html#2807">ir_to_mesa_visitor::ir_to_mesa_emit_op0</a>
+| <a href="dictionary_I.html#2810">ir_to_mesa_visitor::ir_to_mesa_emit_op3</a>
+
+<a href="dictionary_I.html#2808">ir_to_mesa_visitor::ir_to_mesa_emit_op1</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#2810">ir_to_mesa_visitor::ir_to_mesa_emit_op3</a>
+
+<a href="dictionary_I.html#2809">ir_to_mesa_visitor::ir_to_mesa_emit_op2</a>
+| <a href="dictionary_I.html#2810">ir_to_mesa_visitor::ir_to_mesa_emit_op3</a>
+
+<a href="dictionary_I.html#2810">ir_to_mesa_visitor::ir_to_mesa_emit_op3</a>
+| <a href="dictionary_I.html#2783">ir_to_mesa_visitor::reladdr_to_temp</a>
+| <a href="dictionary_I.html#2808">ir_to_mesa_visitor::ir_to_mesa_emit_op1</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_E.html#2848">exec_list::push_tail</a>
+
+<a href="dictionary_I.html#2811">ir_to_mesa_visitor::ir_to_mesa_emit_scalar_op1</a>
+| <a href="dictionary_I.html#2812">ir_to_mesa_visitor::ir_to_mesa_emit_scalar_op2</a>
+
+<a href="dictionary_I.html#2812">ir_to_mesa_visitor::ir_to_mesa_emit_scalar_op2</a>
+| <a href="dictionary_G.html#2879">GET_SWZ</a>
+| <a href="dictionary_M.html#2834">MAKE_SWIZZLE4</a>
+| <a href="dictionary_I.html#2809">ir_to_mesa_visitor::ir_to_mesa_emit_op2</a>
+
+<a href="dictionary_I.html#2770">ir_to_mesa_visitor::ir_to_mesa_visitor</a>
+| <a href="dictionary_T.html#1703">talloc_new</a>
+| <a href="dictionary_I.html#2715">ir_to_mesa_src_reg::ir_to_mesa_src_reg</a>
+
+<a href="dictionary_I.html#2783">ir_to_mesa_visitor::reladdr_to_temp</a>
+| <a href="dictionary_I.html#2808">ir_to_mesa_visitor::ir_to_mesa_emit_op1</a>
+| <a href="dictionary_I.html#2782">ir_to_mesa_visitor::get_temp</a>
+| <a href="dictionary_I.html#2860">ir_to_mesa_dst_reg_from_src</a>
+
+<a href="dictionary_I.html#2784">ir_to_mesa_visitor::src_reg_for_float</a>
+| <a href="dictionary_I.html#2715">ir_to_mesa_src_reg::ir_to_mesa_src_reg</a>
+| <a href="dictionary_Non-Alpha.html#2890">_mesa_add_unnamed_constant</a>
+
+<a href="dictionary_I.html#2813">ir_to_mesa_visitor::try_emit_mad</a>
+| <a href="dictionary_I.html#2715">ir_to_mesa_src_reg::ir_to_mesa_src_reg</a>
+| <a href="dictionary_A.html#3075">as_expression</a>
+| <a href="dictionary_A.html#3077">accept</a>
+| <a href="dictionary_I.html#2782">ir_to_mesa_visitor::get_temp</a>
+| <a href="dictionary_I.html#2810">ir_to_mesa_visitor::ir_to_mesa_emit_op3</a>
+| <a href="dictionary_I.html#2860">ir_to_mesa_dst_reg_from_src</a>
+
+<a href="dictionary_I.html#2785">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_S.html#3011">strcmp</a>
+| <a href="dictionary_S.html#759">strncmp</a>
+| <a href="dictionary_E.html#1584">Elements</a>
+| <a href="dictionary_F.html#2822">fail_link</a>
+| <a href="dictionary_I.html#3023">is_array</a>
+| <a href="dictionary_V.html#2756">variable_storage::variable_storage</a>
+| <a href="dictionary_E.html#2848">exec_list::push_tail</a>
+| <a href="dictionary_T.html#2892">type_size</a>
+| <a href="dictionary_I.html#2860">ir_to_mesa_dst_reg_from_src</a>
+| <a href="dictionary_I.html#2715">ir_to_mesa_src_reg::ir_to_mesa_src_reg</a>
+| <a href="dictionary_M.html#729">memcpy</a>
+| <a href="dictionary_Non-Alpha.html#3033">_mesa_add_state_reference</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#2808">ir_to_mesa_visitor::ir_to_mesa_emit_op1</a>
+
+<a href="dictionary_I.html#2786">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#3040">ir_assignment::accept</a>
+| <a href="dictionary_I.html#2807">ir_to_mesa_visitor::ir_to_mesa_emit_op0</a>
+| <a href="dictionary_P.html#3047">push_tail</a>
+| <a href="dictionary_I.html#3048">ir_if::accept</a>
+| <a href="dictionary_V.html#3049">visit_exec_list</a>
+
+<a href="dictionary_I.html#2787">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_I.html#2807">ir_to_mesa_visitor::ir_to_mesa_emit_op0</a>
+
+<a href="dictionary_I.html#2788">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#2789">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_S.html#3011">strcmp</a>
+| <a href="dictionary_I.html#3065">ir_function::matching_signature</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_F.html#2914">foreach_iter</a>
+| <a href="dictionary_G.html#797">get</a>
+| <a href="dictionary_I.html#3067">ir_instruction::accept</a>
+
+<a href="dictionary_I.html#2790">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_I.html#2715">ir_to_mesa_src_reg::ir_to_mesa_src_reg</a>
+| <a href="dictionary_G.html#3091">glsl_type::get_instance</a>
+| <a href="dictionary_I.html#2813">ir_to_mesa_visitor::try_emit_mad</a>
+| <a href="dictionary_I.html#3094">ir_expression::get_num_operands</a>
+| <a href="dictionary_A.html#3077">accept</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_E.html#663">exit</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#3097">is_matrix</a>
+| <a href="dictionary_M.html#3100">MAX2</a>
+| <a href="dictionary_I.html#2782">ir_to_mesa_visitor::get_temp</a>
+| <a href="dictionary_I.html#2860">ir_to_mesa_dst_reg_from_src</a>
+| <a href="dictionary_I.html#2809">ir_to_mesa_visitor::ir_to_mesa_emit_op2</a>
+| <a href="dictionary_I.html#2784">ir_to_mesa_visitor::src_reg_for_float</a>
+| <a href="dictionary_I.html#2808">ir_to_mesa_visitor::ir_to_mesa_emit_op1</a>
+| <a href="dictionary_I.html#2811">ir_to_mesa_visitor::ir_to_mesa_emit_scalar_op1</a>
+| <a href="dictionary_P.html#3126">prog_opcode</a>
+| <a href="dictionary_I.html#3147">is_vector</a>
+| <a href="dictionary_I.html#2810">ir_to_mesa_visitor::ir_to_mesa_emit_op3</a>
+| <a href="dictionary_I.html#2812">ir_to_mesa_visitor::ir_to_mesa_emit_scalar_op2</a>
+
+<a href="dictionary_I.html#2791">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_I.html#2715">ir_to_mesa_src_reg::ir_to_mesa_src_reg</a>
+| <a href="dictionary_A.html#3077">accept</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#2879">GET_SWZ</a>
+| <a href="dictionary_M.html#2834">MAKE_SWIZZLE4</a>
+
+<a href="dictionary_I.html#2792">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_I.html#2780">ir_to_mesa_visitor::find_variable_storage</a>
+| <a href="dictionary_V.html#2756">variable_storage::variable_storage</a>
+| <a href="dictionary_E.html#2848">exec_list::push_tail</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_Non-Alpha.html#3212">_mesa_add_attribute</a>
+| <a href="dictionary_Non-Alpha.html#3215">_mesa_sizeof_glsl_type</a>
+| <a href="dictionary_T.html#2892">type_size</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_E.html#663">exit</a>
+| <a href="dictionary_I.html#2715">ir_to_mesa_src_reg::ir_to_mesa_src_reg</a>
+
+<a href="dictionary_I.html#2793">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_I.html#2715">ir_to_mesa_src_reg::ir_to_mesa_src_reg</a>
+| <a href="dictionary_T.html#2892">type_size</a>
+| <a href="dictionary_C.html#3225">constant_expression_value</a>
+| <a href="dictionary_A.html#3077">accept</a>
+| <a href="dictionary_I.html#2782">ir_to_mesa_visitor::get_temp</a>
+| <a href="dictionary_I.html#2809">ir_to_mesa_visitor::ir_to_mesa_emit_op2</a>
+| <a href="dictionary_I.html#2860">ir_to_mesa_dst_reg_from_src</a>
+| <a href="dictionary_I.html#2784">ir_to_mesa_visitor::src_reg_for_float</a>
+| <a href="dictionary_T.html#3230">talloc</a>
+| <a href="dictionary_M.html#729">memcpy</a>
+| <a href="dictionary_I.html#3231">is_scalar</a>
+| <a href="dictionary_I.html#3147">is_vector</a>
+| <a href="dictionary_S.html#2713">swizzle_for_size</a>
+
+<a href="dictionary_I.html#2794">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_A.html#3077">accept</a>
+| <a href="dictionary_S.html#3011">strcmp</a>
+| <a href="dictionary_T.html#2892">type_size</a>
+| <a href="dictionary_S.html#2713">swizzle_for_size</a>
+
+<a href="dictionary_I.html#2795">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_I.html#2715">ir_to_mesa_src_reg::ir_to_mesa_src_reg</a>
+| <a href="dictionary_A.html#3077">accept</a>
+| <a href="dictionary_G.html#3239">get_assignment_lhs</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#3231">is_scalar</a>
+| <a href="dictionary_I.html#3147">is_vector</a>
+| <a href="dictionary_G.html#2879">GET_SWZ</a>
+| <a href="dictionary_M.html#2834">MAKE_SWIZZLE4</a>
+| <a href="dictionary_T.html#2892">type_size</a>
+| <a href="dictionary_I.html#2810">ir_to_mesa_visitor::ir_to_mesa_emit_op3</a>
+| <a href="dictionary_I.html#2864">ir_to_mesa_src_reg_from_dst</a>
+| <a href="dictionary_I.html#2808">ir_to_mesa_visitor::ir_to_mesa_emit_op1</a>
+
+<a href="dictionary_I.html#2796">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_I.html#2715">ir_to_mesa_src_reg::ir_to_mesa_src_reg</a>
+| <a href="dictionary_I.html#2782">ir_to_mesa_visitor::get_temp</a>
+| <a href="dictionary_I.html#2860">ir_to_mesa_dst_reg_from_src</a>
+| <a href="dictionary_F.html#2914">foreach_iter</a>
+| <a href="dictionary_G.html#797">get</a>
+| <a href="dictionary_T.html#2892">type_size</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#3269">ir_constant::accept</a>
+| <a href="dictionary_I.html#2808">ir_to_mesa_visitor::ir_to_mesa_emit_op1</a>
+| <a href="dictionary_I.html#3023">is_array</a>
+| <a href="dictionary_A.html#3077">accept</a>
+| <a href="dictionary_I.html#3097">is_matrix</a>
+| <a href="dictionary_Non-Alpha.html#2890">_mesa_add_unnamed_constant</a>
+
+<a href="dictionary_I.html#2797">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_I.html#3290">ir_call::get_callee</a>
+| <a href="dictionary_I.html#2781">ir_to_mesa_visitor::get_function_signature</a>
+| <a href="dictionary_I.html#3294">iterator</a>
+| <a href="dictionary_F.html#2914">foreach_iter</a>
+| <a href="dictionary_G.html#797">get</a>
+| <a href="dictionary_E.html#3297">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#2780">ir_to_mesa_visitor::find_variable_storage</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#3299">ir_rvalue::accept</a>
+| <a href="dictionary_T.html#2892">type_size</a>
+| <a href="dictionary_I.html#2808">ir_to_mesa_visitor::ir_to_mesa_emit_op1</a>
+| <a href="dictionary_E.html#3302">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#3303">exec_list_iterator::has_next</a>
+| <a href="dictionary_I.html#2715">ir_to_mesa_src_reg::ir_to_mesa_src_reg</a>
+| <a href="dictionary_I.html#2860">ir_to_mesa_dst_reg_from_src</a>
+
+<a href="dictionary_I.html#2798">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_I.html#3384">ir_return::get_value</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_A.html#3077">accept</a>
+| <a href="dictionary_I.html#2860">ir_to_mesa_dst_reg_from_src</a>
+| <a href="dictionary_T.html#2892">type_size</a>
+| <a href="dictionary_I.html#2808">ir_to_mesa_visitor::ir_to_mesa_emit_op1</a>
+| <a href="dictionary_I.html#2807">ir_to_mesa_visitor::ir_to_mesa_emit_op0</a>
+
+<a href="dictionary_I.html#2799">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#2807">ir_to_mesa_visitor::ir_to_mesa_emit_op0</a>
+
+<a href="dictionary_I.html#2800">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_I.html#2715">ir_to_mesa_src_reg::ir_to_mesa_src_reg</a>
+| <a href="dictionary_A.html#3077">accept</a>
+| <a href="dictionary_I.html#2782">ir_to_mesa_visitor::get_temp</a>
+| <a href="dictionary_I.html#2860">ir_to_mesa_dst_reg_from_src</a>
+| <a href="dictionary_I.html#2808">ir_to_mesa_visitor::ir_to_mesa_emit_op1</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#2809">ir_to_mesa_visitor::ir_to_mesa_emit_op2</a>
+| <a href="dictionary_I.html#2814">ir_to_mesa_visitor::get_sampler_uniform_value</a>
+
+<a href="dictionary_I.html#2801">ir_to_mesa_visitor::visit</a>
+| <a href="dictionary_E.html#3399">exec_list::get_tail</a>
+| <a href="dictionary_A.html#3077">accept</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#2782">ir_to_mesa_visitor::get_temp</a>
+| <a href="dictionary_I.html#2808">ir_to_mesa_visitor::ir_to_mesa_emit_op1</a>
+| <a href="dictionary_I.html#2860">ir_to_mesa_dst_reg_from_src</a>
+| <a href="dictionary_I.html#2807">ir_to_mesa_visitor::ir_to_mesa_emit_op0</a>
+| <a href="dictionary_E.html#2848">exec_list::push_tail</a>
+| <a href="dictionary_V.html#3049">visit_exec_list</a>
+| <a href="dictionary_I.html#703">is_empty</a>
+
+<a href="dictionary_I.html#2771">ir_to_mesa_visitor::~ir_to_mesa_visitor</a>
+| <a href="dictionary_T.html#735">talloc_free</a>
+
+<a href="dictionary_I.html#12233">ir_tree_grafting_visitor::do_graft</a>
+| <a href="dictionary_I.html#147">ir_instruction::as_dereference_variable</a><i>  (Virtual)</i>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#5830">ir_instruction::print</a>
+| <a href="dictionary_E.html#175">exec_node::remove</a>
+
+<a href="dictionary_I.html#12221">ir_tree_grafting_visitor::ir_tree_grafting_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#12225">ir_tree_grafting_visitor::visit_enter</a>
+| <a href="dictionary_I.html#1719">ir_call::get_callee</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_I.html#2126">ir_call::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#12233">ir_tree_grafting_visitor::do_graft</a>
+| <a href="dictionary_E.html#1778">exec_node::replace_with</a>
+
+<a href="dictionary_I.html#12226">ir_tree_grafting_visitor::visit_enter</a>
+| <a href="dictionary_I.html#33">ir_expression::get_num_operands</a>
+| <a href="dictionary_I.html#12233">ir_tree_grafting_visitor::do_graft</a>
+
+<a href="dictionary_I.html#12229">ir_tree_grafting_visitor::visit_enter</a>
+| <a href="dictionary_I.html#12233">ir_tree_grafting_visitor::do_graft</a>
+
+<a href="dictionary_I.html#12231">ir_tree_grafting_visitor::visit_enter</a>
+| <a href="dictionary_I.html#12233">ir_tree_grafting_visitor::do_graft</a>
+
+<a href="dictionary_I.html#12232">ir_tree_grafting_visitor::visit_enter</a>
+| <a href="dictionary_I.html#12233">ir_tree_grafting_visitor::do_graft</a>
+
+<a href="dictionary_I.html#12224">ir_tree_grafting_visitor::visit_leave</a>
+| <a href="dictionary_I.html#12233">ir_tree_grafting_visitor::do_graft</a>
+| <a href="dictionary_D.html#12245">dereferences_variable</a>
+| <a href="dictionary_I.html#2119">ir_dereference::variable_referenced</a><i>  (Virtual)</i>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#5830">ir_instruction::print</a>
+
+<a href="dictionary_I.html#5813">ir_validate::ir_validate</a>
+| <a href="dictionary_H.html#4126">hash_table_ctor</a>
+| <a href="dictionary_I.html#5824">ir_validate::validate_ir</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#5824">ir_validate::validate_ir</a>
+| <a href="dictionary_H.html#4158">hash_table_find</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#5830">ir_instruction::print</a>
+| <a href="dictionary_A.html#174">abort</a>
+| <a href="dictionary_H.html#4130">hash_table_insert</a>
+
+<a href="dictionary_I.html#5815">ir_validate::visit</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_H.html#4130">hash_table_insert</a>
+
+<a href="dictionary_I.html#5816">ir_validate::visit</a>
+| <a href="dictionary_I.html#5828">ir_variable::as_variable</a><i>  (Virtual)</i>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_A.html#174">abort</a>
+| <a href="dictionary_H.html#4158">hash_table_find</a>
+| <a href="dictionary_I.html#5824">ir_validate::validate_ir</a>
+
+<a href="dictionary_I.html#5817">ir_validate::visit</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#5830">ir_instruction::print</a>
+| <a href="dictionary_A.html#174">abort</a>
+
+<a href="dictionary_I.html#5819">ir_validate::visit_enter</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_A.html#174">abort</a>
+| <a href="dictionary_I.html#5824">ir_validate::validate_ir</a>
+
+<a href="dictionary_I.html#5821">ir_validate::visit_enter</a>
+| <a href="dictionary_I.html#5835">ir_function_signature::function</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#1716">ir_function_signature::function_name</a>
+| <a href="dictionary_A.html#174">abort</a>
+| <a href="dictionary_I.html#5824">ir_validate::validate_ir</a>
+
+<a href="dictionary_I.html#5823">ir_validate::visit_enter</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#5830">ir_instruction::print</a>
+| <a href="dictionary_A.html#174">abort</a>
+| <a href="dictionary_I.html#5824">ir_validate::validate_ir</a>
+
+<a href="dictionary_I.html#5818">ir_validate::visit_leave</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_A.html#174">abort</a>
+
+<a href="dictionary_I.html#5820">ir_validate::visit_leave</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+
+<a href="dictionary_I.html#5822">ir_validate::visit_leave</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+
+<a href="dictionary_I.html#5814">ir_validate::~ir_validate</a>
+| <a href="dictionary_H.html#4129">hash_table_dtor</a>
+
+<a href="dictionary_I.html#9683">ir_variable::accept</a>
+| <a href="dictionary_I.html#2099">ir_hierarchical_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2098">ir_constant_variable_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_C.html#4113">call_link_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#5815">ir_validate::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9573">ir_structure_reference_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#10676">ir_set_program_inouts_visitor::visit</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#11502">ir_variable_refcount_visitor::visit</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#4161">ir_variable::clone</a>
+| <a href="dictionary_I.html#117">ir_variable::ir_variable</a>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_H.html#4130">hash_table_insert</a>
+
+<a href="dictionary_I.html#8044">ir_variable::component_slots</a>
+| <a href="dictionary_G.html#8045">glsl_type::component_slots</a>
+
+<a href="dictionary_I.html#8043">ir_variable::interpolation_string</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#117">ir_variable::ir_variable</a>
+| <a href="dictionary_T.html#7309">talloc_strdup</a>
+| <a href="dictionary_I.html#7857">ir_instruction::ir_instruction</a>
+
+<a href="dictionary_I.html#11496">ir_variable_refcount_visitor::get_variable_entry</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_V.html#3693">variable_entry::variable_entry</a>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+
+<a href="dictionary_I.html#11502">ir_variable_refcount_visitor::visit</a>
+| <a href="dictionary_I.html#11496">ir_variable_refcount_visitor::get_variable_entry</a>
+
+<a href="dictionary_I.html#11505">ir_variable_refcount_visitor::visit</a>
+| <a href="dictionary_I.html#8838">ir_dereference_variable::variable_referenced</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#11496">ir_variable_refcount_visitor::get_variable_entry</a>
+
+<a href="dictionary_I.html#11509">ir_variable_refcount_visitor::visit_enter</a>
+| <a href="dictionary_V.html#43">visit_list_elements</a>
+
+<a href="dictionary_I.html#11511">ir_variable_refcount_visitor::visit_leave</a>
+| <a href="dictionary_I.html#11496">ir_variable_refcount_visitor::get_variable_entry</a>
+| <a href="dictionary_I.html#2119">ir_dereference::variable_referenced</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#2658">ir_vec_index_to_cond_assign_visitor::convert_vec_index_to_cond_assign</a>
+| <a href="dictionary_I.html#320">ir_instruction::as_dereference_array</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#117">ir_variable::ir_variable</a>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_I.html#56">ir_swizzle::ir_swizzle</a>
+| <a href="dictionary_I.html#204">ir_rvalue::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+
+<a href="dictionary_I.html#2657">ir_vec_index_to_cond_assign_visitor::ir_vec_index_to_cond_assign_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#2659">ir_vec_index_to_cond_assign_visitor::visit_enter</a>
+| <a href="dictionary_I.html#33">ir_expression::get_num_operands</a>
+| <a href="dictionary_I.html#2658">ir_vec_index_to_cond_assign_visitor::convert_vec_index_to_cond_assign</a>
+
+<a href="dictionary_I.html#2660">ir_vec_index_to_cond_assign_visitor::visit_enter</a>
+| <a href="dictionary_I.html#2658">ir_vec_index_to_cond_assign_visitor::convert_vec_index_to_cond_assign</a>
+
+<a href="dictionary_I.html#2662">ir_vec_index_to_cond_assign_visitor::visit_enter</a>
+| <a href="dictionary_I.html#2658">ir_vec_index_to_cond_assign_visitor::convert_vec_index_to_cond_assign</a>
+
+<a href="dictionary_I.html#2663">ir_vec_index_to_cond_assign_visitor::visit_enter</a>
+| <a href="dictionary_I.html#2126">ir_call::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#2658">ir_vec_index_to_cond_assign_visitor::convert_vec_index_to_cond_assign</a>
+| <a href="dictionary_E.html#1778">exec_node::replace_with</a>
+
+<a href="dictionary_I.html#2664">ir_vec_index_to_cond_assign_visitor::visit_enter</a>
+| <a href="dictionary_I.html#2658">ir_vec_index_to_cond_assign_visitor::convert_vec_index_to_cond_assign</a>
+
+<a href="dictionary_I.html#2661">ir_vec_index_to_cond_assign_visitor::visit_leave</a>
+| <a href="dictionary_I.html#2658">ir_vec_index_to_cond_assign_visitor::convert_vec_index_to_cond_assign</a>
+| <a href="dictionary_I.html#320">ir_instruction::as_dereference_array</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#117">ir_variable::ir_variable</a>
+| <a href="dictionary_E.html#78">exec_node::insert_before</a>
+| <a href="dictionary_I.html#49">ir_dereference_variable::ir_dereference_variable</a>
+| <a href="dictionary_I.html#75">ir_assignment::ir_assignment</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_I.html#56">ir_swizzle::ir_swizzle</a>
+| <a href="dictionary_I.html#204">ir_rvalue::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#175">exec_node::remove</a>
+
+<a href="dictionary_I.html#12324">ir_vec_index_to_swizzle_visitor::convert_vec_index_to_swizzle</a>
+| <a href="dictionary_I.html#320">ir_instruction::as_dereference_array</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#1252">ir_rvalue::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1816">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8595">ir_texture::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8596">ir_swizzle::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8602">ir_dereference_variable::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8603">ir_dereference_array::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8615">ir_dereference_record::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8618">ir_constant::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1786">ir_call::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_I.html#56">ir_swizzle::ir_swizzle</a>
+
+<a href="dictionary_I.html#12323">ir_vec_index_to_swizzle_visitor::ir_vec_index_to_swizzle_visitor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_I.html#12325">ir_vec_index_to_swizzle_visitor::visit_enter</a>
+| <a href="dictionary_I.html#33">ir_expression::get_num_operands</a>
+| <a href="dictionary_I.html#12324">ir_vec_index_to_swizzle_visitor::convert_vec_index_to_swizzle</a>
+
+<a href="dictionary_I.html#12326">ir_vec_index_to_swizzle_visitor::visit_enter</a>
+| <a href="dictionary_I.html#12324">ir_vec_index_to_swizzle_visitor::convert_vec_index_to_swizzle</a>
+
+<a href="dictionary_I.html#12327">ir_vec_index_to_swizzle_visitor::visit_enter</a>
+| <a href="dictionary_I.html#7863">ir_assignment::set_lhs</a>
+| <a href="dictionary_I.html#12324">ir_vec_index_to_swizzle_visitor::convert_vec_index_to_swizzle</a>
+
+<a href="dictionary_I.html#12328">ir_vec_index_to_swizzle_visitor::visit_enter</a>
+| <a href="dictionary_I.html#12324">ir_vec_index_to_swizzle_visitor::convert_vec_index_to_swizzle</a>
+
+<a href="dictionary_I.html#12329">ir_vec_index_to_swizzle_visitor::visit_enter</a>
+| <a href="dictionary_I.html#2126">ir_call::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#12324">ir_vec_index_to_swizzle_visitor::convert_vec_index_to_swizzle</a>
+| <a href="dictionary_E.html#1778">exec_node::replace_with</a>
+
+<a href="dictionary_I.html#12330">ir_vec_index_to_swizzle_visitor::visit_enter</a>
+| <a href="dictionary_I.html#12324">ir_vec_index_to_swizzle_visitor::convert_vec_index_to_swizzle</a>
+
+<a href="dictionary_I.html#8721">ir_vector_reference_visitor::get_variable_entry</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#3147">is_vector</a>
+| <a href="dictionary_F.html#2914">foreach_iter</a>
+| <a href="dictionary_G.html#797">get</a>
+| <a href="dictionary_V.html#8464">variable_entry::variable_entry</a>
+| <a href="dictionary_E.html#2848">exec_list::push_tail</a>
+
+<a href="dictionary_I.html#8714">ir_vector_reference_visitor::ir_vector_reference_visitor</a>
+| <a href="dictionary_T.html#1703">talloc_new</a>
+| <a href="dictionary_E.html#8724">exec_list::make_empty</a>
+
+<a href="dictionary_I.html#8716">ir_vector_reference_visitor::visit</a>
+| <a href="dictionary_I.html#8721">ir_vector_reference_visitor::get_variable_entry</a>
+
+<a href="dictionary_I.html#8717">ir_vector_reference_visitor::visit</a>
+| <a href="dictionary_I.html#8721">ir_vector_reference_visitor::get_variable_entry</a>
+
+<a href="dictionary_I.html#8718">ir_vector_reference_visitor::visit_enter</a>
+| <a href="dictionary_A.html#5067">as_dereference_variable</a>
+| <a href="dictionary_I.html#3231">is_scalar</a>
+
+<a href="dictionary_I.html#8719">ir_vector_reference_visitor::visit_enter</a>
+| <a href="dictionary_A.html#5067">as_dereference_variable</a>
+| <a href="dictionary_I.html#8736">is_power_of_two</a>
+| <a href="dictionary_A.html#3077">accept</a>
+
+<a href="dictionary_I.html#8720">ir_vector_reference_visitor::visit_enter</a>
+| <a href="dictionary_V.html#8738">visit_list_elements</a>
+
+<a href="dictionary_I.html#8715">ir_vector_reference_visitor::~ir_vector_reference_visitor</a>
+| <a href="dictionary_T.html#735">talloc_free</a>
+
+<a href="dictionary_I.html#8744">ir_vector_splitting_visitor::get_splitting_entry</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#3147">is_vector</a>
+| <a href="dictionary_F.html#2914">foreach_iter</a>
+| <a href="dictionary_G.html#797">get</a>
+
+<a href="dictionary_I.html#8743">ir_vector_splitting_visitor::handle_rvalue</a>
+| <a href="dictionary_I.html#8751">ir_rvalue::as_swizzle</a>
+| <a href="dictionary_I.html#3231">is_scalar</a>
+| <a href="dictionary_A.html#5067">as_dereference_variable</a>
+| <a href="dictionary_I.html#8744">ir_vector_splitting_visitor::get_splitting_entry</a>
+
+<a href="dictionary_I.html#8742">ir_vector_splitting_visitor::visit_leave</a>
+| <a href="dictionary_A.html#5067">as_dereference_variable</a>
+| <a href="dictionary_I.html#8744">ir_vector_splitting_visitor::get_splitting_entry</a>
+| <a href="dictionary_C.html#8765">clone</a>
+| <a href="dictionary_I.html#8766">ir_assignment::insert_before</a>
+| <a href="dictionary_I.html#8767">ir_assignment::remove</a>
+| <a href="dictionary_I.html#8769">ir_assignment::print</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#8743">ir_vector_splitting_visitor::handle_rvalue</a>
+
+<a href="dictionary_I.html#9459">is_loop_terminator</a>
+| <a href="dictionary_E.html#699">exec_list::is_empty</a>
+| <a href="dictionary_E.html#7574">exec_list::get_head</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#1237">is_vec_one</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#1228">is_vec_zero</a>
+| <a href="dictionary_G.html#170">glsl_type::is_scalar</a>
+| <a href="dictionary_G.html#169">glsl_type::is_vector</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_I.html#5999">isExtractable</a>
+| <a href="dictionary_P.html#6004">PK11_ReadRawAttribute</a>
+| <a href="dictionary_S.html#4545">SECITEM_FreeItem</a>
+</pre><hr>
+<table BORDER CELLPADDING=4><tr><td><a href="simpleinvtree_Non-Alpha.html">Non-Alpha</a></td><td><a href="simpleinvtree_A.html">A</a></td><td><a href="simpleinvtree_B.html">B</a></td><td><a href="simpleinvtree_C.html">C</a></td><td><a href="simpleinvtree_D.html">D</a></td><td><a href="simpleinvtree_E.html">E</a></td><td><a href="simpleinvtree_F.html">F</a></td><td><a href="simpleinvtree_G.html">G</a></td><td><a href="simpleinvtree_H.html">H</a></td><td><a href="simpleinvtree_I.html">I</a></td><td><a href="simpleinvtree_J.html">J</a></td><td><a href="simpleinvtree_K.html">K</a></td><td><a href="simpleinvtree_L.html">L</a></td><td><a href="simpleinvtree_M.html">M</a></td><td><a href="simpleinvtree_N.html">N</a></td><td><a href="simpleinvtree_O.html">O</a></td><td><a href="simpleinvtree_P.html">P</a></td><td>Q</td><td><a href="simpleinvtree_R.html">R</a></td><td><a href="simpleinvtree_S.html">S</a></td><td><a href="simpleinvtree_T.html">T</a></td><td><a href="simpleinvtree_U.html">U</a></td><td><a href="simpleinvtree_V.html">V</a></td><td><a href="simpleinvtree_W.html">W</a></td><td><a href="simpleinvtree_X.html">X</a></td><td><a href="simpleinvtree_Y.html">Y</a></td><td>Z</td></tr></table></body></html>

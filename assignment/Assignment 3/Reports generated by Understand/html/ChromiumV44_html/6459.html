@@ -1,0 +1,145 @@
+<html><head><title>test_search_path_list.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="sourcestyles.css" />
+</head><body link="blue" vlink="blue">
+<h3>File: C:\6611\latest version - 44\src\third_party\android_crazy_linker\src\tests\test_search_path_list.cpp</h3>
+<SCRIPT>
+defaultStatus = "File: C:\\6611\\latest version - 44\\src\\third_party\\android_crazy_linker\\src\\tests\\test_search_path_list.cpp";
+top.document.title  = "test_search_path_list.cpp";
+</SCRIPT>
+<pre><span class="default"></span><a name="1"><font size=-1>1     </font></a><span class="default"></span><span class="comment">// Copyright 2014 The Chromium Authors. All rights reserved.</span>
+<a name="2"><font size=-1>2     </font></a><span class="comment">// Use of this source code is governed by a BSD-style license that can be</span>
+<a name="3"><font size=-1>3     </font></a><span class="comment">// found in the LICENSE file.</span>
+<a name="4"><font size=-1>4     </font></a><span class="comment"></span>
+<a name="5"><font size=-1>5     </font></a><span class="comment">// A crazy linker test to check that paths added with</span>
+<a name="6"><font size=-1>6     </font></a><span class="comment">// crazy_context_add_search_path() or</span>
+<a name="7"><font size=-1>7     </font></a><span class="comment">// crazy_context_add_search_path_from_address()</span>
+<a name="8"><font size=-1>8     </font></a><span class="comment">// have higher priority than the default ones (from LD_LIBRARY_PATH).</span>
+<a name="9"><font size=-1>9     </font></a><span class="comment">//</span>
+<a name="10"><font size=-1>10     </font></a><span class="comment">// This requires creating two temporary directories and placing there libraries</span>
+<a name="11"><font size=-1>11     </font></a><span class="comment">// with the same name, but different content</span>
+<a name="12"><font size=-1>12     </font></a><span class="comment">//</span>
+<a name="13"><font size=-1>13     </font></a><span class="comment">//   $TMPDIR1/libfoo.so   -&gt; a copy of libfoo.so that contains the 'Foo' symbol.</span>
+<a name="14"><font size=-1>14     </font></a><span class="comment">//   $TMPDIR2/libfoo.so   -&gt; a copy of libfoo2.so that contains the 'Foo2'</span>
+<a name="15"><font size=-1>15     </font></a><span class="comment">// symbol.</span>
+<a name="16"><font size=-1>16     </font></a><span class="comment">//</span>
+<a name="17"><font size=-1>17     </font></a><span class="comment"></span>
+<a name="18"><font size=-1>18     </font></a><span class="comment"></span><span class="preproc">#include </span><span class="string">&lt;crazy_linker.h&gt;</span>
+<a name="19"><font size=-1>19     </font></a><span class="string"></span>
+<a name="20"><font size=-1>20     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;test_util.h&quot;</span>
+<a name="21"><font size=-1>21     </font></a><span class="string"></span>
+<a name="22"><font size=-1>22     </font></a><span class="string"></span><span class="keyword">namespace </span><span class="default">{</span>
+<a name="23"><font size=-1>23     </font></a><span class="default"></span>
+<a name="24"><font size=-1>24     </font></a><span class="default"></span><span class="keyword">void <a href="dictionary_C.html#6460">CheckLibraryCantLoad</a></span><span class="default">(</span><span class="keyword">const char</span><span class="default">* <a href="dictionary_L.html#6461">library_name</a>, <a href="dictionary_C.html#203">crazy_context_t</a>* <a href="dictionary_C.html#6462">context</a>) {</span>
+<a name="25"><font size=-1>25     </font></a><span class="default">  <a href="dictionary_C.html#206">crazy_library_t</a>* <a href="dictionary_L.html#6463">library</a>;</span>
+<a name="26"><font size=-1>26     </font></a><span class="default"></span>
+<a name="27"><font size=-1>27     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_C.html#211">crazy_library_open</a>(&amp;<a href="dictionary_L.html#6463">library</a>, <a href="dictionary_L.html#6461">library_name</a>, <a href="dictionary_C.html#6462">context</a>))</span>
+<a name="28"><font size=-1>28     </font></a><span class="default">    <a href="dictionary_P.html#6464">Panic</a>(</span><span class="string">&quot;Could load library %s, expected this not to be possible\n&quot;</span><span class="default">,</span>
+<a name="29"><font size=-1>29     </font></a><span class="default">          <a href="dictionary_L.html#6461">library_name</a>);</span>
+<a name="30"><font size=-1>30     </font></a><span class="default">}</span>
+<a name="31"><font size=-1>31     </font></a><span class="default"></span>
+<a name="32"><font size=-1>32     </font></a><span class="default"></span><span class="comment">// Loads a library named |library_name| and checks that it contains</span>
+<a name="33"><font size=-1>33     </font></a><span class="comment">// the symbols listed in |wanted_symbols|, and none of the symbols</span>
+<a name="34"><font size=-1>34     </font></a><span class="comment">// listed in |unwanted_symbols|. After that, close the library and exit.</span>
+<a name="35"><font size=-1>35     </font></a><span class="comment">//</span>
+<a name="36"><font size=-1>36     </font></a><span class="comment">// Both |wanted_symbols| and |unwanted_symbols| are NULL-terminated</span>
+<a name="37"><font size=-1>37     </font></a><span class="comment">// arrays of strings.</span>
+<a name="38"><font size=-1>38     </font></a><span class="comment"></span><span class="keyword">void <a href="dictionary_C.html#6465">CheckLibrary</a></span><span class="default">(</span><span class="keyword">const char</span><span class="default">* <a href="dictionary_L.html#6466">library_name</a>,</span>
+<a name="39"><font size=-1>39     </font></a><span class="default">                  </span><span class="keyword">const char</span><span class="default">* </span><span class="keyword">const</span><span class="default">* <a href="dictionary_W.html#6467">wanted_symbols</a>,</span>
+<a name="40"><font size=-1>40     </font></a><span class="default">                  </span><span class="keyword">const char</span><span class="default">* </span><span class="keyword">const</span><span class="default">* <a href="dictionary_U.html#6468">unwanted_symbols</a>,</span>
+<a name="41"><font size=-1>41     </font></a><span class="default">                  <a href="dictionary_C.html#203">crazy_context_t</a>* <a href="dictionary_C.html#6469">context</a>) {</span>
+<a name="42"><font size=-1>42     </font></a><span class="default">  <a href="dictionary_C.html#206">crazy_library_t</a>* <a href="dictionary_L.html#6470">library</a>;</span>
+<a name="43"><font size=-1>43     </font></a><span class="default"></span>
+<a name="44"><font size=-1>44     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(!<a href="dictionary_C.html#211">crazy_library_open</a>(&amp;<a href="dictionary_L.html#6470">library</a>, <a href="dictionary_L.html#6466">library_name</a>, <a href="dictionary_C.html#6469">context</a>))</span>
+<a name="45"><font size=-1>45     </font></a><span class="default">    <a href="dictionary_P.html#6464">Panic</a>(</span><span class="string">&quot;Could not open library %s: %s\n&quot;</span><span class="default">, <a href="dictionary_C.html#213">crazy_context_get_error</a>(<a href="dictionary_C.html#6469">context</a>));</span>
+<a name="46"><font size=-1>46     </font></a><span class="default"></span>
+<a name="47"><font size=-1>47     </font></a><span class="default">  <a href="dictionary_S.html#254">size_t</a> <a href="dictionary_F.html#6471">failures</a> = </span><span class="number">0</span><span class="default">;</span>
+<a name="48"><font size=-1>48     </font></a><span class="default"></span>
+<a name="49"><font size=-1>49     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_W.html#6467">wanted_symbols</a>) {</span>
+<a name="50"><font size=-1>50     </font></a><span class="default">    </span><span class="keyword">for </span><span class="default">(; *<a href="dictionary_W.html#6467">wanted_symbols</a>; ++<a href="dictionary_W.html#6467">wanted_symbols</a>) {</span>
+<a name="51"><font size=-1>51     </font></a><span class="default">      </span><span class="keyword">const char</span><span class="default">* <a href="dictionary_S.html#6472">symbol_name</a> = *<a href="dictionary_W.html#6467">wanted_symbols</a>;</span>
+<a name="52"><font size=-1>52     </font></a><span class="default">      </span><span class="keyword">void</span><span class="default">* <a href="dictionary_S.html#6473">symbol_addr</a>;</span>
+<a name="53"><font size=-1>53     </font></a><span class="default">      </span><span class="keyword">if </span><span class="default">(!<a href="dictionary_C.html#428">crazy_library_find_symbol</a>(<a href="dictionary_L.html#6470">library</a>, <a href="dictionary_S.html#6472">symbol_name</a>, &amp;<a href="dictionary_S.html#6473">symbol_addr</a>)) {</span>
+<a name="54"><font size=-1>54     </font></a><span class="default">        <a href="dictionary_F.html#406">fprintf</a>(<a href="dictionary_S.html#407">stderr</a>,</span>
+<a name="55"><font size=-1>55     </font></a><span class="default">                </span><span class="string">&quot;Could not find symbol '%s' in library '%s'!\n&quot;</span><span class="default">,</span>
+<a name="56"><font size=-1>56     </font></a><span class="default">                <a href="dictionary_S.html#6472">symbol_name</a>,</span>
+<a name="57"><font size=-1>57     </font></a><span class="default">                <a href="dictionary_L.html#6466">library_name</a>);</span>
+<a name="58"><font size=-1>58     </font></a><span class="default">        <a href="dictionary_F.html#6471">failures</a> += </span><span class="number">1</span><span class="default">;</span>
+<a name="59"><font size=-1>59     </font></a><span class="default">      }</span>
+<a name="60"><font size=-1>60     </font></a><span class="default">    }</span>
+<a name="61"><font size=-1>61     </font></a><span class="default">  }</span>
+<a name="62"><font size=-1>62     </font></a><span class="default"></span>
+<a name="63"><font size=-1>63     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_U.html#6468">unwanted_symbols</a>) {</span>
+<a name="64"><font size=-1>64     </font></a><span class="default">    </span><span class="keyword">for </span><span class="default">(; *<a href="dictionary_U.html#6468">unwanted_symbols</a>; ++<a href="dictionary_U.html#6468">unwanted_symbols</a>) {</span>
+<a name="65"><font size=-1>65     </font></a><span class="default">      </span><span class="keyword">const char</span><span class="default">* <a href="dictionary_S.html#6474">symbol_name</a> = *<a href="dictionary_U.html#6468">unwanted_symbols</a>;</span>
+<a name="66"><font size=-1>66     </font></a><span class="default">      </span><span class="keyword">void</span><span class="default">* <a href="dictionary_S.html#6475">symbol_addr</a>;</span>
+<a name="67"><font size=-1>67     </font></a><span class="default">      </span><span class="keyword">if </span><span class="default">(<a href="dictionary_C.html#428">crazy_library_find_symbol</a>(<a href="dictionary_L.html#6470">library</a>, <a href="dictionary_S.html#6474">symbol_name</a>, &amp;<a href="dictionary_S.html#6475">symbol_addr</a>)) {</span>
+<a name="68"><font size=-1>68     </font></a><span class="default">        <a href="dictionary_F.html#406">fprintf</a>(<a href="dictionary_S.html#407">stderr</a>,</span>
+<a name="69"><font size=-1>69     </font></a><span class="default">                </span><span class="string">&quot;Found symbol '%s' in library '%s', none expected!\n&quot;</span><span class="default">,</span>
+<a name="70"><font size=-1>70     </font></a><span class="default">                <a href="dictionary_S.html#6474">symbol_name</a>,</span>
+<a name="71"><font size=-1>71     </font></a><span class="default">                <a href="dictionary_L.html#6466">library_name</a>);</span>
+<a name="72"><font size=-1>72     </font></a><span class="default">        <a href="dictionary_F.html#6471">failures</a> += </span><span class="number">1</span><span class="default">;</span>
+<a name="73"><font size=-1>73     </font></a><span class="default">      }</span>
+<a name="74"><font size=-1>74     </font></a><span class="default">    }</span>
+<a name="75"><font size=-1>75     </font></a><span class="default">  }</span>
+<a name="76"><font size=-1>76     </font></a><span class="default"></span>
+<a name="77"><font size=-1>77     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_F.html#6471">failures</a> &gt; </span><span class="number">0</span><span class="default">)</span>
+<a name="78"><font size=-1>78     </font></a><span class="default">    <a href="dictionary_P.html#6464">Panic</a>(</span><span class="string">&quot;Found %d symbol failures in library %s\n&quot;</span><span class="default">, <a href="dictionary_F.html#6471">failures</a>, <a href="dictionary_L.html#6466">library_name</a>);</span>
+<a name="79"><font size=-1>79     </font></a><span class="default"></span>
+<a name="80"><font size=-1>80     </font></a><span class="default">  <a href="dictionary_C.html#217">crazy_library_close</a>(<a href="dictionary_L.html#6470">library</a>);</span>
+<a name="81"><font size=-1>81     </font></a><span class="default">}</span>
+<a name="82"><font size=-1>82     </font></a><span class="default"></span>
+<a name="83"><font size=-1>83     </font></a><span class="default">}  </span><span class="comment">// namespace</span>
+<a name="84"><font size=-1>84     </font></a><span class="comment"></span>
+<a name="85"><font size=-1>85     </font></a><span class="comment"></span><span class="keyword">int <a href="dictionary_M.html#9447">main</a></span><span class="default">() {</span>
+<a name="86"><font size=-1>86     </font></a><span class="default">  <a href="dictionary_S.html#6478">String</a> <a href="dictionary_E.html#6477">exe_path</a> = <a href="dictionary_G.html#6479">GetCurrentExecutableDirectory</a>();</span>
+<a name="87"><font size=-1>87     </font></a><span class="default"></span>
+<a name="88"><font size=-1>88     </font></a><span class="default">  <a href="dictionary_T.html#6481">TempDirectory</a> <a href="dictionary_T.html#6482">temp_dir_1</a>;</span>
+<a name="89"><font size=-1>89     </font></a><span class="default">  <a href="dictionary_T.html#6481">TempDirectory</a> <a href="dictionary_T.html#6483">temp_dir_2</a>;</span>
+<a name="90"><font size=-1>90     </font></a><span class="default"></span>
+<a name="91"><font size=-1>91     </font></a><span class="default">  </span><span class="comment">// List of symbols in original libfoo.so and libfoo2.so, respectively.</span>
+<a name="92"><font size=-1>92     </font></a><span class="comment">  </span><span class="keyword">static const char</span><span class="default">* </span><span class="keyword">const <a href="dictionary_K.html#6484">kFooSymbols</a></span><span class="default">[] = {</span><span class="string">&quot;Foo&quot;</span><span class="default">, <a href="dictionary_N.html#95">NULL</a>};</span>
+<a name="93"><font size=-1>93     </font></a><span class="default">  </span><span class="keyword">static const char</span><span class="default">* </span><span class="keyword">const <a href="dictionary_K.html#6485">kFoo2Symbols</a></span><span class="default">[] = {</span><span class="string">&quot;Foo2&quot;</span><span class="default">, <a href="dictionary_N.html#95">NULL</a>};</span>
+<a name="94"><font size=-1>94     </font></a><span class="default"></span>
+<a name="95"><font size=-1>95     </font></a><span class="default">  </span><span class="comment">// Copy libfoo.so to $TMPDIR1/libfoo.so</span>
+<a name="96"><font size=-1>96     </font></a><span class="comment">  <a href="dictionary_C.html#6486">CopyFile</a></span><span class="default">(</span><span class="string">&quot;libfoo.so&quot;</span><span class="default">, <a href="dictionary_E.html#6477">exe_path</a>.<a href="dictionary_S.html#6487">c_str</a>(), </span><span class="string">&quot;libfoo.so&quot;</span><span class="default">, <a href="dictionary_T.html#6482">temp_dir_1</a>.<a href="dictionary_T.html#6488">path</a>());</span>
+<a name="97"><font size=-1>97     </font></a><span class="default"></span>
+<a name="98"><font size=-1>98     </font></a><span class="default">  </span><span class="comment">// Copy libfoo2.so to $TMPDIR2/libfoo.so</span>
+<a name="99"><font size=-1>99     </font></a><span class="comment">  <a href="dictionary_C.html#6486">CopyFile</a></span><span class="default">(</span><span class="string">&quot;libfoo2.so&quot;</span><span class="default">, <a href="dictionary_E.html#6477">exe_path</a>.<a href="dictionary_S.html#6487">c_str</a>(), </span><span class="string">&quot;libfoo.so&quot;</span><span class="default">, <a href="dictionary_T.html#6483">temp_dir_2</a>.<a href="dictionary_T.html#6488">path</a>());</span>
+<a name="100"><font size=-1>100     </font></a><span class="default"></span>
+<a name="101"><font size=-1>101     </font></a><span class="default">  </span><span class="comment">// Create a new context object.</span>
+<a name="102"><font size=-1>102     </font></a><span class="comment">  <a href="dictionary_C.html#203">crazy_context_t</a></span><span class="default">* <a href="dictionary_C.html#6489">context</a> = <a href="dictionary_C.html#204">crazy_context_create</a>();</span>
+<a name="103"><font size=-1>103     </font></a><span class="default">  <a href="dictionary_C.html#206">crazy_library_t</a>* <a href="dictionary_L.html#6490">library</a>;</span>
+<a name="104"><font size=-1>104     </font></a><span class="default"></span>
+<a name="105"><font size=-1>105     </font></a><span class="default">  </span><span class="comment">// Reset search paths to a non-existing directory. Check that the library</span>
+<a name="106"><font size=-1>106     </font></a><span class="comment">  // can't be loaded.</span>
+<a name="107"><font size=-1>107     </font></a><span class="comment">  <a href="dictionary_S.html#210">setenv</a></span><span class="default">(</span><span class="string">&quot;LD_LIBRARY_PATH&quot;</span><span class="default">, </span><span class="string">&quot;/this-directory-does-not-exist&quot;</span><span class="default">, </span><span class="number">1</span><span class="default">);</span>
+<a name="108"><font size=-1>108     </font></a><span class="default">  <a href="dictionary_C.html#6491">crazy_context_reset_search_paths</a>(<a href="dictionary_C.html#6489">context</a>);</span>
+<a name="109"><font size=-1>109     </font></a><span class="default">  <a href="dictionary_C.html#6460">CheckLibraryCantLoad</a>(</span><span class="string">&quot;libfoo.so&quot;</span><span class="default">, <a href="dictionary_C.html#6489">context</a>);</span>
+<a name="110"><font size=-1>110     </font></a><span class="default"></span>
+<a name="111"><font size=-1>111     </font></a><span class="default">  </span><span class="comment">// Add the search path to the current executable, this should load the</span>
+<a name="112"><font size=-1>112     </font></a><span class="comment">  // original</span>
+<a name="113"><font size=-1>113     </font></a><span class="comment">  // libfoo.so.</span>
+<a name="114"><font size=-1>114     </font></a><span class="comment">  <a href="dictionary_C.html#207">crazy_context_add_search_path_for_address</a></span><span class="default">(<a href="dictionary_C.html#6489">context</a>, (</span><span class="keyword">void</span><span class="default">*)&amp;<a href="dictionary_M.html#9447">main</a>);</span>
+<a name="115"><font size=-1>115     </font></a><span class="default">  <a href="dictionary_C.html#6465">CheckLibrary</a>(</span><span class="string">&quot;libfoo.so&quot;</span><span class="default">, <a href="dictionary_K.html#6484">kFooSymbols</a>, <a href="dictionary_K.html#6485">kFoo2Symbols</a>, <a href="dictionary_C.html#6489">context</a>);</span>
+<a name="116"><font size=-1>116     </font></a><span class="default"></span>
+<a name="117"><font size=-1>117     </font></a><span class="default">  </span><span class="comment">// Reset search paths to use $TMPDIR2 then $TMPDIR1</span>
+<a name="118"><font size=-1>118     </font></a><span class="comment">  <a href="dictionary_S.html#210">setenv</a></span><span class="default">(</span><span class="string">&quot;LD_LIBRARY_PATH&quot;</span><span class="default">, <a href="dictionary_T.html#6482">temp_dir_1</a>.<a href="dictionary_T.html#6488">path</a>(), </span><span class="number">1</span><span class="default">);</span>
+<a name="119"><font size=-1>119     </font></a><span class="default">  <a href="dictionary_C.html#6491">crazy_context_reset_search_paths</a>(<a href="dictionary_C.html#6489">context</a>);</span>
+<a name="120"><font size=-1>120     </font></a><span class="default">  <a href="dictionary_C.html#6492">crazy_context_add_search_path</a>(<a href="dictionary_C.html#6489">context</a>, <a href="dictionary_T.html#6483">temp_dir_2</a>.<a href="dictionary_T.html#6488">path</a>());</span>
+<a name="121"><font size=-1>121     </font></a><span class="default"></span>
+<a name="122"><font size=-1>122     </font></a><span class="default">  </span><span class="comment">// Check that the copy of libfoo2.so is loaded.</span>
+<a name="123"><font size=-1>123     </font></a><span class="comment">  <a href="dictionary_C.html#6465">CheckLibrary</a></span><span class="default">(</span><span class="string">&quot;libfoo.so&quot;</span><span class="default">, <a href="dictionary_K.html#6485">kFoo2Symbols</a>, <a href="dictionary_K.html#6484">kFooSymbols</a>, <a href="dictionary_C.html#6489">context</a>);</span>
+<a name="124"><font size=-1>124     </font></a><span class="default"></span>
+<a name="125"><font size=-1>125     </font></a><span class="default">  </span><span class="comment">// Reset search paths to use only $TMPDIR1</span>
+<a name="126"><font size=-1>126     </font></a><span class="comment">  <a href="dictionary_C.html#6491">crazy_context_reset_search_paths</a></span><span class="default">(<a href="dictionary_C.html#6489">context</a>);</span>
+<a name="127"><font size=-1>127     </font></a><span class="default"></span>
+<a name="128"><font size=-1>128     </font></a><span class="default">  </span><span class="comment">// Check that the copy of libfoo.so is loaded.</span>
+<a name="129"><font size=-1>129     </font></a><span class="comment">  <a href="dictionary_C.html#6465">CheckLibrary</a></span><span class="default">(</span><span class="string">&quot;libfoo.so&quot;</span><span class="default">, <a href="dictionary_K.html#6484">kFooSymbols</a>, <a href="dictionary_K.html#6485">kFoo2Symbols</a>, <a href="dictionary_C.html#6489">context</a>);</span>
+<a name="130"><font size=-1>130     </font></a><span class="default"></span>
+<a name="131"><font size=-1>131     </font></a><span class="default">  <a href="dictionary_C.html#219">crazy_context_destroy</a>(<a href="dictionary_C.html#6489">context</a>);</span>
+<a name="132"><font size=-1>132     </font></a><span class="default"></span>
+<a name="133"><font size=-1>133     </font></a><span class="default">  </span><span class="keyword">return </span><span class="number">0</span><span class="default">;</span>
+<a name="134"><font size=-1>134     </font></a><span class="default">}</span>
+<a name="135"><font size=-1>135     </font></a><span class="default"></span>
+</pre></body></html>

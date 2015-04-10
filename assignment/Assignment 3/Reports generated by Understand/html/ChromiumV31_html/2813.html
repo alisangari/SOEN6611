@@ -1,0 +1,298 @@
+<html><head><title>nsNSSCertificateDB.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="sourcestyles.css" />
+</head><body link="blue" vlink="blue">
+<h3>File: D:\6611\chromium\31\src\net\third_party\mozilla_security_manager\nsNSSCertificateDB.cpp</h3>
+<SCRIPT>
+defaultStatus = "File: D:\\6611\\chromium\\31\\src\\net\\third_party\\mozilla_security_manager\\nsNSSCertificateDB.cpp";
+top.document.title  = "nsNSSCertificateDB.cpp";
+</SCRIPT>
+<pre><span class="default"></span><a name="1"><font size=-1>1     </font></a><span class="default"> </span><span class="comment">/* ***** BEGIN LICENSE BLOCK *****</span>
+<a name="2"><font size=-1>2     </font></a><span class="comment"> * Version: MPL 1.1/GPL 2.0/LGPL 2.1</span>
+<a name="3"><font size=-1>3     </font></a><span class="comment"> *</span>
+<a name="4"><font size=-1>4     </font></a><span class="comment"> * The contents of this file are subject to the Mozilla Public License Version</span>
+<a name="5"><font size=-1>5     </font></a><span class="comment"> * 1.1 (the &quot;License&quot;); you may not use this file except in compliance with</span>
+<a name="6"><font size=-1>6     </font></a><span class="comment"> * the License. You may obtain a copy of the License at</span>
+<a name="7"><font size=-1>7     </font></a><span class="comment"> * http://www.mozilla.org/MPL/</span>
+<a name="8"><font size=-1>8     </font></a><span class="comment"> *</span>
+<a name="9"><font size=-1>9     </font></a><span class="comment"> * Software distributed under the License is distributed on an &quot;AS IS&quot; basis,</span>
+<a name="10"><font size=-1>10     </font></a><span class="comment"> * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License</span>
+<a name="11"><font size=-1>11     </font></a><span class="comment"> * for the specific language governing rights and limitations under the</span>
+<a name="12"><font size=-1>12     </font></a><span class="comment"> * License.</span>
+<a name="13"><font size=-1>13     </font></a><span class="comment"> *</span>
+<a name="14"><font size=-1>14     </font></a><span class="comment"> * The Original Code is the Netscape security libraries.</span>
+<a name="15"><font size=-1>15     </font></a><span class="comment"> *</span>
+<a name="16"><font size=-1>16     </font></a><span class="comment"> * The Initial Developer of the Original Code is</span>
+<a name="17"><font size=-1>17     </font></a><span class="comment"> * Netscape Communications Corporation.</span>
+<a name="18"><font size=-1>18     </font></a><span class="comment"> * Portions created by the Initial Developer are Copyright (C) 2000</span>
+<a name="19"><font size=-1>19     </font></a><span class="comment"> * the Initial Developer. All Rights Reserved.</span>
+<a name="20"><font size=-1>20     </font></a><span class="comment"> *</span>
+<a name="21"><font size=-1>21     </font></a><span class="comment"> * Contributor(s):</span>
+<a name="22"><font size=-1>22     </font></a><span class="comment"> *   Ian McGreer &lt;mcgreer@netscape.com&gt;</span>
+<a name="23"><font size=-1>23     </font></a><span class="comment"> *   Javier Delgadillo &lt;javi@netscape.com&gt;</span>
+<a name="24"><font size=-1>24     </font></a><span class="comment"> *</span>
+<a name="25"><font size=-1>25     </font></a><span class="comment"> * Alternatively, the contents of this file may be used under the terms of</span>
+<a name="26"><font size=-1>26     </font></a><span class="comment"> * either the GNU General Public License Version 2 or later (the &quot;GPL&quot;), or</span>
+<a name="27"><font size=-1>27     </font></a><span class="comment"> * the GNU Lesser General Public License Version 2.1 or later (the &quot;LGPL&quot;),</span>
+<a name="28"><font size=-1>28     </font></a><span class="comment"> * in which case the provisions of the GPL or the LGPL are applicable instead</span>
+<a name="29"><font size=-1>29     </font></a><span class="comment"> * of those above. If you wish to allow use of your version of this file only</span>
+<a name="30"><font size=-1>30     </font></a><span class="comment"> * under the terms of either the GPL or the LGPL, and not to allow others to</span>
+<a name="31"><font size=-1>31     </font></a><span class="comment"> * use your version of this file under the terms of the MPL, indicate your</span>
+<a name="32"><font size=-1>32     </font></a><span class="comment"> * decision by deleting the provisions above and replace them with the notice</span>
+<a name="33"><font size=-1>33     </font></a><span class="comment"> * and other provisions required by the GPL or the LGPL. If you do not delete</span>
+<a name="34"><font size=-1>34     </font></a><span class="comment"> * the provisions above, a recipient may use your version of this file under</span>
+<a name="35"><font size=-1>35     </font></a><span class="comment"> * the terms of any one of the MPL, the GPL or the LGPL.</span>
+<a name="36"><font size=-1>36     </font></a><span class="comment"> *</span>
+<a name="37"><font size=-1>37     </font></a><span class="comment"> * ***** END LICENSE BLOCK ***** */</span>
+<a name="38"><font size=-1>38     </font></a><span class="comment"></span>
+<a name="39"><font size=-1>39     </font></a><span class="comment"></span><span class="preproc">#include </span><span class="string">&quot;net/third_party/mozilla_security_manager/nsNSSCertificateDB.h&quot;</span>
+<a name="40"><font size=-1>40     </font></a><span class="string"></span>
+<a name="41"><font size=-1>41     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&lt;cert.h&gt;</span>
+<a name="42"><font size=-1>42     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&lt;certdb.h&gt;</span>
+<a name="43"><font size=-1>43     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&lt;pk11pub.h&gt;</span>
+<a name="44"><font size=-1>44     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&lt;secerr.h&gt;</span>
+<a name="45"><font size=-1>45     </font></a><span class="string"></span>
+<a name="46"><font size=-1>46     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;base/logging.h&quot;</span>
+<a name="47"><font size=-1>47     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;crypto/nss_util_internal.h&quot;</span>
+<a name="48"><font size=-1>48     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;crypto/scoped_nss_types.h&quot;</span>
+<a name="49"><font size=-1>49     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;net/base/net_errors.h&quot;</span>
+<a name="50"><font size=-1>50     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;net/cert/x509_certificate.h&quot;</span>
+<a name="51"><font size=-1>51     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;net/cert/x509_util_nss.h&quot;</span>
+<a name="52"><font size=-1>52     </font></a><span class="string"></span>
+<a name="53"><font size=-1>53     </font></a><span class="string"></span><span class="preproc">#if </span><span class="default">!</span><span class="preproc">defined</span><span class="default">(<a href="dictionary_C.html#2817">CERTDB_TERMINAL_RECORD</a>)</span>
+<a name="54"><font size=-1>54     </font></a><span class="default"></span><span class="comment">/* NSS 3.13 renames CERTDB_VALID_PEER to CERTDB_TERMINAL_RECORD</span>
+<a name="55"><font size=-1>55     </font></a><span class="comment"> * and marks CERTDB_VALID_PEER as deprecated.</span>
+<a name="56"><font size=-1>56     </font></a><span class="comment"> * If we're using an older version, rename it ourselves.</span>
+<a name="57"><font size=-1>57     </font></a><span class="comment"> */</span>
+<a name="58"><font size=-1>58     </font></a><span class="comment"></span><span class="preproc">#define <a href="dictionary_C.html#2817">CERTDB_TERMINAL_RECORD</a> </span><span class="default">CERTDB_VALID_PEER</span>
+<a name="59"><font size=-1>59     </font></a><span class="default"></span><span class="preproc">#endif</span>
+<a name="60"><font size=-1>60     </font></a><span class="preproc"></span>
+<a name="61"><font size=-1>61     </font></a><span class="preproc"></span><span class="keyword">namespace </span><span class="default">mozilla_security_manager {</span>
+<a name="62"><font size=-1>62     </font></a><span class="default"></span>
+<a name="63"><font size=-1>63     </font></a><span class="default"></span><span class="comment">// Based on nsNSSCertificateDB::handleCACertDownload, minus the UI bits.</span>
+<a name="64"><font size=-1>64     </font></a><span class="comment"></span><span class="keyword">bool <a href="dictionary_M.html#2818">ImportCACerts</a></span><span class="default">(</span><span class="keyword">const <a href="dictionary_N.html#852">net</a></span><span class="default">::<a href="dictionary_N.html#853">CertificateList</a>&amp; <a href="dictionary_C.html#2819">certificates</a>,</span>
+<a name="65"><font size=-1>65     </font></a><span class="default">                   <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#889">X509Certificate</a>* <a href="dictionary_R.html#2820">root</a>,</span>
+<a name="66"><font size=-1>66     </font></a><span class="default">                   <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2823">TrustBits</a> <a href="dictionary_T.html#2821">trustBits</a>,</span>
+<a name="67"><font size=-1>67     </font></a><span class="default">                   <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2825">ImportCertFailureList</a>* <a href="dictionary_N.html#2824">not_imported</a>) {</span>
+<a name="68"><font size=-1>68     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_C.html#2819">certificates</a>.<a href="dictionary_E.html#954">empty</a>() || !<a href="dictionary_R.html#2820">root</a>)</span>
+<a name="69"><font size=-1>69     </font></a><span class="default">    </span><span class="keyword">return false</span><span class="default">;</span>
+<a name="70"><font size=-1>70     </font></a><span class="default"></span>
+<a name="71"><font size=-1>71     </font></a><span class="default">  <a href="dictionary_C.html#1879">crypto</a>::<a href="dictionary_C.html#2826">ScopedPK11Slot</a> <a href="dictionary_S.html#2827">slot</a>(<a href="dictionary_C.html#1879">crypto</a>::<a href="dictionary_C.html#2828">GetPublicNSSKeySlot</a>());</span>
+<a name="72"><font size=-1>72     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(!<a href="dictionary_S.html#2827">slot</a>.<a href="dictionary_G.html#974">get</a>()) {</span>
+<a name="73"><font size=-1>73     </font></a><span class="default">    <a href="dictionary_L.html#887">LOG</a>(<a href="dictionary_E.html#888">ERROR</a>) &lt;&lt; </span><span class="string">&quot;Couldn't get internal key slot!&quot;</span><span class="default">;</span>
+<a name="74"><font size=-1>74     </font></a><span class="default">    </span><span class="keyword">return false</span><span class="default">;</span>
+<a name="75"><font size=-1>75     </font></a><span class="default">  }</span>
+<a name="76"><font size=-1>76     </font></a><span class="default"></span>
+<a name="77"><font size=-1>77     </font></a><span class="default">  </span><span class="comment">// Mozilla had some code here to check if a perm version of the cert exists</span>
+<a name="78"><font size=-1>78     </font></a><span class="comment">  // already and use that, but CERT_NewTempCertificate actually does that</span>
+<a name="79"><font size=-1>79     </font></a><span class="comment">  // itself, so we skip it here.</span>
+<a name="80"><font size=-1>80     </font></a><span class="comment"></span>
+<a name="81"><font size=-1>81     </font></a><span class="comment">  </span><span class="keyword">if </span><span class="default">(!<a href="dictionary_C.html#2808">CERT_IsCACert</a>(<a href="dictionary_R.html#2820">root</a>-&gt;<a href="dictionary_O.html#976">os_cert_handle</a>(), <a href="dictionary_N.html#35">NULL</a>)) {</span>
+<a name="82"><font size=-1>82     </font></a><span class="default">    <a href="dictionary_N.html#2824">not_imported</a>-&gt;<a href="dictionary_P.html#892">push_back</a>(<a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2829">ImportCertFailure</a>(</span>
+<a name="83"><font size=-1>83     </font></a><span class="default">        <a href="dictionary_R.html#2820">root</a>, <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2830">ERR_IMPORT_CA_CERT_NOT_CA</a>));</span>
+<a name="84"><font size=-1>84     </font></a><span class="default">  } </span><span class="keyword">else if </span><span class="default">(<a href="dictionary_R.html#2820">root</a>-&gt;<a href="dictionary_O.html#976">os_cert_handle</a>()-&gt;<a href="dictionary_I.html#2831">isperm</a>) {</span>
+<a name="85"><font size=-1>85     </font></a><span class="default">    </span><span class="comment">// Mozilla just returns here, but we continue in case there are other certs</span>
+<a name="86"><font size=-1>86     </font></a><span class="comment">    // in the list which aren't already imported.</span>
+<a name="87"><font size=-1>87     </font></a><span class="comment">    // TODO(mattm): should we set/add trust if it differs from the present</span>
+<a name="88"><font size=-1>88     </font></a><span class="comment">    // settings?</span>
+<a name="89"><font size=-1>89     </font></a><span class="comment">    <a href="dictionary_N.html#2824">not_imported</a></span><span class="default">-&gt;<a href="dictionary_P.html#892">push_back</a>(<a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2829">ImportCertFailure</a>(</span>
+<a name="90"><font size=-1>90     </font></a><span class="default">        <a href="dictionary_R.html#2820">root</a>, <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2832">ERR_IMPORT_CERT_ALREADY_EXISTS</a>));</span>
+<a name="91"><font size=-1>91     </font></a><span class="default">  } </span><span class="keyword">else </span><span class="default">{</span>
+<a name="92"><font size=-1>92     </font></a><span class="default">    </span><span class="comment">// Mozilla uses CERT_AddTempCertToPerm, however it is privately exported,</span>
+<a name="93"><font size=-1>93     </font></a><span class="comment">    // and it doesn't take the slot as an argument either.  Instead, we use</span>
+<a name="94"><font size=-1>94     </font></a><span class="comment">    // PK11_ImportCert and CERT_ChangeCertTrust.</span>
+<a name="95"><font size=-1>95     </font></a><span class="comment">    <a href="dictionary_S.html#858">SECStatus</a> <a href="dictionary_S.html#2833">srv</a> </span><span class="default">= <a href="dictionary_P.html#2834">PK11_ImportCert</a>(</span>
+<a name="96"><font size=-1>96     </font></a><span class="default">        <a href="dictionary_S.html#2827">slot</a>.<a href="dictionary_G.html#974">get</a>(),</span>
+<a name="97"><font size=-1>97     </font></a><span class="default">        <a href="dictionary_R.html#2820">root</a>-&gt;<a href="dictionary_O.html#976">os_cert_handle</a>(),</span>
+<a name="98"><font size=-1>98     </font></a><span class="default">        <a href="dictionary_C.html#2835">CK_INVALID_HANDLE</a>,</span>
+<a name="99"><font size=-1>99     </font></a><span class="default">        <a href="dictionary_N.html#852">net</a>::<a href="dictionary_X.html#2836">x509_util</a>::<a href="dictionary_X.html#2837">GetUniqueNicknameForSlot</a>(</span>
+<a name="100"><font size=-1>100     </font></a><span class="default">            <a href="dictionary_R.html#2820">root</a>-&gt;<a href="dictionary_G.html#2838">GetDefaultNickname</a>(<a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2809">CA_CERT</a>),</span>
+<a name="101"><font size=-1>101     </font></a><span class="default">            &amp;<a href="dictionary_R.html#2820">root</a>-&gt;<a href="dictionary_O.html#976">os_cert_handle</a>()-&gt;<a href="dictionary_D.html#2839">derSubject</a>,</span>
+<a name="102"><font size=-1>102     </font></a><span class="default">            <a href="dictionary_S.html#2827">slot</a>.<a href="dictionary_G.html#974">get</a>()).<a href="dictionary_C.html#738">c_str</a>(),</span>
+<a name="103"><font size=-1>103     </font></a><span class="default">        <a href="dictionary_P.html#922">PR_FALSE</a> </span><span class="comment">/* includeTrust (unused) */</span><span class="default">);</span>
+<a name="104"><font size=-1>104     </font></a><span class="default">    </span><span class="keyword">if </span><span class="default">(<a href="dictionary_S.html#2833">srv</a> != <a href="dictionary_S.html#859">SECSuccess</a>) {</span>
+<a name="105"><font size=-1>105     </font></a><span class="default">      <a href="dictionary_L.html#887">LOG</a>(<a href="dictionary_E.html#888">ERROR</a>) &lt;&lt; </span><span class="string">&quot;PK11_ImportCert failed with error &quot; </span><span class="default">&lt;&lt; <a href="dictionary_P.html#905">PORT_GetError</a>();</span>
+<a name="106"><font size=-1>106     </font></a><span class="default">      </span><span class="keyword">return false</span><span class="default">;</span>
+<a name="107"><font size=-1>107     </font></a><span class="default">    }</span>
+<a name="108"><font size=-1>108     </font></a><span class="default">    </span><span class="keyword">if </span><span class="default">(!<a href="dictionary_S.html#2840">SetCertTrust</a>(<a href="dictionary_R.html#2820">root</a>, <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2809">CA_CERT</a>, <a href="dictionary_T.html#2821">trustBits</a>))</span>
+<a name="109"><font size=-1>109     </font></a><span class="default">      </span><span class="keyword">return false</span><span class="default">;</span>
+<a name="110"><font size=-1>110     </font></a><span class="default">  }</span>
+<a name="111"><font size=-1>111     </font></a><span class="default"></span>
+<a name="112"><font size=-1>112     </font></a><span class="default">  <a href="dictionary_P.html#2842">PRTime</a> <a href="dictionary_N.html#2841">now</a> = <a href="dictionary_P.html#2843">PR_Now</a>();</span>
+<a name="113"><font size=-1>113     </font></a><span class="default">  </span><span class="comment">// Import additional delivered certificates that can be verified.</span>
+<a name="114"><font size=-1>114     </font></a><span class="comment">  // This is sort of merged in from Mozilla's ImportValidCACertsInList.  Mozilla</span>
+<a name="115"><font size=-1>115     </font></a><span class="comment">  // uses CERT_FilterCertListByUsage to filter out non-ca certs, but we want to</span>
+<a name="116"><font size=-1>116     </font></a><span class="comment">  // keep using X509Certificates, so that we can use them to build the</span>
+<a name="117"><font size=-1>117     </font></a><span class="comment">  // |not_imported| result.  So, we keep using our net::CertificateList and</span>
+<a name="118"><font size=-1>118     </font></a><span class="comment">  // filter it ourself.</span>
+<a name="119"><font size=-1>119     </font></a><span class="comment">  </span><span class="keyword">for </span><span class="default">(<a href="dictionary_S.html#741">size_t</a> <a href="dictionary_I.html#2844">i</a> = </span><span class="number">0</span><span class="default">; <a href="dictionary_I.html#2844">i</a> &lt; <a href="dictionary_C.html#2819">certificates</a>.<a href="dictionary_S.html#973">size</a>(); <a href="dictionary_I.html#2844">i</a>++) {</span>
+<a name="120"><font size=-1>120     </font></a><span class="default">    </span><span class="keyword">const <a href="dictionary_S.html#2846">scoped_refptr</a></span><span class="default">&lt;net::X509Certificate&gt;&amp; <a href="dictionary_C.html#2845">cert</a> = <a href="dictionary_C.html#2819">certificates</a>[<a href="dictionary_I.html#2844">i</a>];</span>
+<a name="121"><font size=-1>121     </font></a><span class="default">    </span><span class="keyword">if </span><span class="default">(<a href="dictionary_C.html#2845">cert</a> == <a href="dictionary_R.html#2820">root</a>) {</span>
+<a name="122"><font size=-1>122     </font></a><span class="default">      </span><span class="comment">// we already processed that one</span>
+<a name="123"><font size=-1>123     </font></a><span class="comment">      </span><span class="keyword">continue</span><span class="default">;</span>
+<a name="124"><font size=-1>124     </font></a><span class="default">    }</span>
+<a name="125"><font size=-1>125     </font></a><span class="default"></span>
+<a name="126"><font size=-1>126     </font></a><span class="default">    </span><span class="comment">// Mozilla uses CERT_FilterCertListByUsage(certList, certUsageAnyCA,</span>
+<a name="127"><font size=-1>127     </font></a><span class="comment">    // PR_TRUE).  Afaict, checking !CERT_IsCACert on each cert is equivalent.</span>
+<a name="128"><font size=-1>128     </font></a><span class="comment">    </span><span class="keyword">if </span><span class="default">(!<a href="dictionary_C.html#2808">CERT_IsCACert</a>(<a href="dictionary_C.html#2845">cert</a>-&gt;<a href="dictionary_O.html#976">os_cert_handle</a>(), <a href="dictionary_N.html#35">NULL</a>)) {</span>
+<a name="129"><font size=-1>129     </font></a><span class="default">      <a href="dictionary_N.html#2824">not_imported</a>-&gt;<a href="dictionary_P.html#892">push_back</a>(<a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2829">ImportCertFailure</a>(</span>
+<a name="130"><font size=-1>130     </font></a><span class="default">          <a href="dictionary_C.html#2845">cert</a>, <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2830">ERR_IMPORT_CA_CERT_NOT_CA</a>));</span>
+<a name="131"><font size=-1>131     </font></a><span class="default">      <a href="dictionary_V.html#1878">VLOG</a>(</span><span class="number">1</span><span class="default">) &lt;&lt; </span><span class="string">&quot;skipping cert (non-ca)&quot;</span><span class="default">;</span>
+<a name="132"><font size=-1>132     </font></a><span class="default">      </span><span class="keyword">continue</span><span class="default">;</span>
+<a name="133"><font size=-1>133     </font></a><span class="default">    }</span>
+<a name="134"><font size=-1>134     </font></a><span class="default"></span>
+<a name="135"><font size=-1>135     </font></a><span class="default">    </span><span class="keyword">if </span><span class="default">(<a href="dictionary_C.html#2845">cert</a>-&gt;<a href="dictionary_O.html#976">os_cert_handle</a>()-&gt;<a href="dictionary_I.html#2831">isperm</a>) {</span>
+<a name="136"><font size=-1>136     </font></a><span class="default">      <a href="dictionary_N.html#2824">not_imported</a>-&gt;<a href="dictionary_P.html#892">push_back</a>(<a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2829">ImportCertFailure</a>(</span>
+<a name="137"><font size=-1>137     </font></a><span class="default">          <a href="dictionary_C.html#2845">cert</a>, <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2832">ERR_IMPORT_CERT_ALREADY_EXISTS</a>));</span>
+<a name="138"><font size=-1>138     </font></a><span class="default">      <a href="dictionary_V.html#1878">VLOG</a>(</span><span class="number">1</span><span class="default">) &lt;&lt; </span><span class="string">&quot;skipping cert (perm)&quot;</span><span class="default">;</span>
+<a name="139"><font size=-1>139     </font></a><span class="default">      </span><span class="keyword">continue</span><span class="default">;</span>
+<a name="140"><font size=-1>140     </font></a><span class="default">    }</span>
+<a name="141"><font size=-1>141     </font></a><span class="default"></span>
+<a name="142"><font size=-1>142     </font></a><span class="default">    </span><span class="keyword">if </span><span class="default">(<a href="dictionary_C.html#2847">CERT_VerifyCert</a>(<a href="dictionary_C.html#987">CERT_GetDefaultCertDB</a>(), <a href="dictionary_C.html#2845">cert</a>-&gt;<a href="dictionary_O.html#976">os_cert_handle</a>(),</span>
+<a name="143"><font size=-1>143     </font></a><span class="default">        <a href="dictionary_P.html#840">PR_TRUE</a>, <a href="dictionary_C.html#2848">certUsageVerifyCA</a>, <a href="dictionary_N.html#2841">now</a>, <a href="dictionary_N.html#35">NULL</a>, <a href="dictionary_N.html#35">NULL</a>) != <a href="dictionary_S.html#859">SECSuccess</a>) {</span>
+<a name="144"><font size=-1>144     </font></a><span class="default">      </span><span class="comment">// TODO(mattm): use better error code (map PORT_GetError to an appropriate</span>
+<a name="145"><font size=-1>145     </font></a><span class="comment">      // error value).  (maybe make MapSecurityError or MapCertErrorToCertStatus</span>
+<a name="146"><font size=-1>146     </font></a><span class="comment">      // public.)</span>
+<a name="147"><font size=-1>147     </font></a><span class="comment">      <a href="dictionary_N.html#2824">not_imported</a></span><span class="default">-&gt;<a href="dictionary_P.html#892">push_back</a>(<a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2829">ImportCertFailure</a>(</span>
+<a name="148"><font size=-1>148     </font></a><span class="default">          <a href="dictionary_C.html#2845">cert</a>, <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2849">ERR_FAILED</a>));</span>
+<a name="149"><font size=-1>149     </font></a><span class="default">      <a href="dictionary_V.html#1878">VLOG</a>(</span><span class="number">1</span><span class="default">) &lt;&lt; </span><span class="string">&quot;skipping cert (verify) &quot; </span><span class="default">&lt;&lt; <a href="dictionary_P.html#905">PORT_GetError</a>();</span>
+<a name="150"><font size=-1>150     </font></a><span class="default">      </span><span class="keyword">continue</span><span class="default">;</span>
+<a name="151"><font size=-1>151     </font></a><span class="default">    }</span>
+<a name="152"><font size=-1>152     </font></a><span class="default"></span>
+<a name="153"><font size=-1>153     </font></a><span class="default">    </span><span class="comment">// Mozilla uses CERT_ImportCerts, which doesn't take a slot arg.  We use</span>
+<a name="154"><font size=-1>154     </font></a><span class="comment">    // PK11_ImportCert instead.</span>
+<a name="155"><font size=-1>155     </font></a><span class="comment">    <a href="dictionary_S.html#858">SECStatus</a> <a href="dictionary_S.html#2850">srv</a> </span><span class="default">= <a href="dictionary_P.html#2834">PK11_ImportCert</a>(</span>
+<a name="156"><font size=-1>156     </font></a><span class="default">        <a href="dictionary_S.html#2827">slot</a>.<a href="dictionary_G.html#974">get</a>(),</span>
+<a name="157"><font size=-1>157     </font></a><span class="default">        <a href="dictionary_C.html#2845">cert</a>-&gt;<a href="dictionary_O.html#976">os_cert_handle</a>(),</span>
+<a name="158"><font size=-1>158     </font></a><span class="default">        <a href="dictionary_C.html#2835">CK_INVALID_HANDLE</a>,</span>
+<a name="159"><font size=-1>159     </font></a><span class="default">        <a href="dictionary_N.html#852">net</a>::<a href="dictionary_X.html#2836">x509_util</a>::<a href="dictionary_X.html#2837">GetUniqueNicknameForSlot</a>(</span>
+<a name="160"><font size=-1>160     </font></a><span class="default">            <a href="dictionary_C.html#2845">cert</a>-&gt;<a href="dictionary_G.html#2838">GetDefaultNickname</a>(<a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2809">CA_CERT</a>),</span>
+<a name="161"><font size=-1>161     </font></a><span class="default">            &amp;<a href="dictionary_C.html#2845">cert</a>-&gt;<a href="dictionary_O.html#976">os_cert_handle</a>()-&gt;<a href="dictionary_D.html#2839">derSubject</a>,</span>
+<a name="162"><font size=-1>162     </font></a><span class="default">            <a href="dictionary_S.html#2827">slot</a>.<a href="dictionary_G.html#974">get</a>()).<a href="dictionary_X.html#2851">c_str</a>(),</span>
+<a name="163"><font size=-1>163     </font></a><span class="default">        <a href="dictionary_P.html#922">PR_FALSE</a> </span><span class="comment">/* includeTrust (unused) */</span><span class="default">);</span>
+<a name="164"><font size=-1>164     </font></a><span class="default">    </span><span class="keyword">if </span><span class="default">(<a href="dictionary_S.html#2850">srv</a> != <a href="dictionary_S.html#859">SECSuccess</a>) {</span>
+<a name="165"><font size=-1>165     </font></a><span class="default">      <a href="dictionary_L.html#887">LOG</a>(<a href="dictionary_E.html#888">ERROR</a>) &lt;&lt; </span><span class="string">&quot;PK11_ImportCert failed with error &quot; </span><span class="default">&lt;&lt; <a href="dictionary_P.html#905">PORT_GetError</a>();</span>
+<a name="166"><font size=-1>166     </font></a><span class="default">      </span><span class="comment">// TODO(mattm): Should we bail or continue on error here?  Mozilla doesn't</span>
+<a name="167"><font size=-1>167     </font></a><span class="comment">      // check error code at all.</span>
+<a name="168"><font size=-1>168     </font></a><span class="comment">      <a href="dictionary_N.html#2824">not_imported</a></span><span class="default">-&gt;<a href="dictionary_P.html#892">push_back</a>(<a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2829">ImportCertFailure</a>(</span>
+<a name="169"><font size=-1>169     </font></a><span class="default">          <a href="dictionary_C.html#2845">cert</a>, <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2852">ERR_IMPORT_CA_CERT_FAILED</a>));</span>
+<a name="170"><font size=-1>170     </font></a><span class="default">    }</span>
+<a name="171"><font size=-1>171     </font></a><span class="default">  }</span>
+<a name="172"><font size=-1>172     </font></a><span class="default"></span>
+<a name="173"><font size=-1>173     </font></a><span class="default">  </span><span class="comment">// Any errors importing individual certs will be in listed in |not_imported|.</span>
+<a name="174"><font size=-1>174     </font></a><span class="comment">  </span><span class="keyword">return true</span><span class="default">;</span>
+<a name="175"><font size=-1>175     </font></a><span class="default">}</span>
+<a name="176"><font size=-1>176     </font></a><span class="default"></span>
+<a name="177"><font size=-1>177     </font></a><span class="default"></span><span class="comment">// Based on nsNSSCertificateDB::ImportServerCertificate.</span>
+<a name="178"><font size=-1>178     </font></a><span class="comment"></span><span class="keyword">bool <a href="dictionary_M.html#2853">ImportServerCert</a></span><span class="default">(</span>
+<a name="179"><font size=-1>179     </font></a><span class="default">    </span><span class="keyword">const <a href="dictionary_N.html#852">net</a></span><span class="default">::<a href="dictionary_N.html#853">CertificateList</a>&amp; <a href="dictionary_C.html#2854">certificates</a>,</span>
+<a name="180"><font size=-1>180     </font></a><span class="default">    <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2823">TrustBits</a> <a href="dictionary_T.html#2855">trustBits</a>,</span>
+<a name="181"><font size=-1>181     </font></a><span class="default">    <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2825">ImportCertFailureList</a>* <a href="dictionary_N.html#2856">not_imported</a>) {</span>
+<a name="182"><font size=-1>182     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_C.html#2854">certificates</a>.<a href="dictionary_E.html#954">empty</a>())</span>
+<a name="183"><font size=-1>183     </font></a><span class="default">    </span><span class="keyword">return false</span><span class="default">;</span>
+<a name="184"><font size=-1>184     </font></a><span class="default"></span>
+<a name="185"><font size=-1>185     </font></a><span class="default">  <a href="dictionary_C.html#1879">crypto</a>::<a href="dictionary_C.html#2826">ScopedPK11Slot</a> <a href="dictionary_S.html#2827">slot</a>(<a href="dictionary_C.html#1879">crypto</a>::<a href="dictionary_C.html#2828">GetPublicNSSKeySlot</a>());</span>
+<a name="186"><font size=-1>186     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(!<a href="dictionary_S.html#2827">slot</a>.<a href="dictionary_G.html#974">get</a>()) {</span>
+<a name="187"><font size=-1>187     </font></a><span class="default">    <a href="dictionary_L.html#887">LOG</a>(<a href="dictionary_E.html#888">ERROR</a>) &lt;&lt; </span><span class="string">&quot;Couldn't get internal key slot!&quot;</span><span class="default">;</span>
+<a name="188"><font size=-1>188     </font></a><span class="default">    </span><span class="keyword">return false</span><span class="default">;</span>
+<a name="189"><font size=-1>189     </font></a><span class="default">  }</span>
+<a name="190"><font size=-1>190     </font></a><span class="default"></span>
+<a name="191"><font size=-1>191     </font></a><span class="default">  </span><span class="keyword">for </span><span class="default">(<a href="dictionary_S.html#741">size_t</a> <a href="dictionary_I.html#2857">i</a> = </span><span class="number">0</span><span class="default">; <a href="dictionary_I.html#2857">i</a> &lt; <a href="dictionary_C.html#2854">certificates</a>.<a href="dictionary_S.html#973">size</a>(); ++<a href="dictionary_I.html#2857">i</a>) {</span>
+<a name="192"><font size=-1>192     </font></a><span class="default">    </span><span class="keyword">const <a href="dictionary_S.html#2846">scoped_refptr</a></span><span class="default">&lt;net::X509Certificate&gt;&amp; <a href="dictionary_C.html#2858">cert</a> = <a href="dictionary_C.html#2854">certificates</a>[<a href="dictionary_I.html#2857">i</a>];</span>
+<a name="193"><font size=-1>193     </font></a><span class="default"></span>
+<a name="194"><font size=-1>194     </font></a><span class="default">    </span><span class="comment">// Mozilla uses CERT_ImportCerts, which doesn't take a slot arg.  We use</span>
+<a name="195"><font size=-1>195     </font></a><span class="comment">    // PK11_ImportCert instead.</span>
+<a name="196"><font size=-1>196     </font></a><span class="comment">    <a href="dictionary_S.html#858">SECStatus</a> <a href="dictionary_S.html#2859">srv</a> </span><span class="default">= <a href="dictionary_P.html#2834">PK11_ImportCert</a>(</span>
+<a name="197"><font size=-1>197     </font></a><span class="default">        <a href="dictionary_S.html#2827">slot</a>.<a href="dictionary_G.html#974">get</a>(),</span>
+<a name="198"><font size=-1>198     </font></a><span class="default">        <a href="dictionary_C.html#2858">cert</a>-&gt;<a href="dictionary_O.html#976">os_cert_handle</a>(),</span>
+<a name="199"><font size=-1>199     </font></a><span class="default">        <a href="dictionary_C.html#2835">CK_INVALID_HANDLE</a>,</span>
+<a name="200"><font size=-1>200     </font></a><span class="default">        <a href="dictionary_N.html#852">net</a>::<a href="dictionary_X.html#2836">x509_util</a>::<a href="dictionary_X.html#2837">GetUniqueNicknameForSlot</a>(</span>
+<a name="201"><font size=-1>201     </font></a><span class="default">            <a href="dictionary_C.html#2858">cert</a>-&gt;<a href="dictionary_G.html#2838">GetDefaultNickname</a>(<a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2811">SERVER_CERT</a>),</span>
+<a name="202"><font size=-1>202     </font></a><span class="default">            &amp;<a href="dictionary_C.html#2858">cert</a>-&gt;<a href="dictionary_O.html#976">os_cert_handle</a>()-&gt;<a href="dictionary_D.html#2839">derSubject</a>,</span>
+<a name="203"><font size=-1>203     </font></a><span class="default">            <a href="dictionary_S.html#2827">slot</a>.<a href="dictionary_G.html#974">get</a>()).<a href="dictionary_X.html#2851">c_str</a>(),</span>
+<a name="204"><font size=-1>204     </font></a><span class="default">        <a href="dictionary_P.html#922">PR_FALSE</a> </span><span class="comment">/* includeTrust (unused) */</span><span class="default">);</span>
+<a name="205"><font size=-1>205     </font></a><span class="default">    </span><span class="keyword">if </span><span class="default">(<a href="dictionary_S.html#2859">srv</a> != <a href="dictionary_S.html#859">SECSuccess</a>) {</span>
+<a name="206"><font size=-1>206     </font></a><span class="default">      <a href="dictionary_L.html#887">LOG</a>(<a href="dictionary_E.html#888">ERROR</a>) &lt;&lt; </span><span class="string">&quot;PK11_ImportCert failed with error &quot; </span><span class="default">&lt;&lt; <a href="dictionary_P.html#905">PORT_GetError</a>();</span>
+<a name="207"><font size=-1>207     </font></a><span class="default">      <a href="dictionary_N.html#2856">not_imported</a>-&gt;<a href="dictionary_P.html#892">push_back</a>(<a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2829">ImportCertFailure</a>(</span>
+<a name="208"><font size=-1>208     </font></a><span class="default">          <a href="dictionary_C.html#2858">cert</a>, <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2860">ERR_IMPORT_SERVER_CERT_FAILED</a>));</span>
+<a name="209"><font size=-1>209     </font></a><span class="default">      </span><span class="keyword">continue</span><span class="default">;</span>
+<a name="210"><font size=-1>210     </font></a><span class="default">    }</span>
+<a name="211"><font size=-1>211     </font></a><span class="default">  }</span>
+<a name="212"><font size=-1>212     </font></a><span class="default"></span>
+<a name="213"><font size=-1>213     </font></a><span class="default">  <a href="dictionary_S.html#2840">SetCertTrust</a>(<a href="dictionary_C.html#2854">certificates</a>[</span><span class="number">0</span><span class="default">].<a href="dictionary_G.html#974">get</a>(), <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2811">SERVER_CERT</a>, <a href="dictionary_T.html#2855">trustBits</a>);</span>
+<a name="214"><font size=-1>214     </font></a><span class="default">  </span><span class="comment">// TODO(mattm): Report SetCertTrust result?  Putting in not_imported</span>
+<a name="215"><font size=-1>215     </font></a><span class="comment">  // wouldn't quite match up since it was imported...</span>
+<a name="216"><font size=-1>216     </font></a><span class="comment"></span>
+<a name="217"><font size=-1>217     </font></a><span class="comment">  // Any errors importing individual certs will be in listed in |not_imported|.</span>
+<a name="218"><font size=-1>218     </font></a><span class="comment">  </span><span class="keyword">return true</span><span class="default">;</span>
+<a name="219"><font size=-1>219     </font></a><span class="default">}</span>
+<a name="220"><font size=-1>220     </font></a><span class="default"></span>
+<a name="221"><font size=-1>221     </font></a><span class="default"></span><span class="comment">// Based on nsNSSCertificateDB::SetCertTrust.</span>
+<a name="222"><font size=-1>222     </font></a><span class="comment"></span><span class="keyword">bool</span>
+<a name="223"><font size=-1>223     </font></a><span class="keyword"><a href="dictionary_M.html#2861">SetCertTrust</a></span><span class="default">(</span><span class="keyword">const <a href="dictionary_N.html#852">net</a></span><span class="default">::<a href="dictionary_N.html#889">X509Certificate</a>* <a href="dictionary_C.html#2862">cert</a>,</span>
+<a name="224"><font size=-1>224     </font></a><span class="default">             <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2796">CertType</a> <a href="dictionary_T.html#2863">type</a>,</span>
+<a name="225"><font size=-1>225     </font></a><span class="default">             <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2823">TrustBits</a> <a href="dictionary_T.html#2864">trustBits</a>)</span>
+<a name="226"><font size=-1>226     </font></a><span class="default">{</span>
+<a name="227"><font size=-1>227     </font></a><span class="default">  </span><span class="keyword">const unsigned <a href="dictionary_K.html#2865">kSSLTrustBits</a> </span><span class="default">= <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2866">TRUSTED_SSL</a> |</span>
+<a name="228"><font size=-1>228     </font></a><span class="default">      <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2867">DISTRUSTED_SSL</a>;</span>
+<a name="229"><font size=-1>229     </font></a><span class="default">  </span><span class="keyword">const unsigned <a href="dictionary_K.html#2868">kEmailTrustBits</a> </span><span class="default">= <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2869">TRUSTED_EMAIL</a> |</span>
+<a name="230"><font size=-1>230     </font></a><span class="default">      <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2870">DISTRUSTED_EMAIL</a>;</span>
+<a name="231"><font size=-1>231     </font></a><span class="default">  </span><span class="keyword">const unsigned <a href="dictionary_K.html#2871">kObjSignTrustBits</a> </span><span class="default">= <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2872">TRUSTED_OBJ_SIGN</a> |</span>
+<a name="232"><font size=-1>232     </font></a><span class="default">      <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2873">DISTRUSTED_OBJ_SIGN</a>;</span>
+<a name="233"><font size=-1>233     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">((<a href="dictionary_T.html#2864">trustBits</a> &amp; <a href="dictionary_K.html#2865">kSSLTrustBits</a>) == <a href="dictionary_K.html#2865">kSSLTrustBits</a> ||</span>
+<a name="234"><font size=-1>234     </font></a><span class="default">      (<a href="dictionary_T.html#2864">trustBits</a> &amp; <a href="dictionary_K.html#2868">kEmailTrustBits</a>) == <a href="dictionary_K.html#2868">kEmailTrustBits</a> ||</span>
+<a name="235"><font size=-1>235     </font></a><span class="default">      (<a href="dictionary_T.html#2864">trustBits</a> &amp; <a href="dictionary_K.html#2871">kObjSignTrustBits</a>) == <a href="dictionary_K.html#2871">kObjSignTrustBits</a>) {</span>
+<a name="236"><font size=-1>236     </font></a><span class="default">    <a href="dictionary_L.html#887">LOG</a>(<a href="dictionary_E.html#888">ERROR</a>) &lt;&lt; </span><span class="string">&quot;SetCertTrust called with conflicting trust bits &quot;</span>
+<a name="237"><font size=-1>237     </font></a><span class="string">               </span><span class="default">&lt;&lt; <a href="dictionary_T.html#2864">trustBits</a>;</span>
+<a name="238"><font size=-1>238     </font></a><span class="default">    <a href="dictionary_N.html#2874">NOTREACHED</a>();</span>
+<a name="239"><font size=-1>239     </font></a><span class="default">    </span><span class="keyword">return false</span><span class="default">;</span>
+<a name="240"><font size=-1>240     </font></a><span class="default">  }</span>
+<a name="241"><font size=-1>241     </font></a><span class="default"></span>
+<a name="242"><font size=-1>242     </font></a><span class="default">  <a href="dictionary_S.html#858">SECStatus</a> <a href="dictionary_S.html#2875">srv</a>;</span>
+<a name="243"><font size=-1>243     </font></a><span class="default">  <a href="dictionary_C.html#619">CERTCertificate</a> *<a href="dictionary_N.html#2876">nsscert</a> = <a href="dictionary_C.html#2862">cert</a>-&gt;<a href="dictionary_O.html#976">os_cert_handle</a>();</span>
+<a name="244"><font size=-1>244     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_T.html#2863">type</a> == <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2809">CA_CERT</a>) {</span>
+<a name="245"><font size=-1>245     </font></a><span class="default">    </span><span class="comment">// Note that we start with CERTDB_VALID_CA for default trust and explicit</span>
+<a name="246"><font size=-1>246     </font></a><span class="comment">    // trust, but explicitly distrusted usages will be set to</span>
+<a name="247"><font size=-1>247     </font></a><span class="comment">    // CERTDB_TERMINAL_RECORD only.</span>
+<a name="248"><font size=-1>248     </font></a><span class="comment">    <a href="dictionary_C.html#2799">CERTCertTrust</a> <a href="dictionary_T.html#2877">trust</a> </span><span class="default">= {<a href="dictionary_C.html#2807">CERTDB_VALID_CA</a>, <a href="dictionary_C.html#2807">CERTDB_VALID_CA</a>, <a href="dictionary_C.html#2807">CERTDB_VALID_CA</a>};</span>
+<a name="249"><font size=-1>249     </font></a><span class="default"></span>
+<a name="250"><font size=-1>250     </font></a><span class="default">    </span><span class="keyword">if </span><span class="default">(<a href="dictionary_T.html#2864">trustBits</a> &amp; <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2867">DISTRUSTED_SSL</a>)</span>
+<a name="251"><font size=-1>251     </font></a><span class="default">      <a href="dictionary_T.html#2877">trust</a>.<a href="dictionary_S.html#2802">sslFlags</a> = <a href="dictionary_C.html#2817">CERTDB_TERMINAL_RECORD</a>;</span>
+<a name="252"><font size=-1>252     </font></a><span class="default">    </span><span class="keyword">else if </span><span class="default">(<a href="dictionary_T.html#2864">trustBits</a> &amp; <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2866">TRUSTED_SSL</a>)</span>
+<a name="253"><font size=-1>253     </font></a><span class="default">      <a href="dictionary_T.html#2877">trust</a>.<a href="dictionary_S.html#2802">sslFlags</a> |= <a href="dictionary_C.html#2878">CERTDB_TRUSTED_CA</a> | <a href="dictionary_C.html#2879">CERTDB_TRUSTED_CLIENT_CA</a>;</span>
+<a name="254"><font size=-1>254     </font></a><span class="default"></span>
+<a name="255"><font size=-1>255     </font></a><span class="default">    </span><span class="keyword">if </span><span class="default">(<a href="dictionary_T.html#2864">trustBits</a> &amp; <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2870">DISTRUSTED_EMAIL</a>)</span>
+<a name="256"><font size=-1>256     </font></a><span class="default">      <a href="dictionary_T.html#2877">trust</a>.<a href="dictionary_E.html#2803">emailFlags</a> = <a href="dictionary_C.html#2817">CERTDB_TERMINAL_RECORD</a>;</span>
+<a name="257"><font size=-1>257     </font></a><span class="default">    </span><span class="keyword">else if </span><span class="default">(<a href="dictionary_T.html#2864">trustBits</a> &amp; <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2869">TRUSTED_EMAIL</a>)</span>
+<a name="258"><font size=-1>258     </font></a><span class="default">      <a href="dictionary_T.html#2877">trust</a>.<a href="dictionary_E.html#2803">emailFlags</a> |= <a href="dictionary_C.html#2878">CERTDB_TRUSTED_CA</a> | <a href="dictionary_C.html#2879">CERTDB_TRUSTED_CLIENT_CA</a>;</span>
+<a name="259"><font size=-1>259     </font></a><span class="default"></span>
+<a name="260"><font size=-1>260     </font></a><span class="default">    </span><span class="keyword">if </span><span class="default">(<a href="dictionary_T.html#2864">trustBits</a> &amp; <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2873">DISTRUSTED_OBJ_SIGN</a>)</span>
+<a name="261"><font size=-1>261     </font></a><span class="default">      <a href="dictionary_T.html#2877">trust</a>.<a href="dictionary_O.html#2804">objectSigningFlags</a> = <a href="dictionary_C.html#2817">CERTDB_TERMINAL_RECORD</a>;</span>
+<a name="262"><font size=-1>262     </font></a><span class="default">    </span><span class="keyword">else if </span><span class="default">(<a href="dictionary_T.html#2864">trustBits</a> &amp; <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2872">TRUSTED_OBJ_SIGN</a>)</span>
+<a name="263"><font size=-1>263     </font></a><span class="default">      <a href="dictionary_T.html#2877">trust</a>.<a href="dictionary_O.html#2804">objectSigningFlags</a> |= <a href="dictionary_C.html#2878">CERTDB_TRUSTED_CA</a> | <a href="dictionary_C.html#2879">CERTDB_TRUSTED_CLIENT_CA</a>;</span>
+<a name="264"><font size=-1>264     </font></a><span class="default"></span>
+<a name="265"><font size=-1>265     </font></a><span class="default">    <a href="dictionary_S.html#2875">srv</a> = <a href="dictionary_C.html#2880">CERT_ChangeCertTrust</a>(<a href="dictionary_C.html#987">CERT_GetDefaultCertDB</a>(), <a href="dictionary_N.html#2876">nsscert</a>, &amp;<a href="dictionary_T.html#2877">trust</a>);</span>
+<a name="266"><font size=-1>266     </font></a><span class="default">  } </span><span class="keyword">else if </span><span class="default">(<a href="dictionary_T.html#2863">type</a> == <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2811">SERVER_CERT</a>) {</span>
+<a name="267"><font size=-1>267     </font></a><span class="default">    <a href="dictionary_C.html#2799">CERTCertTrust</a> <a href="dictionary_T.html#2881">trust</a> = {</span><span class="number">0</span><span class="default">};</span>
+<a name="268"><font size=-1>268     </font></a><span class="default">    </span><span class="comment">// We only modify the sslFlags, so copy the other flags.</span>
+<a name="269"><font size=-1>269     </font></a><span class="comment">    <a href="dictionary_C.html#2800">CERT_GetCertTrust</a></span><span class="default">(<a href="dictionary_N.html#2876">nsscert</a>, &amp;<a href="dictionary_T.html#2881">trust</a>);</span>
+<a name="270"><font size=-1>270     </font></a><span class="default">    <a href="dictionary_T.html#2881">trust</a>.<a href="dictionary_S.html#2802">sslFlags</a> = </span><span class="number">0</span><span class="default">;</span>
+<a name="271"><font size=-1>271     </font></a><span class="default"></span>
+<a name="272"><font size=-1>272     </font></a><span class="default">    </span><span class="keyword">if </span><span class="default">(<a href="dictionary_T.html#2864">trustBits</a> &amp; <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2867">DISTRUSTED_SSL</a>)</span>
+<a name="273"><font size=-1>273     </font></a><span class="default">      <a href="dictionary_T.html#2881">trust</a>.<a href="dictionary_S.html#2802">sslFlags</a> |= <a href="dictionary_C.html#2817">CERTDB_TERMINAL_RECORD</a>;</span>
+<a name="274"><font size=-1>274     </font></a><span class="default">    </span><span class="keyword">else if </span><span class="default">(<a href="dictionary_T.html#2864">trustBits</a> &amp; <a href="dictionary_N.html#852">net</a>::<a href="dictionary_N.html#2822">NSSCertDatabase</a>::<a href="dictionary_N.html#2866">TRUSTED_SSL</a>)</span>
+<a name="275"><font size=-1>275     </font></a><span class="default">      <a href="dictionary_T.html#2881">trust</a>.<a href="dictionary_S.html#2802">sslFlags</a> |= <a href="dictionary_C.html#2882">CERTDB_TRUSTED</a> | <a href="dictionary_C.html#2817">CERTDB_TERMINAL_RECORD</a>;</span>
+<a name="276"><font size=-1>276     </font></a><span class="default"></span>
+<a name="277"><font size=-1>277     </font></a><span class="default">    <a href="dictionary_S.html#2875">srv</a> = <a href="dictionary_C.html#2880">CERT_ChangeCertTrust</a>(<a href="dictionary_C.html#987">CERT_GetDefaultCertDB</a>(), <a href="dictionary_N.html#2876">nsscert</a>, &amp;<a href="dictionary_T.html#2881">trust</a>);</span>
+<a name="278"><font size=-1>278     </font></a><span class="default">  } </span><span class="keyword">else </span><span class="default">{</span>
+<a name="279"><font size=-1>279     </font></a><span class="default">    </span><span class="comment">// ignore user and email/unknown certs</span>
+<a name="280"><font size=-1>280     </font></a><span class="comment">    </span><span class="keyword">return true</span><span class="default">;</span>
+<a name="281"><font size=-1>281     </font></a><span class="default">  }</span>
+<a name="282"><font size=-1>282     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_S.html#2875">srv</a> != <a href="dictionary_S.html#859">SECSuccess</a>)</span>
+<a name="283"><font size=-1>283     </font></a><span class="default">    <a href="dictionary_L.html#887">LOG</a>(<a href="dictionary_E.html#888">ERROR</a>) &lt;&lt; </span><span class="string">&quot;SetCertTrust failed with error &quot; </span><span class="default">&lt;&lt; <a href="dictionary_P.html#905">PORT_GetError</a>();</span>
+<a name="284"><font size=-1>284     </font></a><span class="default">  </span><span class="keyword">return <a href="dictionary_S.html#2875">srv</a> </span><span class="default">== <a href="dictionary_S.html#859">SECSuccess</a>;</span>
+<a name="285"><font size=-1>285     </font></a><span class="default">}</span>
+<a name="286"><font size=-1>286     </font></a><span class="default"></span>
+<a name="287"><font size=-1>287     </font></a><span class="default">}  </span><span class="comment">// namespace mozilla_security_manager</span>
+<a name="288"><font size=-1>288     </font></a><span class="comment"></span>
+</pre></body></html>

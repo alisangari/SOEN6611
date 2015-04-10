@@ -1,0 +1,157 @@
+<html><head><title>Macro Cross Reference [H]</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head><body bgcolor="#ffffff" TEXT="#000000"><h2>Macro Cross Reference</h2><hr><pre>
+</pre><table BORDER CELLPADDING=4><tr><td><a href="macro_xref_Non-Alpha.html">Non-Alpha</a></td><td><a href="macro_xref_A.html">A</a></td><td><a href="macro_xref_B.html">B</a></td><td><a href="macro_xref_C.html">C</a></td><td><a href="macro_xref_D.html">D</a></td><td><a href="macro_xref_E.html">E</a></td><td><a href="macro_xref_F.html">F</a></td><td><a href="macro_xref_G.html">G</a></td><td><a href="macro_xref_H.html">H</a></td><td><a href="macro_xref_I.html">I</a></td><td><a href="macro_xref_J.html">J</a></td><td>K</td><td><a href="macro_xref_L.html">L</a></td><td><a href="macro_xref_M.html">M</a></td><td><a href="macro_xref_N.html">N</a></td><td><a href="macro_xref_O.html">O</a></td><td><a href="macro_xref_P.html">P</a></td><td><a href="macro_xref_Q.html">Q</a></td><td><a href="macro_xref_R.html">R</a></td><td><a href="macro_xref_S.html">S</a></td><td><a href="macro_xref_T.html">T</a></td><td><a href="macro_xref_U.html">U</a></td><td>V</td><td>W</td><td><a href="macro_xref_X.html">X</a></td><td><a href="macro_xref_Y.html">Y</a></td><td>Z</td></tr></table><pre>
+
+<a href="dictionary_H.html#1234">HANDLE_WM_NOTIFY</a><a name="1234"> </a>
+  Declared as: 
+ (fn)((hwnd), (int)(wParam), (LPNMHDR)lParam)
+    Use   [<a href="1170.html#134">gui_fiter.cpp, 134</a>]         <a href="dictionary_F.html#1222">FilterPageProc</a>
+    Use   [<a href="8333.html#93">gui_general.cpp, 93</a>]        <a href="dictionary_G.html#8348">GeneralPageProc</a>
+    Use   [<a href="11019.html#160">gui_log.cpp, 160</a>]           <a href="dictionary_L.html#11061">LogPageProc</a>
+    Use   [<a href="11419.html#93">gui_advanced.cpp, 93</a>]       <a href="dictionary_A.html#11433">AdvancedPageProc</a>
+
+<a href="dictionary_H.html#10281">HAVE_LLVM</a><a name="10281"> </a>
+
+<a href="dictionary_H.html#7969">HB_FIXED_CONSTANT</a><a name="7969"> </a>
+  Declared as: ((v) * 64)
+    Use   [<a href="7874.html#260">harfbuzz-shaper.cpp, 260</a>]   <a href="dictionary_P.html#7937">positionCluster</a>
+    Use   [<a href="7874.html#260">harfbuzz-shaper.cpp, 260</a>]   <a href="dictionary_P.html#7937">positionCluster</a>
+    Use   [<a href="7874.html#261">harfbuzz-shaper.cpp, 261</a>]   <a href="dictionary_P.html#7937">positionCluster</a>
+    Use   [<a href="7874.html#262">harfbuzz-shaper.cpp, 262</a>]   <a href="dictionary_P.html#7937">positionCluster</a>
+
+<a href="dictionary_H.html#8322">HB_FIXED_ROUND</a><a name="8322"> </a>
+  Declared as: (((v)+32) & -64)
+    Use   [<a href="7874.html#1288">harfbuzz-shaper.cpp, 1288</a>]   <a href="dictionary_H.html#8071">HB_OpenTypePosition</a>
+
+<a href="dictionary_H.html#11914">HB_FREE_STACKARRAY</a><a name="11914"> </a>
+  Declared as: 
+ if (stack##Name != Name) 
+ free(Name);
+    Use   [<a href="11156.html#1669">harfbuzz-indic.cpp, 1669</a>]   <a href="dictionary_I.html#11845">indic_shape_syllable</a>
+    Use   [<a href="11156.html#1670">harfbuzz-indic.cpp, 1670</a>]   <a href="dictionary_I.html#11845">indic_shape_syllable</a>
+    Use   [<a href="11156.html#1698">harfbuzz-indic.cpp, 1698</a>]   <a href="dictionary_I.html#11845">indic_shape_syllable</a>
+    Use   [<a href="11156.html#1699">harfbuzz-indic.cpp, 1699</a>]   <a href="dictionary_I.html#11845">indic_shape_syllable</a>
+    Use   [<a href="11156.html#1705">harfbuzz-indic.cpp, 1705</a>]   <a href="dictionary_I.html#11845">indic_shape_syllable</a>
+    Use   [<a href="11156.html#1706">harfbuzz-indic.cpp, 1706</a>]   <a href="dictionary_I.html#11845">indic_shape_syllable</a>
+
+<a href="dictionary_H.html#8288">HB_GDEF_MARK</a><a name="8288"> </a>
+  Declared as: 0x0008
+    Use   [<a href="7874.html#1204">harfbuzz-shaper.cpp, 1204</a>]   <a href="dictionary_H.html#8282">HB_FixupZeroWidth</a>
+
+<a href="dictionary_H.html#8019">HB_GetGlyphAdvances</a><a name="8019"> </a>
+  Declared as: 
+ shaper_item->font->klass->getGlyphAdvances(shaper_item->font, 
+ shaper_item->glyphs, shaper_item->num_glyphs, 
+ shaper_item->advances, 
+ shaper_item->face->current_flags);
+    Use   [<a href="7874.html#408">harfbuzz-shaper.cpp, 408</a>]   <a href="dictionary_H.html#8012">HB_HeuristicPosition</a>
+    Use   [<a href="7874.html#1223">harfbuzz-shaper.cpp, 1223</a>]   <a href="dictionary_H.html#8071">HB_OpenTypePosition</a>
+    Use   [<a href="7874.html#1273">harfbuzz-shaper.cpp, 1273</a>]   <a href="dictionary_H.html#8071">HB_OpenTypePosition</a>
+
+<a href="dictionary_H.html#8041">HB_IsControlChar</a><a name="8041"> </a>
+  Declared as: 
+ ((uc >= 0x200b && uc <= 0x200f ) 
+ || (uc >= 0x2028 && uc <= 0x202f ) 
+ || (uc >= 0x206a && uc <= 0x206f ))
+    Use   [<a href="7874.html#455">harfbuzz-shaper.cpp, 455</a>]   <a href="dictionary_H.html#8024">HB_HeuristicSetGlyphAttributes</a>
+    Use   [<a href="7874.html#471">harfbuzz-shaper.cpp, 471</a>]   <a href="dictionary_H.html#8024">HB_HeuristicSetGlyphAttributes</a>
+
+<a href="dictionary_H.html#7920">HB_IsHighSurrogate</a><a name="7920"> </a>
+  Declared as: 
+ (((ucs) & 0xfc00) == 0xd800)
+    Use   [<a href="7874.html#159">harfbuzz-shaper.cpp, 159</a>]   <a href="dictionary_C.html#7895">calcLineBreaks</a>
+    Use   [<a href="7874.html#161">harfbuzz-shaper.cpp, 161</a>]   <a href="dictionary_C.html#7895">calcLineBreaks</a>
+    Use   [<a href="7874.html#440">harfbuzz-shaper.cpp, 440</a>]   <a href="dictionary_H.html#8024">HB_HeuristicSetGlyphAttributes</a>
+
+<a href="dictionary_H.html#7921">HB_IsLowSurrogate</a><a name="7921"> </a>
+  Declared as: 
+ (((ucs) & 0xfc00) == 0xdc00)
+    Use   [<a href="7874.html#159">harfbuzz-shaper.cpp, 159</a>]   <a href="dictionary_C.html#7895">calcLineBreaks</a>
+    Use   [<a href="7874.html#161">harfbuzz-shaper.cpp, 161</a>]   <a href="dictionary_C.html#7895">calcLineBreaks</a>
+    Use   [<a href="7874.html#441">harfbuzz-shaper.cpp, 441</a>]   <a href="dictionary_H.html#8024">HB_HeuristicSetGlyphAttributes</a>
+
+<a href="dictionary_H.html#8058">HB_MAKE_TAG</a><a name="8058"> </a>
+  Declared as: 
+ ( ( (HB_UInt)_x1 << 24 ) | 
+ ( (HB_UInt)_x2 << 16 ) | 
+ ( (HB_UInt)_x3 << 8 ) | 
+ (HB_UInt)_x4 )
+    Use   [<a href="7874.html#537">harfbuzz-shaper.cpp, 537</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#538">harfbuzz-shaper.cpp, 538</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#539">harfbuzz-shaper.cpp, 539</a>]   harfbuzz-shaper.cpp
+    Macro   [<a href="7874.html#811">harfbuzz-shaper.cpp, 811</a>]   <a href="dictionary_D.html#8157">DefaultScript</a>
+    Use   [<a href="7874.html#824">harfbuzz-shaper.cpp, 824</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#826">harfbuzz-shaper.cpp, 826</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#828">harfbuzz-shaper.cpp, 828</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#830">harfbuzz-shaper.cpp, 830</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#832">harfbuzz-shaper.cpp, 832</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#834">harfbuzz-shaper.cpp, 834</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#836">harfbuzz-shaper.cpp, 836</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#838">harfbuzz-shaper.cpp, 838</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#840">harfbuzz-shaper.cpp, 840</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#842">harfbuzz-shaper.cpp, 842</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#844">harfbuzz-shaper.cpp, 844</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#846">harfbuzz-shaper.cpp, 846</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#848">harfbuzz-shaper.cpp, 848</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#850">harfbuzz-shaper.cpp, 850</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#852">harfbuzz-shaper.cpp, 852</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#854">harfbuzz-shaper.cpp, 854</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#856">harfbuzz-shaper.cpp, 856</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#858">harfbuzz-shaper.cpp, 858</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#860">harfbuzz-shaper.cpp, 860</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#862">harfbuzz-shaper.cpp, 862</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#864">harfbuzz-shaper.cpp, 864</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#866">harfbuzz-shaper.cpp, 866</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#868">harfbuzz-shaper.cpp, 868</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#870">harfbuzz-shaper.cpp, 870</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#872">harfbuzz-shaper.cpp, 872</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#874">harfbuzz-shaper.cpp, 874</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#876">harfbuzz-shaper.cpp, 876</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#878">harfbuzz-shaper.cpp, 878</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#900">harfbuzz-shaper.cpp, 900</a>]   <a href="dictionary_C.html#8169">checkScript</a>
+    Use   [<a href="7874.html#914">harfbuzz-shaper.cpp, 914</a>]   <a href="dictionary_C.html#8169">checkScript</a>
+    Use   [<a href="7874.html#1110">harfbuzz-shaper.cpp, 1110</a>]   <a href="dictionary_H.html#8069">HB_SelectScript</a>
+    Use   [<a href="11156.html#1110">harfbuzz-indic.cpp, 1110</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1111">harfbuzz-indic.cpp, 1111</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1112">harfbuzz-indic.cpp, 1112</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1113">harfbuzz-indic.cpp, 1113</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1114">harfbuzz-indic.cpp, 1114</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1115">harfbuzz-indic.cpp, 1115</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1116">harfbuzz-indic.cpp, 1116</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1117">harfbuzz-indic.cpp, 1117</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1118">harfbuzz-indic.cpp, 1118</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1119">harfbuzz-indic.cpp, 1119</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1120">harfbuzz-indic.cpp, 1120</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1121">harfbuzz-indic.cpp, 1121</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1122">harfbuzz-indic.cpp, 1122</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1123">harfbuzz-indic.cpp, 1123</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1124">harfbuzz-indic.cpp, 1124</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1125">harfbuzz-indic.cpp, 1125</a>]   harfbuzz-indic.cpp
+    Use   [<a href="11156.html#1126">harfbuzz-indic.cpp, 1126</a>]   harfbuzz-indic.cpp
+
+<a href="dictionary_H.html#7878">HB_MAX</a><a name="7878"> </a>
+  Declared as: ((a) > (b) ? (a) : (b))
+    Define   [<a href="7874.html#33">harfbuzz-shaper.cpp, 33</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#390">harfbuzz-shaper.cpp, 390</a>]   <a href="dictionary_P.html#7937">positionCluster</a>
+    Use   [<a href="7874.html#391">harfbuzz-shaper.cpp, 391</a>]   <a href="dictionary_P.html#7937">positionCluster</a>
+
+<a href="dictionary_H.html#7877">HB_MIN</a><a name="7877"> </a>
+  Declared as: ((a) < (b) ? (a) : (b))
+    Define   [<a href="7874.html#32">harfbuzz-shaper.cpp, 32</a>]   harfbuzz-shaper.cpp
+    Use   [<a href="7874.html#388">harfbuzz-shaper.cpp, 388</a>]   <a href="dictionary_P.html#7937">positionCluster</a>
+    Use   [<a href="7874.html#389">harfbuzz-shaper.cpp, 389</a>]   <a href="dictionary_P.html#7937">positionCluster</a>
+
+<a href="dictionary_H.html#11861">HB_STACKARRAY</a><a name="11861"> </a>
+  Declared as: 
+ HB_DECLARE_STACKARRAY(Type, Name) 
+ HB_INIT_STACKARRAY(Type, Name, Length)
+    Use   [<a href="11156.html#1216">harfbuzz-indic.cpp, 1216</a>]   <a href="dictionary_I.html#11845">indic_shape_syllable</a>
+    Use   [<a href="11156.html#1217">harfbuzz-indic.cpp, 1217</a>]   <a href="dictionary_I.html#11845">indic_shape_syllable</a>
+    Use   [<a href="11156.html#1554">harfbuzz-indic.cpp, 1554</a>]   <a href="dictionary_I.html#11845">indic_shape_syllable</a>
+    Use   [<a href="11156.html#1555">harfbuzz-indic.cpp, 1555</a>]   <a href="dictionary_I.html#11845">indic_shape_syllable</a>
+
+<a href="dictionary_H.html#7922">HB_SurrogateToUcs4</a><a name="7922"> </a>
+  Declared as: 
+ (((HB_UChar32)(high))<<10) + (low) - 0x35fdc00;
+    Use   [<a href="7874.html#162">harfbuzz-shaper.cpp, 162</a>]   <a href="dictionary_C.html#7895">calcLineBreaks</a>
+</pre><hr>
+<table BORDER CELLPADDING=4><tr><td><a href="macro_xref_Non-Alpha.html">Non-Alpha</a></td><td><a href="macro_xref_A.html">A</a></td><td><a href="macro_xref_B.html">B</a></td><td><a href="macro_xref_C.html">C</a></td><td><a href="macro_xref_D.html">D</a></td><td><a href="macro_xref_E.html">E</a></td><td><a href="macro_xref_F.html">F</a></td><td><a href="macro_xref_G.html">G</a></td><td><a href="macro_xref_H.html">H</a></td><td><a href="macro_xref_I.html">I</a></td><td><a href="macro_xref_J.html">J</a></td><td>K</td><td><a href="macro_xref_L.html">L</a></td><td><a href="macro_xref_M.html">M</a></td><td><a href="macro_xref_N.html">N</a></td><td><a href="macro_xref_O.html">O</a></td><td><a href="macro_xref_P.html">P</a></td><td><a href="macro_xref_Q.html">Q</a></td><td><a href="macro_xref_R.html">R</a></td><td><a href="macro_xref_S.html">S</a></td><td><a href="macro_xref_T.html">T</a></td><td><a href="macro_xref_U.html">U</a></td><td>V</td><td>W</td><td><a href="macro_xref_X.html">X</a></td><td><a href="macro_xref_Y.html">Y</a></td><td>Z</td></tr></table></body></html>

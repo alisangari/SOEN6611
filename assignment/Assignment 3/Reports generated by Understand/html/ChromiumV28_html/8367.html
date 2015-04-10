@@ -1,0 +1,149 @@
+<html><head><title>ir_import_prototypes.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="sourcestyles.css" />
+</head><body link="blue" vlink="blue">
+<h3>File: C:\6611\src\third_party\mesa\MesaLib\src\glsl\ir_import_prototypes.cpp</h3>
+<SCRIPT>
+defaultStatus = "File: C:\\6611\\src\\third_party\\mesa\\MesaLib\\src\\glsl\\ir_import_prototypes.cpp";
+top.document.title  = "ir_import_prototypes.cpp";
+</SCRIPT>
+<pre><span class="default"></span><a name="1"><font size=-1>1     </font></a><span class="default"></span><span class="comment">/*</span>
+<a name="2"><font size=-1>2     </font></a><span class="comment"> * Copyright Â© 2010 Intel Corporation</span>
+<a name="3"><font size=-1>3     </font></a><span class="comment"> *</span>
+<a name="4"><font size=-1>4     </font></a><span class="comment"> * Permission is hereby granted, free of charge, to any person obtaining a</span>
+<a name="5"><font size=-1>5     </font></a><span class="comment"> * copy of this software and associated documentation files (the &quot;Software&quot;),</span>
+<a name="6"><font size=-1>6     </font></a><span class="comment"> * to deal in the Software without restriction, including without limitation</span>
+<a name="7"><font size=-1>7     </font></a><span class="comment"> * the rights to use, copy, modify, merge, publish, distribute, sublicense,</span>
+<a name="8"><font size=-1>8     </font></a><span class="comment"> * and/or sell copies of the Software, and to permit persons to whom the</span>
+<a name="9"><font size=-1>9     </font></a><span class="comment"> * Software is furnished to do so, subject to the following conditions:</span>
+<a name="10"><font size=-1>10     </font></a><span class="comment"> *</span>
+<a name="11"><font size=-1>11     </font></a><span class="comment"> * The above copyright notice and this permission notice (including the next</span>
+<a name="12"><font size=-1>12     </font></a><span class="comment"> * paragraph) shall be included in all copies or substantial portions of the</span>
+<a name="13"><font size=-1>13     </font></a><span class="comment"> * Software.</span>
+<a name="14"><font size=-1>14     </font></a><span class="comment"> *</span>
+<a name="15"><font size=-1>15     </font></a><span class="comment"> * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<a name="16"><font size=-1>16     </font></a><span class="comment"> * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<a name="17"><font size=-1>17     </font></a><span class="comment"> * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL</span>
+<a name="18"><font size=-1>18     </font></a><span class="comment"> * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<a name="19"><font size=-1>19     </font></a><span class="comment"> * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span>
+<a name="20"><font size=-1>20     </font></a><span class="comment"> * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span>
+<a name="21"><font size=-1>21     </font></a><span class="comment"> * DEALINGS IN THE SOFTWARE.</span>
+<a name="22"><font size=-1>22     </font></a><span class="comment"> */</span>
+<a name="23"><font size=-1>23     </font></a><span class="comment"></span>
+<a name="24"><font size=-1>24     </font></a><span class="comment">/**</span>
+<a name="25"><font size=-1>25     </font></a><span class="comment"> * \file ir_import_prototypes.cpp</span>
+<a name="26"><font size=-1>26     </font></a><span class="comment"> * Import function prototypes from one IR tree into another.</span>
+<a name="27"><font size=-1>27     </font></a><span class="comment"> *</span>
+<a name="28"><font size=-1>28     </font></a><span class="comment"> * \author Ian Romanick</span>
+<a name="29"><font size=-1>29     </font></a><span class="comment"> */</span>
+<a name="30"><font size=-1>30     </font></a><span class="comment"></span><span class="preproc">#include </span><span class="string">&lt;cstdio&gt;</span>
+<a name="31"><font size=-1>31     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;ir.h&quot;</span>
+<a name="32"><font size=-1>32     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;glsl_symbol_table.h&quot;</span>
+<a name="33"><font size=-1>33     </font></a><span class="string"></span>
+<a name="34"><font size=-1>34     </font></a><span class="string"></span><span class="comment">/**</span>
+<a name="35"><font size=-1>35     </font></a><span class="comment"> * Visitor used to import function prototypes</span>
+<a name="36"><font size=-1>36     </font></a><span class="comment"> *</span>
+<a name="37"><font size=-1>37     </font></a><span class="comment"> * Normally the \c clone method of either \c ir_function or</span>
+<a name="38"><font size=-1>38     </font></a><span class="comment"> * \c ir_function_signature could be used.  However, we don't want a complete</span>
+<a name="39"><font size=-1>39     </font></a><span class="comment"> * clone of the \c ir_function_signature.  We want everything \b except the</span>
+<a name="40"><font size=-1>40     </font></a><span class="comment"> * body of the function.</span>
+<a name="41"><font size=-1>41     </font></a><span class="comment"> */</span>
+<a name="42"><font size=-1>42     </font></a><span class="comment"></span><span class="keyword">class <a href="dictionary_I.html#8368">import_prototype_visitor</a> </span><span class="default">: </span><span class="keyword">public <a href="dictionary_I.html#6">ir_hierarchical_visitor</a> </span><span class="default">{</span>
+<a name="43"><font size=-1>43     </font></a><span class="default"></span><span class="keyword">public</span><span class="default">:</span>
+<a name="44"><font size=-1>44     </font></a><span class="default">   </span><span class="comment">/**</span>
+<a name="45"><font size=-1>45     </font></a><span class="comment">    */</span>
+<a name="46"><font size=-1>46     </font></a><span class="comment">   <a href="dictionary_I.html#8369">import_prototype_visitor</a></span><span class="default">(<a href="dictionary_E.html#40">exec_list</a> *<a href="dictionary_L.html#8370">list</a>, <a href="dictionary_G.html#1437">glsl_symbol_table</a> *<a href="dictionary_S.html#8371">symbols</a>,</span>
+<a name="47"><font size=-1>47     </font></a><span class="default">			    </span><span class="keyword">void </span><span class="default">*<a href="dictionary_M.html#8372">mem_ctx</a>)</span>
+<a name="48"><font size=-1>48     </font></a><span class="default">   {</span>
+<a name="49"><font size=-1>49     </font></a><span class="default">      </span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8382">mem_ctx</a> = <a href="dictionary_M.html#8372">mem_ctx</a>;</span>
+<a name="50"><font size=-1>50     </font></a><span class="default">      </span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8379">list</a> = <a href="dictionary_L.html#8370">list</a>;</span>
+<a name="51"><font size=-1>51     </font></a><span class="default">      </span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8381">symbols</a> = <a href="dictionary_S.html#8371">symbols</a>;</span>
+<a name="52"><font size=-1>52     </font></a><span class="default">      </span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8380">function</a> = <a href="dictionary_N.html#24">NULL</a>;</span>
+<a name="53"><font size=-1>53     </font></a><span class="default">   }</span>
+<a name="54"><font size=-1>54     </font></a><span class="default"></span>
+<a name="55"><font size=-1>55     </font></a><span class="default">   </span><span class="keyword">virtual <a href="dictionary_I.html#9">ir_visitor_status</a> <a href="dictionary_I.html#8373">visit_enter</a></span><span class="default">(<a href="dictionary_I.html#1729">ir_function</a> *<a href="dictionary_I.html#8374">ir</a>)</span>
+<a name="56"><font size=-1>56     </font></a><span class="default">   {</span>
+<a name="57"><font size=-1>57     </font></a><span class="default">      <a href="dictionary_A.html#54">assert</a>(</span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8380">function</a> == <a href="dictionary_N.html#24">NULL</a>);</span>
+<a name="58"><font size=-1>58     </font></a><span class="default"></span>
+<a name="59"><font size=-1>59     </font></a><span class="default">      </span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8380">function</a> = </span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8381">symbols</a>-&gt;<a href="dictionary_G.html#1801">get_function</a>(<a href="dictionary_I.html#8374">ir</a>-&gt;<a href="dictionary_I.html#1789">name</a>);</span>
+<a name="60"><font size=-1>60     </font></a><span class="default">      </span><span class="keyword">if </span><span class="default">(!</span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8380">function</a>) {</span>
+<a name="61"><font size=-1>61     </font></a><span class="default">	 </span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8380">function</a> = </span><span class="keyword">new</span><span class="default">(</span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8382">mem_ctx</a>) <a href="dictionary_I.html#4140">ir_function</a>(<a href="dictionary_I.html#8374">ir</a>-&gt;<a href="dictionary_I.html#1789">name</a>);</span>
+<a name="62"><font size=-1>62     </font></a><span class="default"></span>
+<a name="63"><font size=-1>63     </font></a><span class="default">	 <a href="dictionary_I.html#8379">list</a>-&gt;<a href="dictionary_E.html#207">push_tail</a>(</span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8380">function</a>);</span>
+<a name="64"><font size=-1>64     </font></a><span class="default"></span>
+<a name="65"><font size=-1>65     </font></a><span class="default">	 </span><span class="comment">/* Add the new function to the symbol table.</span>
+<a name="66"><font size=-1>66     </font></a><span class="comment">	  */</span>
+<a name="67"><font size=-1>67     </font></a><span class="comment">	 </span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8381">symbols</a>-&gt;<a href="dictionary_G.html#7601">add_function</a>(</span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8380">function</a>-&gt;<a href="dictionary_I.html#1789">name</a>, </span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8380">function</a>);</span>
+<a name="68"><font size=-1>68     </font></a><span class="default">      }</span>
+<a name="69"><font size=-1>69     </font></a><span class="default">      </span><span class="keyword">return </span><span class="default">visit_continue;</span>
+<a name="70"><font size=-1>70     </font></a><span class="default">   }</span>
+<a name="71"><font size=-1>71     </font></a><span class="default"></span>
+<a name="72"><font size=-1>72     </font></a><span class="default">   </span><span class="keyword">virtual <a href="dictionary_I.html#9">ir_visitor_status</a> <a href="dictionary_I.html#8375">visit_leave</a></span><span class="default">(<a href="dictionary_I.html#1729">ir_function</a> *<a href="dictionary_I.html#8376">ir</a>)</span>
+<a name="73"><font size=-1>73     </font></a><span class="default">   {</span>
+<a name="74"><font size=-1>74     </font></a><span class="default">      (</span><span class="keyword">void</span><span class="default">) <a href="dictionary_I.html#8376">ir</a>;</span>
+<a name="75"><font size=-1>75     </font></a><span class="default">      <a href="dictionary_A.html#54">assert</a>(</span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8380">function</a> != <a href="dictionary_N.html#24">NULL</a>);</span>
+<a name="76"><font size=-1>76     </font></a><span class="default"></span>
+<a name="77"><font size=-1>77     </font></a><span class="default">      </span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8380">function</a> = <a href="dictionary_N.html#24">NULL</a>;</span>
+<a name="78"><font size=-1>78     </font></a><span class="default">      </span><span class="keyword">return </span><span class="default">visit_continue;</span>
+<a name="79"><font size=-1>79     </font></a><span class="default">   }</span>
+<a name="80"><font size=-1>80     </font></a><span class="default"></span>
+<a name="81"><font size=-1>81     </font></a><span class="default">   <a href="dictionary_I.html#9">ir_visitor_status</a> <a href="dictionary_I.html#8377">visit_enter</a>(<a href="dictionary_I.html#1688">ir_function_signature</a> *<a href="dictionary_I.html#8378">ir</a>)</span>
+<a name="82"><font size=-1>82     </font></a><span class="default">   {</span>
+<a name="83"><font size=-1>83     </font></a><span class="default">      <a href="dictionary_A.html#54">assert</a>(</span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8380">function</a> != <a href="dictionary_N.html#24">NULL</a>);</span>
+<a name="84"><font size=-1>84     </font></a><span class="default"></span>
+<a name="85"><font size=-1>85     </font></a><span class="default">      <a href="dictionary_I.html#1688">ir_function_signature</a> *<a href="dictionary_C.html#8383">copy</a> =</span>
+<a name="86"><font size=-1>86     </font></a><span class="default">	 </span><span class="keyword">new</span><span class="default">(<a href="dictionary_I.html#8382">mem_ctx</a>) <a href="dictionary_I.html#4143">ir_function_signature</a>(<a href="dictionary_I.html#8378">ir</a>-&gt;<a href="dictionary_I.html#1781">return_type</a>);</span>
+<a name="87"><font size=-1>87     </font></a><span class="default"></span>
+<a name="88"><font size=-1>88     </font></a><span class="default">      <a href="dictionary_C.html#8383">copy</a>-&gt;<a href="dictionary_I.html#4145">is_defined</a> = </span><span class="keyword">false</span><span class="default">;</span>
+<a name="89"><font size=-1>89     </font></a><span class="default">      <a href="dictionary_C.html#8383">copy</a>-&gt;<a href="dictionary_I.html#7621">is_builtin</a> = <a href="dictionary_I.html#8378">ir</a>-&gt;<a href="dictionary_I.html#7621">is_builtin</a>;</span>
+<a name="90"><font size=-1>90     </font></a><span class="default"></span>
+<a name="91"><font size=-1>91     </font></a><span class="default">      </span><span class="comment">/* Clone the parameter list, but NOT the body.</span>
+<a name="92"><font size=-1>92     </font></a><span class="comment">       */</span>
+<a name="93"><font size=-1>93     </font></a><span class="comment">      <a href="dictionary_F.html#693">foreach_list_const</a></span><span class="default">(<a href="dictionary_N.html#8384">node</a>, &amp;<a href="dictionary_I.html#8378">ir</a>-&gt;<a href="dictionary_I.html#1771">parameters</a>) {</span>
+<a name="94"><font size=-1>94     </font></a><span class="default">	 </span><span class="keyword">const <a href="dictionary_I.html#14">ir_variable</a> </span><span class="default">*</span><span class="keyword">const <a href="dictionary_P.html#8385">param</a> </span><span class="default">= (</span><span class="keyword">const <a href="dictionary_I.html#14">ir_variable</a> </span><span class="default">*) <a href="dictionary_N.html#8384">node</a>;</span>
+<a name="95"><font size=-1>95     </font></a><span class="default"></span>
+<a name="96"><font size=-1>96     </font></a><span class="default">	 <a href="dictionary_A.html#54">assert</a>(</span><span class="keyword">const_cast</span><span class="default">&lt;<a href="dictionary_I.html#14">ir_variable</a> *&gt;(<a href="dictionary_P.html#8385">param</a>)-&gt;<a href="dictionary_I.html#5828">as_variable</a>() != <a href="dictionary_N.html#24">NULL</a>);</span>
+<a name="97"><font size=-1>97     </font></a><span class="default"></span>
+<a name="98"><font size=-1>98     </font></a><span class="default">	 <a href="dictionary_I.html#14">ir_variable</a> *</span><span class="keyword">const <a href="dictionary_P.html#8386">param_copy</a> </span><span class="default">= <a href="dictionary_P.html#8385">param</a>-&gt;<a href="dictionary_I.html#4161">clone</a>(<a href="dictionary_I.html#8382">mem_ctx</a>, <a href="dictionary_N.html#24">NULL</a>);</span>
+<a name="99"><font size=-1>99     </font></a><span class="default">	 <a href="dictionary_C.html#8383">copy</a>-&gt;<a href="dictionary_I.html#1771">parameters</a>.<a href="dictionary_E.html#207">push_tail</a>(<a href="dictionary_P.html#8386">param_copy</a>);</span>
+<a name="100"><font size=-1>100     </font></a><span class="default">      }</span>
+<a name="101"><font size=-1>101     </font></a><span class="default"></span>
+<a name="102"><font size=-1>102     </font></a><span class="default">      </span><span class="keyword">this</span><span class="default">-&gt;<a href="dictionary_I.html#8380">function</a>-&gt;<a href="dictionary_I.html#4144">add_signature</a>(<a href="dictionary_C.html#8383">copy</a>);</span>
+<a name="103"><font size=-1>103     </font></a><span class="default"></span>
+<a name="104"><font size=-1>104     </font></a><span class="default">      </span><span class="comment">/* Do not process child nodes of the ir_function_signature.  There can</span>
+<a name="105"><font size=-1>105     </font></a><span class="comment">       * never be any nodes inside the ir_function_signature that we care</span>
+<a name="106"><font size=-1>106     </font></a><span class="comment">       * about.  Instead continue with the next sibling.</span>
+<a name="107"><font size=-1>107     </font></a><span class="comment">       */</span>
+<a name="108"><font size=-1>108     </font></a><span class="comment">      </span><span class="keyword">return </span><span class="default">visit_continue_with_parent;</span>
+<a name="109"><font size=-1>109     </font></a><span class="default">   }</span>
+<a name="110"><font size=-1>110     </font></a><span class="default"></span>
+<a name="111"><font size=-1>111     </font></a><span class="default"></span><span class="keyword">private</span><span class="default">:</span>
+<a name="112"><font size=-1>112     </font></a><span class="default">   <a href="dictionary_E.html#40">exec_list</a> *<a href="dictionary_I.html#8379">list</a>;</span>
+<a name="113"><font size=-1>113     </font></a><span class="default">   <a href="dictionary_I.html#1729">ir_function</a> *<a href="dictionary_I.html#8380">function</a>;</span>
+<a name="114"><font size=-1>114     </font></a><span class="default">   <a href="dictionary_G.html#1437">glsl_symbol_table</a> *<a href="dictionary_I.html#8381">symbols</a>;</span>
+<a name="115"><font size=-1>115     </font></a><span class="default">   </span><span class="keyword">void </span><span class="default">*<a href="dictionary_I.html#8382">mem_ctx</a>;</span>
+<a name="116"><font size=-1>116     </font></a><span class="default">};</span>
+<a name="117"><font size=-1>117     </font></a><span class="default"></span>
+<a name="118"><font size=-1>118     </font></a><span class="default"></span>
+<a name="119"><font size=-1>119     </font></a><span class="default"></span><span class="comment">/**</span>
+<a name="120"><font size=-1>120     </font></a><span class="comment"> * Import function prototypes from one IR tree into another</span>
+<a name="121"><font size=-1>121     </font></a><span class="comment"> *</span>
+<a name="122"><font size=-1>122     </font></a><span class="comment"> * \param source   Source instruction stream containing functions whose</span>
+<a name="123"><font size=-1>123     </font></a><span class="comment"> *                 prototypes are to be imported</span>
+<a name="124"><font size=-1>124     </font></a><span class="comment"> * \param dest     Destination instruction stream where new \c ir_function and</span>
+<a name="125"><font size=-1>125     </font></a><span class="comment"> *                 \c ir_function_signature nodes will be stored</span>
+<a name="126"><font size=-1>126     </font></a><span class="comment"> * \param symbols  Symbol table where new functions will be stored</span>
+<a name="127"><font size=-1>127     </font></a><span class="comment"> * \param mem_ctx  talloc memory context used for new allocations</span>
+<a name="128"><font size=-1>128     </font></a><span class="comment"> */</span>
+<a name="129"><font size=-1>129     </font></a><span class="comment"></span><span class="keyword">void</span>
+<a name="130"><font size=-1>130     </font></a><span class="keyword"><a href="dictionary_I.html#1577">import_prototypes</a></span><span class="default">(</span><span class="keyword">const <a href="dictionary_E.html#40">exec_list</a> </span><span class="default">*<a href="dictionary_S.html#8387">source</a>, <a href="dictionary_E.html#40">exec_list</a> *<a href="dictionary_D.html#8388">dest</a>,</span>
+<a name="131"><font size=-1>131     </font></a><span class="default">		  <a href="dictionary_G.html#1437">glsl_symbol_table</a> *<a href="dictionary_S.html#8389">symbols</a>, </span><span class="keyword">void </span><span class="default">*<a href="dictionary_M.html#8390">mem_ctx</a>)</span>
+<a name="132"><font size=-1>132     </font></a><span class="default">{</span>
+<a name="133"><font size=-1>133     </font></a><span class="default">   <a href="dictionary_I.html#8369">import_prototype_visitor</a> <a href="dictionary_V.html#8391">v</a>(<a href="dictionary_D.html#8388">dest</a>, <a href="dictionary_S.html#8389">symbols</a>, <a href="dictionary_M.html#8390">mem_ctx</a>);</span>
+<a name="134"><font size=-1>134     </font></a><span class="default"></span>
+<a name="135"><font size=-1>135     </font></a><span class="default">   </span><span class="comment">/* Making source be const is just extra documentation.</span>
+<a name="136"><font size=-1>136     </font></a><span class="comment">    */</span>
+<a name="137"><font size=-1>137     </font></a><span class="comment">   <a href="dictionary_V.html#8391">v</a></span><span class="default">.<a href="dictionary_I.html#2135">run</a>(</span><span class="keyword">const_cast</span><span class="default">&lt;<a href="dictionary_E.html#40">exec_list</a> *&gt;(<a href="dictionary_S.html#8387">source</a>));</span>
+<a name="138"><font size=-1>138     </font></a><span class="default">}</span>
+<a name="139"><font size=-1>139     </font></a><span class="default"></span>
+</pre></body></html>

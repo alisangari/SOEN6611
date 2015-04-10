@@ -1,0 +1,146 @@
+<html><head><title>Simple Invocation Tree [L]</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head><body bgcolor="#ffffff" TEXT="#000000"><h2>Simple Invocation Tree</h2><hr><pre>
+</pre><table BORDER CELLPADDING=4><tr><td>Non-Alpha</td><td><a href="simpleinvtree_A.html">A</a></td><td><a href="simpleinvtree_B.html">B</a></td><td><a href="simpleinvtree_C.html">C</a></td><td><a href="simpleinvtree_D.html">D</a></td><td><a href="simpleinvtree_E.html">E</a></td><td><a href="simpleinvtree_F.html">F</a></td><td><a href="simpleinvtree_G.html">G</a></td><td>H</td><td><a href="simpleinvtree_I.html">I</a></td><td><a href="simpleinvtree_J.html">J</a></td><td>K</td><td><a href="simpleinvtree_L.html">L</a></td><td><a href="simpleinvtree_M.html">M</a></td><td><a href="simpleinvtree_N.html">N</a></td><td><a href="simpleinvtree_O.html">O</a></td><td><a href="simpleinvtree_P.html">P</a></td><td>Q</td><td><a href="simpleinvtree_R.html">R</a></td><td><a href="simpleinvtree_S.html">S</a></td><td><a href="simpleinvtree_T.html">T</a></td><td><a href="simpleinvtree_U.html">U</a></td><td><a href="simpleinvtree_V.html">V</a></td><td><a href="simpleinvtree_W.html">W</a></td><td><a href="simpleinvtree_X.html">X</a></td><td>Y</td><td>Z</td></tr></table><pre>
+
+<a href="dictionary_L.html#68">LoadRealPlugin</a>
+| <a href="dictionary_S.html#66">strlen</a>
+
+<a href="dictionary_L.html#1607">Logger::init</a>
+| <a href="dictionary_C.html#4160">create</a>
+
+<a href="dictionary_L.html#4231">Logger::isMuted</a>
+| <a href="dictionary_A.html#1243">assert</a>
+
+<a href="dictionary_L.html#1315">Logger::logCall</a>
+| <a href="dictionary_I.html#4211">isMuted</a>
+| <a href="dictionary_M.html#4214">makeLogItemStruct</a>
+| <a href="dictionary_F.html#4215">formatLogItem</a>
+| <a href="dictionary_F.html#4216">freeLogItemStruct</a>
+| <a href="dictionary_P.html#4167">printf</a>
+| <a href="dictionary_C.html#738">c_str</a>
+| <a href="dictionary_W.html#223">write</a>
+| <a href="dictionary_D.html#4169">dumpStringToMainWindow</a>
+
+<a href="dictionary_L.html#1487">Logger::Logger</a>
+| <a href="dictionary_G.html#4151">GetPluginsDir</a>
+| <a href="dictionary_S.html#3666">strcat</a>
+
+<a href="dictionary_L.html#473">Logger::logMessage</a>
+| <a href="dictionary_P.html#4167">printf</a>
+| <a href="dictionary_W.html#223">write</a>
+| <a href="dictionary_D.html#4169">dumpStringToMainWindow</a>
+
+<a href="dictionary_L.html#490">Logger::logNS_NP_GetEntryPoints</a>
+| <a href="dictionary_P.html#4167">printf</a>
+| <a href="dictionary_W.html#223">write</a>
+| <a href="dictionary_D.html#4169">dumpStringToMainWindow</a>
+
+<a href="dictionary_L.html#1608">Logger::logNS_NP_Initialize</a>
+| <a href="dictionary_P.html#4167">printf</a>
+| <a href="dictionary_W.html#223">write</a>
+| <a href="dictionary_D.html#4169">dumpStringToMainWindow</a>
+
+<a href="dictionary_L.html#4172">Logger::logNS_NP_Shutdown</a>
+| <a href="dictionary_P.html#4167">printf</a>
+| <a href="dictionary_W.html#223">write</a>
+| <a href="dictionary_D.html#4169">dumpStringToMainWindow</a>
+
+<a href="dictionary_L.html#116">Logger::logReturn</a>
+| <a href="dictionary_I.html#4211">isMuted</a>
+| <a href="dictionary_S.html#1980">sprintf</a>
+| <a href="dictionary_L.html#473">Logger::logMessage</a>
+
+<a href="dictionary_L.html#3026">Logger::logSPY_NP_GetEntryPoints</a>
+| <a href="dictionary_P.html#4167">printf</a>
+| <a href="dictionary_W.html#223">write</a>
+| <a href="dictionary_D.html#4169">dumpStringToMainWindow</a>
+| <a href="dictionary_S.html#1980">sprintf</a>
+
+<a href="dictionary_L.html#4096">Logger::logSPY_NP_Initialize</a>
+| <a href="dictionary_P.html#4167">printf</a>
+| <a href="dictionary_W.html#223">write</a>
+| <a href="dictionary_D.html#4169">dumpStringToMainWindow</a>
+
+<a href="dictionary_L.html#4199">Logger::logSPY_NP_Shutdown</a>
+| <a href="dictionary_S.html#3666">strcat</a>
+| <a href="dictionary_P.html#4167">printf</a>
+| <a href="dictionary_W.html#223">write</a>
+| <a href="dictionary_D.html#4169">dumpStringToMainWindow</a>
+
+<a href="dictionary_L.html#3031">Logger::setToFile</a>
+| <a href="dictionary_S.html#66">strlen</a>
+| <a href="dictionary_Non-Alpha.html#3740">_stricmp</a>
+| <a href="dictionary_S.html#1694">strcpy</a>
+| <a href="dictionary_C.html#4162">close</a>
+| <a href="dictionary_C.html#4160">create</a>
+
+<a href="dictionary_L.html#149">Logger::shut</a>
+| <a href="dictionary_C.html#4162">close</a>
+
+<a href="dictionary_L.html#735">LoggerWin::dumpStringToMainWindow</a>
+| <a href="dictionary_C.html#738">c_str</a>
+| <a href="dictionary_F.html#742">find</a>
+| <a href="dictionary_S.html#745">strrchr</a>
+| <a href="dictionary_G.html#715">GetDlgItem</a>
+| <a href="dictionary_L.html#717">ListBox_AddString</a>
+| <a href="dictionary_L.html#719">ListBox_GetCount</a>
+| <a href="dictionary_L.html#748">ListBox_ResetContent</a>
+| <a href="dictionary_L.html#720">ListBox_SetCaretIndex</a>
+| <a href="dictionary_U.html#721">UpdateWindow</a>
+
+<a href="dictionary_L.html#646">LoggerWin::LoggerWin</a>
+| <a href="dictionary_L.html#3833">Logger::Logger</a>
+
+<a href="dictionary_L.html#749">LoggerWin::onClear</a>
+| <a href="dictionary_G.html#715">GetDlgItem</a>
+| <a href="dictionary_L.html#748">ListBox_ResetContent</a>
+| <a href="dictionary_U.html#721">UpdateWindow</a>
+
+<a href="dictionary_L.html#656">LoggerWin::platformInit</a>
+| <a href="dictionary_L.html#666">LoadIcon</a>
+| <a href="dictionary_M.html#667">MAKEINTRESOURCE</a>
+| <a href="dictionary_L.html#670">LoadCursor</a>
+| <a href="dictionary_R.html#678">RegisterClass</a>
+| <a href="dictionary_P.html#680">ProfileWin::ProfileWin</a>
+| <a href="dictionary_P.html#682">ProfileWin::getBool</a>
+| <a href="dictionary_P.html#692">ProfileWin::getString</a>
+| <a href="dictionary_S.html#66">strlen</a>
+| <a href="dictionary_P.html#700">ProfileWin::getSizeAndPosition</a>
+| <a href="dictionary_C.html#701">CreateDialogParam</a>
+| <a href="dictionary_G.html#703">GetDesktopWindow</a>
+| <a href="dictionary_M.html#643">MainDlgProc</a>
+| <a href="dictionary_U.html#705">UnregisterClass</a>
+| <a href="dictionary_S.html#706">SetWindowPos</a>
+| <a href="dictionary_P.html#711">ProfileWin::~ProfileWin</a>
+
+<a href="dictionary_L.html#712">LoggerWin::platformShut</a>
+| <a href="dictionary_G.html#715">GetDlgItem</a>
+| <a href="dictionary_L.html#717">ListBox_AddString</a>
+| <a href="dictionary_L.html#719">ListBox_GetCount</a>
+| <a href="dictionary_L.html#720">ListBox_SetCaretIndex</a>
+| <a href="dictionary_U.html#721">UpdateWindow</a>
+| <a href="dictionary_D.html#722">DialogBox</a>
+| <a href="dictionary_M.html#667">MAKEINTRESOURCE</a>
+| <a href="dictionary_P.html#644">PauseDlgProc</a>
+| <a href="dictionary_P.html#680">ProfileWin::ProfileWin</a>
+| <a href="dictionary_G.html#727">GetWindowRect</a>
+| <a href="dictionary_P.html#728">ProfileWin::setSizeAndPosition</a>
+| <a href="dictionary_D.html#733">DestroyWindow</a>
+| <a href="dictionary_P.html#711">ProfileWin::~ProfileWin</a>
+| <a href="dictionary_U.html#705">UnregisterClass</a>
+
+<a href="dictionary_L.html#654">LoggerWin::~LoggerWin</a>
+| <a href="dictionary_L.html#1530">Logger::~Logger</a>
+
+<a href="dictionary_L.html#3541">LogPageProc</a>
+| <a href="dictionary_H.html#50">HANDLE_WM_INITDIALOG</a>
+| <a href="dictionary_O.html#3688">onInitDialog</a>
+| <a href="dictionary_H.html#2165">HANDLE_WM_COMMAND</a>
+| <a href="dictionary_O.html#3669">onCommand</a>
+| <a href="dictionary_O.html#3684">onNotify</a>
+
+<a href="dictionary_L.html#1711">lstrip</a>
+| <a href="dictionary_S.html#1708">starts_with</a>
+| <a href="dictionary_S.html#1714">substr</a>
+| <a href="dictionary_S.html#973">size</a>
+</pre><hr>
+<table BORDER CELLPADDING=4><tr><td>Non-Alpha</td><td><a href="simpleinvtree_A.html">A</a></td><td><a href="simpleinvtree_B.html">B</a></td><td><a href="simpleinvtree_C.html">C</a></td><td><a href="simpleinvtree_D.html">D</a></td><td><a href="simpleinvtree_E.html">E</a></td><td><a href="simpleinvtree_F.html">F</a></td><td><a href="simpleinvtree_G.html">G</a></td><td>H</td><td><a href="simpleinvtree_I.html">I</a></td><td><a href="simpleinvtree_J.html">J</a></td><td>K</td><td><a href="simpleinvtree_L.html">L</a></td><td><a href="simpleinvtree_M.html">M</a></td><td><a href="simpleinvtree_N.html">N</a></td><td><a href="simpleinvtree_O.html">O</a></td><td><a href="simpleinvtree_P.html">P</a></td><td>Q</td><td><a href="simpleinvtree_R.html">R</a></td><td><a href="simpleinvtree_S.html">S</a></td><td><a href="simpleinvtree_T.html">T</a></td><td><a href="simpleinvtree_U.html">U</a></td><td><a href="simpleinvtree_V.html">V</a></td><td><a href="simpleinvtree_W.html">W</a></td><td><a href="simpleinvtree_X.html">X</a></td><td>Y</td><td>Z</td></tr></table></body></html>

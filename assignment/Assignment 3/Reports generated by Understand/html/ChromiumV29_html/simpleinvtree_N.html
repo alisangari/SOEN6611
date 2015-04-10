@@ -1,0 +1,435 @@
+<html><head><title>Simple Invocation Tree [N]</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head><body bgcolor="#ffffff" TEXT="#000000"><h2>Simple Invocation Tree</h2><hr><pre>
+</pre><table BORDER CELLPADDING=4><tr><td><a href="simpleinvtree_Non-Alpha.html">Non-Alpha</a></td><td><a href="simpleinvtree_A.html">A</a></td><td><a href="simpleinvtree_B.html">B</a></td><td><a href="simpleinvtree_C.html">C</a></td><td><a href="simpleinvtree_D.html">D</a></td><td><a href="simpleinvtree_E.html">E</a></td><td><a href="simpleinvtree_F.html">F</a></td><td><a href="simpleinvtree_G.html">G</a></td><td><a href="simpleinvtree_H.html">H</a></td><td><a href="simpleinvtree_I.html">I</a></td><td><a href="simpleinvtree_J.html">J</a></td><td><a href="simpleinvtree_K.html">K</a></td><td><a href="simpleinvtree_L.html">L</a></td><td><a href="simpleinvtree_M.html">M</a></td><td><a href="simpleinvtree_N.html">N</a></td><td><a href="simpleinvtree_O.html">O</a></td><td><a href="simpleinvtree_P.html">P</a></td><td>Q</td><td><a href="simpleinvtree_R.html">R</a></td><td><a href="simpleinvtree_S.html">S</a></td><td><a href="simpleinvtree_T.html">T</a></td><td><a href="simpleinvtree_U.html">U</a></td><td><a href="simpleinvtree_V.html">V</a></td><td><a href="simpleinvtree_W.html">W</a></td><td><a href="simpleinvtree_X.html">X</a></td><td><a href="simpleinvtree_Y.html">Y</a></td><td>Z</td></tr></table><pre>
+
+<a href="dictionary_N.html#10936">NewLogger</a>
+| <a href="dictionary_L.html#10567">LoggerWin::LoggerWin</a>
+
+<a href="dictionary_N.html#3666">NP_GetEntryPoints</a>
+| <a href="dictionary_N.html#3668">NewLogger</a>
+| <a href="dictionary_L.html#3669">Logger::platformInit</a>
+| <a href="dictionary_L.html#4232">Logger::init</a>
+| <a href="dictionary_L.html#8728">Logger::logNS_NP_GetEntryPoints</a>
+
+<a href="dictionary_N.html#3695">NP_Initialize</a>
+| <a href="dictionary_N.html#3668">NewLogger</a>
+| <a href="dictionary_L.html#3669">Logger::platformInit</a>
+| <a href="dictionary_L.html#4232">Logger::init</a>
+| <a href="dictionary_L.html#8412">Logger::logNS_NP_Initialize</a>
+| <a href="dictionary_L.html#8754">Logger::logMessage</a>
+| <a href="dictionary_H.html#2176">HIBYTE</a>
+| <a href="dictionary_N.html#10087">NPPEntryPointManager::NPPEntryPointManager</a>
+
+<a href="dictionary_N.html#3700">NP_Shutdown</a>
+| <a href="dictionary_N.html#4306">NPPEntryPointManager::callNP_ShutdownAll</a>
+| <a href="dictionary_L.html#2178">Logger::shut</a>
+| <a href="dictionary_L.html#3703">Logger::platformShut</a>
+| <a href="dictionary_D.html#3704">DeleteLogger</a>
+| <a href="dictionary_N.html#10066">NPPEntryPointManager::~NPPEntryPointManager</a>
+
+<a href="dictionary_N.html#2431">NPN_CreateObject</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_C.html#2437">createobject</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2247">NPN_DestroyStream</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_D.html#2254">destroystream</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2329">NPN_Enumerate</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_E.html#2337">enumerate</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2394">NPN_Evaluate</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_E.html#2402">evaluate</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2318">NPN_ForceRedraw</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_F.html#2321">forceredraw</a>
+
+<a href="dictionary_N.html#2454">NPN_GetIntIdentifier</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_G.html#2458">getintidentifier</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2284">NPN_GetJavaEnv</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2288">NPN_GetJavaPeer</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2386">NPN_GetProperty</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_G.html#2393">getproperty</a>
+
+<a href="dictionary_N.html#2322">NPN_GetStringIdentifier</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_G.html#2328">getstringidentifier</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2459">NPN_GetStringIdentifiers</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_G.html#2464">getstringidentifiers</a>
+
+<a href="dictionary_N.html#2191">NPN_GetURL</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_G.html#2197">geturl</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2179">NPN_GetURLNotify</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_G.html#2189">geturlnotify</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2292">NPN_GetValue</a>
+| <a href="dictionary_G.html#2297">getvalue</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2359">NPN_HasMethod</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_H.html#2365">hasmethod</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2366">NPN_HasProperty</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_H.html#2365">hasmethod</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2449">NPN_IdentifierIsString</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_I.html#2453">identifierisstring</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2438">NPN_IntFromIdentifier</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_I.html#2443">intfromidentifier</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2306">NPN_InvalidateRect</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_I.html#2311">invalidaterect</a>
+
+<a href="dictionary_N.html#2312">NPN_InvalidateRegion</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_I.html#2317">invalidateregion</a>
+
+<a href="dictionary_N.html#2412">NPN_Invoke</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_I.html#2421">invoke</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2403">NPN_InvokeDefault</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_I.html#2411">invokeDefault</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2265">NPN_MemAlloc</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_M.html#2269">memalloc</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2274">NPN_MemFlush</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_M.html#2278">memflush</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2270">NPN_MemFree</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_M.html#2273">memfree</a>
+
+<a href="dictionary_N.html#2228">NPN_NewStream</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_N.html#2237">newstream</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2338">NPN_PopPopupsEnabledState</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_P.html#2342">poppopupsenabledstate</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2211">NPN_PostURL</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_P.html#2220">posturl</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2198">NPN_PostURLNotify</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_P.html#2210">posturlnotify</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2343">NPN_PushPopupsEnabledState</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_P.html#2348">pushpopupsenabledstate</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2422">NPN_ReleaseObject</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_R.html#2425">releaseobject</a>
+
+<a href="dictionary_N.html#2354">NPN_ReleaseVariantValue</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_R.html#2358">releasevariantvalue</a>
+
+<a href="dictionary_N.html#2279">NPN_ReloadPlugins</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_R.html#2282">reloadplugins</a>
+
+<a href="dictionary_N.html#2372">NPN_RemoveProperty</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_H.html#2365">hasmethod</a>
+
+<a href="dictionary_N.html#2221">NPN_RequestRead</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_R.html#2227">requestread</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2426">NPN_RetainObject</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_R.html#2430">retainobject</a>
+
+<a href="dictionary_N.html#2349">NPN_SetException</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_S.html#2353">setexception</a>
+
+<a href="dictionary_N.html#2378">NPN_SetProperty</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_S.html#2385">setproperty</a>
+
+<a href="dictionary_N.html#2299">NPN_SetValue</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_S.html#2305">setvalue</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2255">NPN_Status</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_S.html#2259">status</a>
+
+<a href="dictionary_N.html#2260">NPN_UserAgent</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_U.html#2264">uagent</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2444">NPN_UTF8FromIdentifier</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_U.html#2448">utf8fromidentifier</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2167">NPN_Version</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_H.html#2176">HIBYTE</a>
+| <a href="dictionary_L.html#2177">LOBYTE</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#2238">NPN_Write</a>
+| <a href="dictionary_L.html#4205">Logger::logCall</a>
+| <a href="dictionary_W.html#2246">write</a>
+| <a href="dictionary_L.html#9279">Logger::logReturn</a>
+
+<a href="dictionary_N.html#1124">NPP_Destroy</a>
+| <a href="dictionary_L.html#11550">Logger::logCall</a>
+| <a href="dictionary_N.html#1419">NPPEntryPointManager::callNPP_Destroy</a>
+| <a href="dictionary_L.html#10688">Logger::logReturn</a>
+| <a href="dictionary_N.html#8424">NPPEntryPointManager::callNP_Shutdown</a>
+| <a href="dictionary_N.html#4313">NPPEntryPointManager::removeEntryPointsForPlugin</a>
+| <a href="dictionary_U.html#1137">UnloadRealPlugin</a>
+
+<a href="dictionary_N.html#1172">NPP_DestroyStream</a>
+| <a href="dictionary_L.html#11550">Logger::logCall</a>
+| <a href="dictionary_N.html#10887">NPPEntryPointManager::callNPP_DestroyStream</a>
+| <a href="dictionary_L.html#10688">Logger::logReturn</a>
+
+<a href="dictionary_N.html#995">NPP_GetJavaClass</a>
+| <a href="dictionary_L.html#11550">Logger::logCall</a>
+| <a href="dictionary_L.html#10688">Logger::logReturn</a>
+
+<a href="dictionary_N.html#1199">NPP_GetValue</a>
+| <a href="dictionary_L.html#11550">Logger::logCall</a>
+| <a href="dictionary_N.html#4295">NPPEntryPointManager::callNPP_GetValue</a>
+| <a href="dictionary_L.html#10688">Logger::logReturn</a>
+
+<a href="dictionary_N.html#1215">NPP_HandleEvent</a>
+| <a href="dictionary_L.html#11550">Logger::logCall</a>
+| <a href="dictionary_N.html#8715">NPPEntryPointManager::callNPP_HandleEvent</a>
+| <a href="dictionary_L.html#10688">Logger::logReturn</a>
+
+<a href="dictionary_N.html#1000">NPP_New</a>
+| <a href="dictionary_L.html#11550">Logger::logCall</a>
+| <a href="dictionary_N.html#4239">NPPEntryPointManager::findEntryPointsForPlugin</a>
+| <a href="dictionary_L.html#1021">LoadRealPlugin</a>
+| <a href="dictionary_X.html#1024">XP_GetSymbol</a>
+| <a href="dictionary_M.html#242">memset</a>
+| <a href="dictionary_L.html#6797">Logger::logSPY_NP_GetEntryPoints</a>
+| <a href="dictionary_N.html#8723">NPPEntryPointManager::createEntryPointsForPlugin</a>
+| <a href="dictionary_L.html#8487">Logger::logSPY_NP_Initialize</a>
+| <a href="dictionary_N.html#8415">NPPEntryPointManager::callNPP_New</a>
+| <a href="dictionary_L.html#10688">Logger::logReturn</a>
+
+<a href="dictionary_N.html#1145">NPP_NewStream</a>
+| <a href="dictionary_L.html#11550">Logger::logCall</a>
+| <a href="dictionary_N.html#11555">NPPEntryPointManager::callNPP_NewStream</a>
+| <a href="dictionary_L.html#10688">Logger::logReturn</a>
+
+<a href="dictionary_N.html#1185">NPP_Print</a>
+| <a href="dictionary_L.html#11550">Logger::logCall</a>
+| <a href="dictionary_N.html#4263">NPPEntryPointManager::callNPP_Print</a>
+
+<a href="dictionary_N.html#1207">NPP_SetValue</a>
+| <a href="dictionary_L.html#11550">Logger::logCall</a>
+| <a href="dictionary_N.html#4216">NPPEntryPointManager::callNPP_SetValue</a>
+| <a href="dictionary_L.html#10688">Logger::logReturn</a>
+
+<a href="dictionary_N.html#1138">NPP_SetWindow</a>
+| <a href="dictionary_L.html#11550">Logger::logCall</a>
+| <a href="dictionary_N.html#4235">NPPEntryPointManager::callNPP_SetWindow</a>
+| <a href="dictionary_L.html#10688">Logger::logReturn</a>
+
+<a href="dictionary_N.html#1179">NPP_StreamAsFile</a>
+| <a href="dictionary_L.html#11550">Logger::logCall</a>
+| <a href="dictionary_N.html#4268">NPPEntryPointManager::callNPP_StreamAsFile</a>
+
+<a href="dictionary_N.html#1191">NPP_URLNotify</a>
+| <a href="dictionary_L.html#11550">Logger::logCall</a>
+| <a href="dictionary_N.html#10890">NPPEntryPointManager::callNPP_URLNotify</a>
+
+<a href="dictionary_N.html#1163">NPP_Write</a>
+| <a href="dictionary_L.html#11550">Logger::logCall</a>
+| <a href="dictionary_N.html#8730">NPPEntryPointManager::callNPP_Write</a>
+| <a href="dictionary_L.html#10688">Logger::logReturn</a>
+
+<a href="dictionary_N.html#1156">NPP_WriteReady</a>
+| <a href="dictionary_L.html#11550">Logger::logCall</a>
+| <a href="dictionary_N.html#4325">NPPEntryPointManager::callNPP_WriteReady</a>
+| <a href="dictionary_L.html#10688">Logger::logReturn</a>
+
+<a href="dictionary_N.html#1032">NPPEntryPointManager::callNP_Shutdown</a>
+| <a href="dictionary_L.html#4234">logSPY_NP_Shutdown</a>
+
+<a href="dictionary_N.html#1198">NPPEntryPointManager::callNP_ShutdownAll</a>
+| <a href="dictionary_L.html#4234">logSPY_NP_Shutdown</a>
+
+<a href="dictionary_N.html#420">NPPEntryPointManager::callNPP_Destroy</a>
+| <a href="dictionary_I.html#4187">InstanceList::~InstanceList</a>
+| <a href="dictionary_C.html#4262">CallNPP_DestroyProc</a>
+
+<a href="dictionary_N.html#8399">NPPEntryPointManager::callNPP_DestroyStream</a>
+| <a href="dictionary_N.html#4227">NPPEntryPointManager::findEntryPointsForInstance</a>
+| <a href="dictionary_C.html#4281">CallNPP_DestroyStreamProc</a>
+
+<a href="dictionary_N.html#1184">NPPEntryPointManager::callNPP_GetValue</a>
+| <a href="dictionary_N.html#4227">NPPEntryPointManager::findEntryPointsForInstance</a>
+| <a href="dictionary_C.html#4318">CallNPP_GetValueProc</a>
+
+<a href="dictionary_N.html#348">NPPEntryPointManager::callNPP_HandleEvent</a>
+| <a href="dictionary_N.html#4227">NPPEntryPointManager::findEntryPointsForInstance</a>
+| <a href="dictionary_C.html#4329">CallNPP_HandleEventProc</a>
+
+<a href="dictionary_N.html#3671">NPPEntryPointManager::callNPP_New</a>
+| <a href="dictionary_Non-Alpha.html#4226">_stricmp</a>
+| <a href="dictionary_I.html#4185">InstanceList::InstanceList</a>
+| <a href="dictionary_C.html#4251">CallNPP_NewProc</a>
+
+<a href="dictionary_N.html#8772">NPPEntryPointManager::callNPP_NewStream</a>
+| <a href="dictionary_N.html#4227">NPPEntryPointManager::findEntryPointsForInstance</a>
+| <a href="dictionary_C.html#4275">CallNPP_NewStreamProc</a>
+
+<a href="dictionary_N.html#1144">NPPEntryPointManager::callNPP_Print</a>
+| <a href="dictionary_N.html#4227">NPPEntryPointManager::findEntryPointsForInstance</a>
+| <a href="dictionary_C.html#4305">CallNPP_PrintProc</a>
+
+<a href="dictionary_N.html#1136">NPPEntryPointManager::callNPP_SetValue</a>
+| <a href="dictionary_N.html#4227">NPPEntryPointManager::findEntryPointsForInstance</a>
+| <a href="dictionary_C.html#4324">CallNPP_SetValueProc</a>
+
+<a href="dictionary_N.html#1134">NPPEntryPointManager::callNPP_SetWindow</a>
+| <a href="dictionary_N.html#4227">NPPEntryPointManager::findEntryPointsForInstance</a>
+| <a href="dictionary_C.html#4267">CallNPP_SetWindowProc</a>
+
+<a href="dictionary_N.html#1155">NPPEntryPointManager::callNPP_StreamAsFile</a>
+| <a href="dictionary_N.html#4227">NPPEntryPointManager::findEntryPointsForInstance</a>
+| <a href="dictionary_C.html#4300">CallNPP_StreamAsFileProc</a>
+
+<a href="dictionary_N.html#8407">NPPEntryPointManager::callNPP_URLNotify</a>
+| <a href="dictionary_N.html#4227">NPPEntryPointManager::findEntryPointsForInstance</a>
+| <a href="dictionary_C.html#4312">CallNPP_URLNotifyProc</a>
+
+<a href="dictionary_N.html#364">NPPEntryPointManager::callNPP_Write</a>
+| <a href="dictionary_N.html#4227">NPPEntryPointManager::findEntryPointsForInstance</a>
+| <a href="dictionary_C.html#4294">CallNPP_WriteProc</a>
+
+<a href="dictionary_N.html#1220">NPPEntryPointManager::callNPP_WriteReady</a>
+| <a href="dictionary_N.html#4227">NPPEntryPointManager::findEntryPointsForInstance</a>
+| <a href="dictionary_C.html#4286">CallNPP_WriteReadyProc</a>
+
+<a href="dictionary_N.html#357">NPPEntryPointManager::createEntryPointsForPlugin</a>
+| <a href="dictionary_P.html#4189">PluginEntryPointList::PluginEntryPointList</a>
+| <a href="dictionary_S.html#4211">strcpy</a>
+
+<a href="dictionary_N.html#1123">NPPEntryPointManager::findEntryPointsForPlugin</a>
+| <a href="dictionary_Non-Alpha.html#4226">_stricmp</a>
+
+<a href="dictionary_N.html#1206">NPPEntryPointManager::removeEntryPointsForPlugin</a>
+| <a href="dictionary_F.html#4220">findEntryPointsForInstance</a>
+| <a href="dictionary_P.html#4194">PluginEntryPointList::~PluginEntryPointList</a>
+
+<a href="dictionary_N.html#8478">NPPEntryPointManager::~NPPEntryPointManager</a>
+| <a href="dictionary_I.html#4187">InstanceList::~InstanceList</a>
+| <a href="dictionary_P.html#4194">PluginEntryPointList::~PluginEntryPointList</a>
+
+<a href="dictionary_N.html#6034">nsPKCS12Blob_Export</a>
+| <a href="dictionary_U.html#5962">unicodeToItem</a>
+| <a href="dictionary_C.html#564">c_str</a>
+| <a href="dictionary_S.html#6047">SEC_PKCS12CreateExportContext</a>
+| <a href="dictionary_S.html#6049">SEC_PKCS12AddPasswordIntegrity</a>
+| <a href="dictionary_S.html#454">size</a>
+| <a href="dictionary_D.html#4580">DCHECK</a>
+| <a href="dictionary_O.html#802">os_cert_handle</a>
+| <a href="dictionary_P.html#6055">PK11_FindKeyByDERCert</a>
+| <a href="dictionary_I.html#6004">isExtractable</a>
+| <a href="dictionary_S.html#1685">SECKEY_DestroyPrivateKey</a>
+| <a href="dictionary_L.html#799">LOG</a>
+| <a href="dictionary_S.html#6058">SEC_PKCS12CreateUnencryptedSafe</a>
+| <a href="dictionary_S.html#6059">SEC_PKCS12IsEncryptionAllowed</a>
+| <a href="dictionary_P.html#6060">PK11_IsFIPS</a>
+| <a href="dictionary_S.html#6061">SEC_PKCS12CreatePasswordPrivSafe</a>
+| <a href="dictionary_S.html#6063">SEC_PKCS12AddCertAndKey</a>
+| <a href="dictionary_C.html#828">CERT_GetDefaultCertDB</a>
+| <a href="dictionary_S.html#6065">SEC_PKCS12Encode</a>
+| <a href="dictionary_P.html#818">PORT_GetError</a>
+| <a href="dictionary_S.html#6067">SEC_PKCS12DestroyExportContext</a>
+| <a href="dictionary_S.html#6003">SECITEM_ZfreeItem</a>
+
+<a href="dictionary_N.html#6026">nsPKCS12Blob_Import</a>
+| <a href="dictionary_N.html#5941">nsPKCS12Blob_ImportHelper</a>
+| <a href="dictionary_E.html#528">empty</a>
+
+<a href="dictionary_N.html#5941">nsPKCS12Blob_ImportHelper</a>
+| <a href="dictionary_D.html#4580">DCHECK</a>
+| <a href="dictionary_U.html#5962">unicodeToItem</a>
+| <a href="dictionary_C.html#564">c_str</a>
+| <a href="dictionary_S.html#5963">SEC_PKCS12DecoderStart</a>
+| <a href="dictionary_S.html#5965">SEC_PKCS12DecoderUpdate</a>
+| <a href="dictionary_S.html#5966">SEC_PKCS12DecoderVerify</a>
+| <a href="dictionary_S.html#5967">SEC_PKCS12DecoderValidateBags</a>
+| <a href="dictionary_S.html#5969">SEC_PKCS12DecoderImportBags</a>
+| <a href="dictionary_S.html#5970">SEC_PKCS12DecoderIterateInit</a>
+| <a href="dictionary_C.html#484">clear</a>
+| <a href="dictionary_S.html#5971">SEC_PKCS12DecoderIterateNext</a>
+| <a href="dictionary_P.html#5974">PK11_FindCertFromDERCertItem</a>
+| <a href="dictionary_L.html#799">LOG</a>
+| <a href="dictionary_P.html#477">push_back</a>
+| <a href="dictionary_C.html#5978">CreateFromHandle</a>
+| <a href="dictionary_C.html#5980">CERT_DestroyCertificate</a>
+| <a href="dictionary_P.html#5982">PK11_FindPrivateKeyFromCert</a>
+| <a href="dictionary_P.html#5983">PK11_WriteRawAttribute</a>
+| <a href="dictionary_S.html#1685">SECKEY_DestroyPrivateKey</a>
+| <a href="dictionary_P.html#818">PORT_GetError</a>
+| <a href="dictionary_S.html#6002">SEC_PKCS12DecoderFinish</a>
+| <a href="dictionary_S.html#6003">SECITEM_ZfreeItem</a>
+</pre><hr>
+<table BORDER CELLPADDING=4><tr><td><a href="simpleinvtree_Non-Alpha.html">Non-Alpha</a></td><td><a href="simpleinvtree_A.html">A</a></td><td><a href="simpleinvtree_B.html">B</a></td><td><a href="simpleinvtree_C.html">C</a></td><td><a href="simpleinvtree_D.html">D</a></td><td><a href="simpleinvtree_E.html">E</a></td><td><a href="simpleinvtree_F.html">F</a></td><td><a href="simpleinvtree_G.html">G</a></td><td><a href="simpleinvtree_H.html">H</a></td><td><a href="simpleinvtree_I.html">I</a></td><td><a href="simpleinvtree_J.html">J</a></td><td><a href="simpleinvtree_K.html">K</a></td><td><a href="simpleinvtree_L.html">L</a></td><td><a href="simpleinvtree_M.html">M</a></td><td><a href="simpleinvtree_N.html">N</a></td><td><a href="simpleinvtree_O.html">O</a></td><td><a href="simpleinvtree_P.html">P</a></td><td>Q</td><td><a href="simpleinvtree_R.html">R</a></td><td><a href="simpleinvtree_S.html">S</a></td><td><a href="simpleinvtree_T.html">T</a></td><td><a href="simpleinvtree_U.html">U</a></td><td><a href="simpleinvtree_V.html">V</a></td><td><a href="simpleinvtree_W.html">W</a></td><td><a href="simpleinvtree_X.html">X</a></td><td><a href="simpleinvtree_Y.html">Y</a></td><td>Z</td></tr></table></body></html>

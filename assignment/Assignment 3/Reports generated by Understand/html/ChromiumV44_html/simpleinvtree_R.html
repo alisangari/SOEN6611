@@ -1,0 +1,527 @@
+<html><head><title>Simple Invocation Tree [R]</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head><body bgcolor="#ffffff" TEXT="#000000"><h2>Simple Invocation Tree</h2><hr><pre>
+</pre><table BORDER CELLPADDING=4><tr><td><a href="simpleinvtree_Non-Alpha.html">Non-Alpha</a></td><td><a href="simpleinvtree_A.html">A</a></td><td><a href="simpleinvtree_B.html">B</a></td><td><a href="simpleinvtree_C.html">C</a></td><td><a href="simpleinvtree_D.html">D</a></td><td><a href="simpleinvtree_E.html">E</a></td><td><a href="simpleinvtree_F.html">F</a></td><td><a href="simpleinvtree_G.html">G</a></td><td><a href="simpleinvtree_H.html">H</a></td><td><a href="simpleinvtree_I.html">I</a></td><td><a href="simpleinvtree_J.html">J</a></td><td>K</td><td><a href="simpleinvtree_L.html">L</a></td><td><a href="simpleinvtree_M.html">M</a></td><td><a href="simpleinvtree_N.html">N</a></td><td><a href="simpleinvtree_O.html">O</a></td><td><a href="simpleinvtree_P.html">P</a></td><td>Q</td><td><a href="simpleinvtree_R.html">R</a></td><td><a href="simpleinvtree_S.html">S</a></td><td><a href="simpleinvtree_T.html">T</a></td><td><a href="simpleinvtree_U.html">U</a></td><td><a href="simpleinvtree_V.html">V</a></td><td>W</td><td>X</td><td>Y</td><td><a href="simpleinvtree_Z.html">Z</a></td></tr></table><pre>
+
+<a href="dictionary_R.html#1556">Reader::addComment</a>
+| <a href="dictionary_A.html#854">assert</a>
+| <a href="dictionary_S.html#1489">setComment</a>
+| <a href="dictionary_E.html#836">empty</a>
+
+<a href="dictionary_R.html#1647">Reader::addError</a>
+| <a href="dictionary_P.html#1656">push_back</a>
+
+<a href="dictionary_R.html#1663">Reader::addErrorAndRecover</a>
+| <a href="dictionary_R.html#1647">Reader::addError</a>
+| <a href="dictionary_R.html#1657">Reader::recoverFromError</a>
+
+<a href="dictionary_R.html#1667">Reader::currentValue</a>
+| <a href="dictionary_T.html#855">top</a>
+
+<a href="dictionary_R.html#1609">Reader::decodeDouble</a>
+| <a href="dictionary_A.html#1498">addError</a>
+| <a href="dictionary_M.html#602">memcpy</a>
+| <a href="dictionary_S.html#1617">sscanf</a>
+| <a href="dictionary_C.html#166">c_str</a>
+| <a href="dictionary_C.html#1502">currentValue</a>
+
+<a href="dictionary_R.html#1590">Reader::decodeNumber</a>
+| <a href="dictionary_I.html#1565">in</a>
+| <a href="dictionary_D.html#1594">decodeDouble</a>
+| <a href="dictionary_L.html#1599">LargestUInt</a>
+| <a href="dictionary_A.html#1498">addError</a>
+| <a href="dictionary_D.html#1606">digit</a>
+| <a href="dictionary_L.html#1607">LargestInt</a>
+| <a href="dictionary_C.html#1502">currentValue</a>
+
+<a href="dictionary_R.html#1619">Reader::decodeString</a>
+| <a href="dictionary_R.html#1619">Reader::decodeString</a>
+| <a href="dictionary_C.html#1502">currentValue</a>
+
+<a href="dictionary_R.html#1622">Reader::decodeString</a>
+| <a href="dictionary_R.html#1625">reserve</a>
+| <a href="dictionary_A.html#1498">addError</a>
+| <a href="dictionary_D.html#1631">decodeUnicodeCodePoint</a>
+| <a href="dictionary_C.html#1632">codePointToUTF8</a>
+
+<a href="dictionary_R.html#1633">Reader::decodeUnicodeCodePoint</a>
+| <a href="dictionary_D.html#1638">decodeUnicodeEscapeSequence</a>
+| <a href="dictionary_A.html#1498">addError</a>
+
+<a href="dictionary_R.html#1640">Reader::decodeUnicodeEscapeSequence</a>
+| <a href="dictionary_A.html#1498">addError</a>
+
+<a href="dictionary_R.html#1519">Reader::expectToken</a>
+| <a href="dictionary_R.html#1517">readToken</a>
+| <a href="dictionary_A.html#1498">addError</a>
+
+<a href="dictionary_R.html#1682">Reader::getFormatedErrorMessages</a>
+| <a href="dictionary_G.html#1683">getFormattedErrorMessages</a>
+
+<a href="dictionary_R.html#1684">Reader::getFormattedErrorMessages</a>
+| <a href="dictionary_B.html#1686">begin</a>
+| <a href="dictionary_E.html#1690">end</a>
+| <a href="dictionary_R.html#1669">Reader::getLocationLineAndColumn</a>
+
+<a href="dictionary_R.html#1676">Reader::getLocationLineAndColumn</a>
+| <a href="dictionary_R.html#1669">Reader::getLocationLineAndColumn</a>
+| <a href="dictionary_S.html#1681">sprintf</a>
+
+<a href="dictionary_R.html#1451">Reader::parse</a>
+| <a href="dictionary_C.html#166">c_str</a>
+| <a href="dictionary_L.html#177">length</a>
+| <a href="dictionary_R.html#1451">Reader::parse</a>
+
+<a href="dictionary_R.html#1459">Reader::parse</a>
+| <a href="dictionary_S.html#1465">std::getline</a>
+| <a href="dictionary_R.html#1451">Reader::parse</a>
+
+<a href="dictionary_R.html#1467">Reader::parse</a>
+| <a href="dictionary_C.html#1482">clear</a>
+| <a href="dictionary_E.html#836">empty</a>
+| <a href="dictionary_P.html#842">pop</a>
+| <a href="dictionary_P.html#837">push</a>
+| <a href="dictionary_R.html#1485">readValue</a>
+| <a href="dictionary_S.html#1488">skipCommentTokens</a>
+| <a href="dictionary_S.html#1489">setComment</a>
+| <a href="dictionary_I.html#1492">isArray</a>
+| <a href="dictionary_I.html#1493">isObject</a>
+| <a href="dictionary_A.html#1498">addError</a>
+
+<a href="dictionary_R.html#1581">Reader::readArray</a>
+| <a href="dictionary_C.html#1502">currentValue</a>
+| <a href="dictionary_R.html#1539">Reader::skipSpaces</a>
+| <a href="dictionary_R.html#1524">Reader::readToken</a>
+| <a href="dictionary_P.html#837">push</a>
+| <a href="dictionary_R.html#1499">Reader::readValue</a>
+| <a href="dictionary_P.html#842">pop</a>
+| <a href="dictionary_R.html#1574">recoverFromError</a>
+| <a href="dictionary_A.html#1576">addErrorAndRecover</a>
+
+<a href="dictionary_R.html#1545">Reader::readComment</a>
+| <a href="dictionary_G.html#1528">getNextChar</a>
+| <a href="dictionary_R.html#1549">readCStyleComment</a>
+| <a href="dictionary_R.html#1550">readCppStyleComment</a>
+| <a href="dictionary_C.html#1553">containsNewLine</a>
+| <a href="dictionary_A.html#1555">addComment</a>
+
+<a href="dictionary_R.html#1562">Reader::readCppStyleComment</a>
+| <a href="dictionary_G.html#1528">getNextChar</a>
+
+<a href="dictionary_R.html#1560">Reader::readCStyleComment</a>
+| <a href="dictionary_G.html#1528">getNextChar</a>
+
+<a href="dictionary_R.html#1448">Reader::Reader</a>
+| <a href="dictionary_F.html#1424">Features::all</a>
+
+<a href="dictionary_R.html#1564">Reader::readNumber</a>
+| <a href="dictionary_I.html#1565">in</a>
+
+<a href="dictionary_R.html#1568">Reader::readObject</a>
+| <a href="dictionary_C.html#1502">currentValue</a>
+| <a href="dictionary_R.html#1524">Reader::readToken</a>
+| <a href="dictionary_E.html#836">empty</a>
+| <a href="dictionary_D.html#1511">decodeString</a>
+| <a href="dictionary_R.html#1574">recoverFromError</a>
+| <a href="dictionary_A.html#1576">addErrorAndRecover</a>
+| <a href="dictionary_P.html#837">push</a>
+| <a href="dictionary_R.html#1499">Reader::readValue</a>
+| <a href="dictionary_P.html#842">pop</a>
+
+<a href="dictionary_R.html#1566">Reader::readString</a>
+| <a href="dictionary_G.html#1528">getNextChar</a>
+
+<a href="dictionary_R.html#1524">Reader::readToken</a>
+| <a href="dictionary_S.html#1526">skipSpaces</a>
+| <a href="dictionary_G.html#1528">getNextChar</a>
+| <a href="dictionary_R.html#1532">readString</a>
+| <a href="dictionary_R.html#1533">readComment</a>
+| <a href="dictionary_R.html#1534">readNumber</a>
+| <a href="dictionary_M.html#1535">match</a>
+
+<a href="dictionary_R.html#1499">Reader::readValue</a>
+| <a href="dictionary_S.html#1488">skipCommentTokens</a>
+| <a href="dictionary_E.html#836">empty</a>
+| <a href="dictionary_C.html#1502">currentValue</a>
+| <a href="dictionary_S.html#1489">setComment</a>
+| <a href="dictionary_R.html#1505">readObject</a>
+| <a href="dictionary_R.html#1507">readArray</a>
+| <a href="dictionary_D.html#1509">decodeNumber</a>
+| <a href="dictionary_D.html#1511">decodeString</a>
+| <a href="dictionary_A.html#1498">addError</a>
+
+<a href="dictionary_R.html#1657">Reader::recoverFromError</a>
+| <a href="dictionary_S.html#1660">size</a>
+| <a href="dictionary_R.html#1524">Reader::readToken</a>
+| <a href="dictionary_R.html#1662">resize</a>
+
+<a href="dictionary_R.html#1515">Reader::skipCommentTokens</a>
+| <a href="dictionary_R.html#1517">readToken</a>
+
+<a href="dictionary_R.html#4278">RecordCache::Lookup</a>
+| <a href="dictionary_C.html#3011">Config::IsIgnoreAnnotated</a>
+| <a href="dictionary_F.html#2525">find</a>
+| <a href="dictionary_E.html#1690">end</a>
+| <a href="dictionary_I.html#844">insert</a>
+| <a href="dictionary_S.html#2530">std::make_pair</a>
+| <a href="dictionary_R.html#4282">RecordInfo::RecordInfo</a>
+| <a href="dictionary_R.html#4234">RecordInfo::~RecordInfo</a>
+
+<a href="dictionary_R.html#4296">RecordInfo::CollectBases</a>
+| <a href="dictionary_H.html#2469">hasDefinition</a>
+| <a href="dictionary_B.html#3027">bases_begin</a>
+| <a href="dictionary_B.html#3030">bases_end</a>
+| <a href="dictionary_R.html#2522">RecordCache::Lookup</a>
+| <a href="dictionary_G.html#2645">getType</a>
+| <a href="dictionary_R.html#2547">RecordInfo::record</a>
+| <a href="dictionary_R.html#4297">RecordInfo::InheritsTrace</a>
+| <a href="dictionary_T.html#4320">TracingStatus::Needed</a>
+| <a href="dictionary_T.html#4321">TracingStatus::Unneeded</a>
+| <a href="dictionary_I.html#844">insert</a>
+| <a href="dictionary_S.html#2530">std::make_pair</a>
+| <a href="dictionary_B.html#4322">BasePoint::BasePoint</a>
+
+<a href="dictionary_R.html#4323">RecordInfo::CollectFields</a>
+| <a href="dictionary_H.html#2469">hasDefinition</a>
+| <a href="dictionary_T.html#4321">TracingStatus::Unneeded</a>
+| <a href="dictionary_F.html#4326">field_begin</a>
+| <a href="dictionary_F.html#4329">field_end</a>
+| <a href="dictionary_C.html#3011">Config::IsIgnoreAnnotated</a>
+| <a href="dictionary_R.html#4332">RecordInfo::CreateEdge</a>
+| <a href="dictionary_G.html#2645">getType</a>
+| <a href="dictionary_G.html#4333">getTypePtrOrNull</a>
+| <a href="dictionary_T.html#4334">TracingStatus::LUB</a>
+| <a href="dictionary_E.html#3569">Edge::NeedsTracing</a><i>  (Virtual)</i>
+| <a href="dictionary_V.html#3567">Value::NeedsTracing</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#844">insert</a>
+| <a href="dictionary_S.html#2530">std::make_pair</a>
+| <a href="dictionary_F.html#4336">FieldPoint::FieldPoint</a>
+
+<a href="dictionary_R.html#4361">RecordInfo::CreateEdge</a>
+| <a href="dictionary_I.html#2618">isPointerType</a>
+| <a href="dictionary_R.html#4332">RecordInfo::CreateEdge</a>
+| <a href="dictionary_G.html#2620">getPointeeType</a>
+| <a href="dictionary_G.html#4333">getTypePtrOrNull</a>
+| <a href="dictionary_R.html#4364">RawPtr::RawPtr</a>
+| <a href="dictionary_R.html#2522">RecordCache::Lookup</a>
+| <a href="dictionary_C.html#4367">Config::IsRawPtr</a>
+| <a href="dictionary_R.html#3129">RecordInfo::name</a>
+| <a href="dictionary_R.html#4235">RecordInfo::GetTemplateArgs</a>
+| <a href="dictionary_C.html#4369">Config::IsRefPtr</a>
+| <a href="dictionary_R.html#4371">RefPtr::RefPtr</a>
+| <a href="dictionary_C.html#4372">Config::IsOwnPtr</a>
+| <a href="dictionary_O.html#4374">OwnPtr::OwnPtr</a>
+| <a href="dictionary_C.html#4375">Config::IsMember</a>
+| <a href="dictionary_M.html#4377">Member::Member</a>
+| <a href="dictionary_C.html#4378">Config::IsWeakMember</a>
+| <a href="dictionary_W.html#4380">WeakMember::WeakMember</a>
+| <a href="dictionary_C.html#4381">Config::IsPersistent</a>
+| <a href="dictionary_D.html#2449">dyn_cast</a>
+| <a href="dictionary_R.html#2547">RecordInfo::record</a>
+| <a href="dictionary_G.html#3139">getDeclContext</a>
+| <a href="dictionary_G.html#840">getName</a>
+| <a href="dictionary_P.html#4384">Persistent::Persistent</a>
+| <a href="dictionary_C.html#4251">Config::IsGCCollection</a>
+| <a href="dictionary_C.html#4252">Config::IsWTFCollection</a>
+| <a href="dictionary_C.html#4386">Config::IsPersistentGCCollection</a>
+| <a href="dictionary_R.html#4250">RecordInfo::IsHeapAllocatedCollection</a>
+| <a href="dictionary_C.html#4389">Config::CollectionDimension</a>
+| <a href="dictionary_C.html#4391">Collection::Collection</a>
+| <a href="dictionary_S.html#3134">std::vector::begin</a>
+| <a href="dictionary_S.html#3135">std::vector::end</a>
+| <a href="dictionary_C.html#4394">Collection::members</a>
+| <a href="dictionary_S.html#4248">std::vector::push_back</a>
+| <a href="dictionary_V.html#4395">Value::Value</a>
+
+<a href="dictionary_R.html#3013">RecordInfo::DeclaresGCMixinMethods</a>
+| <a href="dictionary_R.html#4295">RecordInfo::DetermineTracingMethods</a>
+
+<a href="dictionary_R.html#3014">RecordInfo::DeclaresLocalTraceMethod</a>
+| <a href="dictionary_R.html#4295">RecordInfo::DetermineTracingMethods</a>
+| <a href="dictionary_M.html#3041">method_begin</a>
+| <a href="dictionary_M.html#3043">method_end</a>
+
+<a href="dictionary_R.html#3010">RecordInfo::DeclaresNewOperator</a>
+| <a href="dictionary_M.html#3041">method_begin</a>
+| <a href="dictionary_M.html#3043">method_end</a>
+| <a href="dictionary_G.html#2625">getNameAsString</a>
+| <a href="dictionary_G.html#4292">getNumParams</a>
+
+<a href="dictionary_R.html#4295">RecordInfo::DetermineTracingMethods</a>
+| <a href="dictionary_C.html#3045">Config::IsGCBase</a>
+| <a href="dictionary_D.html#2449">dyn_cast</a>
+| <a href="dictionary_G.html#3025">getTemplatedDecl</a>
+| <a href="dictionary_C.html#2551">Config::GetTraceMethodType</a>
+| <a href="dictionary_G.html#2625">getNameAsString</a>
+| <a href="dictionary_R.html#2649">RecordInfo::GetBases</a>
+| <a href="dictionary_B.html#1686">begin</a>
+| <a href="dictionary_E.html#1690">end</a>
+| <a href="dictionary_I.html#3001">info</a>
+| <a href="dictionary_G.html#4352">GetTraceDispatchMethod</a>
+| <a href="dictionary_A.html#854">assert</a>
+| <a href="dictionary_G.html#4354">GetFinalizeDispatchMethod</a>
+
+<a href="dictionary_R.html#2649">RecordInfo::GetBases</a>
+| <a href="dictionary_R.html#4296">RecordInfo::CollectBases</a>
+
+<a href="dictionary_R.html#4258">RecordInfo::GetDependentTemplatedDecl</a>
+| <a href="dictionary_G.html#3020">getAs</a>
+| <a href="dictionary_G.html#3023">getTemplateName</a>
+| <a href="dictionary_G.html#3024">getAsTemplateDecl</a>
+| <a href="dictionary_D.html#4262">dyn_cast_or_null</a>
+| <a href="dictionary_G.html#3025">getTemplatedDecl</a>
+
+<a href="dictionary_R.html#2524">RecordInfo::GetFields</a>
+| <a href="dictionary_R.html#4323">RecordInfo::CollectFields</a>
+
+<a href="dictionary_R.html#3050">RecordInfo::GetFinalizeDispatchMethod</a>
+| <a href="dictionary_R.html#4295">RecordInfo::DetermineTracingMethods</a>
+
+<a href="dictionary_R.html#4235">RecordInfo::GetTemplateArgs</a>
+| <a href="dictionary_D.html#2449">dyn_cast</a>
+| <a href="dictionary_G.html#4241">getTemplateArgs</a>
+| <a href="dictionary_S.html#1660">size</a>
+| <a href="dictionary_T.html#4244">TemplateArgument::getKind</a>
+| <a href="dictionary_T.html#4246">TemplateArgument::getAsType</a>
+| <a href="dictionary_I.html#4247">isNull</a>
+| <a href="dictionary_S.html#4248">std::vector::push_back</a>
+| <a href="dictionary_T.html#4249">TemplateArgument::getTypePtr</a>
+
+<a href="dictionary_R.html#3048">RecordInfo::GetTraceDispatchMethod</a>
+| <a href="dictionary_R.html#4295">RecordInfo::DetermineTracingMethods</a>
+
+<a href="dictionary_R.html#3004">RecordInfo::GetTraceMethod</a>
+| <a href="dictionary_R.html#4295">RecordInfo::DetermineTracingMethods</a>
+
+<a href="dictionary_R.html#3073">RecordInfo::InheritsNonVirtualTrace</a>
+| <a href="dictionary_R.html#3004">RecordInfo::GetTraceMethod</a>
+| <a href="dictionary_I.html#3037">isVirtual</a>
+| <a href="dictionary_R.html#2649">RecordInfo::GetBases</a>
+| <a href="dictionary_B.html#1686">begin</a>
+| <a href="dictionary_E.html#1690">end</a>
+| <a href="dictionary_I.html#3001">info</a>
+| <a href="dictionary_I.html#4301">InheritsNonVirtualTrace</a>
+
+<a href="dictionary_R.html#4297">RecordInfo::InheritsTrace</a>
+| <a href="dictionary_R.html#3004">RecordInfo::GetTraceMethod</a>
+| <a href="dictionary_R.html#2649">RecordInfo::GetBases</a>
+| <a href="dictionary_B.html#1686">begin</a>
+| <a href="dictionary_E.html#1690">end</a>
+| <a href="dictionary_I.html#3001">info</a>
+| <a href="dictionary_I.html#4298">InheritsTrace</a>
+
+<a href="dictionary_R.html#3052">RecordInfo::IsConsideredAbstract</a>
+| <a href="dictionary_C.html#4307">ctor_begin</a>
+| <a href="dictionary_C.html#4309">ctor_end</a>
+| <a href="dictionary_I.html#4310">isCopyOrMoveConstructor</a>
+| <a href="dictionary_G.html#4311">getAccess</a>
+| <a href="dictionary_M.html#3041">method_begin</a>
+| <a href="dictionary_M.html#3043">method_end</a>
+| <a href="dictionary_G.html#2625">getNameAsString</a>
+
+<a href="dictionary_R.html#2759">RecordInfo::IsGCAllocated</a>
+| <a href="dictionary_R.html#2766">RecordInfo::IsGCDerived</a>
+| <a href="dictionary_R.html#4250">RecordInfo::IsHeapAllocatedCollection</a>
+
+<a href="dictionary_R.html#2766">RecordInfo::IsGCDerived</a>
+| <a href="dictionary_S.html#479">std::vector::size</a>
+| <a href="dictionary_H.html#2469">hasDefinition</a>
+| <a href="dictionary_C.html#3045">Config::IsGCBase</a>
+| <a href="dictionary_R.html#4257">RecordInfo::walkBases</a>
+
+<a href="dictionary_R.html#3017">RecordInfo::IsGCFinalized</a>
+| <a href="dictionary_R.html#2766">RecordInfo::IsGCDerived</a>
+| <a href="dictionary_C.html#4276">Config::IsGCFinalizedBase</a>
+
+<a href="dictionary_R.html#2767">RecordInfo::IsGCMixin</a>
+| <a href="dictionary_R.html#2766">RecordInfo::IsGCDerived</a>
+| <a href="dictionary_S.html#479">std::vector::size</a>
+| <a href="dictionary_C.html#3034">Config::IsGCMixinBase</a>
+
+<a href="dictionary_R.html#3012">RecordInfo::IsGCMixinInstance</a>
+| <a href="dictionary_A.html#854">assert</a>
+| <a href="dictionary_R.html#2766">RecordInfo::IsGCDerived</a>
+| <a href="dictionary_I.html#4303">isAbstract</a>
+| <a href="dictionary_R.html#2767">RecordInfo::IsGCMixin</a>
+| <a href="dictionary_C.html#3034">Config::IsGCMixinBase</a>
+| <a href="dictionary_C.html#3045">Config::IsGCBase</a>
+
+<a href="dictionary_R.html#4250">RecordInfo::IsHeapAllocatedCollection</a>
+| <a href="dictionary_C.html#4251">Config::IsGCCollection</a>
+| <a href="dictionary_C.html#4252">Config::IsWTFCollection</a>
+| <a href="dictionary_R.html#4235">RecordInfo::GetTemplateArgs</a>
+| <a href="dictionary_S.html#3134">std::vector::begin</a>
+| <a href="dictionary_S.html#3135">std::vector::end</a>
+| <a href="dictionary_G.html#2621">getAsCXXRecordDecl</a>
+| <a href="dictionary_G.html#840">getName</a>
+
+<a href="dictionary_R.html#2760">RecordInfo::IsNonNewable</a>
+| <a href="dictionary_M.html#3041">method_begin</a>
+| <a href="dictionary_M.html#3043">method_end</a>
+| <a href="dictionary_G.html#2625">getNameAsString</a>
+| <a href="dictionary_I.html#4286">isDeleted</a>
+
+<a href="dictionary_R.html#2761">RecordInfo::IsOnlyPlacementNewable</a>
+| <a href="dictionary_M.html#3041">method_begin</a>
+| <a href="dictionary_M.html#3043">method_end</a>
+| <a href="dictionary_G.html#2625">getNameAsString</a>
+| <a href="dictionary_G.html#4292">getNumParams</a>
+| <a href="dictionary_I.html#4286">isDeleted</a>
+
+<a href="dictionary_R.html#2758">RecordInfo::IsStackAllocated</a>
+| <a href="dictionary_R.html#2649">RecordInfo::GetBases</a>
+| <a href="dictionary_B.html#1686">begin</a>
+| <a href="dictionary_E.html#1690">end</a>
+| <a href="dictionary_I.html#3001">info</a>
+| <a href="dictionary_I.html#3002">IsStackAllocated</a>
+| <a href="dictionary_M.html#3041">method_begin</a>
+| <a href="dictionary_M.html#3043">method_end</a>
+| <a href="dictionary_G.html#2625">getNameAsString</a>
+| <a href="dictionary_I.html#4286">isDeleted</a>
+| <a href="dictionary_C.html#4287">Config::IsStackAnnotated</a>
+
+<a href="dictionary_R.html#3016">RecordInfo::NeedsFinalization</a>
+| <a href="dictionary_H.html#4355">hasNonTrivialDestructor</a>
+| <a href="dictionary_D.html#2449">dyn_cast</a>
+| <a href="dictionary_G.html#3139">getDeclContext</a>
+| <a href="dictionary_C.html#4358">Config::HasIgnorableDestructor</a>
+| <a href="dictionary_G.html#840">getName</a>
+| <a href="dictionary_G.html#3060">getDestructor</a>
+| <a href="dictionary_I.html#3063">isUserProvided</a>
+| <a href="dictionary_R.html#2524">RecordInfo::GetFields</a>
+| <a href="dictionary_B.html#1686">begin</a>
+| <a href="dictionary_E.html#1690">end</a>
+| <a href="dictionary_E.html#2698">edge</a>
+| <a href="dictionary_N.html#3064">NeedsFinalization</a>
+| <a href="dictionary_R.html#2649">RecordInfo::GetBases</a>
+| <a href="dictionary_I.html#3001">info</a>
+
+<a href="dictionary_R.html#3573">RecordInfo::NeedsTracing</a>
+| <a href="dictionary_R.html#2759">RecordInfo::IsGCAllocated</a>
+| <a href="dictionary_T.html#4320">TracingStatus::Needed</a>
+| <a href="dictionary_R.html#2758">RecordInfo::IsStackAllocated</a>
+| <a href="dictionary_T.html#4321">TracingStatus::Unneeded</a>
+| <a href="dictionary_R.html#2649">RecordInfo::GetBases</a>
+| <a href="dictionary_B.html#1686">begin</a>
+| <a href="dictionary_E.html#1690">end</a>
+| <a href="dictionary_I.html#3001">info</a>
+| <a href="dictionary_N.html#3156">NeedsTracing</a>
+| <a href="dictionary_I.html#3157">IsNeeded</a>
+| <a href="dictionary_R.html#2524">RecordInfo::GetFields</a>
+
+<a href="dictionary_R.html#4209">RecordInfo::RecordInfo</a>
+| <a href="dictionary_G.html#840">getName</a>
+| <a href="dictionary_T.html#4216">TracingStatus::TracingStatus</a>
+| <a href="dictionary_T.html#4217">TracingStatus::Unknown</a>
+
+<a href="dictionary_R.html#2678">RecordInfo::RequiresTraceMethod</a>
+| <a href="dictionary_R.html#2758">RecordInfo::IsStackAllocated</a>
+| <a href="dictionary_R.html#2649">RecordInfo::GetBases</a>
+| <a href="dictionary_B.html#1686">begin</a>
+| <a href="dictionary_E.html#1690">end</a>
+| <a href="dictionary_N.html#3156">NeedsTracing</a>
+| <a href="dictionary_I.html#3157">IsNeeded</a>
+| <a href="dictionary_R.html#2524">RecordInfo::GetFields</a>
+| <a href="dictionary_T.html#4294">TracingStatus::IsNeeded</a>
+
+<a href="dictionary_R.html#4257">RecordInfo::walkBases</a>
+| <a href="dictionary_R.html#2547">RecordInfo::record</a>
+| <a href="dictionary_G.html#2645">getType</a>
+| <a href="dictionary_G.html#3020">getAs</a>
+| <a href="dictionary_R.html#2636">RecordInfo::GetDependentTemplatedDecl</a>
+| <a href="dictionary_C.html#4270">cast_or_null</a>
+| <a href="dictionary_G.html#4271">getDecl</a>
+| <a href="dictionary_G.html#4272">getDefinition</a>
+| <a href="dictionary_P.html#1656">push_back</a>
+| <a href="dictionary_G.html#840">getName</a>
+| <a href="dictionary_C.html#3045">Config::IsGCBase</a>
+| <a href="dictionary_S.html#4248">std::vector::push_back</a>
+| <a href="dictionary_E.html#836">empty</a>
+| <a href="dictionary_P.html#4274">pop_back_val</a>
+
+<a href="dictionary_R.html#3623">RecursiveEdgeVisitor::VisitCollection</a>
+| <a href="dictionary_R.html#3596">RecursiveEdgeVisitor::AtCollection</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#3604">RecursiveEdgeVisitor::Enter</a>
+| <a href="dictionary_C.html#2488">Collection::AcceptMembers</a>
+| <a href="dictionary_R.html#3607">RecursiveEdgeVisitor::Leave</a>
+
+<a href="dictionary_R.html#3614">RecursiveEdgeVisitor::VisitMember</a>
+| <a href="dictionary_R.html#3589">RecursiveEdgeVisitor::AtMember</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#3604">RecursiveEdgeVisitor::Enter</a>
+| <a href="dictionary_P.html#3606">PtrEdge::ptr</a>
+| <a href="dictionary_E.html#2534">Edge::Accept</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#3607">RecursiveEdgeVisitor::Leave</a>
+
+<a href="dictionary_R.html#3611">RecursiveEdgeVisitor::VisitOwnPtr</a>
+| <a href="dictionary_R.html#3586">RecursiveEdgeVisitor::AtOwnPtr</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#3604">RecursiveEdgeVisitor::Enter</a>
+| <a href="dictionary_P.html#3606">PtrEdge::ptr</a>
+| <a href="dictionary_E.html#2534">Edge::Accept</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#3607">RecursiveEdgeVisitor::Leave</a>
+
+<a href="dictionary_R.html#3620">RecursiveEdgeVisitor::VisitPersistent</a>
+| <a href="dictionary_R.html#3594">RecursiveEdgeVisitor::AtPersistent</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#3604">RecursiveEdgeVisitor::Enter</a>
+| <a href="dictionary_P.html#3606">PtrEdge::ptr</a>
+| <a href="dictionary_E.html#2534">Edge::Accept</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#3607">RecursiveEdgeVisitor::Leave</a>
+
+<a href="dictionary_R.html#3601">RecursiveEdgeVisitor::VisitRawPtr</a>
+| <a href="dictionary_R.html#3580">RecursiveEdgeVisitor::AtRawPtr</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#3604">RecursiveEdgeVisitor::Enter</a>
+| <a href="dictionary_P.html#3606">PtrEdge::ptr</a>
+| <a href="dictionary_E.html#2534">Edge::Accept</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#3607">RecursiveEdgeVisitor::Leave</a>
+
+<a href="dictionary_R.html#3608">RecursiveEdgeVisitor::VisitRefPtr</a>
+| <a href="dictionary_R.html#3583">RecursiveEdgeVisitor::AtRefPtr</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#3604">RecursiveEdgeVisitor::Enter</a>
+| <a href="dictionary_P.html#3606">PtrEdge::ptr</a>
+| <a href="dictionary_E.html#2534">Edge::Accept</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#3607">RecursiveEdgeVisitor::Leave</a>
+
+<a href="dictionary_R.html#3598">RecursiveEdgeVisitor::VisitValue</a>
+| <a href="dictionary_R.html#3578">RecursiveEdgeVisitor::AtValue</a><i>  (Virtual)</i>
+
+<a href="dictionary_R.html#3617">RecursiveEdgeVisitor::VisitWeakMember</a>
+| <a href="dictionary_R.html#3591">RecursiveEdgeVisitor::AtWeakMember</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#3604">RecursiveEdgeVisitor::Enter</a>
+| <a href="dictionary_P.html#3606">PtrEdge::ptr</a>
+| <a href="dictionary_E.html#2534">Edge::Accept</a><i>  (Virtual)</i>
+| <a href="dictionary_R.html#3607">RecursiveEdgeVisitor::Leave</a>
+
+<a href="dictionary_R.html#3694">RegisterDynamicOid</a>
+| <a href="dictionary_S.html#3703">SEC_StringToOID</a>
+| <a href="dictionary_S.html#3710">SECOID_AddEntry</a>
+| <a href="dictionary_D.html#3711">DCHECK_NE</a>
+
+<a href="dictionary_R.html#5314">RewriteImplicitToExplicitConversion</a>
+| <a href="dictionary_C.html#5321">clang::CharSourceRange::getTokenRange</a>
+| <a href="dictionary_G.html#3145">getSpellingLoc</a>
+| <a href="dictionary_G.html#3080">getLocStart</a>
+| <a href="dictionary_G.html#5323">getLocEnd</a>
+| <a href="dictionary_A.html#854">assert</a>
+| <a href="dictionary_I.html#5325">isValid</a>
+| <a href="dictionary_L.html#5309">llvm::dyn_cast</a>
+| <a href="dictionary_G.html#5328">getOpcode</a>
+| <a href="dictionary_G.html#5331">getSubExpr</a>
+| <a href="dictionary_I.html#5332">IgnoreParenImpCasts</a>
+| <a href="dictionary_C.html#5334">clang::CharSourceRange::isValid</a>
+| <a href="dictionary_L.html#5337">Lexer::getSourceText</a>
+| <a href="dictionary_G.html#5339">getLangOpts</a>
+| <a href="dictionary_E.html#836">empty</a>
+| <a href="dictionary_N.html#5306">NeedsParens</a>
+| <a href="dictionary_I.html#844">insert</a>
+| <a href="dictionary_A.html#1907">append</a>
+| <a href="dictionary_G.html#2509">getOperator</a>
+| <a href="dictionary_E.html#2729">erase</a>
+
+<a href="dictionary_R.html#5345">RewriteRawPtrToScopedRefptr</a>
+| <a href="dictionary_C.html#5321">clang::CharSourceRange::getTokenRange</a>
+| <a href="dictionary_G.html#3145">getSpellingLoc</a>
+| <a href="dictionary_A.html#854">assert</a>
+| <a href="dictionary_C.html#5334">clang::CharSourceRange::isValid</a>
+| <a href="dictionary_L.html#5337">Lexer::getSourceText</a>
+| <a href="dictionary_G.html#5339">getLangOpts</a>
+| <a href="dictionary_E.html#2729">erase</a>
+| <a href="dictionary_R.html#5351">rfind</a>
+</pre><hr>
+<table BORDER CELLPADDING=4><tr><td><a href="simpleinvtree_Non-Alpha.html">Non-Alpha</a></td><td><a href="simpleinvtree_A.html">A</a></td><td><a href="simpleinvtree_B.html">B</a></td><td><a href="simpleinvtree_C.html">C</a></td><td><a href="simpleinvtree_D.html">D</a></td><td><a href="simpleinvtree_E.html">E</a></td><td><a href="simpleinvtree_F.html">F</a></td><td><a href="simpleinvtree_G.html">G</a></td><td><a href="simpleinvtree_H.html">H</a></td><td><a href="simpleinvtree_I.html">I</a></td><td><a href="simpleinvtree_J.html">J</a></td><td>K</td><td><a href="simpleinvtree_L.html">L</a></td><td><a href="simpleinvtree_M.html">M</a></td><td><a href="simpleinvtree_N.html">N</a></td><td><a href="simpleinvtree_O.html">O</a></td><td><a href="simpleinvtree_P.html">P</a></td><td>Q</td><td><a href="simpleinvtree_R.html">R</a></td><td><a href="simpleinvtree_S.html">S</a></td><td><a href="simpleinvtree_T.html">T</a></td><td><a href="simpleinvtree_U.html">U</a></td><td><a href="simpleinvtree_V.html">V</a></td><td>W</td><td>X</td><td>Y</td><td><a href="simpleinvtree_Z.html">Z</a></td></tr></table></body></html>

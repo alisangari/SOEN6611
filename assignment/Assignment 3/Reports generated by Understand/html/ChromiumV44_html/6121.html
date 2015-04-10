@@ -1,0 +1,57 @@
+<html><head><title>CppSupport.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="sourcestyles.css" />
+</head><body link="blue" vlink="blue">
+<h3>File: C:\6611\latest version - 44\src\third_party\cython\src\Cython\Utility\CppSupport.cpp</h3>
+<SCRIPT>
+defaultStatus = "File: C:\\6611\\latest version - 44\\src\\third_party\\cython\\src\\Cython\\Utility\\CppSupport.cpp";
+top.document.title  = "CppSupport.cpp";
+</SCRIPT>
+<pre><span class="default"></span><a name="1"><font size=-1>1     </font></a><span class="default"></span><span class="comment">/////////////// CppExceptionConversion.proto ///////////////</span>
+<a name="2"><font size=-1>2     </font></a><span class="comment"></span>
+<a name="3"><font size=-1>3     </font></a><span class="comment"></span><span class="preproc">#ifndef <a href="dictionary_Non-Alpha.html#6122">__Pyx_CppExn2PyErr</a></span>
+<a name="4"><font size=-1>4     </font></a><span class="preproc">#include </span><span class="string">&lt;new&gt;</span>
+<a name="5"><font size=-1>5     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&lt;typeinfo&gt;</span>
+<a name="6"><font size=-1>6     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&lt;stdexcept&gt;</span>
+<a name="7"><font size=-1>7     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&lt;ios&gt;</span>
+<a name="8"><font size=-1>8     </font></a><span class="string"></span>
+<a name="9"><font size=-1>9     </font></a><span class="string"></span><span class="keyword">static void <a href="dictionary_Non-Alpha.html#6125">__Pyx_CppExn2PyErr</a></span><span class="default">() {</span>
+<a name="10"><font size=-1>10     </font></a><span class="default">  </span><span class="comment">// Catch a handful of different errors here and turn them into the</span>
+<a name="11"><font size=-1>11     </font></a><span class="comment">  // equivalent Python errors.</span>
+<a name="12"><font size=-1>12     </font></a><span class="comment">  </span><span class="keyword">try </span><span class="default">{</span>
+<a name="13"><font size=-1>13     </font></a><span class="default">    </span><span class="keyword">if </span><span class="default">(<a href="dictionary_P.html#6126">PyErr_Occurred</a>())</span>
+<a name="14"><font size=-1>14     </font></a><span class="default">      ; </span><span class="comment">// let the latest Python exn pass through and ignore the current one</span>
+<a name="15"><font size=-1>15     </font></a><span class="comment">    </span><span class="keyword">else</span>
+<a name="16"><font size=-1>16     </font></a><span class="keyword">      throw</span><span class="default">;</span>
+<a name="17"><font size=-1>17     </font></a><span class="default">  } </span><span class="keyword">catch </span><span class="default">(</span><span class="keyword">const <a href="dictionary_S.html#115">std</a></span><span class="default">::<a href="dictionary_S.html#6128">bad_alloc</a>&amp; <a href="dictionary_E.html#6127">exn</a>) {</span>
+<a name="18"><font size=-1>18     </font></a><span class="default">    <a href="dictionary_P.html#6129">PyErr_SetString</a>(<a href="dictionary_P.html#6130">PyExc_MemoryError</a>, <a href="dictionary_E.html#6127">exn</a>.<a href="dictionary_W.html#6131">what</a>());</span>
+<a name="19"><font size=-1>19     </font></a><span class="default">  } </span><span class="keyword">catch </span><span class="default">(</span><span class="keyword">const <a href="dictionary_S.html#115">std</a></span><span class="default">::<a href="dictionary_S.html#6133">bad_cast</a>&amp; <a href="dictionary_E.html#6132">exn</a>) {</span>
+<a name="20"><font size=-1>20     </font></a><span class="default">    <a href="dictionary_P.html#6129">PyErr_SetString</a>(<a href="dictionary_P.html#6134">PyExc_TypeError</a>, <a href="dictionary_E.html#6132">exn</a>.<a href="dictionary_W.html#6131">what</a>());</span>
+<a name="21"><font size=-1>21     </font></a><span class="default">  } </span><span class="keyword">catch </span><span class="default">(</span><span class="keyword">const <a href="dictionary_S.html#115">std</a></span><span class="default">::<a href="dictionary_S.html#6136">domain_error</a>&amp; <a href="dictionary_E.html#6135">exn</a>) {</span>
+<a name="22"><font size=-1>22     </font></a><span class="default">    <a href="dictionary_P.html#6129">PyErr_SetString</a>(<a href="dictionary_P.html#6137">PyExc_ValueError</a>, <a href="dictionary_E.html#6135">exn</a>.<a href="dictionary_W.html#6131">what</a>());</span>
+<a name="23"><font size=-1>23     </font></a><span class="default">  } </span><span class="keyword">catch </span><span class="default">(</span><span class="keyword">const <a href="dictionary_S.html#115">std</a></span><span class="default">::<a href="dictionary_S.html#6139">invalid_argument</a>&amp; <a href="dictionary_E.html#6138">exn</a>) {</span>
+<a name="24"><font size=-1>24     </font></a><span class="default">    <a href="dictionary_P.html#6129">PyErr_SetString</a>(<a href="dictionary_P.html#6137">PyExc_ValueError</a>, <a href="dictionary_E.html#6138">exn</a>.<a href="dictionary_W.html#6131">what</a>());</span>
+<a name="25"><font size=-1>25     </font></a><span class="default">  } </span><span class="keyword">catch </span><span class="default">(</span><span class="keyword">const <a href="dictionary_S.html#115">std</a></span><span class="default">::<a href="dictionary_I.html#6141">ios_base</a>::<a href="dictionary_I.html#6142">failure</a>&amp; <a href="dictionary_E.html#6140">exn</a>) {</span>
+<a name="26"><font size=-1>26     </font></a><span class="default">    </span><span class="comment">// Unfortunately, in standard C++ we have no way of distinguishing EOF</span>
+<a name="27"><font size=-1>27     </font></a><span class="comment">    // from other errors here; be careful with the exception mask</span>
+<a name="28"><font size=-1>28     </font></a><span class="comment">    <a href="dictionary_P.html#6129">PyErr_SetString</a></span><span class="default">(<a href="dictionary_P.html#6143">PyExc_IOError</a>, <a href="dictionary_E.html#6140">exn</a>.<a href="dictionary_W.html#6131">what</a>());</span>
+<a name="29"><font size=-1>29     </font></a><span class="default">  } </span><span class="keyword">catch </span><span class="default">(</span><span class="keyword">const <a href="dictionary_S.html#115">std</a></span><span class="default">::<a href="dictionary_S.html#6145">out_of_range</a>&amp; <a href="dictionary_E.html#6144">exn</a>) {</span>
+<a name="30"><font size=-1>30     </font></a><span class="default">    </span><span class="comment">// Change out_of_range to IndexError</span>
+<a name="31"><font size=-1>31     </font></a><span class="comment">    <a href="dictionary_P.html#6129">PyErr_SetString</a></span><span class="default">(<a href="dictionary_P.html#6146">PyExc_IndexError</a>, <a href="dictionary_E.html#6144">exn</a>.<a href="dictionary_W.html#6131">what</a>());</span>
+<a name="32"><font size=-1>32     </font></a><span class="default">  } </span><span class="keyword">catch </span><span class="default">(</span><span class="keyword">const <a href="dictionary_S.html#115">std</a></span><span class="default">::<a href="dictionary_S.html#6148">overflow_error</a>&amp; <a href="dictionary_E.html#6147">exn</a>) {</span>
+<a name="33"><font size=-1>33     </font></a><span class="default">    <a href="dictionary_P.html#6129">PyErr_SetString</a>(<a href="dictionary_P.html#6149">PyExc_OverflowError</a>, <a href="dictionary_E.html#6147">exn</a>.<a href="dictionary_W.html#6131">what</a>());</span>
+<a name="34"><font size=-1>34     </font></a><span class="default">  } </span><span class="keyword">catch </span><span class="default">(</span><span class="keyword">const <a href="dictionary_S.html#115">std</a></span><span class="default">::<a href="dictionary_S.html#6151">range_error</a>&amp; <a href="dictionary_E.html#6150">exn</a>) {</span>
+<a name="35"><font size=-1>35     </font></a><span class="default">    <a href="dictionary_P.html#6129">PyErr_SetString</a>(<a href="dictionary_P.html#6152">PyExc_ArithmeticError</a>, <a href="dictionary_E.html#6150">exn</a>.<a href="dictionary_W.html#6131">what</a>());</span>
+<a name="36"><font size=-1>36     </font></a><span class="default">  } </span><span class="keyword">catch </span><span class="default">(</span><span class="keyword">const <a href="dictionary_S.html#115">std</a></span><span class="default">::<a href="dictionary_S.html#6154">underflow_error</a>&amp; <a href="dictionary_E.html#6153">exn</a>) {</span>
+<a name="37"><font size=-1>37     </font></a><span class="default">    <a href="dictionary_P.html#6129">PyErr_SetString</a>(<a href="dictionary_P.html#6152">PyExc_ArithmeticError</a>, <a href="dictionary_E.html#6153">exn</a>.<a href="dictionary_W.html#6131">what</a>());</span>
+<a name="38"><font size=-1>38     </font></a><span class="default">  } </span><span class="keyword">catch </span><span class="default">(</span><span class="keyword">const <a href="dictionary_S.html#115">std</a></span><span class="default">::<a href="dictionary_S.html#6156">exception</a>&amp; <a href="dictionary_E.html#6155">exn</a>) {</span>
+<a name="39"><font size=-1>39     </font></a><span class="default">    <a href="dictionary_P.html#6129">PyErr_SetString</a>(<a href="dictionary_P.html#6157">PyExc_RuntimeError</a>, <a href="dictionary_E.html#6155">exn</a>.<a href="dictionary_W.html#6131">what</a>());</span>
+<a name="40"><font size=-1>40     </font></a><span class="default">  }</span>
+<a name="41"><font size=-1>41     </font></a><span class="default">  </span><span class="keyword">catch </span><span class="default">(...)</span>
+<a name="42"><font size=-1>42     </font></a><span class="default">  {</span>
+<a name="43"><font size=-1>43     </font></a><span class="default">    <a href="dictionary_P.html#6129">PyErr_SetString</a>(<a href="dictionary_P.html#6157">PyExc_RuntimeError</a>, </span><span class="string">&quot;Unknown exception&quot;</span><span class="default">);</span>
+<a name="44"><font size=-1>44     </font></a><span class="default">  }</span>
+<a name="45"><font size=-1>45     </font></a><span class="default">}</span>
+<a name="46"><font size=-1>46     </font></a><span class="default"></span><span class="preproc">#endif</span>
+<a name="47"><font size=-1>47     </font></a><span class="preproc"></span>
+</pre></body></html>

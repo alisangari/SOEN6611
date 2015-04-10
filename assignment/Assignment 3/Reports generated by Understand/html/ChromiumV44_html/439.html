@@ -1,0 +1,84 @@
+<html><head><title>FindBadConstructsAction.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="sourcestyles.css" />
+</head><body link="blue" vlink="blue">
+<h3>File: C:\6611\latest version - 44\src\tools\clang\plugins\FindBadConstructsAction.cpp</h3>
+<SCRIPT>
+defaultStatus = "File: C:\\6611\\latest version - 44\\src\\tools\\clang\\plugins\\FindBadConstructsAction.cpp";
+top.document.title  = "FindBadConstructsAction.cpp";
+</SCRIPT>
+<pre><span class="default"></span><a name="1"><font size=-1>1     </font></a><span class="default"></span><span class="comment">// Copyright (c) 2012 The Chromium Authors. All rights reserved.</span>
+<a name="2"><font size=-1>2     </font></a><span class="comment">// Use of this source code is governed by a BSD-style license that can be</span>
+<a name="3"><font size=-1>3     </font></a><span class="comment">// found in the LICENSE file.</span>
+<a name="4"><font size=-1>4     </font></a><span class="comment"></span>
+<a name="5"><font size=-1>5     </font></a><span class="comment"></span><span class="preproc">#include </span><span class="string">&quot;FindBadConstructsAction.h&quot;</span>
+<a name="6"><font size=-1>6     </font></a><span class="string"></span>
+<a name="7"><font size=-1>7     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;clang/AST/ASTConsumer.h&quot;</span>
+<a name="8"><font size=-1>8     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;clang/Frontend/FrontendPluginRegistry.h&quot;</span>
+<a name="9"><font size=-1>9     </font></a><span class="string"></span>
+<a name="10"><font size=-1>10     </font></a><span class="string"></span><span class="preproc">#include </span><span class="string">&quot;FindBadConstructsConsumer.h&quot;</span>
+<a name="11"><font size=-1>11     </font></a><span class="string"></span>
+<a name="12"><font size=-1>12     </font></a><span class="string"></span><span class="keyword">using namespace </span><span class="default">clang;</span>
+<a name="13"><font size=-1>13     </font></a><span class="default"></span>
+<a name="14"><font size=-1>14     </font></a><span class="default"></span><span class="keyword">namespace </span><span class="default">chrome_checker {</span>
+<a name="15"><font size=-1>15     </font></a><span class="default"></span>
+<a name="16"><font size=-1>16     </font></a><span class="default"></span><span class="keyword">namespace </span><span class="default">{</span>
+<a name="17"><font size=-1>17     </font></a><span class="default"></span>
+<a name="18"><font size=-1>18     </font></a><span class="default"></span><span class="keyword">class <a href="dictionary_C.html#446">PluginConsumer</a> </span><span class="default">: </span><span class="keyword">public <a href="dictionary_A.html#447">ASTConsumer</a> </span><span class="default">{</span>
+<a name="19"><font size=-1>19     </font></a><span class="default"> </span><span class="keyword">public</span><span class="default">:</span>
+<a name="20"><font size=-1>20     </font></a><span class="default">  <a href="dictionary_C.html#448">PluginConsumer</a>(<a href="dictionary_C.html#450">CompilerInstance</a>* <a href="dictionary_I.html#449">instance</a>, </span><span class="keyword">const <a href="dictionary_C.html#452">Options</a></span><span class="default">&amp; <a href="dictionary_O.html#451">options</a>)</span>
+<a name="21"><font size=-1>21     </font></a><span class="default">      : <a href="dictionary_C.html#456">visitor_</a>(*<a href="dictionary_I.html#449">instance</a>, <a href="dictionary_O.html#451">options</a>) {}</span>
+<a name="22"><font size=-1>22     </font></a><span class="default"></span>
+<a name="23"><font size=-1>23     </font></a><span class="default">  </span><span class="keyword">void <a href="dictionary_C.html#453">HandleTranslationUnit</a></span><span class="default">(clang::<a href="dictionary_C.html#455">ASTContext</a>&amp; <a href="dictionary_C.html#454">context</a>) override {</span>
+<a name="24"><font size=-1>24     </font></a><span class="default">    <a href="dictionary_C.html#456">visitor_</a>.<a href="dictionary_C.html#459">TraverseDecl</a>(<a href="dictionary_C.html#454">context</a>.<a href="dictionary_G.html#460">getTranslationUnitDecl</a>());</span>
+<a name="25"><font size=-1>25     </font></a><span class="default">  }</span>
+<a name="26"><font size=-1>26     </font></a><span class="default"></span>
+<a name="27"><font size=-1>27     </font></a><span class="default"> </span><span class="keyword">private</span><span class="default">:</span>
+<a name="28"><font size=-1>28     </font></a><span class="default">  <a href="dictionary_C.html#457">FindBadConstructsConsumer</a> <a href="dictionary_C.html#456">visitor_</a>;</span>
+<a name="29"><font size=-1>29     </font></a><span class="default">};</span>
+<a name="30"><font size=-1>30     </font></a><span class="default"></span>
+<a name="31"><font size=-1>31     </font></a><span class="default">}  </span><span class="comment">// namespace</span>
+<a name="32"><font size=-1>32     </font></a><span class="comment"></span>
+<a name="33"><font size=-1>33     </font></a><span class="comment"><a href="dictionary_C.html#461">FindBadConstructsAction</a></span><span class="default">::<a href="dictionary_C.html#462">FindBadConstructsAction</a>() {</span>
+<a name="34"><font size=-1>34     </font></a><span class="default">}</span>
+<a name="35"><font size=-1>35     </font></a><span class="default"></span>
+<a name="36"><font size=-1>36     </font></a><span class="default"><a href="dictionary_S.html#115">std</a>::<a href="dictionary_S.html#466">unique_ptr</a>&lt;ASTConsumer&gt; <a href="dictionary_C.html#461">FindBadConstructsAction</a>::<a href="dictionary_C.html#465">CreateASTConsumer</a>(</span>
+<a name="37"><font size=-1>37     </font></a><span class="default">    <a href="dictionary_C.html#450">CompilerInstance</a>&amp; <a href="dictionary_I.html#467">instance</a>,</span>
+<a name="38"><font size=-1>38     </font></a><span class="default">    <a href="dictionary_L.html#469">llvm</a>::<a href="dictionary_L.html#470">StringRef</a> <a href="dictionary_R.html#468">ref</a>) {</span>
+<a name="39"><font size=-1>39     </font></a><span class="default">  </span><span class="keyword">if </span><span class="default">(<a href="dictionary_C.html#463">options_</a>.<a href="dictionary_C.html#471">with_ast_visitor</a>)</span>
+<a name="40"><font size=-1>40     </font></a><span class="default">    </span><span class="keyword">return <a href="dictionary_L.html#469">llvm</a></span><span class="default">::<a href="dictionary_L.html#472">make_unique</a>&lt;PluginConsumer&gt;(&amp;<a href="dictionary_I.html#467">instance</a>, <a href="dictionary_C.html#463">options_</a>);</span>
+<a name="41"><font size=-1>41     </font></a><span class="default">  </span><span class="keyword">return <a href="dictionary_L.html#469">llvm</a></span><span class="default">::<a href="dictionary_L.html#472">make_unique</a>&lt;FindBadConstructsConsumer&gt;(<a href="dictionary_I.html#467">instance</a>, <a href="dictionary_C.html#463">options_</a>);</span>
+<a name="42"><font size=-1>42     </font></a><span class="default">}</span>
+<a name="43"><font size=-1>43     </font></a><span class="default"></span>
+<a name="44"><font size=-1>44     </font></a><span class="default"></span><span class="keyword">bool <a href="dictionary_C.html#461">FindBadConstructsAction</a></span><span class="default">::<a href="dictionary_C.html#473">ParseArgs</a>(</span><span class="keyword">const <a href="dictionary_C.html#450">CompilerInstance</a></span><span class="default">&amp; <a href="dictionary_I.html#474">instance</a>,</span>
+<a name="45"><font size=-1>45     </font></a><span class="default">                                        </span><span class="keyword">const <a href="dictionary_S.html#115">std</a></span><span class="default">::<a href="dictionary_S.html#476">vector</a>&lt;std::string&gt;&amp; <a href="dictionary_A.html#475">args</a>) {</span>
+<a name="46"><font size=-1>46     </font></a><span class="default">  </span><span class="keyword">bool <a href="dictionary_P.html#477">parsed</a> </span><span class="default">= </span><span class="keyword">true</span><span class="default">;</span>
+<a name="47"><font size=-1>47     </font></a><span class="default"></span>
+<a name="48"><font size=-1>48     </font></a><span class="default">  </span><span class="keyword">for </span><span class="default">(<a href="dictionary_S.html#254">size_t</a> <a href="dictionary_I.html#478">i</a> = </span><span class="number">0</span><span class="default">; <a href="dictionary_I.html#478">i</a> &lt; <a href="dictionary_A.html#475">args</a>.<a href="dictionary_S.html#479">size</a>() &amp;&amp; <a href="dictionary_P.html#477">parsed</a>; ++<a href="dictionary_I.html#478">i</a>) {</span>
+<a name="49"><font size=-1>49     </font></a><span class="default">    </span><span class="keyword">if </span><span class="default">(<a href="dictionary_A.html#475">args</a>[<a href="dictionary_I.html#478">i</a>] == </span><span class="string">&quot;check-base-classes&quot;</span><span class="default">) {</span>
+<a name="50"><font size=-1>50     </font></a><span class="default">      </span><span class="comment">// TODO(rsleevi): Remove this once http://crbug.com/123295 is fixed.</span>
+<a name="51"><font size=-1>51     </font></a><span class="comment">      <a href="dictionary_C.html#463">options_</a></span><span class="default">.<a href="dictionary_C.html#480">check_base_classes</a> = </span><span class="keyword">true</span><span class="default">;</span>
+<a name="52"><font size=-1>52     </font></a><span class="default">    } </span><span class="keyword">else if </span><span class="default">(<a href="dictionary_A.html#475">args</a>[<a href="dictionary_I.html#478">i</a>] == </span><span class="string">&quot;check-enum-last-value&quot;</span><span class="default">) {</span>
+<a name="53"><font size=-1>53     </font></a><span class="default">      </span><span class="comment">// TODO(tsepez): Enable this by default once http://crbug.com/356815</span>
+<a name="54"><font size=-1>54     </font></a><span class="comment">      // and http://crbug.com/356816 are fixed.</span>
+<a name="55"><font size=-1>55     </font></a><span class="comment">      <a href="dictionary_C.html#463">options_</a></span><span class="default">.<a href="dictionary_C.html#481">check_enum_last_value</a> = </span><span class="keyword">true</span><span class="default">;</span>
+<a name="56"><font size=-1>56     </font></a><span class="default">    } </span><span class="keyword">else if </span><span class="default">(<a href="dictionary_A.html#475">args</a>[<a href="dictionary_I.html#478">i</a>] == </span><span class="string">&quot;with-ast-visitor&quot;</span><span class="default">) {</span>
+<a name="57"><font size=-1>57     </font></a><span class="default">      <a href="dictionary_C.html#463">options_</a>.<a href="dictionary_C.html#471">with_ast_visitor</a> = </span><span class="keyword">true</span><span class="default">;</span>
+<a name="58"><font size=-1>58     </font></a><span class="default">    } </span><span class="keyword">else if </span><span class="default">(<a href="dictionary_A.html#475">args</a>[<a href="dictionary_I.html#478">i</a>] == </span><span class="string">&quot;check-templates&quot;</span><span class="default">) {</span>
+<a name="59"><font size=-1>59     </font></a><span class="default">      <a href="dictionary_C.html#463">options_</a>.<a href="dictionary_C.html#482">check_templates</a> = </span><span class="keyword">true</span><span class="default">;</span>
+<a name="60"><font size=-1>60     </font></a><span class="default">    } </span><span class="keyword">else </span><span class="default">{</span>
+<a name="61"><font size=-1>61     </font></a><span class="default">      <a href="dictionary_P.html#477">parsed</a> = </span><span class="keyword">false</span><span class="default">;</span>
+<a name="62"><font size=-1>62     </font></a><span class="default">      <a href="dictionary_L.html#469">llvm</a>::<a href="dictionary_L.html#483">errs</a>() &lt;&lt; </span><span class="string">&quot;Unknown clang plugin argument: &quot; </span><span class="default">&lt;&lt; <a href="dictionary_A.html#475">args</a>[<a href="dictionary_I.html#478">i</a>] &lt;&lt; </span><span class="string">&quot;\n&quot;</span><span class="default">;</span>
+<a name="63"><font size=-1>63     </font></a><span class="default">    }</span>
+<a name="64"><font size=-1>64     </font></a><span class="default">  }</span>
+<a name="65"><font size=-1>65     </font></a><span class="default"></span>
+<a name="66"><font size=-1>66     </font></a><span class="default">  </span><span class="keyword">return <a href="dictionary_P.html#477">parsed</a></span><span class="default">;</span>
+<a name="67"><font size=-1>67     </font></a><span class="default">}</span>
+<a name="68"><font size=-1>68     </font></a><span class="default"></span>
+<a name="69"><font size=-1>69     </font></a><span class="default">}  </span><span class="comment">// namespace chrome_checker</span>
+<a name="70"><font size=-1>70     </font></a><span class="comment"></span>
+<a name="71"><font size=-1>71     </font></a><span class="comment"></span><span class="keyword">static <a href="dictionary_F.html#484">FrontendPluginRegistry</a></span><span class="default">::<a href="dictionary_F.html#486">Add</a>&lt;chrome_checker::FindBadConstructsAction&gt; <a href="dictionary_X.html#485">X</a>(</span>
+<a name="72"><font size=-1>72     </font></a><span class="default">    </span><span class="string">&quot;find-bad-constructs&quot;</span><span class="default">,</span>
+<a name="73"><font size=-1>73     </font></a><span class="default">    </span><span class="string">&quot;Finds bad C++ constructs&quot;</span><span class="default">);</span>
+<a name="74"><font size=-1>74     </font></a><span class="default"></span>
+</pre></body></html>

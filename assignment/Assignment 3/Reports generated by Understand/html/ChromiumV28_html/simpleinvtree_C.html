@@ -1,0 +1,405 @@
+<html><head><title>Simple Invocation Tree [C]</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head><body bgcolor="#ffffff" TEXT="#000000"><h2>Simple Invocation Tree</h2><hr><pre>
+</pre><table BORDER CELLPADDING=4><tr><td><a href="simpleinvtree_Non-Alpha.html">Non-Alpha</a></td><td><a href="simpleinvtree_A.html">A</a></td><td><a href="simpleinvtree_B.html">B</a></td><td><a href="simpleinvtree_C.html">C</a></td><td><a href="simpleinvtree_D.html">D</a></td><td><a href="simpleinvtree_E.html">E</a></td><td><a href="simpleinvtree_F.html">F</a></td><td><a href="simpleinvtree_G.html">G</a></td><td><a href="simpleinvtree_H.html">H</a></td><td><a href="simpleinvtree_I.html">I</a></td><td><a href="simpleinvtree_J.html">J</a></td><td><a href="simpleinvtree_K.html">K</a></td><td><a href="simpleinvtree_L.html">L</a></td><td><a href="simpleinvtree_M.html">M</a></td><td><a href="simpleinvtree_N.html">N</a></td><td><a href="simpleinvtree_O.html">O</a></td><td><a href="simpleinvtree_P.html">P</a></td><td>Q</td><td><a href="simpleinvtree_R.html">R</a></td><td><a href="simpleinvtree_S.html">S</a></td><td><a href="simpleinvtree_T.html">T</a></td><td><a href="simpleinvtree_U.html">U</a></td><td><a href="simpleinvtree_V.html">V</a></td><td><a href="simpleinvtree_W.html">W</a></td><td><a href="simpleinvtree_X.html">X</a></td><td><a href="simpleinvtree_Y.html">Y</a></td><td>Z</td></tr></table><pre>
+
+<a href="dictionary_C.html#2592">calculate_iterations</a>
+| <a href="dictionary_T.html#1581">talloc_init</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_I.html#1816">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_G.html#254">glsl_type::is_integer</a>
+| <a href="dictionary_I.html#1252">ir_rvalue::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1816">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8595">ir_texture::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8596">ir_swizzle::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8602">ir_dereference_variable::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8603">ir_dereference_array::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8615">ir_dereference_record::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#8618">ir_constant::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1786">ir_call::constant_expression_value</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1889">ir_constant::get_int_component</a>
+| <a href="dictionary_E.html#1584">Elements</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#1891">ir_constant::get_bool_component</a>
+| <a href="dictionary_T.html#735">talloc_free</a>
+
+<a href="dictionary_C.html#9443">call_for_basic_blocks</a>
+| <a href="dictionary_E.html#1707">exec_list::iterator</a>
+| <a href="dictionary_E.html#1708">exec_list_iterator::has_next</a>
+| <a href="dictionary_E.html#1709">exec_list_iterator::next</a>
+| <a href="dictionary_E.html#1712">exec_list_iterator::get</a>
+| <a href="dictionary_I.html#5063">ir_instruction::as_if</a><i>  (Virtual)</i>
+| <a href="dictionary_C.html#9443">call_for_basic_blocks</a>
+| <a href="dictionary_I.html#9454">ir_instruction::as_loop</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#4877">ir_instruction::as_return</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#4867">ir_instruction::as_call</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1730">ir_instruction::as_function</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#3294">iterator</a>
+| <a href="dictionary_I.html#2589">ir_instruction::as_assignment</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2489">ir_has_call</a>
+
+<a href="dictionary_C.html#4107">call_link_visitor::call_link_visitor</a>
+| <a href="dictionary_H.html#4126">hash_table_ctor</a>
+| <a href="dictionary_I.html#25">ir_hierarchical_visitor::ir_hierarchical_visitor</a>
+
+<a href="dictionary_C.html#4113">call_link_visitor::visit</a>
+| <a href="dictionary_H.html#4130">hash_table_insert</a>
+
+<a href="dictionary_C.html#4117">call_link_visitor::visit</a>
+| <a href="dictionary_H.html#4158">hash_table_find</a>
+| <a href="dictionary_G.html#4160">get_variable</a>
+| <a href="dictionary_I.html#4161">ir_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#4162">add_variable</a>
+| <a href="dictionary_P.html#4163">push_head</a>
+
+<a href="dictionary_C.html#4115">call_link_visitor::visit_enter</a>
+| <a href="dictionary_I.html#1719">ir_call::get_callee</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_I.html#1716">ir_function_signature::function_name</a>
+| <a href="dictionary_F.html#4105">find_matching_signature</a>
+| <a href="dictionary_I.html#4134">ir_call::set_callee</a>
+| <a href="dictionary_L.html#4136">linker_error_printf</a>
+| <a href="dictionary_G.html#4139">get_function</a>
+| <a href="dictionary_I.html#4140">ir_function::ir_function</a>
+| <a href="dictionary_I.html#4142">ir_function::exact_matching_signature</a>
+| <a href="dictionary_I.html#4143">ir_function_signature::ir_function_signature</a>
+| <a href="dictionary_I.html#4144">ir_function::add_signature</a>
+| <a href="dictionary_E.html#699">exec_list::is_empty</a>
+| <a href="dictionary_H.html#4126">hash_table_ctor</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_I.html#4150">ir_instruction::as_variable</a>
+| <a href="dictionary_I.html#4152">ir_instruction::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#4161">ir_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9226">ir_return::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9230">ir_discard::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9235">ir_loop_jump::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9238">ir_if::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9246">ir_loop::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9279">ir_assignment::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9283">ir_function::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9290">ir_function_signature::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_I.html#4153">ir_function_signature::replace_parameters</a>
+| <a href="dictionary_H.html#4129">hash_table_dtor</a>
+| <a href="dictionary_I.html#4157">ir_function_signature::accept</a><i>  (Virtual)</i>
+
+<a href="dictionary_C.html#4112">call_link_visitor::~call_link_visitor</a>
+| <a href="dictionary_H.html#4129">hash_table_dtor</a>
+
+<a href="dictionary_C.html#4868">can_inline</a>
+| <a href="dictionary_I.html#10659">ir_function_can_inline_visitor::ir_function_can_inline_visitor</a>
+| <a href="dictionary_I.html#1719">ir_call::get_callee</a>
+| <a href="dictionary_I.html#2135">ir_hierarchical_visitor::run</a>
+| <a href="dictionary_E.html#4089">exec_list::get_tail</a>
+| <a href="dictionary_I.html#4877">ir_instruction::as_return</a><i>  (Virtual)</i>
+
+<a href="dictionary_C.html#12357">channel_expressions_predicate</a>
+| <a href="dictionary_I.html#12360">ir_instruction::as_expression</a>
+| <a href="dictionary_I.html#3094">ir_expression::get_num_operands</a>
+| <a href="dictionary_I.html#3147">is_vector</a>
+
+<a href="dictionary_C.html#5872">check_node_type</a>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_I.html#5830">ir_instruction::print</a>
+| <a href="dictionary_A.html#54">assert</a>
+
+<a href="dictionary_C.html#471">ChromeClassTester::BuildBannedLists</a>
+| <a href="dictionary_P.html#477">push_back</a>
+| <a href="dictionary_I.html#402">insert</a>
+
+<a href="dictionary_C.html#485">ChromeClassTester::CheckTag</a>
+| <a href="dictionary_D.html#487">dyn_cast</a>
+| <a href="dictionary_I.html#490">isPOD</a>
+| <a href="dictionary_G.html#491">getDescribedClassTemplate</a>
+| <a href="dictionary_G.html#492">getTemplateSpecializationKind</a>
+| <a href="dictionary_I.html#493">isDependentType</a>
+| <a href="dictionary_C.html#494">ChromeClassTester::InBannedNamespace</a>
+| <a href="dictionary_G.html#497">getInnerLocStart</a>
+| <a href="dictionary_C.html#498">ChromeClassTester::InBannedDirectory</a>
+| <a href="dictionary_G.html#500">getNameAsString</a>
+| <a href="dictionary_C.html#501">ChromeClassTester::IsIgnoredType</a>
+| <a href="dictionary_E.html#459">ends_with</a>
+| <a href="dictionary_C.html#502">ChromeClassTester::CheckChromeClass</a><i>  (Virtual)</i>
+
+<a href="dictionary_C.html#463">ChromeClassTester::ChromeClassTester</a>
+| <a href="dictionary_G.html#469">getDiagnostics</a>
+| <a href="dictionary_C.html#471">ChromeClassTester::BuildBannedLists</a>
+
+<a href="dictionary_C.html#503">ChromeClassTester::emitWarning</a>
+| <a href="dictionary_C.html#506">ChromeClassTester::instance</a>
+| <a href="dictionary_G.html#507">getSourceManager</a>
+| <a href="dictionary_C.html#511">ChromeClassTester::diagnostic</a>
+| <a href="dictionary_G.html#512">getWarningsAsErrors</a>
+| <a href="dictionary_G.html#519">getCustomDiagID</a>
+| <a href="dictionary_R.html#522">Report</a>
+
+<a href="dictionary_C.html#575">ChromeClassTester::GetFilename</a>
+| <a href="dictionary_G.html#507">getSourceManager</a>
+| <a href="dictionary_G.html#581">getSpellingLoc</a>
+| <a href="dictionary_G.html#584">getPresumedLoc</a>
+| <a href="dictionary_I.html#585">isInvalid</a>
+| <a href="dictionary_G.html#586">getFilename</a>
+
+<a href="dictionary_C.html#531">ChromeClassTester::GetNamespace</a>
+| <a href="dictionary_C.html#533">ChromeClassTester::GetNamespaceImpl</a>
+| <a href="dictionary_G.html#534">getDeclContext</a>
+
+<a href="dictionary_C.html#541">ChromeClassTester::GetNamespaceImpl</a>
+| <a href="dictionary_G.html#545">getDeclKind</a>
+| <a href="dictionary_D.html#487">dyn_cast</a>
+| <a href="dictionary_O.html#554">OS</a>
+| <a href="dictionary_I.html#555">isAnonymousNamespace</a>
+| <a href="dictionary_C.html#533">ChromeClassTester::GetNamespaceImpl</a>
+| <a href="dictionary_G.html#556">getParent</a>
+| <a href="dictionary_S.html#557">str</a>
+
+<a href="dictionary_C.html#473">ChromeClassTester::HandleTagDeclDefinition</a>
+| <a href="dictionary_P.html#477">push_back</a>
+
+<a href="dictionary_C.html#478">ChromeClassTester::HandleTopLevelDecl</a>
+| <a href="dictionary_S.html#454">size</a>
+| <a href="dictionary_C.html#483">ChromeClassTester::CheckTag</a>
+| <a href="dictionary_C.html#484">clear</a>
+
+<a href="dictionary_C.html#558">ChromeClassTester::InBannedDirectory</a>
+| <a href="dictionary_C.html#538">ChromeClassTester::GetFilename</a>
+| <a href="dictionary_E.html#459">ends_with</a>
+| <a href="dictionary_R.html#563">realpath</a>
+| <a href="dictionary_C.html#564">c_str</a>
+| <a href="dictionary_L.html#455">lstrip</a>
+| <a href="dictionary_S.html#568">std::vector::begin</a>
+| <a href="dictionary_S.html#569">std::vector::end</a>
+| <a href="dictionary_F.html#571">find</a>
+
+<a href="dictionary_C.html#523">ChromeClassTester::InBannedNamespace</a>
+| <a href="dictionary_C.html#527">ChromeClassTester::GetNamespace</a>
+| <a href="dictionary_E.html#528">empty</a>
+| <a href="dictionary_S.html#529">std::find</a>
+| <a href="dictionary_B.html#435">begin</a>
+| <a href="dictionary_E.html#438">end</a>
+
+<a href="dictionary_C.html#535">ChromeClassTester::InImplementationFile</a>
+| <a href="dictionary_C.html#538">ChromeClassTester::GetFilename</a>
+| <a href="dictionary_E.html#459">ends_with</a>
+
+<a href="dictionary_C.html#501">ChromeClassTester::IsIgnoredType</a>
+| <a href="dictionary_F.html#571">find</a>
+| <a href="dictionary_E.html#438">end</a>
+
+<a href="dictionary_C.html#9428">CLogFile::close</a>
+| <a href="dictionary_X.html#9429">XP_CloseFile</a>
+
+<a href="dictionary_C.html#9423">CLogFile::create</a>
+| <a href="dictionary_S.html#4206">strcpy</a>
+| <a href="dictionary_X.html#9426">XP_IsFile</a>
+| <a href="dictionary_X.html#9427">XP_CreateFile</a>
+
+<a href="dictionary_C.html#9433">CLogFile::flush</a>
+| <a href="dictionary_X.html#9434">XP_FlushFileBuffers</a>
+
+<a href="dictionary_C.html#9430">CLogFile::write</a>
+| <a href="dictionary_X.html#9432">XP_WriteFile</a>
+| <a href="dictionary_C.html#564">c_str</a>
+| <a href="dictionary_L.html#1669">length</a>
+
+<a href="dictionary_C.html#9421">CLogFile::~CLogFile</a>
+| <a href="dictionary_C.html#660">close</a>
+
+<a href="dictionary_C.html#8107">clone_ir_list</a>
+| <a href="dictionary_H.html#4126">hash_table_ctor</a>
+| <a href="dictionary_I.html#4152">ir_instruction::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#4161">ir_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9223">ir_swizzle::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9226">ir_return::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9230">ir_discard::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9235">ir_loop_jump::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9238">ir_if::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9246">ir_loop::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9252">ir_call::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9258">ir_expression::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#1990">ir_dereference_variable::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9266">ir_dereference_array::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9269">ir_dereference_record::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9272">ir_texture::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9279">ir_assignment::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9283">ir_function::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#9290">ir_function_signature::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_E.html#207">exec_list::push_tail</a>
+| <a href="dictionary_F.html#9314">fixup_function_calls</a>
+| <a href="dictionary_H.html#4129">hash_table_dtor</a>
+
+<a href="dictionary_C.html#6169">CMeasurePageLoadTimeBHO::ErrorExit</a>
+| <a href="dictionary_C.html#6070">CMeasurePageLoadTimeBHO::SetSite</a>
+| <a href="dictionary_C.html#6168">closesocket</a>
+| <a href="dictionary_T.html#6170">TerminateThread</a>
+| <a href="dictionary_G.html#6171">GetCurrentThread</a>
+
+<a href="dictionary_C.html#6096">CMeasurePageLoadTimeBHO::OnDocumentComplete</a>
+| <a href="dictionary_S.html#6101">SetEvent</a>
+
+<a href="dictionary_C.html#6102">CMeasurePageLoadTimeBHO::ProcessPageTimeRequests</a>
+| <a href="dictionary_C.html#6103">CoInitialize</a>
+| <a href="dictionary_W.html#6104">WaitForSingleObject</a>
+| <a href="dictionary_G.html#6083">git</a>
+| <a href="dictionary_C.html#6107">CopyTo</a>
+| <a href="dictionary_S.html#6108">socket</a>
+| <a href="dictionary_E.html#6114">ErrorExit</a>
+| <a href="dictionary_S.html#6116">setsockopt</a>
+| <a href="dictionary_H.html#6122">htonl</a>
+| <a href="dictionary_H.html#6126">htons</a>
+| <a href="dictionary_B.html#6128">bind</a>
+| <a href="dictionary_L.html#6130">listen</a>
+| <a href="dictionary_I.html#6132">ioctlsocket</a>
+| <a href="dictionary_A.html#6137">accept</a>
+| <a href="dictionary_R.html#6144">recv</a>
+| <a href="dictionary_S.html#4049">strchr</a>
+| <a href="dictionary_S.html#6147">strcat_s</a>
+| <a href="dictionary_S.html#757">strlen</a>
+| <a href="dictionary_I.html#6149">isspace</a>
+| <a href="dictionary_R.html#6156">ResetEvent</a>
+| <a href="dictionary_G.html#6158">GetTickCount</a>
+| <a href="dictionary_N.html#6160">Navigate</a>
+| <a href="dictionary_C.html#6161">CComBSTR</a>
+| <a href="dictionary_S.html#6163">sprintf_s</a>
+| <a href="dictionary_S.html#6164">Stop</a>
+| <a href="dictionary_S.html#6167">send</a>
+| <a href="dictionary_C.html#6168">closesocket</a>
+
+<a href="dictionary_C.html#6070">CMeasurePageLoadTimeBHO::SetSite</a>
+| <a href="dictionary_Q.html#6076">QueryInterface</a>
+| <a href="dictionary_S.html#6079">SUCCEEDED</a>
+| <a href="dictionary_D.html#6080">DispEventAdvise</a>
+| <a href="dictionary_G.html#6083">git</a>
+| <a href="dictionary_D.html#6084">Detach</a>
+| <a href="dictionary_C.html#6086">CreateEvent</a>
+| <a href="dictionary_C.html#6090">CreateThread</a>
+| <a href="dictionary_P.html#6091">ProcessPageTimeRequests</a>
+| <a href="dictionary_D.html#6092">DispEventUnadvise</a>
+| <a href="dictionary_R.html#6093">Release</a>
+| <a href="dictionary_S.html#6095">SetSite</a>
+
+<a href="dictionary_C.html#3761">CommentInfo::setComment</a>
+| <a href="dictionary_R.html#3760">releaseStringValue</a>
+| <a href="dictionary_J.html#3763">JSON_ASSERT</a>
+| <a href="dictionary_J.html#3749">JSON_ASSERT_MESSAGE</a>
+| <a href="dictionary_D.html#3764">duplicateStringValue</a>
+
+<a href="dictionary_C.html#3758">CommentInfo::~CommentInfo</a>
+| <a href="dictionary_R.html#3760">releaseStringValue</a>
+
+<a href="dictionary_C.html#672">compile_shader</a>
+| <a href="dictionary_Non-Alpha.html#677">_mesa_glsl_parse_state::_mesa_glsl_parse_state</a>
+| <a href="dictionary_P.html#680">preprocess</a>
+| <a href="dictionary_Non-Alpha.html#684">_mesa_glsl_lexer_ctor</a>
+| <a href="dictionary_Non-Alpha.html#685">_mesa_glsl_parse</a>
+| <a href="dictionary_Non-Alpha.html#686">_mesa_glsl_lexer_dtor</a>
+| <a href="dictionary_A.html#697">ast_node::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8204">ast_compound_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8202">ast_expression::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8258">ast_expression_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8263">ast_function::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8266">ast_fully_specified_type::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8278">ast_parameter_declarator::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8284">ast_function_definition::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8288">ast_declaration::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8299">ast_declarator_list::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8308">ast_jump_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8321">ast_selection_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8330">ast_iteration_statement::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8348">ast_struct_specifier::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#9674">ast_expression_bin::print</a><i>  (Virtual)</i>
+| <a href="dictionary_A.html#8276">ast_type_specifier::print</a><i>  (Virtual)</i>
+| <a href="dictionary_P.html#172">printf</a>
+| <a href="dictionary_E.html#317">exec_list::exec_list</a>
+| <a href="dictionary_E.html#699">exec_list::is_empty</a>
+| <a href="dictionary_Non-Alpha.html#700">_mesa_ast_to_hir</a>
+| <a href="dictionary_V.html#701">validate_ir_tree</a>
+| <a href="dictionary_Non-Alpha.html#702">_mesa_print_ir</a>
+| <a href="dictionary_I.html#703">is_empty</a>
+| <a href="dictionary_D.html#705">do_function_inlining</a>
+| <a href="dictionary_D.html#706">do_if_simplification</a>
+| <a href="dictionary_D.html#707">do_copy_propagation</a>
+| <a href="dictionary_D.html#708">do_dead_code_local</a>
+| <a href="dictionary_D.html#709">do_dead_code_unlinked</a>
+| <a href="dictionary_D.html#710">do_tree_grafting</a>
+| <a href="dictionary_D.html#711">do_constant_propagation</a>
+| <a href="dictionary_D.html#712">do_constant_variable_unlinked</a>
+| <a href="dictionary_D.html#713">do_constant_folding</a>
+| <a href="dictionary_D.html#714">do_algebraic</a>
+| <a href="dictionary_D.html#715">do_vec_index_to_swizzle</a>
+| <a href="dictionary_D.html#716">do_vec_index_to_cond_assign</a>
+| <a href="dictionary_D.html#717">do_swizzle_swizzle</a>
+| <a href="dictionary_A.html#720">analyze_loop_variables</a>
+| <a href="dictionary_S.html#721">set_loop_controls</a>
+| <a href="dictionary_U.html#722">unroll_loops</a>
+| <a href="dictionary_L.html#723">loop_state::~loop_state</a>
+| <a href="dictionary_M.html#729">memcpy</a>
+| <a href="dictionary_T.html#735">talloc_free</a>
+| <a href="dictionary_R.html#736">reparent_ir</a>
+
+<a href="dictionary_C.html#1855">constant_record_constructor</a>
+| <a href="dictionary_I.html#293">ir_instruction::as_constant</a>
+| <a href="dictionary_E.html#1778">exec_node::replace_with</a>
+| <a href="dictionary_I.html#53">ir_constant::ir_constant</a>
+
+<a href="dictionary_C.html#348">ConstructorCallback::run</a>
+| <a href="dictionary_G.html#393">getNodeAs</a>
+| <a href="dictionary_G.html#394">getLength</a>
+| <a href="dictionary_C.html#398">CharSourceRange::getTokenRange</a>
+| <a href="dictionary_G.html#399">getParenRange</a>
+| <a href="dictionary_I.html#402">insert</a>
+| <a href="dictionary_R.html#403">Replacement</a>
+
+<a href="dictionary_C.html#1734">convert_component</a>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_G.html#1197">glsl_type::is_error</a>
+| <a href="dictionary_A.html#54">assert</a>
+| <a href="dictionary_G.html#254">glsl_type::is_integer</a>
+| <a href="dictionary_I.html#70">ir_expression::ir_expression</a>
+| <a href="dictionary_I.html#1816">ir_expression::constant_expression_value</a><i>  (Virtual)</i>
+
+<a href="dictionary_C.html#8917">count_attribute_slots</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_G.html#1213">glsl_type::array_size</a>
+| <a href="dictionary_C.html#8917">count_attribute_slots</a>
+| <a href="dictionary_G.html#1839">glsl_type::element_type</a>
+| <a href="dictionary_G.html#37">glsl_type::is_matrix</a>
+
+<a href="dictionary_C.html#3452">count_resources</a>
+| <a href="dictionary_Non-Alpha.html#3459">_mesa_is_tex_instruction</a>
+| <a href="dictionary_Non-Alpha.html#3466">_mesa_update_shader_textures_used</a>
+
+<a href="dictionary_C.html#8930">cross_validate_globals</a>
+| <a href="dictionary_G.html#8123">glsl_symbol_table::glsl_symbol_table</a>
+| <a href="dictionary_I.html#4150">ir_instruction::as_variable</a>
+| <a href="dictionary_G.html#7766">glsl_symbol_table::get_variable</a>
+| <a href="dictionary_G.html#291">glsl_type::is_array</a>
+| <a href="dictionary_L.html#4136">linker_error_printf</a>
+| <a href="dictionary_M.html#8928">mode_string</a>
+| <a href="dictionary_I.html#7958">ir_constant::has_value</a>
+| <a href="dictionary_I.html#2649">ir_constant::clone</a><i>  (Virtual)</i>
+| <a href="dictionary_T.html#144">talloc_parent</a>
+| <a href="dictionary_G.html#7657">glsl_symbol_table::add_variable</a>
+| <a href="dictionary_G.html#8941">glsl_symbol_table::~glsl_symbol_table</a>
+
+<a href="dictionary_C.html#8944">cross_validate_outputs_to_inputs</a>
+| <a href="dictionary_G.html#8123">glsl_symbol_table::glsl_symbol_table</a>
+| <a href="dictionary_I.html#4150">ir_instruction::as_variable</a>
+| <a href="dictionary_G.html#7657">glsl_symbol_table::add_variable</a>
+| <a href="dictionary_G.html#7766">glsl_symbol_table::get_variable</a>
+| <a href="dictionary_L.html#4136">linker_error_printf</a>
+| <a href="dictionary_I.html#8043">ir_variable::interpolation_string</a>
+| <a href="dictionary_G.html#8941">glsl_symbol_table::~glsl_symbol_table</a>
+
+<a href="dictionary_C.html#8942">cross_validate_uniforms</a>
+| <a href="dictionary_C.html#8930">cross_validate_globals</a>
+</pre><hr>
+<table BORDER CELLPADDING=4><tr><td><a href="simpleinvtree_Non-Alpha.html">Non-Alpha</a></td><td><a href="simpleinvtree_A.html">A</a></td><td><a href="simpleinvtree_B.html">B</a></td><td><a href="simpleinvtree_C.html">C</a></td><td><a href="simpleinvtree_D.html">D</a></td><td><a href="simpleinvtree_E.html">E</a></td><td><a href="simpleinvtree_F.html">F</a></td><td><a href="simpleinvtree_G.html">G</a></td><td><a href="simpleinvtree_H.html">H</a></td><td><a href="simpleinvtree_I.html">I</a></td><td><a href="simpleinvtree_J.html">J</a></td><td><a href="simpleinvtree_K.html">K</a></td><td><a href="simpleinvtree_L.html">L</a></td><td><a href="simpleinvtree_M.html">M</a></td><td><a href="simpleinvtree_N.html">N</a></td><td><a href="simpleinvtree_O.html">O</a></td><td><a href="simpleinvtree_P.html">P</a></td><td>Q</td><td><a href="simpleinvtree_R.html">R</a></td><td><a href="simpleinvtree_S.html">S</a></td><td><a href="simpleinvtree_T.html">T</a></td><td><a href="simpleinvtree_U.html">U</a></td><td><a href="simpleinvtree_V.html">V</a></td><td><a href="simpleinvtree_W.html">W</a></td><td><a href="simpleinvtree_X.html">X</a></td><td><a href="simpleinvtree_Y.html">Y</a></td><td>Z</td></tr></table></body></html>

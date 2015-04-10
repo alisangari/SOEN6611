@@ -1,0 +1,426 @@
+<html><head><title>Uninitialized Items [I]</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head><body bgcolor="#ffffff" TEXT="#000000"><h2>Uninitialized Items</h2><hr><pre>
+</pre><table BORDER CELLPADDING=4><tr><td>Non-Alpha</td><td><a href="uninitializeditems_A.html">A</a></td><td><a href="uninitializeditems_B.html">B</a></td><td><a href="uninitializeditems_C.html">C</a></td><td><a href="uninitializeditems_D.html">D</a></td><td>E</td><td><a href="uninitializeditems_F.html">F</a></td><td><a href="uninitializeditems_G.html">G</a></td><td><a href="uninitializeditems_H.html">H</a></td><td><a href="uninitializeditems_I.html">I</a></td><td><a href="uninitializeditems_J.html">J</a></td><td>K</td><td><a href="uninitializeditems_L.html">L</a></td><td><a href="uninitializeditems_M.html">M</a></td><td><a href="uninitializeditems_N.html">N</a></td><td><a href="uninitializeditems_O.html">O</a></td><td><a href="uninitializeditems_P.html">P</a></td><td>Q</td><td>R</td><td><a href="uninitializeditems_S.html">S</a></td><td>T</td><td>U</td><td><a href="uninitializeditems_V.html">V</a></td><td>W</td><td>X</td><td>Y</td><td>Z</td></tr></table><pre>
+
+<a href="1910.html"><b>inline_ctor.cpp</b></a>
+       [<a href="1910.html#17">one_, 17</a>]
+       [<a href="1910.html#18">two_, 18</a>]
+       [<a href="1910.html#22">one, 22</a>]
+       [<a href="1910.html#23">two, 23</a>]
+
+<a href="7710.html"><b>ir.cpp</b></a>
+       [<a href="7710.html#1024">i, 1024</a>]
+
+<a href="1107.html"><b>ir_algebraic.cpp</b></a>
+       [<a href="1107.html#74">c, 74</a>]
+       [<a href="1107.html#112">c, 112</a>]
+       [<a href="1107.html#413">data, 413</a>]
+       [<a href="1107.html#246">i, 246</a>]
+       [<a href="1107.html#195">ir2_const, 195</a>]
+       [<a href="1107.html#66">mem_ctx, 66</a>]
+       [<a href="1107.html#68">progress, 68</a>]
+       [<a href="1107.html#245">temp, 245</a>]
+       [<a href="1107.html#469">v, 469</a>]
+
+<a href="9292.html"><b>ir_basic_block.cpp</b></a>
+       [<a href="9292.html#90">ir_function, 90</a>]
+       [<a href="9292.html#49">has_call, 49</a>]
+       [<a href="9292.html#88">ir_if, 88</a>]
+       [<a href="9292.html#89">ir_loop, 89</a>]
+       [<a href="9292.html#119">ir_sig, 119</a>]
+       [<a href="9292.html#55">v, 55</a>]
+
+<a href="9073.html"><b>ir_clone.cpp</b></a>
+       [<a href="9073.html#372">ht, 372</a>]
+       [<a href="9073.html#161">i, 161</a>]
+       [<a href="9073.html#147">new_parameters, 147</a>]
+       [<a href="9073.html#173">new_var, 173</a>]
+
+<a href="8363.html"><b>ir_constant_expression.cpp</b></a>
+       [<a href="8363.html#80">components, 80</a>]
+       [<a href="8363.html#59">data, 59</a>]
+       [<a href="8363.html#755">data, 755</a>]
+       [<a href="8363.html#850">data, 850</a>]
+       [<a href="8363.html#830">op, 830</a>]
+
+<a href="4941.html"><b>ir_constant_folding.cpp</b></a>
+       [<a href="4941.html#142">constant_folding, 142</a>]
+       [<a href="4941.html#56">progress, 56</a>]
+
+<a href="6556.html"><b>ir_constant_propagation.cpp</b></a>
+       [<a href="6556.html#57">constant, 57</a>]
+       [<a href="6556.html#56">var, 56</a>]
+       [<a href="6556.html#58">write_mask, 58</a>]
+       [<a href="6556.html#145">channel, 145</a>]
+       [<a href="6556.html#141">data, 141</a>]
+       [<a href="6556.html#399">entry, 399</a>]
+       [<a href="6556.html#103">acp, 103</a>]
+       [<a href="6556.html#113">killed_all, 113</a>]
+       [<a href="6556.html#109">kills, 109</a>]
+       [<a href="6556.html#115">mem_ctx, 115</a>]
+       [<a href="6556.html#111">progress, 111</a>]
+       [<a href="6556.html#72">var, 72</a>]
+       [<a href="6556.html#73">write_mask, 73</a>]
+       [<a href="6556.html#432">v, 432</a>]
+
+<a href="1943.html"><b>ir_constant_variable.cpp</b></a>
+       [<a href="1943.html#93">constval, 93</a>]
+       [<a href="1943.html#61">entry, 61</a>]
+       [<a href="1943.html#94">entry, 94</a>]
+       [<a href="1943.html#141">entry, 141</a>]
+       [<a href="1943.html#165">entry, 165</a>]
+       [<a href="1943.html#55">list, 55</a>]
+       [<a href="1943.html#159">v, 159</a>]
+
+<a href="10387.html"><b>ir_copy_propagation.cpp</b></a>
+       [<a href="10387.html#52">lhs, 52</a>]
+       [<a href="10387.html#53">rhs, 53</a>]
+       [<a href="10387.html#310">entry, 310</a>]
+       [<a href="10387.html#96">acp, 96</a>]
+       [<a href="10387.html#105">killed_all, 105</a>]
+       [<a href="10387.html#101">kills, 101</a>]
+       [<a href="10387.html#107">mem_ctx, 107</a>]
+       [<a href="10387.html#103">progress, 103</a>]
+       [<a href="10387.html#66">var, 66</a>]
+       [<a href="10387.html#343">v, 343</a>]
+
+<a href="2324.html"><b>ir_dead_code.cpp</b></a>
+       [<a href="2324.html#47">v, 47</a>]
+
+<a href="12023.html"><b>ir_dead_code_local.cpp</b></a>
+       [<a href="12023.html#105">visitor, 105</a>]
+       [<a href="12023.html#55">ir, 55</a>]
+       [<a href="12023.html#54">lhs, 54</a>]
+       [<a href="12023.html#189">assignments, 189</a>]
+       [<a href="12023.html#187">ir, 187</a>]
+       [<a href="12023.html#187">ir_next, 187</a>]
+       [<a href="12023.html#83">assignments, 83</a>]
+
+<a href="1538.html"><b>ir_dead_functions.cpp</b></a>
+       [<a href="1538.html#70">mem_ctx, 70</a>]
+       [<a href="1538.html#66">predicate, 66</a>]
+       [<a href="1538.html#69">signature_list, 69</a>]
+       [<a href="1538.html#45">signature, 45</a>]
+       [<a href="1538.html#46">used, 46</a>]
+       [<a href="1538.html#115">v, 115</a>]
+
+<a href="5738.html"><b>ir_div_to_mul_rcp.cpp</b></a>
+       [<a href="5738.html#68">expr, 68</a>]
+       [<a href="5738.html#47">made_progress, 47</a>]
+       [<a href="5738.html#82">op0, 82</a>]
+       [<a href="5738.html#82">op1, 82</a>]
+       [<a href="5738.html#53">v, 53</a>]
+       [<a href="5738.html#83">vec_type, 83</a>]
+
+<a href="10739.html"><b>ir_explog_to_explog2.cpp</b></a>
+       [<a href="10739.html#45">progress, 45</a>]
+       [<a href="10739.html#51">v, 51</a>]
+
+<a href="12002.html"><b>ir_expression_flattening.cpp</b></a>
+       [<a href="12002.html#75">assign, 75</a>]
+       [<a href="12002.html#55">predicate, 55</a>]
+       [<a href="12002.html#74">var, 74</a>]
+
+<a href="6738.html"><b>ir_function.cpp</b></a>
+       [<a href="6738.html#115">score, 115</a>]
+
+<a href="10517.html"><b>ir_function_can_inline.cpp</b></a>
+       [<a href="10517.html#47">num_returns, 47</a>]
+       [<a href="10517.html#61">v, 61</a>]
+
+<a href="4707.html"><b>ir_function_inlining.cpp</b></a>
+       [<a href="4707.html#163">assign, 163</a>]
+       [<a href="4707.html#223">assign, 223</a>]
+       [<a href="4707.html#119">ht, 119</a>]
+       [<a href="4707.html#117">i, 117</a>]
+       [<a href="4707.html#63">progress, 63</a>]
+       [<a href="4707.html#346">deref, 346</a>]
+       [<a href="4707.html#345">sampler, 345</a>]
+       [<a href="4707.html#174">new_instructions, 174</a>]
+       [<a href="4707.html#116">num_parameters, 116</a>]
+       [<a href="4707.html#115">parameters, 115</a>]
+       [<a href="4707.html#81">v, 81</a>]
+
+<a href="2352.html"><b>ir_hierarchical_visitor.cpp</b></a>
+       [<a href="2352.html#291">v, 291</a>]
+
+<a href="9004.html"><b>ir_if_simplification.cpp</b></a>
+       [<a href="9004.html#42">made_progress, 42</a>]
+       [<a href="9004.html#48">v, 48</a>]
+
+<a href="7677.html"><b>ir_if_to_cond_assign.cpp</b></a>
+       [<a href="7677.html#127">assign, 127</a>]
+       [<a href="7677.html#94">cond_expr, 94</a>]
+       [<a href="7677.html#126">cond_var, 126</a>]
+       [<a href="7677.html#128">deref, 128</a>]
+       [<a href="7677.html#81">instructions, 81</a>]
+       [<a href="7677.html#47">progress, 47</a>]
+       [<a href="7677.html#53">v, 53</a>]
+
+<a href="8222.html"><b>ir_import_prototypes.cpp</b></a>
+       [<a href="8222.html#113">function, 113</a>]
+       [<a href="8222.html#112">list, 112</a>]
+       [<a href="8222.html#115">mem_ctx, 115</a>]
+       [<a href="8222.html#114">symbols, 114</a>]
+
+<a href="4801.html"><b>ir_lower_jumps.cpp</b></a>
+       [<a href="4801.html#282">block_records, 282</a>]
+       [<a href="4801.html#441">ir_after, 441</a>]
+       [<a href="4801.html#297">jump_strengths, 297</a>]
+       [<a href="4801.html#283">jumps, 283</a>]
+       [<a href="4801.html#433">list, 433</a>]
+       [<a href="4801.html#230">lower, 230</a>]
+       [<a href="4801.html#341">lower, 341</a>]
+       [<a href="4801.html#337">should_lower, 337</a>]
+       [<a href="4801.html#532">v, 532</a>]
+
+<a href="1.html"><b>ir_mat_op_to_vec.cpp</b></a>
+       [<a href="1.html#138">assign, 138</a>]
+       [<a href="1.html#184">assign, 184</a>]
+       [<a href="1.html#381">assign, 381</a>]
+       [<a href="1.html#137">b_col, 137</a>]
+       [<a href="1.html#229">column_assign, 229</a>]
+       [<a href="1.html#258">column_assign, 258</a>]
+       [<a href="1.html#405">column_assign, 405</a>]
+       [<a href="1.html#436">column_assign, 436</a>]
+       [<a href="1.html#228">column_expr, 228</a>]
+       [<a href="1.html#257">column_expr, 257</a>]
+       [<a href="1.html#404">column_expr, 404</a>]
+       [<a href="1.html#435">column_expr, 435</a>]
+       [<a href="1.html#102">deref, 102</a>]
+       [<a href="1.html#119">deref, 119</a>]
+       [<a href="1.html#139">expr, 139</a>]
+       [<a href="1.html#185">expr, 185</a>]
+       [<a href="1.html#70">i, 70</a>]
+       [<a href="1.html#137">i, 137</a>]
+       [<a href="1.html#181">i, 181</a>]
+       [<a href="1.html#222">i, 222</a>]
+       [<a href="1.html#251">i, 251</a>]
+       [<a href="1.html#360">i, 360</a>]
+       [<a href="1.html#63">made_progress, 63</a>]
+       [<a href="1.html#62">mem_ctx, 62</a>]
+       [<a href="1.html#153">mul_expr, 153</a>]
+       [<a href="1.html#195">mul_expr, 195</a>]
+       [<a href="1.html#361">op_var, 361</a>]
+       [<a href="1.html#227">result, 227</a>]
+       [<a href="1.html#86">v, 86</a>]
+
+<a href="8341.html"><b>ir_mod_to_fract.cpp</b></a>
+       [<a href="8341.html#67">assign, 67</a>]
+       [<a href="8341.html#68">expr, 68</a>]
+       [<a href="8341.html#45">made_progress, 45</a>]
+       [<a href="8341.html#51">v, 51</a>]
+
+<a href="1925.html"><b>ir_noop_swizzle.cpp</b></a>
+       [<a href="1925.html#46">progress, 46</a>]
+       [<a href="1925.html#76">v, 76</a>]
+
+<a href="8906.html"><b>ir_print_visitor.cpp</b></a>
+       [<a href="8906.html#296">mask, 296</a>]
+       [<a href="8906.html#35">v, 35</a>]
+
+<a href="7388.html"><b>ir_reader.cpp</b></a>
+       [<a href="7388.html#99">ap, 99</a>]
+       [<a href="7388.html#846">elements, 846</a>]
+       [<a href="7388.html#277">hir_parameters, 277</a>]
+       [<a href="7388.html#684">parameters, 684</a>]
+
+<a href="9946.html"><b>ir_rvalue_visitor.cpp</b></a>
+       [<a href="9946.html#41">operand, 41</a>]
+
+<a href="10528.html"><b>ir_set_program_inouts.cpp</b></a>
+       [<a href="10528.html#121">deref_var, 121</a>]
+       [<a href="10528.html#79">element_size, 79</a>]
+       [<a href="10528.html#78">element_type, 78</a>]
+       [<a href="10528.html#65">ht, 65</a>]
+       [<a href="10528.html#64">prog, 64</a>]
+
+<a href="9417.html"><b>ir_structure_splitting.cpp</b></a>
+       [<a href="9417.html#230">i, 230</a>]
+       [<a href="9417.html#98">mem_ctx, 98</a>]
+       [<a href="9417.html#96">variable_list, 96</a>]
+       [<a href="9417.html#194">mem_ctx, 194</a>]
+       [<a href="9417.html#193">variable_list, 193</a>]
+       [<a href="9417.html#267">new_lhs, 267</a>]
+       [<a href="9417.html#267">new_rhs, 267</a>]
+       [<a href="9417.html#304">refs, 304</a>]
+       [<a href="9417.html#67">components, 67</a>]
+       [<a href="9417.html#65">declaration, 65</a>]
+       [<a href="9417.html#70">mem_ctx, 70</a>]
+       [<a href="9417.html#60">var, 60</a>]
+       [<a href="9417.html#63">whole_structure_access, 63</a>]
+
+<a href="10674.html"><b>ir_sub_to_add_neg.cpp</b></a>
+       [<a href="10674.html#47">progress, 47</a>]
+       [<a href="10674.html#53">v, 53</a>]
+
+<a href="7932.html"><b>ir_swizzle_swizzle.cpp</b></a>
+       [<a href="7932.html#44">progress, 44</a>]
+       [<a href="7932.html#50">mask2, 50</a>]
+       [<a href="7932.html#88">v, 88</a>]
+
+<a href="2552.html"><b>ir_to_mesa.cpp</b></a>
+       [<a href="2552.html#1027">a, 1027</a>]
+       [<a href="2552.html#301">args, 301</a>]
+       [<a href="2552.html#849">array_count, 849</a>]
+       [<a href="2552.html#1027">b, 1027</a>]
+       [<a href="2552.html#1027">c, 1027</a>]
+       [<a href="2552.html#1824">call_inst, 1824</a>]
+       [<a href="2552.html#2154">cond_inst, 2154</a>]
+       [<a href="2552.html#1640">condition, 1640</a>]
+       [<a href="2552.html#1988">coord, 1988</a>]
+       [<a href="2552.html#1989">coord_dst, 1989</a>]
+       [<a href="2552.html#869">dst, 869</a>]
+       [<a href="2552.html#402">dst_reg, 402</a>]
+       [<a href="2552.html#2515">element, 2515</a>]
+       [<a href="2552.html#2516">element_type, 2516</a>]
+       [<a href="2552.html#1009">empty, 1009</a>]
+       [<a href="2552.html#2648">end, 2648</a>]
+       [<a href="2552.html#574">entry, 574</a>]
+       [<a href="2552.html#1782">entry, 1782</a>]
+       [<a href="2552.html#2491">field_constant, 2491</a>]
+       [<a href="2552.html#2445">file, 2445</a>]
+       [<a href="2552.html#170">bgn_inst, 170</a>]
+       [<a href="2552.html#178">inst, 178</a>]
+       [<a href="2552.html#181">return_reg, 181</a>]
+       [<a href="2552.html#153">sig, 153</a>]
+       [<a href="2552.html#163">sig_id, 163</a>]
+       [<a href="2552.html#1961">last, 1961</a>]
+       [<a href="2552.html#1959">mem_ctx, 1959</a>]
+       [<a href="2552.html#1957">mesa, 1957</a>]
+       [<a href="2552.html#1958">name, 1958</a>]
+       [<a href="2552.html#1960">offset, 1960</a>]
+       [<a href="2552.html#434">i, 434</a>]
+       [<a href="2552.html#500">i, 500</a>]
+       [<a href="2552.html#548">i, 548</a>]
+       [<a href="2552.html#834">i, 834</a>]
+       [<a href="2552.html#1384">i, 1384</a>]
+       [<a href="2552.html#1541">i, 1541</a>]
+       [<a href="2552.html#1586">i, 1586</a>]
+       [<a href="2552.html#1673">i, 1673</a>]
+       [<a href="2552.html#1827">i, 1827</a>]
+       [<a href="2552.html#1929">i, 1929</a>]
+       [<a href="2552.html#2121">i, 2121</a>]
+       [<a href="2552.html#2239">i, 2239</a>]
+       [<a href="2552.html#2319">i, 2319</a>]
+       [<a href="2552.html#2349">i, 2349</a>]
+       [<a href="2552.html#2398">i, 2398</a>]
+       [<a href="2552.html#2587">i, 2587</a>]
+       [<a href="2552.html#2929">i, 2929</a>]
+       [<a href="2552.html#2154">if_inst, 2154</a>]
+       [<a href="2552.html#2237">if_stack, 2237</a>]
+       [<a href="2552.html#1494">index, 1494</a>]
+       [<a href="2552.html#1513">index_reg, 1513</a>]
+       [<a href="2552.html#443">inst, 443</a>]
+       [<a href="2552.html#130">cond_update, 130</a>]
+       [<a href="2552.html#126">dst_reg, 126</a>]
+       [<a href="2552.html#135">function, 135</a>]
+       [<a href="2552.html#129">ir, 129</a>]
+       [<a href="2552.html#125">op, 125</a>]
+       [<a href="2552.html#131">sampler, 131</a>]
+       [<a href="2552.html#127">src_reg, 127</a>]
+       [<a href="2552.html#133">tex_shadow, 133</a>]
+       [<a href="2552.html#132">tex_target, 132</a>]
+       [<a href="2552.html#191">ctx, 191</a>]
+       [<a href="2552.html#189">current_function, 189</a>]
+       [<a href="2552.html#241">function_signatures, 241</a>]
+       [<a href="2552.html#245">instructions, 245</a>]
+       [<a href="2552.html#284">mem_ctx, 284</a>]
+       [<a href="2552.html#242">next_signature_id, 242</a>]
+       [<a href="2552.html#196">next_temp, 196</a>]
+       [<a href="2552.html#194">options, 194</a>]
+       [<a href="2552.html#192">prog, 192</a>]
+       [<a href="2552.html#235">result, 235</a>]
+       [<a href="2552.html#193">shader_program, 193</a>]
+       [<a href="2552.html#238">variables, 238</a>]
+       [<a href="2552.html#434">j, 434</a>]
+       [<a href="2552.html#2239">j, 2239</a>]
+       [<a href="2552.html#2329">j, 2329</a>]
+       [<a href="2552.html#1584">l, 1584</a>]
+       [<a href="2552.html#1843">l, 1843</a>]
+       [<a href="2552.html#2120">l, 2120</a>]
+       [<a href="2552.html#2643">last, 2643</a>]
+       [<a href="2552.html#2814">linked_prog, 2814</a>]
+       [<a href="2552.html#1988">lod_info, 1988</a>]
+       [<a href="2552.html#2237">loop_stack, 2237</a>]
+       [<a href="2552.html#2585">mesa_inst, 2585</a>]
+       [<a href="2552.html#2586">mesa_instruction_annotation, 2586</a>]
+       [<a href="2552.html#2585">mesa_instructions, 2585</a>]
+       [<a href="2552.html#2215">mesa_reg, 2215</a>]
+       [<a href="2552.html#117">node, 117</a>]
+       [<a href="2552.html#1071">op, 1071</a>]
+       [<a href="2552.html#1070">operand, 1070</a>]
+       [<a href="2552.html#2155">prev_inst, 2155</a>]
+       [<a href="2552.html#2588">prog, 2588</a>]
+       [<a href="2552.html#2591">progress, 2591</a>]
+       [<a href="2552.html#2770">progress, 2770</a>]
+       [<a href="2552.html#1988">projector, 1988</a>]
+       [<a href="2552.html#1585">r, 1585</a>]
+       [<a href="2552.html#1877">r, 1877</a>]
+       [<a href="2552.html#1073">result_dst, 1073</a>]
+       [<a href="2552.html#1989">result_dst, 1989</a>]
+       [<a href="2552.html#1072">result_src, 1072</a>]
+       [<a href="2552.html#1988">result_src, 1988</a>]
+       [<a href="2552.html#1008">sig, 1008</a>]
+       [<a href="2552.html#501">size, 501</a>]
+       [<a href="2552.html#2436">size, 2436</a>]
+       [<a href="2552.html#2400">sorted_uniforms, 2400</a>]
+       [<a href="2552.html#546">src_reg, 546</a>]
+       [<a href="2552.html#1383">src_reg, 1383</a>]
+       [<a href="2552.html#1495">src_reg, 1495</a>]
+       [<a href="2552.html#1670">src_reg, 1670</a>]
+       [<a href="2552.html#868">storage, 868</a>]
+       [<a href="2552.html#1799">storage, 1799</a>]
+       [<a href="2552.html#547">swizzle, 547</a>]
+       [<a href="2552.html#1385">swizzle, 1385</a>]
+       [<a href="2552.html#1606">swizzles, 1606</a>]
+       [<a href="2552.html#2589">target, 2589</a>]
+       [<a href="2552.html#2590">target_string, 2590</a>]
+       [<a href="2552.html#891">tokens, 891</a>]
+       [<a href="2552.html#1091">v, 1091</a>]
+       [<a href="2552.html#2584">v, 2584</a>]
+       [<a href="2552.html#2525">values, 2525</a>]
+
+<a href="12078.html"><b>ir_tree_grafting.cpp</b></a>
+       [<a href="12078.html#104">info, 104</a>]
+       [<a href="12078.html#357">info, 357</a>]
+       [<a href="12078.html#315">ir, 315</a>]
+       [<a href="12078.html#83">graft_assign, 83</a>]
+       [<a href="12078.html#82">graft_var, 82</a>]
+       [<a href="12078.html#81">progress, 81</a>]
+       [<a href="12078.html#315">next, 315</a>]
+       [<a href="12078.html#356">refs, 356</a>]
+
+<a href="5667.html"><b>ir_validate.cpp</b></a>
+       [<a href="5667.html#76">current_function, 76</a>]
+       [<a href="5667.html#78">ht, 78</a>]
+       [<a href="5667.html#444">v, 444</a>]
+
+<a href="11353.html"><b>ir_variable_refcount.cpp</b></a>
+       [<a href="11353.html#104">entry, 104</a>]
+
+<a href="2509.html"><b>ir_vec_index_to_cond_assign.cpp</b></a>
+       [<a href="2509.html#71">assign, 71</a>]
+       [<a href="2509.html#155">assign, 155</a>]
+       [<a href="2509.html#74">condition, 74</a>]
+       [<a href="2509.html#192">condition, 192</a>]
+       [<a href="2509.html#73">deref, 73</a>]
+       [<a href="2509.html#154">deref, 154</a>]
+       [<a href="2509.html#76">i, 76</a>]
+       [<a href="2509.html#129">i, 129</a>]
+       [<a href="2509.html#156">i, 156</a>]
+       [<a href="2509.html#72">index, 72</a>]
+       [<a href="2509.html#153">index, 153</a>]
+       [<a href="2509.html#64">progress, 64</a>]
+       [<a href="2509.html#75">swizzle, 75</a>]
+       [<a href="2509.html#192">swizzle, 192</a>]
+       [<a href="2509.html#253">v, 253</a>]
+       [<a href="2509.html#72">var, 72</a>]
+       [<a href="2509.html#153">var, 153</a>]
+
+<a href="12181.html"><b>ir_vec_index_to_swizzle.cpp</b></a>
+       [<a href="12181.html#86">i, 86</a>]
+       [<a href="12181.html#64">ir_constant, 64</a>]
+       [<a href="12181.html#57">progress, 57</a>]
+       [<a href="12181.html#152">v, 152</a>]
+</pre><hr>
+<table BORDER CELLPADDING=4><tr><td>Non-Alpha</td><td><a href="uninitializeditems_A.html">A</a></td><td><a href="uninitializeditems_B.html">B</a></td><td><a href="uninitializeditems_C.html">C</a></td><td><a href="uninitializeditems_D.html">D</a></td><td>E</td><td><a href="uninitializeditems_F.html">F</a></td><td><a href="uninitializeditems_G.html">G</a></td><td><a href="uninitializeditems_H.html">H</a></td><td><a href="uninitializeditems_I.html">I</a></td><td><a href="uninitializeditems_J.html">J</a></td><td>K</td><td><a href="uninitializeditems_L.html">L</a></td><td><a href="uninitializeditems_M.html">M</a></td><td><a href="uninitializeditems_N.html">N</a></td><td><a href="uninitializeditems_O.html">O</a></td><td><a href="uninitializeditems_P.html">P</a></td><td>Q</td><td>R</td><td><a href="uninitializeditems_S.html">S</a></td><td>T</td><td>U</td><td><a href="uninitializeditems_V.html">V</a></td><td>W</td><td>X</td><td>Y</td><td>Z</td></tr></table></body></html>
