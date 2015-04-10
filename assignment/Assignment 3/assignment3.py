@@ -32,6 +32,8 @@ def getCBO(db, className, classType):
 		metric = file.metric(("CountClassCoupled",))
 		if metric["CountClassCoupled"] is not None:
 			return metric["CountClassCoupled"]
+		if metric["CountClassCoupled"] is None:
+			return "-1"
 
 
 #get lcom for class. Using the metric provided by Understand
@@ -40,6 +42,8 @@ def getLCOM(db, className, classType):
 		metric = file.metric(("PercentLackOfCohesion",))
 		if metric["PercentLackOfCohesion"] is not None:
 			return metric["PercentLackOfCohesion"]
+		if metric["PercentLackOfCohesion"] is None:
+			return "-1"
 
 
 #get class path
@@ -49,10 +53,10 @@ def getClassPath(db, className):
 	
 	
 #get/calc cbo and lcom for class enteties
-def getReleaseInfo(db, cppClasses):
-	thisRelease = ["release,clss_path,cbo,lcom"]
+def getReleaseInfo(db, cppClasses, release):
+	thisRelease = ["release,class_path,cbo,lcom"]
 	#thisRelease = []
-	release = "latest version"
+	release = release
 	classPath = ""
 	cbo = ""
 	lcom = ""	
@@ -62,10 +66,6 @@ def getReleaseInfo(db, cppClasses):
 				classPath = getClassPath(db,cppClass)
 				cbo = getCBO(db, cppClass, ent.kindname())
 				lcom = getLCOM(db, cppClass, ent.kindname())
-				if (cbo is None):
-					cbo = "-1"
-				if (lcom is None):
-					lcom = "-1"
 				thisRelease.append(release+","+classPath+","+str(cbo)+","+str(lcom))
 				break
 	return thisRelease
@@ -79,29 +79,62 @@ def writeReleaseInfo(releaseInfo, ouputFileName):
 	out_file.close()
 
 
-
-
-
-if __name__ == '__main__':
-	# Open Database. udb file is provided as an argument.
-	# ie. assignment3 Chromium.udb
-	args = sys.argv
-	
+def repeatPerRelease(dbfile, release, ouputFileName):
 	print("Opening database...")
-	db = understand.open(args[1])
+	#db = understand.open(args[1])
+	db = understand.open(dbfile)
 
 	print("Compiling a list of all cpp class files...")
 	cppFiles = getAllCppFiles(db)
 	cppClasses = getValidCppClasses(db, cppFiles)
 
 	print("Extracting CBO and LCOM...")
-	releaseInfo = getReleaseInfo(db,cppClasses)
+	releaseInfo = getReleaseInfo(db,cppClasses, release)
 	
-	print("Generating output file...")
-	ouputFileName = "assignment3.csv"
+	print("Generating output file ("+ouputFileName+")...")
+	
 	writeReleaseInfo(releaseInfo, ouputFileName)
+	
+	print("")
+	print("..............................................................")
+	print("")
 
-	# **** repeat this for all versions
+
+if __name__ == '__main__':
+	# Open Database. udb file is provided as an argument.
+	# ie. assignment3 Chromium.udb
+	#args = sys.argv
+
+	dbfile = ""
+	release = ""
+	ouputFileName = ""
+
+	for releaseNum in range(25,35):
+		dbfile = "UnderstandProjects/ChromiumV"+str(releaseNum)+".udb"
+		release = str(releaseNum)
+		ouputFileName = "ChromiumV"+str(releaseNum)+"_AssignmentOP.csv"
+		print("Version: "+ str(releaseNum))
+		repeatPerRelease(dbfile, release, ouputFileName)
+
+
+
+	# Latest version cloned from chromium repository
+	releaseNum = 44
+	dbfile = "UnderstandProjects/ChromiumV"+str(releaseNum)+".udb"
+	release = str(releaseNum)
+	ouputFileName = "ChromiumV"+str(releaseNum)+"_AssignmentOP.csv"
+	print("Version: "+ str(releaseNum))
+	repeatPerRelease(dbfile, release, ouputFileName)
+
+	
+	# Zipped version from assignment desciption page (dropbox)
+	releaseNum = "ZippedVersion"
+	dbfile = "UnderstandProjects/Chromium"+releaseNum+".udb"
+	release = releaseNum
+	ouputFileName = "Chromium"+releaseNum+"_AssignmentOP.csv"
+	print("Version: "+ releaseNum)
+	repeatPerRelease(dbfile, release, ouputFileName)
+		
 	
 	print("Done!")
 
