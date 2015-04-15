@@ -1,157 +1,56 @@
 release,class_name (class type),cbo,lcom
-44,A (Class),-1,-1
-44,A (Class),-1,-1
-44,A (Class),-1,-1
-44,ASTConsumer (Unknown Class),-1,-1
-44,Abstract (Class),-1,-1
-44,AlsoDoesNotNeedFinalizer (Class),-1,-1
-44,AlsoNeedsFinalizer (Class),-1,-1
 44,AnonymousDerivedProtectedOnDerived (Class),0,0
 44,AnonymousDerivedProtectedToPublicInImpl (Class),0,0
-44,Args (Unknown Class),-1,-1
-44,AshmemRegion (Class),-1,-1
-44,B (Class),-1,-1
 44,BarInterface (Public Class),0,0
-44,Base (Class),-1,-1
-44,BaseClass (Class),-1,-1
-44,BasePoint (Class),-1,-1
 44,Baz (Class),1,0
 44,BlinkGCPluginAction (Class),4,0
 44,BlinkGCPluginConsumer (Class),22,93
-44,C (Class),-1,-1
-44,CAtlDllModuleT (Unknown Class),-1,-1
-44,CIntelPowerGadgetLib (Class),-1,-1
-44,CMeasurePageLoadTimeBHO (Class),-1,-1
 44,CMeasurePageLoadTimeModule (Class),0,0
-44,CZString (Public Class),-1,-1
 44,CallbackData (Class),0,0
-44,CharSourceRange (Public Class),-1,-1
-44,CharSourceRange (Public Class),-1,-1
 44,CheckDispatchVisitor (Class),2,30
 44,CheckFieldsVisitor (Class),10,51
 44,CheckFinalizerVisitor (Class),8,70
 44,CheckGCRootsVisitor (Class),7,55
 44,CheckTraceVisitor (Class),7,79
-44,ChromeClassTester (Class),-1,-1
 44,CollectVisitor (Class),2,71
-44,Collection (Class),-1,-1
-44,CommentInfo (Unknown Class),-1,-1
-44,CommonOptionsParser (Unknown Class),-1,-1
 44,CompilationIndexerAction (Class),5,50
 44,ConcreteVirtualMethodsInHeaders (Class),0,0
 44,ConcreteVirtualMethodsInImplementation (Class),0,0
-44,Config (Class),-1,-1
 44,ConstructorCallback (Class),3,0
-44,Context (Unknown Class),-1,-1
 44,CorrectFinal (Class),0,0
 44,CorrectOverride (Class),0,0
-44,D (Class),-1,-1
-44,Decl (Unknown Class),-1,-1
-44,DependencyIterator (Public Class),-1,-1
-44,DerivedClass (Class),-1,-1
-44,DerivedProtectedToPublicInHeader (Class),-1,-1
-44,DiagnosticIDs (Unknown Class),-1,-1
-44,DiagnosticsEngine (Unknown Class),-1,-1
 44,DocumentOpenInDestroyStream (Class),0,0
-44,DoesNotNeedFinalizer (Class),-1,-1
-44,DoesNotNeedFinalizer2 (Class),-1,-1
 44,DumpEdgeVisitor (Class),8,50
-44,DynamicIterator (Public Class),-1,-1
 44,DynamicOidRegisterer (Class),0,0
-44,ELF (Unknown Class),-1,-1
-44,Edge (Class),-1,-1
-44,EdgeVisitor (Class),-1,-1
-44,ElfLoader (Class),-1,-1
-44,ElfRelocations (Class),-1,-1
-44,ElfSymbols (Class),-1,-1
-44,ElfView (Class),-1,-1
 44,EmptyStmtVisitor (Class),0,19
 44,EmptyStringConverter (Class),5,0
-44,Error (Class),-1,-1
-44,Errors (Unknown Class),-1,-1
 44,EvaluateJSAfterRemovingPluginElement (Class),0,0
 44,EvaluteJSWithinNPP_New (Class),0,0
-44,ExternBase (Class),-1,-1
-44,ExternDerived (Class),-1,-1
 44,FactoryFirst (Class),1,0
 44,FactoryLast (Class),1,0
 44,FactoryMiddle (Class),1,0
 44,FactoryRefersToOtherType (Class),1,0
-44,Features (Unknown Class),-1,-1
-44,FieldPoint (Class),-1,-1
-44,FileDescriptor (Class),-1,-1
-44,FindBadConstructsAction (Class),-1,-1
-44,FindBadConstructsConsumer (Class),-1,-1
 44,FindFieldVisitor (Private Class),0,40
 44,FirstFactoryRefersToOtherType (Class),1,0
 44,Foo (Class),1,0
 44,FormValue (Class),1,0
-44,FrontendPluginRegistry (Unknown Class),-1,-1
 44,FunctionRewriterCallback (Class),1,0
-44,GCedClassWithAScriptWrappableAndAFinalizableBase (Class),-1,-1
-44,GCedClassWithAScriptWrappableBase (Class),-1,-1
-44,GarbageCollectedMixin (Class),-1,-1
 44,GetRewriterCallback (Class),1,0
 44,GetURLNotifyWithURLThatFailsToLoad (Class),0,0
 44,GetURLWithJavaScriptURL (Class),0,41
 44,GetURLWithJavaScriptURLDestroyingPlugin (Class),0,0
 44,GetUserAgentWithNullNPPFromNPPNew (Class),0,0
-44,Globals (Class),-1,-1
-44,HasFinalizer (Class),-1,-1
-44,HeapDerived (Class),-1,-1
-44,HeapObject (Class),-1,-1
-44,IBMDStreamingDiscovery (Class),-1,-1
-44,IBMDStreamingH264NALParser (Class),-1,-1
-44,IDeckLinkAPIInformation (Class),-1,-1
-44,IDeckLinkCocoaScreenPreviewCallback (Class),-1,-1
-44,IDeckLinkCocoaScreenPreviewCallback_v7_6 (Class),-1,-1
-44,IDeckLinkDiscovery (Class),-1,-1
-44,IDeckLinkGLScreenPreviewHelper (Class),-1,-1
-44,IDeckLinkGLScreenPreviewHelper_v7_6 (Class),-1,-1
-44,IDeckLinkIterator (Class),-1,-1
-44,IDeckLinkIterator_v8_0 (Class),-1,-1
-44,IDeckLinkVideoConversion (Class),-1,-1
-44,IDeckLinkVideoConversion_v7_6 (Class),-1,-1
-44,IObjectWithSiteImpl (Unknown Class),-1,-1
-44,IUnknown (Unknown Class),-1,-1
 44,ImplementationDerivedClass (Class),0,0
-44,ImplicitDerivedProtectedToPublicInHeader (Class),-1,-1
-44,InArgs (Unknown Class),-1,-1
 44,IncludeFinderPPCallbacks (Class),5,52
 44,InitializerCallback (Class),2,0
-44,InlineCtorsArentOKInHeader (Class),-1,-1
 44,InlineInCPPOK (Class),1,50
-44,InlineObject (Class),-1,-1
-44,InlinedGlobalMarkingVisitor (Class),-1,-1
-44,InnerObject (Private Class),-1,-1
-44,InterimClass (Class),-1,-1
 44,InvokeDestroysPluginWithinNPP_New (Class),0,0
-44,IsLeftMostPolymorphic (Class),-1,-1
-44,IsNotLeftMostPolymorphic (Class),-1,-1
-44,JsonWriter (Class),-1,-1
-44,LazyInstance (Unknown Class),-1,-1
 44,LeakWindowScriptableObject (Class),0,0
-44,Leb128Decoder (Class),-1,-1
-44,Lexer (Unknown Class),-1,-1
-44,LibraryList (Class),-1,-1
-44,LibraryView (Class),-1,-1
-44,LineReader (Class),-1,-1
 44,LogNPPSetWindow (Class),0,0
 44,MacroRewriterCallback (Class),1,0
-44,MatchCallback (Unknown Class),-1,-1
-44,MatchFinder (Unknown Class),-1,-1
-44,Member (Class),-1,-1
-44,MemoryMapping (Class),-1,-1
 44,MightBeCollectedVisitor (Private Class),2,0
-44,MiniDisassembler (Unknown Class),-1,-1
-44,MissingCtorsArentOKInHeader (Class),-1,-1
 44,MissingInCPPOK (Class),1,0
 44,MissingOverride (Class),0,0
-44,Mixin (Class),-1,-1
-44,Mixin2 (Class),-1,-1
-44,Mixin3 (Class),-1,-1
-44,MixinFinalizable (Class),-1,-1
-44,MixinNotFinalizable (Class),-1,-1
 44,MockEnvEntry (Class),1,33
 44,MockFileEntry (Class),1,50
 44,MockFileHandle (Class),1,14
@@ -164,105 +63,38 @@ release,class_name (class type),cbo,lcom
 44,NPRuntimeCallsWithNullNPP (Class),1,0
 44,NPRuntimeObjectFromDestroyedPlugin (Class),0,0
 44,NPRuntimeRemoveProperty (Class),0,0
-44,NSSCertDatabase (Unknown Class),-1,-1
-44,NeedsFinalizer (Class),-1,-1
-44,NeedsNoFinalization (Class),-1,-1
 44,NeedsTrace (Class),0,0
 44,NoTrace (Class),0,0
 44,NotTest (Class),0,0
 44,NullNPPGetValuePointer (Class),0,33
-44,OffHeapObject (Class),-1,-1
 44,OnlyMember (Class),1,0
 44,OverrideAndFinal (Class),0,0
-44,OwnPtr (Class),-1,-1
 44,PKCS12InitSingleton (Class),0,0
-44,PPCallbacks (Unknown Class),-1,-1
-44,PartBObject (Class),-1,-1
-44,PartDerived (Class),-1,-1
-44,PartObject (Class),-1,-1
 44,PassDifferentNPPStruct (Class),0,0
-44,Path (Unknown Class),-1,-1
-44,PathArgument (Unknown Class),-1,-1
-44,Persistent (Class),-1,-1
-44,PluginASTAction (Unknown Class),-1,-1
 44,PluginConsumer (Class),2,0
 44,PluginObject (Private Class),0,0
 44,PluginObject (Private Class),0,0
 44,PluginScriptableNPObjectInvokeDefault (Class),0,0
 44,PluginScriptableObjectOverridesAllProperties (Class),0,0
-44,PluginTest (Class),-1,-1
-44,PreamblePatcher (Unknown Class),-1,-1
-44,PreprocessorFrontendAction (Unknown Class),-1,-1
-44,PrivateRefCountedDtorInHeader (Class),-1,-1
-44,ProcMaps (Class),-1,-1
 44,ProcMapsInternal (Class),3,33
-44,ProtectedRefCountedDtorInHeader (Class),-1,-1
-44,ProtectedRefCountedVirtualDtorInHeader (Class),-1,-1
-44,PtrEdge (Class),-1,-1
-44,PublicRefCountedDtorInHeader (Class),-1,-1
 44,PublicRefCountedDtorInImpl (Class),0,0
-44,PublicRefCountedThreadSafeDtorInHeader (Class),-1,-1
-44,RDebug (Class),-1,-1
 44,RDebugRunnable (Class),3,14
-44,RawPtr (Class),-1,-1
-44,Reader (Unknown Class),-1,-1
-44,RecordCache (Class),-1,-1
-44,RecordDecl (Unknown Class),-1,-1
-44,RecordInfo (Class),-1,-1
-44,RecursiveASTVisitor (Unknown Class),-1,-1
-44,RecursiveEdgeVisitor (Class),-1,-1
-44,RefPtr (Class),-1,-1
-44,Result (Unknown Class),-1,-1
-44,Result (Unknown Class),-1,-1
 44,ScopedDelayedCallbackPoster (Class),3,33
-44,ScopedGlobalLock (Class),-1,-1
 44,ScopedMMap (Class),0,0
-44,ScopedMemoryMapping (Class),-1,-1
 44,ScopedMutexLock (Class),0,0
 44,ScopedPageReadWriteRemapper (Class),0,11
 44,ScopedTestEnv (Class),1,50
 44,ScopedTimer (Class),0,0
 44,ScriptableObject (Private Class),1,0
 44,ScriptableObject (Private Class),1,0
-44,SearchPathList (Class),-1,-1
-44,SharedLibrary (Class),-1,-1
 44,SharedLibraryResolver (Class),5,0
-44,SharedRelro (Class),-1,-1
-44,SkDifferentPixelsMetric (Unknown Class),-1,-1
-44,SkImageDiffer (Unknown Class),-1,-1
-44,SkImageInfo (Unknown Class),-1,-1
-44,SkPMetric (Unknown Class),-1,-1
-44,SkPMetricUtil (Unknown Class),-1,-1
-44,SkTypeface (Unknown Class),-1,-1
-44,Sleb128Decoder (Class),-1,-1
 44,SlowNPPNew (Class),0,0
-44,SomeObject (Class),-1,-1
-44,SrcMgr (Unknown Class),-1,-1
-44,String (Class),-1,-1
-44,String (Class),-1,-1
-44,SymbolResolver (Public Class),-1,-1
-44,SystemMock (Class),-1,-1
-44,TempDirectory (Class),-1,-1
-44,TemplateArgument (Unknown Class),-1,-1
 44,TemporaryCallback (Class),2,0
-44,Test (Class),-1,-1
-44,Test (Class),-1,-1
 44,TestObject (Private Class),0,0
 44,TestObject (Private Class),0,0
 44,TestSystem (Class),1,33
-44,ThreadData (Class),-1,-1
-44,TraceAfterDispatchExternBase (Class),-1,-1
-44,TraceAfterDispatchExternDerived (Class),-1,-1
-44,TraceAfterDispatchInlinedBase (Class),-1,-1
-44,TraceAfterDispatchInlinedDerived (Class),-1,-1
-44,TraceImplBaseExtern (Class),-1,-1
-44,TraceImplExtern (Class),-1,-1
-44,TraceImplExternWithUntracedBase (Class),-1,-1
-44,TraceImplExternWithUntracedMember (Class),-1,-1
-44,TracingStatus (Class),-1,-1
 44,TwoFactories (Class),1,0
 44,TwoFactoriesOneBad (Class),1,0
-44,TypeLoc (Unknown Class),-1,-1
 44,UnsafeTypedefChainInImpl (Class),0,0
 44,Value (Class),0,33
 44,VarRewriterCallback (Class),1,0
@@ -270,31 +102,3 @@ release,class_name (class type),cbo,lcom
 44,VirtualAndOverride (Class),0,0
 44,VirtualAndOverrideFinal (Class),0,0
 44,VirtualMethodsInHeaders (Class),0,0
-44,Visitor (Class),-1,-1
-44,WarnOnMissingVirtual (Class),-1,-1
-44,WeakMember (Class),-1,-1
-44,WebKitDerivedPublicDtorInHeader (Class),-1,-1
-44,WebKitObserver (Class),-1,-1
-44,WebKitObserverImpl (Class),-1,-1
-44,WebKitPublicDtorInHeader (Class),-1,-1
-44,ast_matchers (Unknown Class),-1,-1
-44,base (Unknown Class),-1,-1
-44,basic_string (Unknown Class),-1,-1
-44,cl (Unknown Class),-1,-1
-44,clang (Unknown Class),-1,-1
-44,content (Unknown Class),-1,-1
-44,crypto (Unknown Class),-1,-1
-44,internal (Unknown Class),-1,-1
-44,ios_base (Unknown Class),-1,-1
-44,l10n_util (Unknown Class),-1,-1
-44,llvm (Unknown Class),-1,-1
-44,minitest (Unknown Class),-1,-1
-44,net (Unknown Class),-1,-1
-44,path (Unknown Class),-1,-1
-44,std (Unknown Class),-1,-1
-44,sys (Unknown Class),-1,-1
-44,tok (Unknown Class),-1,-1
-44,tooling (Unknown Class),-1,-1
-44,vector (Public Class),-1,-1
-44,x509_certificate_model (Unknown Class),-1,-1
-44,x509_util (Unknown Class),-1,-1

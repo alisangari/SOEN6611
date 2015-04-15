@@ -1,11 +1,7 @@
 release,class_path,cbo,lcom
-44,C:\6611\latest version - 44\src\tools\clang\plugins\ChromeClassTester.cpp,-1,-1
 44,C:\6611\latest version - 44\src\content\shell\tools\plugin\Tests\DocumentOpenInDestroyStream.cpp,0,0
-44,C:\6611\latest version - 44\src\tools\clang\blink_gc_plugin\Edge.cpp,-1,-1
 44,C:\6611\latest version - 44\src\tools\clang\empty_string\EmptyStringConverter.cpp,5,0
 44,C:\6611\latest version - 44\src\content\shell\tools\plugin\Tests\EvaluateJSAfterRemovingPluginElement.cpp,0,0
-44,C:\6611\latest version - 44\src\tools\clang\plugins\FindBadConstructsAction.cpp,-1,-1
-44,C:\6611\latest version - 44\src\tools\clang\plugins\FindBadConstructsConsumer.cpp,-1,-1
 44,C:\6611\latest version - 44\src\content\shell\tools\plugin\Tests\FormValue.cpp,1,0
 44,C:\6611\latest version - 44\src\content\shell\tools\plugin\Tests\GetURLNotifyWithURLThatFailsToLoad.cpp,0,0
 44,C:\6611\latest version - 44\src\content\shell\tools\plugin\Tests\GetURLWithJavaScriptURL.cpp,0,41
@@ -26,10 +22,6 @@ release,class_path,cbo,lcom
 44,C:\6611\latest version - 44\src\content\shell\tools\plugin\PluginObject.cpp,0,0
 44,C:\6611\latest version - 44\src\content\shell\tools\plugin\Tests\PluginScriptableNPObjectInvokeDefault.cpp,0,0
 44,C:\6611\latest version - 44\src\content\shell\tools\plugin\Tests\PluginScriptableObjectOverridesAllProperties.cpp,0,0
-44,C:\6611\latest version - 44\src\content\shell\tools\plugin\PluginTest.cpp,-1,-1
-44,C:\6611\latest version - 44\src\tools\clang\blink_gc_plugin\RecordInfo.cpp,-1,-1
-44,C:\6611\latest version - 44\src\chrome\browser\chromeos\login\screenshot_testing\SkImageDiffer.cpp,-1,-1
-44,C:\6611\latest version - 44\src\chrome\browser\chromeos\login\screenshot_testing\SkPMetric.cpp,-1,-1
 44,C:\6611\latest version - 44\src\content\shell\tools\plugin\Tests\SlowNPPNew.cpp,0,0
 44,C:\6611\latest version - 44\src\content\shell\tools\plugin\TestObject.cpp,0,0
 44,C:\6611\latest version - 44\src\content\shell\tools\plugin\TestObject.cpp,0,0

@@ -1,110 +1,32 @@
 release,class_name (class type),cbo,lcom
-25,ASTConsumer (Unknown Class),-1,-1
 25,AnonymousDerivedProtectedToPublicInImpl (Class),0,0
-25,Args (Unknown Class),-1,-1
-25,BGLView (Unknown Class),-1,-1
 25,BMPImageDecoderTest (Class),1,100
 25,BarInterface (Public Class),0,0
-25,BaseClass (Class),-1,-1
 25,Baz (Class),1,0
-25,CAtlDllModuleT (Unknown Class),-1,-1
-25,CLogFile (Unknown Class),-1,-1
-25,CMeasurePageLoadTimeBHO (Class),-1,-1
 25,CMeasurePageLoadTimeModule (Class),0,0
-25,CZString (Public Class),-1,-1
-25,ChromeClassTester (Class),-1,-1
-25,CommentInfo (Unknown Class),-1,-1
 25,ConcreteVirtualMethodsInHeaders (Class),0,0
 25,ConcreteVirtualMethodsInImplementation (Class),0,0
-25,Decl (Unknown Class),-1,-1
-25,DerivedClass (Class),-1,-1
-25,DerivedProtectedToPublicInHeader (Class),-1,-1
-25,DiagnosticsEngine (Unknown Class),-1,-1
 25,FindBadConstructsAction (Class),4,0
 25,FindBadConstructsConsumer (Class),4,81
-25,FontConfigDirect (Class),-1,-1
-25,FontConfigInterface (Class),-1,-1
 25,FontConfigTypeface (Class),1,0
 25,Foo (Class),1,0
-25,FrontendPluginRegistry (Unknown Class),-1,-1
 25,ICOImageDecoderTest (Class),1,0
-25,IObjectWithSiteImpl (Unknown Class),-1,-1
-25,ImageDecoderTest (Unknown Class),-1,-1
 25,ImplementationDerivedClass (Class),0,0
-25,ImplicitDerivedProtectedToPublicInHeader (Class),-1,-1
-25,InArgs (Unknown Class),-1,-1
-25,InlineCtorsArentOKInHeader (Class),-1,-1
 25,InlineInCPPOK (Class),1,50
-25,InstanceList (Unknown Class),-1,-1
-25,InterimClass (Class),-1,-1
-25,Logger (Unknown Class),-1,-1
-25,LoggerWin (Class),-1,-1
 25,MesaDriver (Class),2,86
-25,MiniDisassembler (Unknown Class),-1,-1
-25,MissingCtorsArentOKInHeader (Class),-1,-1
 25,MissingInCPPOK (Class),1,0
-25,NPPEntryPointManager (Unknown Class),-1,-1
-25,NSSCertDatabase (Unknown Class),-1,-1
 25,PKCS12InitSingleton (Class),0,0
-25,Path (Unknown Class),-1,-1
-25,PathArgument (Unknown Class),-1,-1
-25,PluginASTAction (Unknown Class),-1,-1
-25,PluginEntryPointList (Unknown Class),-1,-1
-25,PreamblePatcher (Unknown Class),-1,-1
-25,PrivateRefCountedDtorInHeader (Class),-1,-1
-25,Profile (Unknown Class),-1,-1
-25,ProfileWin (Class),-1,-1
-25,ProtectedRefCountedDtorInHeader (Class),-1,-1
-25,PublicRefCountedDtorInHeader (Class),-1,-1
 25,PublicRefCountedDtorInImpl (Class),0,0
-25,PublicRefCountedThreadSafeDtorInHeader (Class),-1,-1
-25,QChar (Unknown Class),-1,-1
-25,QLibrary (Unknown Class),-1,-1
-25,QObject (Unknown Class),-1,-1
-25,QUnicodeTables (Unknown Class),-1,-1
-25,RecordDecl (Unknown Class),-1,-1
 25,Shaper (Class),0,0
 25,SkFileDescriptorStream (Class),1,33
-25,SkFontHost (Unknown Class),-1,-1
-25,SkTypeface (Unknown Class),-1,-1
-25,TypeLoc (Unknown Class),-1,-1
 25,UnsafeTypedefChainInImpl (Class),0,0
-25,Value (Unknown Class),-1,-1
 25,VirtualMethodsInHeaders (Class),0,0
-25,WarnOnMissingVirtual (Class),-1,-1
-25,WebImageDecoder (Unknown Class),-1,-1
-25,WebKitDerivedPublicDtorInHeader (Class),-1,-1
-25,WebKitObserver (Class),-1,-1
-25,WebKitObserverImpl (Class),-1,-1
-25,WebKitPublicDtorInHeader (Class),-1,-1
 25,acp_entry (Class),2,0
 25,acp_entry (Class),2,0
 25,array_index_visit (Class),2,33
 25,assignment_entry (Class),2,0
-25,ast_compound_statement (Class),-1,-1
-25,ast_declaration (Class),-1,-1
-25,ast_declarator_list (Class),-1,-1
-25,ast_expression (Class),-1,-1
-25,ast_expression_bin (Class),-1,-1
-25,ast_expression_statement (Class),-1,-1
-25,ast_fully_specified_type (Class),-1,-1
-25,ast_function (Class),-1,-1
-25,ast_function_definition (Class),-1,-1
-25,ast_function_expression (Class),-1,-1
-25,ast_iteration_statement (Class),-1,-1
-25,ast_jump_statement (Class),-1,-1
-25,ast_node (Class),-1,-1
-25,ast_parameter_declarator (Class),-1,-1
-25,ast_selection_statement (Class),-1,-1
-25,ast_struct_specifier (Class),-1,-1
-25,ast_type_specifier (Class),-1,-1
-25,base (Unknown Class),-1,-1
-25,boost (Unknown Class),-1,-1
 25,call_link_visitor (Class),11,50
-25,cl (Unknown Class),-1,-1
-25,crypto (Unknown Class),-1,-1
 25,examine_rhs (Class),3,0
-25,exec_list_iterator (Class),-1,-1
 25,find_assignment_visitor (Class),8,12
 25,find_deref_visitor (Class),2,16
 25,fixup_ir_call_visitor (Class),3,0
@@ -115,98 +37,51 @@ release,class_name (class type),cbo,lcom
 25,get_sampler_name (Class),7,35
 25,import_prototype_visitor (Class),6,31
 25,ir_algebraic_visitor (Class),7,57
-25,ir_assignment (Class),-1,-1
-25,ir_call (Class),-1,-1
 25,ir_channel_expressions_visitor (Class),7,25
-25,ir_constant (Class),-1,-1
 25,ir_constant_folding_visitor (Class),12,40
 25,ir_constant_propagation_visitor (Class),22,56
 25,ir_constant_variable_visitor (Class),12,25
-25,ir_control_flow_visitor (Class),-1,-1
 25,ir_copy_propagation_visitor (Class),18,55
 25,ir_dead_functions_visitor (Class),5,66
-25,ir_dereference (Class),-1,-1
-25,ir_dereference_array (Class),-1,-1
-25,ir_dereference_record (Class),-1,-1
-25,ir_dereference_variable (Class),-1,-1
-25,ir_discard (Class),-1,-1
 25,ir_div_to_mul_rcp_visitor (Class),4,0
 25,ir_explog_to_explog2_visitor (Class),3,0
-25,ir_expression (Class),-1,-1
 25,ir_expression_flattening_visitor (Class),7,33
-25,ir_function (Class),-1,-1
 25,ir_function_can_inline_visitor (Class),1,0
 25,ir_function_inlining_visitor (Class),9,62
-25,ir_function_signature (Class),-1,-1
 25,ir_has_call_visitor (Class),1,0
-25,ir_hierarchical_visitor (Class),-1,-1
-25,ir_if (Class),-1,-1
 25,ir_if_simplification_visitor (Class),8,0
 25,ir_if_to_cond_assign_visitor (Class),9,0
-25,ir_instruction (Class),-1,-1
-25,ir_jump (Class),-1,-1
-25,ir_loop (Class),-1,-1
-25,ir_loop_jump (Class),-1,-1
 25,ir_mat_op_to_vec_visitor (Class),12,38
 25,ir_mod_to_fract_visitor (Class),7,0
 25,ir_noop_swizzle_visitor (Class),5,0
-25,ir_print_visitor (Class),-1,-1
-25,ir_return (Class),-1,-1
-25,ir_rvalue (Class),-1,-1
-25,ir_rvalue_visitor (Class),-1,-1
 25,ir_sampler_replacement_visitor (Class),11,75
 25,ir_set_program_inouts_visitor (Class),10,33
 25,ir_structure_reference_visitor (Class),10,68
 25,ir_structure_splitting_visitor (Class),14,83
 25,ir_sub_to_add_neg_visitor (Class),2,0
-25,ir_swizzle (Class),-1,-1
 25,ir_swizzle_swizzle_visitor (Class),3,0
-25,ir_texture (Class),-1,-1
 25,ir_to_mesa_instruction (Class),4,100
 25,ir_to_mesa_visitor (Class),36,87
 25,ir_tree_grafting_visitor (Class),19,78
 25,ir_validate (Class),12,66
-25,ir_variable (Class),-1,-1
-25,ir_variable_refcount_visitor (Class),-1,-1
 25,ir_vec_index_to_cond_assign_visitor (Class),16,62
 25,ir_vec_index_to_swizzle_visitor (Class),12,75
 25,ir_vector_reference_visitor (Class),7,68
 25,ir_vector_splitting_visitor (Class),8,62
-25,ir_visitor (Class),-1,-1
 25,kill_entry (Class),1,0
 25,kill_entry (Class),1,0
 25,kill_for_derefs_visitor (Class),6,0
-25,l10n_util (Unknown Class),-1,-1
-25,llvm (Unknown Class),-1,-1
 25,loop_analysis (Class),13,47
 25,loop_control_visitor (Class),13,0
-25,loop_state (Class),-1,-1
-25,loop_terminator (Class),-1,-1
 25,loop_unroll_visitor (Class),8,0
-25,loop_variable (Class),-1,-1
-25,loop_variable_state (Class),-1,-1
 25,lower_noise_visitor (Class),4,0
-25,map (Public Class),-1,-1
-25,math (Unknown Class),-1,-1
-25,net (Unknown Class),-1,-1
-25,ntl (Unknown Class),-1,-1
 25,redundant_jumps_visitor (Class),6,0
 25,remap_visitor (Class),6,0
-25,s_expression (Class),-1,-1
-25,s_float (Class),-1,-1
-25,s_int (Class),-1,-1
-25,s_list (Class),-1,-1
-25,s_number (Class),-1,-1
-25,s_symbol (Class),-1,-1
 25,signature_entry (Class),1,0
-25,std (Unknown Class),-1,-1
 25,symbol_table_entry (Class),3,40
-25,tools (Unknown Class),-1,-1
 25,tst_CharAttributes (Class),1,100
 25,tst_QScriptEngine (Class),1,100
 25,variable_entry (Class),1,60
 25,variable_entry2 (Class),1,0
 25,variable_index_to_cond_assign_visitor (Class),13,63
 25,variable_storage (Class),1,0
-25,vector (Public Class),-1,-1
-25,x509_certificate_model (Unknown Class),-1,-1

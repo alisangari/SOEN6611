@@ -66,8 +66,9 @@ def getReleaseInfo(db, cppClasses, release):
 				className = cppClass + " ("+ent.kindname()+")"
 				cbo = getCBO(db, cppClass, ent.kindname())
 				lcom = getLCOM(db, cppClass, ent.kindname())
-				#thisRelease.append(release+","+classPath+","+str(cbo)+","+str(lcom))
-				thisRelease.append(release+","+className+","+str(cbo)+","+str(lcom))
+				if(cbo != "-1"):
+					#thisRelease.append(release+","+classPath+","+str(cbo)+","+str(lcom))
+					thisRelease.append(release+","+className+","+str(cbo)+","+str(lcom))
 				break
 	return thisRelease
 

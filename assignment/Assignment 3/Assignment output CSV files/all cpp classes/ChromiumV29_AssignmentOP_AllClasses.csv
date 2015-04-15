@@ -1,116 +1,37 @@
 release,class_name (class type),cbo,lcom
-29,ASTConsumer (Unknown Class),-1,-1
 29,AnonymousDerivedProtectedOnDerived (Class),0,0
 29,AnonymousDerivedProtectedToPublicInImpl (Class),0,0
-29,Args (Unknown Class),-1,-1
-29,BGLView (Unknown Class),-1,-1
 29,BarInterface (Public Class),0,0
-29,BaseClass (Class),-1,-1
 29,Baz (Class),1,0
-29,CAtlDllModuleT (Unknown Class),-1,-1
-29,CLogFile (Unknown Class),-1,-1
-29,CMeasurePageLoadTimeBHO (Class),-1,-1
 29,CMeasurePageLoadTimeModule (Class),0,0
-29,CZString (Public Class),-1,-1
-29,CharSourceRange (Unknown Class),-1,-1
-29,CharSourceRange (Unknown Class),-1,-1
-29,ChromeClassTester (Class),-1,-1
-29,CommentInfo (Unknown Class),-1,-1
-29,CommonOptionsParser (Unknown Class),-1,-1
 29,ConcreteVirtualMethodsInHeaders (Class),0,0
 29,ConcreteVirtualMethodsInImplementation (Class),0,0
 29,ConstructorCallback (Class),3,0
 29,ConstructorCallback (Class),3,0
-29,Decl (Unknown Class),-1,-1
-29,DerivedClass (Class),-1,-1
-29,DerivedProtectedToPublicInHeader (Class),-1,-1
-29,DiagnosticsEngine (Unknown Class),-1,-1
 29,EmptyStringConverter (Class),5,0
 29,EmptyStringConverter (Class),5,0
 29,FindBadConstructsAction (Class),4,0
 29,FindBadConstructsConsumer (Class),7,86
-29,FixItHint (Unknown Class),-1,-1
 29,Foo (Class),1,0
-29,FrontendPluginRegistry (Unknown Class),-1,-1
-29,IObjectWithSiteImpl (Unknown Class),-1,-1
 29,ImplementationDerivedClass (Class),0,0
-29,ImplicitDerivedProtectedToPublicInHeader (Class),-1,-1
-29,InArgs (Unknown Class),-1,-1
 29,InitializerCallback (Class),2,0
 29,InitializerCallback (Class),2,0
-29,InlineCtorsArentOKInHeader (Class),-1,-1
 29,InlineInCPPOK (Class),1,50
-29,InstanceList (Unknown Class),-1,-1
-29,InterimClass (Class),-1,-1
-29,Lexer (Unknown Class),-1,-1
-29,Logger (Unknown Class),-1,-1
-29,LoggerWin (Class),-1,-1
-29,MatchCallback (Unknown Class),-1,-1
-29,MatchFinder (Unknown Class),-1,-1
 29,MesaDriver (Class),2,86
-29,MiniDisassembler (Unknown Class),-1,-1
-29,MissingCtorsArentOKInHeader (Class),-1,-1
 29,MissingInCPPOK (Class),1,0
-29,NPPEntryPointManager (Unknown Class),-1,-1
-29,NSSCertDatabase (Unknown Class),-1,-1
 29,PKCS12InitSingleton (Class),0,0
-29,Path (Unknown Class),-1,-1
-29,PathArgument (Unknown Class),-1,-1
-29,PluginASTAction (Unknown Class),-1,-1
-29,PluginEntryPointList (Unknown Class),-1,-1
-29,PreamblePatcher (Unknown Class),-1,-1
-29,PrivateRefCountedDtorInHeader (Class),-1,-1
-29,Profile (Unknown Class),-1,-1
-29,ProfileWin (Class),-1,-1
-29,ProtectedRefCountedDtorInHeader (Class),-1,-1
-29,ProtectedRefCountedVirtualDtorInHeader (Class),-1,-1
-29,PublicRefCountedDtorInHeader (Class),-1,-1
 29,PublicRefCountedDtorInImpl (Class),0,0
-29,PublicRefCountedThreadSafeDtorInHeader (Class),-1,-1
-29,RecordDecl (Unknown Class),-1,-1
 29,RewriterCallback (Class),7,0
-29,SkTypeface (Unknown Class),-1,-1
 29,TemporaryCallback (Class),2,0
 29,TemporaryCallback (Class),2,0
-29,TypeLoc (Unknown Class),-1,-1
 29,UnsafeTypedefChainInImpl (Class),0,0
-29,Value (Unknown Class),-1,-1
 29,VirtualMethodsInHeaders (Class),0,0
-29,WarnOnMissingVirtual (Class),-1,-1
-29,WebKitDerivedPublicDtorInHeader (Class),-1,-1
-29,WebKitObserver (Class),-1,-1
-29,WebKitObserverImpl (Class),-1,-1
-29,WebKitPublicDtorInHeader (Class),-1,-1
 29,acp_entry (Class),2,0
 29,acp_entry (Class),2,0
 29,array_index_visit (Class),2,33
 29,assignment_entry (Class),2,0
-29,ast_compound_statement (Class),-1,-1
-29,ast_declaration (Class),-1,-1
-29,ast_declarator_list (Class),-1,-1
-29,ast_expression (Class),-1,-1
-29,ast_expression_bin (Class),-1,-1
-29,ast_expression_statement (Class),-1,-1
-29,ast_fully_specified_type (Class),-1,-1
-29,ast_function (Class),-1,-1
-29,ast_function_definition (Class),-1,-1
-29,ast_function_expression (Class),-1,-1
-29,ast_iteration_statement (Class),-1,-1
-29,ast_jump_statement (Class),-1,-1
-29,ast_matchers (Unknown Class),-1,-1
-29,ast_node (Class),-1,-1
-29,ast_parameter_declarator (Class),-1,-1
-29,ast_selection_statement (Class),-1,-1
-29,ast_struct_specifier (Class),-1,-1
-29,ast_type_specifier (Class),-1,-1
-29,base (Unknown Class),-1,-1
-29,boost (Unknown Class),-1,-1
 29,call_link_visitor (Class),11,50
-29,cl (Unknown Class),-1,-1
-29,clang (Unknown Class),-1,-1
-29,crypto (Unknown Class),-1,-1
 29,examine_rhs (Class),3,0
-29,exec_list_iterator (Class),-1,-1
 29,find_assignment_visitor (Class),8,12
 29,find_deref_visitor (Class),2,16
 29,fixup_ir_call_visitor (Class),3,0
@@ -121,97 +42,49 @@ release,class_name (class type),cbo,lcom
 29,get_sampler_name (Class),7,35
 29,import_prototype_visitor (Class),6,31
 29,ir_algebraic_visitor (Class),7,57
-29,ir_assignment (Class),-1,-1
-29,ir_call (Class),-1,-1
 29,ir_channel_expressions_visitor (Class),7,25
-29,ir_constant (Class),-1,-1
 29,ir_constant_folding_visitor (Class),12,40
 29,ir_constant_propagation_visitor (Class),22,56
 29,ir_constant_variable_visitor (Class),12,25
-29,ir_control_flow_visitor (Class),-1,-1
 29,ir_copy_propagation_visitor (Class),18,55
 29,ir_dead_functions_visitor (Class),5,66
-29,ir_dereference (Class),-1,-1
-29,ir_dereference_array (Class),-1,-1
-29,ir_dereference_record (Class),-1,-1
-29,ir_dereference_variable (Class),-1,-1
-29,ir_discard (Class),-1,-1
 29,ir_div_to_mul_rcp_visitor (Class),4,0
 29,ir_explog_to_explog2_visitor (Class),3,0
-29,ir_expression (Class),-1,-1
 29,ir_expression_flattening_visitor (Class),7,33
-29,ir_function (Class),-1,-1
 29,ir_function_can_inline_visitor (Class),1,0
 29,ir_function_inlining_visitor (Class),9,62
-29,ir_function_signature (Class),-1,-1
 29,ir_has_call_visitor (Class),1,0
-29,ir_hierarchical_visitor (Class),-1,-1
-29,ir_if (Class),-1,-1
 29,ir_if_simplification_visitor (Class),8,0
 29,ir_if_to_cond_assign_visitor (Class),9,0
-29,ir_instruction (Class),-1,-1
-29,ir_jump (Class),-1,-1
-29,ir_loop (Class),-1,-1
-29,ir_loop_jump (Class),-1,-1
 29,ir_mat_op_to_vec_visitor (Class),12,38
 29,ir_mod_to_fract_visitor (Class),7,0
 29,ir_noop_swizzle_visitor (Class),5,0
-29,ir_print_visitor (Class),-1,-1
-29,ir_return (Class),-1,-1
-29,ir_rvalue (Class),-1,-1
-29,ir_rvalue_visitor (Class),-1,-1
 29,ir_sampler_replacement_visitor (Class),11,75
 29,ir_set_program_inouts_visitor (Class),10,33
 29,ir_structure_reference_visitor (Class),10,68
 29,ir_structure_splitting_visitor (Class),14,83
 29,ir_sub_to_add_neg_visitor (Class),2,0
-29,ir_swizzle (Class),-1,-1
 29,ir_swizzle_swizzle_visitor (Class),3,0
-29,ir_texture (Class),-1,-1
 29,ir_to_mesa_instruction (Class),4,100
 29,ir_to_mesa_visitor (Class),36,87
 29,ir_tree_grafting_visitor (Class),19,78
 29,ir_validate (Class),12,66
-29,ir_variable (Class),-1,-1
-29,ir_variable_refcount_visitor (Class),-1,-1
 29,ir_vec_index_to_cond_assign_visitor (Class),16,62
 29,ir_vec_index_to_swizzle_visitor (Class),12,75
 29,ir_vector_reference_visitor (Class),7,68
 29,ir_vector_splitting_visitor (Class),8,62
-29,ir_visitor (Class),-1,-1
 29,kill_entry (Class),1,0
 29,kill_entry (Class),1,0
 29,kill_for_derefs_visitor (Class),6,0
-29,l10n_util (Unknown Class),-1,-1
-29,llvm (Unknown Class),-1,-1
 29,loop_analysis (Class),13,47
 29,loop_control_visitor (Class),13,0
-29,loop_state (Class),-1,-1
-29,loop_terminator (Class),-1,-1
 29,loop_unroll_visitor (Class),8,0
-29,loop_variable (Class),-1,-1
-29,loop_variable_state (Class),-1,-1
 29,lower_noise_visitor (Class),4,0
-29,math (Unknown Class),-1,-1
-29,net (Unknown Class),-1,-1
-29,ntl (Unknown Class),-1,-1
 29,redundant_jumps_visitor (Class),6,0
 29,remap_visitor (Class),6,0
-29,s_expression (Class),-1,-1
-29,s_float (Class),-1,-1
-29,s_int (Class),-1,-1
-29,s_list (Class),-1,-1
-29,s_number (Class),-1,-1
-29,s_symbol (Class),-1,-1
 29,signature_entry (Class),1,0
-29,std (Unknown Class),-1,-1
 29,symbol_table_entry (Class),3,40
-29,tooling (Unknown Class),-1,-1
-29,tools (Unknown Class),-1,-1
 29,variable_entry (Class),1,60
 29,variable_entry2 (Class),1,0
 29,variable_index_to_cond_assign_visitor (Class),13,63
 29,variable_storage (Class),1,0
-29,vector (Public Class),-1,-1
-29,x509_certificate_model (Unknown Class),-1,-1
-29,x509_util (Unknown Class),-1,-1

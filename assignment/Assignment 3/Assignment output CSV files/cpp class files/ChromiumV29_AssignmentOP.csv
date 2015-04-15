@@ -1,13 +1,5 @@
 release,class_path,cbo,lcom
-29,C:\6611\src\tools\clang\plugins\ChromeClassTester.cpp,-1,-1
 29,C:\6611\src\tools\clang\empty_string\EmptyStringConverter.cpp,5,0
 29,C:\6611\src\tools\clang\empty_string\EmptyStringConverter.cpp,5,0
-29,C:\6611\src\third_party\mesa\MesaLib\src\glsl\ast_function.cpp,-1,-1
-29,C:\6611\src\third_party\mesa\MesaLib\src\glsl\ir_function.cpp,-1,-1
-29,C:\6611\src\third_party\mesa\MesaLib\src\glsl\ir_hierarchical_visitor.cpp,-1,-1
-29,C:\6611\src\third_party\mesa\MesaLib\src\glsl\ir_print_visitor.cpp,-1,-1
-29,C:\6611\src\third_party\mesa\MesaLib\src\glsl\ir_rvalue_visitor.cpp,-1,-1
 29,C:\6611\src\third_party\mesa\MesaLib\src\glsl\ir_validate.cpp,12,66
-29,C:\6611\src\third_party\mesa\MesaLib\src\glsl\ir_variable.cpp,-1,-1
 29,C:\6611\src\third_party\mesa\MesaLib\src\glsl\loop_analysis.cpp,13,47
-29,C:\6611\src\third_party\mesa\MesaLib\src\glsl\s_expression.cpp,-1,-1

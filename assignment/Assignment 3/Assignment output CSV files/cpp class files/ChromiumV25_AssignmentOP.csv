@@ -1,11 +1,3 @@
 release,class_path,cbo,lcom
-25,C:\6611\src\tools\clang\plugins\ChromeClassTester.cpp,-1,-1
-25,C:\6611\src\third_party\mesa\MesaLib\src\glsl\ast_function.cpp,-1,-1
-25,C:\6611\src\third_party\mesa\MesaLib\src\glsl\ir_function.cpp,-1,-1
-25,C:\6611\src\third_party\mesa\MesaLib\src\glsl\ir_hierarchical_visitor.cpp,-1,-1
-25,C:\6611\src\third_party\mesa\MesaLib\src\glsl\ir_print_visitor.cpp,-1,-1
-25,C:\6611\src\third_party\mesa\MesaLib\src\glsl\ir_rvalue_visitor.cpp,-1,-1
 25,C:\6611\src\third_party\mesa\MesaLib\src\glsl\ir_validate.cpp,12,66
-25,C:\6611\src\third_party\mesa\MesaLib\src\glsl\ir_variable.cpp,-1,-1
 25,C:\6611\src\third_party\mesa\MesaLib\src\glsl\loop_analysis.cpp,13,47
-25,C:\6611\src\third_party\mesa\MesaLib\src\glsl\s_expression.cpp,-1,-1
